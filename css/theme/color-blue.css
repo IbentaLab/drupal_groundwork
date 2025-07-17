@@ -1,0 +1,99 @@
+.blue:not(.block),
+.blue.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #067cc6 !important;
+}
+
+.blue-inverted:not(.block),
+.blue-inverted.block .block-style-target {
+  color: #067cc6 !important;
+  background-color: #ffffff !important;
+}
+
+.blue--light5:not(.block),
+.blue--light5.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #edf8fe !important;
+}
+
+.blue--light4:not(.block),
+.blue--light4.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #c4e7fd !important;
+}
+
+.blue--light3:not(.block),
+.blue--light3.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #88cffb !important;
+}
+
+.blue--light2:not(.block),
+.blue--light2.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #4db7f9 !important;
+}
+
+.blue--light1:not(.block),
+.blue--light1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #129ff8 !important;
+}
+
+.blue--dark1:not(.block),
+.blue--dark1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #0670b2 !important;
+}
+
+.blue--dark2:not(.block),
+.blue--dark2.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #05639e !important;
+}
+
+.blue--dark3:not(.block),
+.blue--dark3.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #04578b !important;
+}
+
+.blue--dark4:not(.block),
+.blue--dark4.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #044b77 !important;
+}
+
+.blue--dark5:not(.block),
+.blue--dark5.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #033e63 !important;
+}
+
+.blue-text:not(.block),
+.blue-text.block .block-style-target {
+  color: #067cc6 !important;
+}
+
+.blue-border:not(.block),
+.blue-border.block .block-style-target {
+  border-color: #067cc6 !important;
+}
+
+.blue-hover:not(.block):hover,
+.blue-hover.block .block-style-target:hover {
+  color: #ffffff !important;
+  background-color: #067cc6 !important;
+}
+
+.blue-hover-text:not(.block):hover,
+.blue-hover-text.block .block-style-target:hover {
+  color: #067cc6 !important;
+}
+
+.blue-hover-border:not(.block):hover,
+.blue-hover-border.block .block-style-target:hover {
+  border-color: #067cc6 !important;
+}
+
+/*# sourceMappingURL=../../maps/core/theme/color-blue.css.map */

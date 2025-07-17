@@ -1,0 +1,99 @@
+.gold:not(.block),
+.gold.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #c69c06 !important;
+}
+
+.gold-inverted:not(.block),
+.gold-inverted.block .block-style-target {
+  color: #c69c06 !important;
+  background-color: #ffffff !important;
+}
+
+.gold--light5:not(.block),
+.gold--light5.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #fefbed !important;
+}
+
+.gold--light4:not(.block),
+.gold--light4.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #fdf1c4 !important;
+}
+
+.gold--light3:not(.block),
+.gold--light3.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #fbe288 !important;
+}
+
+.gold--light2:not(.block),
+.gold--light2.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #f9d44d !important;
+}
+
+.gold--light1:not(.block),
+.gold--light1.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #f8c612 !important;
+}
+
+.gold--dark1:not(.block),
+.gold--dark1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #b28d06 !important;
+}
+
+.gold--dark2:not(.block),
+.gold--dark2.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #9e7d05 !important;
+}
+
+.gold--dark3:not(.block),
+.gold--dark3.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #8b6d04 !important;
+}
+
+.gold--dark4:not(.block),
+.gold--dark4.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #775e04 !important;
+}
+
+.gold--dark5:not(.block),
+.gold--dark5.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #634e03 !important;
+}
+
+.gold-text:not(.block),
+.gold-text.block .block-style-target {
+  color: #c69c06 !important;
+}
+
+.gold-border:not(.block),
+.gold-border.block .block-style-target {
+  border-color: #c69c06 !important;
+}
+
+.gold-hover:not(.block):hover,
+.gold-hover.block .block-style-target:hover {
+  color: #ffffff !important;
+  background-color: #c69c06 !important;
+}
+
+.gold-hover-text:not(.block):hover,
+.gold-hover-text.block .block-style-target:hover {
+  color: #c69c06 !important;
+}
+
+.gold-hover-border:not(.block):hover,
+.gold-hover-border.block .block-style-target:hover {
+  border-color: #c69c06 !important;
+}
+
+/*# sourceMappingURL=../../maps/core/theme/color-gold.css.map */

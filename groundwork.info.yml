@@ -1,0 +1,48 @@
+name: groundwork
+type: theme
+description: ''
+version: 1.0.0
+core_version_requirement: ^11
+
+regions:
+  billboard: Billboard
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  header: Header
+  hero: Hero
+  highlighted: Highlighted
+  help: Help
+  breadcrumb: Breadcrumb
+  preface: Preface
+  content: Content
+  appendix: Appendix
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+  extra: Extra
+  supplement: Supplement
+  rider: Rider
+  footer: Footer
+
+libraries:
+  - groundwork/base
+  - groundwork/messages
+  - core/normalize
+  
+libraries-extend:
+  user/drupal.user:
+    - groundwork/user
+  core/drupal.dropbutton:
+    - groundwork/dropbutton
+  core/drupal.dialog:
+    - groundwork/dialog
+  file/drupal.file:
+    - groundwork/file
+  core/drupal.progress:
+    - groundwork/progress
+  core/drupal.tablesort:
+    - groundwork/drupal.tablesort
+
+'base theme': stable9
+generator: 'starterkit_theme:11.2.2'
+
+

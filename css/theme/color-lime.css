@@ -1,0 +1,99 @@
+.lime:not(.block),
+.lime.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #80ac20 !important;
+}
+
+.lime-inverted:not(.block),
+.lime-inverted.block .block-style-target {
+  color: #80ac20 !important;
+  background-color: #ffffff !important;
+}
+
+.lime--light5:not(.block),
+.lime--light5.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #f8fcef !important;
+}
+
+.lime--light4:not(.block),
+.lime--light4.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #e8f6cb !important;
+}
+
+.lime--light3:not(.block),
+.lime--light3.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #d1ec98 !important;
+}
+
+.lime--light2:not(.block),
+.lime--light2.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #bae364 !important;
+}
+
+.lime--light1:not(.block),
+.lime--light1.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #a4d930 !important;
+}
+
+.lime--dark1:not(.block),
+.lime--dark1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #739b1c !important;
+}
+
+.lime--dark2:not(.block),
+.lime--dark2.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #668a19 !important;
+}
+
+.lime--dark3:not(.block),
+.lime--dark3.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #597916 !important;
+}
+
+.lime--dark4:not(.block),
+.lime--dark4.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #4d6713 !important;
+}
+
+.lime--dark5:not(.block),
+.lime--dark5.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #405610 !important;
+}
+
+.lime-text:not(.block),
+.lime-text.block .block-style-target {
+  color: #80ac20 !important;
+}
+
+.lime-border:not(.block),
+.lime-border.block .block-style-target {
+  border-color: #80ac20 !important;
+}
+
+.lime-hover:not(.block):hover,
+.lime-hover.block .block-style-target:hover {
+  color: #ffffff !important;
+  background-color: #80ac20 !important;
+}
+
+.lime-hover-text:not(.block):hover,
+.lime-hover-text.block .block-style-target:hover {
+  color: #80ac20 !important;
+}
+
+.lime-hover-border:not(.block):hover,
+.lime-hover-border.block .block-style-target:hover {
+  border-color: #80ac20 !important;
+}
+
+/*# sourceMappingURL=../../maps/core/theme/color-lime.css.map */

@@ -1,0 +1,99 @@
+.purple:not(.block),
+.purple.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #8906c6 !important;
+}
+
+.purple-inverted:not(.block),
+.purple-inverted.block .block-style-target {
+  color: #8906c6 !important;
+  background-color: #ffffff !important;
+}
+
+.purple--light5:not(.block),
+.purple--light5.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #f9edfe !important;
+}
+
+.purple--light4:not(.block),
+.purple--light4.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #ebc4fd !important;
+}
+
+.purple--light3:not(.block),
+.purple--light3.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #d788fb !important;
+}
+
+.purple--light2:not(.block),
+.purple--light2.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #c34df9 !important;
+}
+
+.purple--light1:not(.block),
+.purple--light1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #af12f8 !important;
+}
+
+.purple--dark1:not(.block),
+.purple--dark1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #7b06b2 !important;
+}
+
+.purple--dark2:not(.block),
+.purple--dark2.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #6e059e !important;
+}
+
+.purple--dark3:not(.block),
+.purple--dark3.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #60048b !important;
+}
+
+.purple--dark4:not(.block),
+.purple--dark4.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #520477 !important;
+}
+
+.purple--dark5:not(.block),
+.purple--dark5.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #450363 !important;
+}
+
+.purple-text:not(.block),
+.purple-text.block .block-style-target {
+  color: #8906c6 !important;
+}
+
+.purple-border:not(.block),
+.purple-border.block .block-style-target {
+  border-color: #8906c6 !important;
+}
+
+.purple-hover:not(.block):hover,
+.purple-hover.block .block-style-target:hover {
+  color: #ffffff !important;
+  background-color: #8906c6 !important;
+}
+
+.purple-hover-text:not(.block):hover,
+.purple-hover-text.block .block-style-target:hover {
+  color: #8906c6 !important;
+}
+
+.purple-hover-border:not(.block):hover,
+.purple-hover-border.block .block-style-target:hover {
+  border-color: #8906c6 !important;
+}
+
+/*# sourceMappingURL=../../maps/core/theme/color-purple.css.map */

@@ -1,0 +1,99 @@
+.brown:not(.block),
+.brown.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #c65c06 !important;
+}
+
+.brown-inverted:not(.block),
+.brown-inverted.block .block-style-target {
+  color: #c65c06 !important;
+  background-color: #ffffff !important;
+}
+
+.brown--light5:not(.block),
+.brown--light5.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #fef5ed !important;
+}
+
+.brown--light4:not(.block),
+.brown--light4.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #fddec4 !important;
+}
+
+.brown--light3:not(.block),
+.brown--light3.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #fbbc88 !important;
+}
+
+.brown--light2:not(.block),
+.brown--light2.block .block-style-target {
+  color: rgba(0, 0, 0, 0.87) !important;
+  background-color: #f99b4d !important;
+}
+
+.brown--light1:not(.block),
+.brown--light1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #f87912 !important;
+}
+
+.brown--dark1:not(.block),
+.brown--dark1.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #b25306 !important;
+}
+
+.brown--dark2:not(.block),
+.brown--dark2.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #9e4a05 !important;
+}
+
+.brown--dark3:not(.block),
+.brown--dark3.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #8b4104 !important;
+}
+
+.brown--dark4:not(.block),
+.brown--dark4.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #773704 !important;
+}
+
+.brown--dark5:not(.block),
+.brown--dark5.block .block-style-target {
+  color: #ffffff !important;
+  background-color: #632e03 !important;
+}
+
+.brown-text:not(.block),
+.brown-text.block .block-style-target {
+  color: #c65c06 !important;
+}
+
+.brown-border:not(.block),
+.brown-border.block .block-style-target {
+  border-color: #c65c06 !important;
+}
+
+.brown-hover:not(.block):hover,
+.brown-hover.block .block-style-target:hover {
+  color: #ffffff !important;
+  background-color: #c65c06 !important;
+}
+
+.brown-hover-text:not(.block):hover,
+.brown-hover-text.block .block-style-target:hover {
+  color: #c65c06 !important;
+}
+
+.brown-hover-border:not(.block):hover,
+.brown-hover-border.block .block-style-target:hover {
+  border-color: #c65c06 !important;
+}
+
+/*# sourceMappingURL=../../maps/core/theme/color-brown.css.map */

@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Groundwork Grid System
+   - A reliable, fixed 12-column layout for creating responsive page structures.
+   - Mobile-first, with breakpoints for medium and large screens.
+   - Includes semantic helper classes like .is-half, .is-third, etc.
+   ========================================================================== */
+
+:root {
+  /**
+   * Defines the space between grid cells when using .grid--with-gutter.
+   */
+  --grid-gutter: 0.8rem;
+}
+
+
+/* ==========================================================================
+   1. Core Grid Structure
+   ========================================================================== */
+
+/**
+ * The main container for the grid system.
+ * 1. Establishes a flex container.
+ * 2. Allows items to wrap onto multiple lines.
+ */
+.grid {
+  display: flex; /* 1 */
+  flex-wrap: wrap; /* 2 */
+}
+
+/**
+ * An individual item within the grid.
+ * By default, cells are full-width but are allowed to shrink to prevent
+ * overflow, making them flexible and robust.
+ * flex: <grow> <shrink> <basis>
+ */
+.grid-cell {
+  flex: 0 1 100%;
+}
+
+/**
+ * A modifier for the .grid container that adds gutters (spacing) between cells.
+ * The negative margin cleverly pulls the cells outward to counteract their
+ * padding, ensuring content within the cells aligns perfectly with content
+ * outside the grid.
+ */
+.grid--with-gutter {
+  margin: calc(-1 * var(--grid-gutter));
+}
+
+.grid--with-gutter > .grid-cell {
+  padding: var(--grid-gutter);
+}
+
+
+/* ==========================================================================
+   2. Responsive Column Widths
+   - Classes use the format: .is-[1-12]--[s|m|l]
+   - 's' (small) is the mobile-first default.
+   - 'm' (medium) and 'l' (large) are applied at their respective breakpoints.
+   ========================================================================== */
+
+/* Default mobile-first styles */
+:is(.grid, .grid--with-gutter) > .grid-cell {
+  &.is-1--s                      { flex-basis: 8.333%; }
+  &.is-2--s                      { flex-basis: 16.666%; }
+  &.is-quarter--s, &.is-3--s     { flex-basis: 25%; }
+  &.is-third--s, &.is-4--s       { flex-basis: 33.333%; }
+  &.is-5--s                      { flex-basis: 41.666%; }
+  &.is-half--s, &.is-6--s        { flex-basis: 50%; }
+  &.is-7--s                      { flex-basis: 58.333%; }
+  &.is-two-thirds--s, &.is-8--s  { flex-basis: 66.666%; }
+  &.is-three-quarters--s, &.is-9--s { flex-basis: 75%; }
+  &.is-10--s                     { flex-basis: 83.333%; }
+  &.is-11--s                     { flex-basis: 91.666%; }
+  &.is-full--s, &.is-12--s       { flex-basis: 100%; }
+}
+
+/* Medium screens (tablets and up) */
+@media (min-width: 993px) {
+  :is(.grid, .grid--with-gutter) > .grid-cell {
+    &.is-1                      { flex-basis: 8.333%; }
+    &.is-2                      { flex-basis: 16.666%; }
+    &.is-quarter, &.is-3        { flex-basis: 25%; }
+    &.is-third, &.is-4          { flex-basis: 33.333%; }
+    &.is-5                      { flex-basis: 41.666%; }
+    &.is-half, &.is-6           { flex-basis: 50%; }
+    &.is-7                      { flex-basis: 58.333%; }
+    &.is-two-thirds, &.is-8     { flex-basis: 66.666%; }
+    &.is-three-quarters, &.is-9 { flex-basis: 75%; }
+    &.is-10                     { flex-basis: 83.333%; }
+    &.is-11                     { flex-basis: 91.666%; }
+    &.is-full, &.is-12          { flex-basis: 100%; }
+  }
+}
+
+/* Large screens (desktops and up) */
+@media (min-width: 1200px) {
+  :is(.grid, .grid--with-gutter) > .grid-cell {
+    &.is-1--l                      { flex-basis: 8.333%; }
+    &.is-2--l                      { flex-basis: 16.666%; }
+    &.is-quarter--l, &.is-3--l     { flex-basis: 25%; }
+    &.is-third--l, &.is-4--l       { flex-basis: 33.333%; }
+    &.is-5--l                      { flex-basis: 41.666%; }
+    &.is-half--l, &.is-6--l        { flex-basis: 50%; }
+    &.is-7--l                      { flex-basis: 58.333%; }
+    &.is-two-thirds--l, &.is-8--l  { flex-basis: 66.666%; }
+    &.is-three-quarters--l, &.is-9--l { flex-basis: 75%; }
+    &.is-10--l                     { flex-basis: 83.333%; }
+    &.is-11--l                     { flex-basis: 91.666%; }
+    &.is-full--l, &.is-12--l       { flex-basis: 100%; }
+  }
+}

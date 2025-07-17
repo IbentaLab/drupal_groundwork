@@ -1,0 +1,111 @@
+base:
+  version: VERSION
+  css:
+    component:
+      css/vendor/action-links.css:
+        weight: -10
+      css/vendor/breadcrumb.css:
+        weight: -10
+      css/vendor/button.css:
+        weight: -10
+      css/vendor/container-inline.css:
+        weight: -10
+      css/vendor/details.css:
+        weight: -10
+      css/vendor/exposed-filters.css:
+        weight: -10
+      css/vendor/field.css:
+        weight: -10
+      css/vendor/form.css:
+        weight: -10
+      css/vendor/icons.css:
+        weight: -10
+      css/vendor/inline-form.css:
+        weight: -10
+      css/vendor/item-list.css:
+        weight: -10
+      css/vendor/link.css:
+        weight: -10
+      css/vendor/links.css:
+        weight: -10
+      css/vendor/menu.css:
+        weight: -10
+      css/vendor/more-link.css:
+        weight: -10
+      css/vendor/pager.css:
+        weight: -10
+      css/vendor/tabledrag.css:
+        weight: -10
+      css/vendor/tableselect.css:
+        weight: -10
+      css/vendor/tabs.css:
+        weight: -10
+      css/vendor/textarea.css:
+        weight: -10
+      css/vendor/ui-dialog.css:
+        weight: -10
+dialog:
+  version: VERSION
+  css:
+    component:
+      css/vendor/dialog.css:
+        weight: -10
+dropbutton:
+  version: VERSION
+  css:
+    component:
+      css/vendor/dropbutton.css:
+        weight: -10
+file:
+  version: VERSION
+  css:
+    component:
+      css/vendor/file.css:
+        weight: -10
+image-widget:
+  version: VERSION
+  css:
+    component:
+      css/vendor/image-widget.css: {  }
+indented:
+  version: VERSION
+  css:
+    component:
+      css/vendor/indented.css: {  }
+messages:
+  version: VERSION
+  css:
+    component:
+      css/vendor/messages.css:
+        weight: -10
+node:
+  version: VERSION
+  css:
+    component:
+      css/vendor/node.css:
+        weight: -10
+progress:
+  version: VERSION
+  css:
+    component:
+      css/vendor/progress.css:
+        weight: -10
+
+drupal.tablesort:
+  version: VERSION
+  css:
+    component:
+      css/vendor/tablesort.css:
+        weight: -10
+
+search-results:
+  version: VERSION
+  css:
+    component:
+      css/vendor/search-results.css: {  }
+user:
+  version: VERSION
+  css:
+    component:
+      css/vendor/user.css:
+        weight: -10
