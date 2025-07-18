@@ -12,7 +12,6 @@
 }
 
 .page-block-demo .block-region.demo-block {
-  width: 100%;
   margin: 0;
   padding: 16px;
   text-align: center;
@@ -28,7 +27,6 @@
 .page-block-demo .region-header .block-region.demo-block,
 .page-block-demo .region-footer .block-region.demo-block {
   font-size: 3.6rem;
-  text-align: left;
   background-color: grey;
   color: #ffffff;
 }
@@ -50,4 +48,8 @@
 
 .page-block-demo .region-secondary-menu .block-region.demo-block {
   border-top-color: transparent;
+}
+
+* {
+  outline: 1px solid red;
 }

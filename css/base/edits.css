@@ -1,0 +1,15 @@
+/* -------------------------------------------------------------------
+   Edits – <del>, <ins>, <mark>
+   ------------------------------------------------------------------- */
+
+:where(del) { text-decoration: line-through; }
+
+:where(ins) {
+  background: var(--color-success, #d4f7d7);
+  text-decoration: none;
+}
+
+:where(mark) {
+  background: var(--color-warning, #fff3cd);
+  color: var(--color-fg, #000);
+}

@@ -1,0 +1,138 @@
+/* ===================================================================
+   tokens.css – SINGLE SOURCE OF TRUTH
+   -------------------------------------------------------------------
+   • Brand palette
+   • Semantic colours (light + dark)
+   • Typography, modular-scale, spacing, break-points
+   • Misc helpers (BEM, Google-font URL, etc.)
+   =================================================================== */
+
+:root {
+  /* ---------- Brand palette (HSL approximations in comments) ---------- */
+  --blue:   #067cc6;  /* hsl(202 94% 40%) */
+  --red:    #c61c06;  /* hsl(  7 94% 40%) */
+  --green:  #40ba44;  /* hsl(122 51% 49%) */
+  --orange: #ff8c00;  /* hsl( 34 100% 50%) */
+  --purple: #8906c6;  /* hsl(277 94% 40%) */
+  --pink:   #c60666;  /* hsl(330 94% 40%) */
+  --gold:   #c69c06;  /* hsl( 45 94% 40%) */
+  --brown:  #c65c06;  /* hsl( 26 94% 40%) */
+  --grey:   #808080;  /* hsl(  0  0% 50%) */
+  --teal:   #009688;  /* hsl(174 100% 29%) */
+  --lime:   #afb42b;  /* hsl( 62 63% 44%) */
+  --silver: #9e9e9e;  /* hsl(  0  0% 62%) */
+
+  /* ---------- Semantic palette (light theme defaults) ---------- */
+  --color-bg:            #ffffff;
+  --color-fg:            rgba(0 0 0 /.87);
+  --color-surface:       #ffffff;
+  --color-surface-contrast: #f4f4f4;
+  --color-border:        rgba(0 0 0 /.12);
+
+  --color-link:          var(--blue);
+  --color-link-hover:    var(--blue--dark2, #04578b);
+
+  /* Text helpers from colours.css root */
+  --color-text:          var(--color-fg);
+  --color-text-light:    #ffffff;
+
+  /* Semantic aliases (Bootstrap-like) */
+  --color-primary: var(--blue);
+  --color-danger:  var(--red);
+  --color-success: var(--green);
+  --color-warning: var(--orange);
+  --color-info:    var(--purple);
+  --color-muted:   var(--grey);
+
+  /* ---------- Typography / modular scale (from variables.css) ---------- */
+  --font-size-base: 1.5rem; /* ≈ 15px; */
+
+  /* Google-font preconnect helper (used in <head>) */
+  --google-font-url: "fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin-ext";
+
+  --font-family-sans: "Ubuntu","Segoe UI","San Francisco","Roboto",sans-serif;
+  --font-family-serif: Georgia,"Times New Roman",Times,serif;
+  --font-family-mono:  "Lucida Console",Monaco,monospace;
+
+  --font-family:            var(--font-family-sans);
+  --heading-font-family:    var(--font-family-sans);
+  --site-name-font-family:  var(--font-family-sans);
+
+  /* ---------- BEM helpers (rarely changed) ---------- */
+  --bem-block-name:        "bem-block-name";
+  --bem-element-name:      "bem-element";
+  --bem-element-separator: "__";
+  --bem-modifier-separator:"--";
+
+  /* ---------- Modular-scale config ---------- */
+  --scale-type: var(--scale-perfect-fourth); /* ≈ 1.333 */
+  --scale-base: 1.5rem;                      /* ≈ 15 px */
+
+  /* Ratio presets */
+  --scale-minor-second:      1.067;
+  --scale-major-second:      1.125;
+  --scale-minor-third:       1.2;
+  --scale-major-third:       1.25;
+  --scale-perfect-fourth:    1.333;
+  --scale-augmented-fourth:  1.414;
+  --scale-perfect-fifth:     1.5;
+  --scale-golden-section:    1.618;
+  --scale-major-sixth:       1.667;
+  --scale-minor-seventh:     1.778;
+  --scale-major-seventh:     1.875;
+  --scale-octave:            2;
+
+  /* Named steps (≈ Major-Third scale) */
+  --ms-md:   var(--scale-base);                               /* 1.5 rem */
+  --ms-sm:   calc(var(--ms-md) / var(--scale-type));          /* ~1.125 rem */
+  --ms-xs:   calc(var(--ms-sm) / var(--scale-type));          /* ~0.844 rem */
+  --ms-lg:   calc(var(--ms-md) * var(--scale-type));          /* ~1.999 rem */
+  --ms-xl:   calc(var(--ms-lg) * var(--scale-type));          /* ~2.665 rem */
+  --ms-xxl:  calc(var(--ms-xl) * var(--scale-type));          /* ~3.553 rem */
+  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type));         /* ~4.736 rem */
+
+  /* ---------- Spacing scale (rem so 1 = base-font-size) ---------- */
+  --space-0: 0.4rem;
+  --space-1: 0.8rem;
+  --space-2: 1.6rem;
+  --space-3: 2.4rem;
+  --space-4: 3.2rem;
+  --space-5: 4.0rem;
+
+  /* ---------- Breakpoints ---------- */
+  --breakpoint-small-screen:  768px;
+  --breakpoint-medium-screen: 992px;
+  --breakpoint-large-screen:  1200px;
+}
+
+/* -----------------------------------------------------------------
+   Optional dark-theme override — use OS setting **or**
+   add [data-theme="dark"] to <html> for manual toggle.
+   ----------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:  #121212;
+    --color-fg:  rgba(240 240 240 /.87);
+    --color-surface: #1e1e1e;
+    --color-surface-contrast: #2a2a2a;
+    --color-border: rgba(255 255 255 /.12);
+
+    /* Optional shadows already in theme-tokens.css */  /* same values kept */
+    --shadow-sm: 0 1px 2px rgba(255 255 255 /.05);
+    --shadow-md: 0 4px 6px rgba(255 255 255 /.10);
+  }
+}
+
+:root[data-theme="dark"] {
+  /* identical overrides for manual switch */
+  --color-bg:  #121212;
+  --color-fg:  rgba(240 240 240 /.87);
+  --color-surface: #1e1e1e;
+  --color-surface-contrast: #2a2a2a;
+  --color-border: rgba(255 255 255 /.12);
+  --shadow-sm: 0 1px 2px rgba(255 255 255 /.05);
+  --shadow-md: 0 4px 6px rgba(255 255 255 /.10);
+}
+
+/* Support for native dark/light UI parts */
+html { color-scheme: light dark; }

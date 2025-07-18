@@ -1,0 +1,73 @@
+/* -------------------------------------------------------------------
+   Text-level semantics – em, strong, a, code, small, …
+   ------------------------------------------------------------------- */
+
+:where(em)     { font-style: italic; }
+:where(strong) { font-weight: bolder; }
+
+:where(code, kbd, samp) {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.95em;
+}
+
+:where(small)  { font-size: 0.8em; }
+
+:where(abbr[title]) {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Links inherit colour unless themed */
+:where(a) {
+  color: var(--color-link, var(--blue));
+  text-decoration: underline;
+  text-decoration-thickness: .08em;
+}
+:where(a:hover) { color: var(--color-link-hover, var(--blue)); }
+
+/* -------------------------------------------------------------------
+   Headings – h1 … h6
+   ------------------------------------------------------------------- */
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--heading-font-family, var(--font-family));
+  font-weight: 600;
+  line-height: 1.25;
+  margin-block: 0 var(--space-2, 1.6rem);
+  color: var(--color-fg);
+}
+
+/* Size ladder */
+:where(h1) { font-size: var(--ms-xxxl, 4.736rem); } /* ≈ 47 px */
+:where(h2) { font-size: var(--ms-xxl,  3.553rem); } /* ≈ 36 px */
+:where(h3) { font-size: var(--ms-xl,   2.665rem); } /* ≈ 27 px */
+:where(h4) { font-size: var(--ms-lg,   1.999rem); } /* ≈ 20 px */
+:where(h5) { font-size: var(--ms-md,   1.5rem); }   /* ≈ 15 px */
+:where(h6) { font-size: var(--ms-md,   1.5rem); }   /* same as h5 */
+
+/* Decorative rules for the smallest headings */
+:where(h5) {
+  border-bottom: 0.1rem solid currentColor;
+  padding-bottom: 0.2rem;
+}
+
+:where(h6) {
+  border-bottom: 0.1rem dotted currentColor;
+  padding-bottom: 0.2rem;
+}
+
+/* Narrow screens: reduce h1–h3 a notch */
+@media (max-width: var(--breakpoint-small-screen, 768px)) {
+  :where(h1) { font-size: var(--ms-xxl, 3.553rem); }  /* 36 px */
+  :where(h2) { font-size: var(--ms-xl,  2.665rem); }  /* 27 px */
+  :where(h3) { font-size: var(--ms-lg,  1.999rem); }  /* 20 px */
+}
+
+/* Large desktops: give h1 & h2 more presence */
+@media (min-width: var(--breakpoint-large-screen, 1200px)) {
+  :where(h1) { font-size: calc(var(--ms-xxxl, 4.736rem) * var(--scale-type, 1.333)); }
+  :where(h2) { font-size: calc(var(--ms-xxl,  3.553rem) * var(--scale-type, 1.333)); }
+  :where(h3) { font-size: calc(var(--ms-xl,   2.665rem) * var(--scale-type, 1.333)); }
+  /* h4–h6 stay the same; bump only the display heads */
+}
+

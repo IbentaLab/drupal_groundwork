@@ -1,0 +1,39 @@
+/* -------------------------------------------------------------------
+   Root – <html> & <body>
+   -------------------------------------------------------------------
+   • Global box-sizing, font baseline, colour-scheme hint
+   • All variables come from css/theme/tokens.css
+   ------------------------------------------------------------------- */
+
+html {
+  font-size: 62.5%;                 /* 1 rem ≈ 10 px mental math */
+  box-sizing: border-box;
+  color-scheme: light dark;         /* native widgets auto-themed */
+
+  color: var(--color-text, rgba(0 0 0 /.87));
+  background-color: var(--color-bg, #fff);
+  /* overflow-x: hidden;  ← Enable on a wrapper if needed */
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  font-family: var(--font-family,
+    "Ubuntu","Segoe UI","San Francisco","Roboto",sans-serif);
+  font-size: var(--ms-md, 1.5rem);  /* ~15 px */
+  line-height: 1.5;
+  accent-color: var(--color-primary, var(--blue));
+}
+
+/* Selection highlight – always high-contrast */
+::selection,
+::-moz-selection {
+  text-shadow: none;
+  background-color: highlight;
+  color: highlighttext;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

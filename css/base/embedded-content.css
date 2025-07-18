@@ -1,0 +1,16 @@
+/* -------------------------------------------------------------------
+   Embedded content – img, svg, video, audio, iframe, …
+   ------------------------------------------------------------------- */
+
+:where(img, svg, video, canvas,
+       iframe, embed, object) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* SVG inherits current text colour */
+:where(svg) { fill: currentColor; }
+
+/* Audio should be full-width */
+:where(audio) { width: 100%; }

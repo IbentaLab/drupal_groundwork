@@ -1,6 +1,17 @@
 base:
   version: VERSION
   css:
+    base:
+      css/theme/tokens.css:          { weight: -40 }
+      css/base/root.css:             { weight: -20 }
+      css/base/sections.css:         {}
+      css/base/grouping-content.css: {}
+      css/base/text-level.css:       {}
+      css/base/edits.css:            {}
+      css/base/embedded-content.css: {}
+      css/base/tabular-data.css:     {}
+      css/base/form-controls.css:    {}
+      css/base/interactive.css:      {}
     component:
       css/vendor/action-links.css:
         weight: -10
@@ -114,3 +125,8 @@ block-demo:
   css:
     component:
       css/admin/block-demo.css: {}
+utilities:
+  version: VERSION
+  css:
+    theme:
+      css/utilities/color-utilities.css: {}

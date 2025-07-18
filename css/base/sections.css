@@ -1,0 +1,18 @@
+/* -------------------------------------------------------------------
+   Sectioning content – <header>, <main>, <section>, …
+   ------------------------------------------------------------------- */
+
+:where(article, aside, main, nav, section,
+       header, footer) {
+  display: block;
+  margin-block: 0;                       /* remove UA gaps */
+}
+
+/* Optional global padding for headers/footers */
+:where(header, footer) {
+  padding-block: var(--space-3, 2.4rem);
+  background: var(--color-surface-contrast, #f4f4f4);
+}
+
+/* Allow <main> to flex-grow in full-height layouts */
+main { flex: 1 1 auto; }

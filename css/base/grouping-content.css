@@ -1,0 +1,28 @@
+/* -------------------------------------------------------------------
+   Grouping content – p, ul, figure, blockquote, …
+   ------------------------------------------------------------------- */
+
+/* Paragraph rhythm */
+:where(p) { margin-block: 0 var(--space-2, 1.6rem); }
+
+/* Lists */
+:where(ul, ol) {
+  margin: 0 0 var(--space-2, 1.6rem) var(--space-3, 2.4rem);
+  padding: 0;
+}
+:where(li) { margin-block: calc(var(--space-0, .4rem)/2); }
+
+/* Figure / Figcaption */
+:where(figure) { margin: 0; }
+:where(figcaption) {
+  margin-top: var(--space-1, .8rem);
+  font-size: var(--ms-sm, 1.125rem);
+  color: var(--color-muted, #808080);
+}
+
+/* Blockquote accent bar */
+:where(blockquote) {
+  margin: 0 0 var(--space-3, 2.4rem);
+  padding-inline-start: var(--space-3, 2.4rem);
+  border-inline-start: .25rem solid var(--color-border, rgba(0 0 0 /.12));
+}

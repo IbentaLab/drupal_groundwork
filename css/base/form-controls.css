@@ -1,0 +1,50 @@
+/* -------------------------------------------------------------------
+   Form controls – input, button, textarea, select, fieldset
+   ------------------------------------------------------------------- */
+
+/* Reset basic font & sizing */
+:where(input, button, textarea, select) {
+  font: inherit;
+  margin: 0;
+  color: inherit;
+  background: none;
+  border: 1px solid var(--color-border, rgba(0 0 0 /.12));
+}
+
+/* Text inputs & textarea */
+:where(input[type=text],
+       input[type=email],
+       input[type=url],
+       input[type=search],
+       input[type=password],
+       textarea) {
+  width: 100%;
+  padding: var(--space-1, .8rem) var(--space-2, 1.6rem);
+  border-radius: .25rem;
+}
+
+/* Buttons */
+:where(button,
+       input[type=button],
+       input[type=submit],
+       input[type=reset]) {
+  cursor: pointer;
+  padding: calc(var(--space-1, .8rem)*1.25) var(--space-3, 2.4rem);
+  background: var(--color-primary, var(--blue));
+  color: var(--color-text-light, #fff);
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: background .15s ease-in-out;
+}
+:where(button:hover,
+       input[type=button]:hover,
+       input[type=submit]:hover,
+       input[type=reset]:hover) {
+  background: color-mix(in srgb, var(--color-primary) 90%, #000);
+}
+
+/* Fieldset */
+:where(fieldset) {
+  border: 1px solid var(--color-border, rgba(0 0 0 /.12));
+  padding: var(--space-2, 1.6rem);
+}
