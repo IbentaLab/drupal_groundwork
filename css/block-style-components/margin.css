@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Margin Utilities – Spacing Outside Blocks
+   These are Block Style Components (BSCs) for external spacing control.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .m
+ * @description Applies a uniform margin (1.6rem) to all sides.
+ * @blockStyleComponent true
+ */
+.m:not(.block),
+.m.block .block-style-target {
+  margin: 1.6rem;
+}
+
+/**
+ * @utility
+ * @name .mt
+ * @description Adds 1.6rem margin to the top of the block.
+ */
+.mt:not(.block),
+.mt.block .block-style-target {
+  margin-top: 1.6rem;
+}
+
+/**
+ * @utility
+ * @name .mb
+ * @description Adds 1.6rem margin to the bottom of the block.
+ */
+.mb:not(.block),
+.mb.block .block-style-target {
+  margin-bottom: 1.6rem;
+}
+
+/**
+ * @utility
+ * @name .ml
+ * @description Adds 1.6rem margin to the left of the block.
+ */
+.ml:not(.block),
+.ml.block .block-style-target {
+  margin-left: 1.6rem;
+}
+
+/**
+ * @utility
+ * @name .mr
+ * @description Adds 1.6rem margin to the right of the block.
+ */
+.mr:not(.block),
+.mr.block .block-style-target {
+  margin-right: 1.6rem;
+}
+
+/**
+ * @utility
+ * @name .m-0
+ * @description Removes all margin from the block.
+ */
+.m-0:not(.block),
+.m-0.block .block-style-target {
+  margin: 0;
+}
+
+/**
+ * @utility
+ * @name .mt-0
+ * @description Removes top margin from the block.
+ */
+.mt-0:not(.block),
+.mt-0.block .block-style-target {
+  margin-top: 0;
+}
+
+/**
+ * @utility
+ * @name .mb-0
+ * @description Removes bottom margin from the block.
+ */
+.mb-0:not(.block),
+.mb-0.block .block-style-target {
+  margin-bottom: 0;
+}
+
+/**
+ * @utility
+ * @name .ml-0
+ * @description Removes left margin from the block.
+ */
+.ml-0:not(.block),
+.ml-0.block .block-style-target {
+  margin-left: 0;
+}
+
+/**
+ * @utility
+ * @name .mr-0
+ * @description Removes right margin from the block.
+ */
+.mr-0:not(.block),
+.mr-0.block .block-style-target {
+  margin-right: 0;
+}

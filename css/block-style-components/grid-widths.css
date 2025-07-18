@@ -1,0 +1,427 @@
+/* === Grid Width Utilities – Responsive Flex Basis Classes === */
+
+/* ===== Mobile-first (small screen) ===== */
+/**
+ * @utility
+ * @name .is-1--s
+ * @description 1/12 column width (8.333%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-1--s:not(.block),
+.is-1--s.block .block-style-target {
+  flex-basis: 8.333%;
+}
+/**
+ * @utility
+ * @name .is-2--s
+ * @description 2/12 column width (16.666%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-2--s:not(.block),
+.is-2--s.block .block-style-target {
+  flex-basis: 16.666%;
+}
+/**
+ * @utility
+ * @name .is-3--s
+ * @description 3/12 column width (25%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-3--s:not(.block),
+.is-3--s.block .block-style-target {
+  flex-basis: 25%;
+}
+/**
+ * @utility
+ * @name .is-4--s
+ * @description 4/12 column width (33.333%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-4--s:not(.block),
+.is-4--s.block .block-style-target {
+  flex-basis: 33.333%;
+}
+/**
+ * @utility
+ * @name .is-5--s
+ * @description 5/12 column width (41.666%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-5--s:not(.block),
+.is-5--s.block .block-style-target {
+  flex-basis: 41.666%;
+}
+/**
+ * @utility
+ * @name .is-6--s
+ * @description 6/12 column width (50%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-6--s:not(.block),
+.is-6--s.block .block-style-target {
+  flex-basis: 50%;
+}
+/**
+ * @utility
+ * @name .is-7--s
+ * @description 7/12 column width (58.333%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-7--s:not(.block),
+.is-7--s.block .block-style-target {
+  flex-basis: 58.333%;
+}
+/**
+ * @utility
+ * @name .is-8--s
+ * @description 8/12 column width (66.666%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-8--s:not(.block),
+.is-8--s.block .block-style-target {
+  flex-basis: 66.666%;
+}
+/**
+ * @utility
+ * @name .is-9--s
+ * @description 9/12 column width (75%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-9--s:not(.block),
+.is-9--s.block .block-style-target {
+  flex-basis: 75%;
+}
+/**
+ * @utility
+ * @name .is-10--s
+ * @description 10/12 column width (83.333%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-10--s:not(.block),
+.is-10--s.block .block-style-target {
+  flex-basis: 83.333%;
+}
+/**
+ * @utility
+ * @name .is-11--s
+ * @description 11/12 column width (91.666%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-11--s:not(.block),
+.is-11--s.block .block-style-target {
+  flex-basis: 91.666%;
+}
+/**
+ * @utility
+ * @name .is-12--s
+ * @description 12/12 column width (100%) on small screens.
+ * @blockStyleComponent true
+ * @responsive yes
+ */
+.is-12--s:not(.block),
+.is-12--s.block .block-style-target {
+  flex-basis: 100%;
+}
+
+@media (min-width: 993px) {
+  /* ===== Medium screen (default) ===== */
+/**
+   * @utility
+   * @name .is-1
+   * @description 1/12 column width (8.333%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-1:not(.block),
+  .is-1.block .block-style-target {
+    flex-basis: 8.333%;
+  }
+  /**
+   * @utility
+   * @name .is-2
+   * @description 2/12 column width (16.666%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-2:not(.block),
+  .is-2.block .block-style-target {
+    flex-basis: 16.666%;
+  }
+  /**
+   * @utility
+   * @name .is-3
+   * @description 3/12 column width (25%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-3:not(.block),
+  .is-3.block .block-style-target {
+    flex-basis: 25%;
+  }
+  /**
+   * @utility
+   * @name .is-4
+   * @description 4/12 column width (33.333%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-4:not(.block),
+  .is-4.block .block-style-target {
+    flex-basis: 33.333%;
+  }
+  /**
+   * @utility
+   * @name .is-5
+   * @description 5/12 column width (41.666%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-5:not(.block),
+  .is-5.block .block-style-target {
+    flex-basis: 41.666%;
+  }
+  /**
+   * @utility
+   * @name .is-6
+   * @description 6/12 column width (50%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-6:not(.block),
+  .is-6.block .block-style-target {
+    flex-basis: 50%;
+  }
+  /**
+   * @utility
+   * @name .is-7
+   * @description 7/12 column width (58.333%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-7:not(.block),
+  .is-7.block .block-style-target {
+    flex-basis: 58.333%;
+  }
+  /**
+   * @utility
+   * @name .is-8
+   * @description 8/12 column width (66.666%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-8:not(.block),
+  .is-8.block .block-style-target {
+    flex-basis: 66.666%;
+  }
+  /**
+   * @utility
+   * @name .is-9
+   * @description 9/12 column width (75%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-9:not(.block),
+  .is-9.block .block-style-target {
+    flex-basis: 75%;
+  }
+  /**
+   * @utility
+   * @name .is-10
+   * @description 10/12 column width (83.333%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-10:not(.block),
+  .is-10.block .block-style-target {
+    flex-basis: 83.333%;
+  }
+  /**
+   * @utility
+   * @name .is-11
+   * @description 11/12 column width (91.666%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-11:not(.block),
+  .is-11.block .block-style-target {
+    flex-basis: 91.666%;
+  }
+  /**
+   * @utility
+   * @name .is-12
+   * @description 12/12 column width (100%) on medium screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-12:not(.block),
+  .is-12.block .block-style-target {
+    flex-basis: 100%;
+  }
+  }
+
+@media (min-width: 1200px) {
+  /* ===== Large screen ===== */
+/**
+   * @utility
+   * @name .is-1--l
+   * @description 1/12 column width (8.333%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-1--l:not(.block),
+  .is-1--l.block .block-style-target {
+    flex-basis: 8.333%;
+  }
+  /**
+   * @utility
+   * @name .is-2--l
+   * @description 2/12 column width (16.666%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-2--l:not(.block),
+  .is-2--l.block .block-style-target {
+    flex-basis: 16.666%;
+  }
+  /**
+   * @utility
+   * @name .is-3--l
+   * @description 3/12 column width (25%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-3--l:not(.block),
+  .is-3--l.block .block-style-target {
+    flex-basis: 25%;
+  }
+  /**
+   * @utility
+   * @name .is-4--l
+   * @description 4/12 column width (33.333%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-4--l:not(.block),
+  .is-4--l.block .block-style-target {
+    flex-basis: 33.333%;
+  }
+  /**
+   * @utility
+   * @name .is-5--l
+   * @description 5/12 column width (41.666%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-5--l:not(.block),
+  .is-5--l.block .block-style-target {
+    flex-basis: 41.666%;
+  }
+  /**
+   * @utility
+   * @name .is-6--l
+   * @description 6/12 column width (50%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-6--l:not(.block),
+  .is-6--l.block .block-style-target {
+    flex-basis: 50%;
+  }
+  /**
+   * @utility
+   * @name .is-7--l
+   * @description 7/12 column width (58.333%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-7--l:not(.block),
+  .is-7--l.block .block-style-target {
+    flex-basis: 58.333%;
+  }
+  /**
+   * @utility
+   * @name .is-8--l
+   * @description 8/12 column width (66.666%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-8--l:not(.block),
+  .is-8--l.block .block-style-target {
+    flex-basis: 66.666%;
+  }
+  /**
+   * @utility
+   * @name .is-9--l
+   * @description 9/12 column width (75%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-9--l:not(.block),
+  .is-9--l.block .block-style-target {
+    flex-basis: 75%;
+  }
+  /**
+   * @utility
+   * @name .is-10--l
+   * @description 10/12 column width (83.333%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-10--l:not(.block),
+  .is-10--l.block .block-style-target {
+    flex-basis: 83.333%;
+  }
+  /**
+   * @utility
+   * @name .is-11--l
+   * @description 11/12 column width (91.666%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-11--l:not(.block),
+  .is-11--l.block .block-style-target {
+    flex-basis: 91.666%;
+  }
+  /**
+   * @utility
+   * @name .is-12--l
+   * @description 12/12 column width (100%) on large screens.
+   * @blockStyleComponent true
+   * @responsive yes
+   */
+  .is-12--l:not(.block),
+  .is-12--l.block .block-style-target {
+    flex-basis: 100%;
+  }
+  }
+
+/**
+ * @utility
+ * @name .is-auto
+ * @description Let block size based on content (shrink to fit).
+ */
+.is-auto:not(.block),
+.is-auto.block .block-style-target {
+  flex: 0 0 auto;
+}
+
+/**
+ * @utility
+ * @name .is-grow
+ * @description Make block expand to fill available space.
+ */
+.is-grow:not(.block),
+.is-grow.block .block-style-target {
+  flex: 1 1 auto;
+}

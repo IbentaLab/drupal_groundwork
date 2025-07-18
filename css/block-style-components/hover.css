@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Hover Utilities – Transitions and Interactive Effects
+   These are BSCs intended for Block Styles UI and interactive design.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .hover-shadow
+ * @description Applies a soft shadow on hover for depth.
+ */
+.hover-shadow:not(.block):hover,
+.hover-shadow.block .block-style-target:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/**
+ * @utility
+ * @name .hover-opacity
+ * @description Lowers opacity to 80% on hover.
+ */
+.hover-opacity:not(.block):hover,
+.hover-opacity.block .block-style-target:hover {
+  opacity: 0.8;
+}
+
+/**
+ * @utility
+ * @name .hover-raise
+ * @description Lifts the block up 4px on hover (subtle motion).
+ */
+.hover-raise:not(.block):hover,
+.hover-raise.block .block-style-target:hover {
+  transform: translateY(-4px);
+}
+
+/**
+ * @utility
+ * @name .hover-scale
+ * @description Slightly enlarges the block on hover (3% scale).
+ */
+.hover-scale:not(.block):hover,
+.hover-scale.block .block-style-target:hover {
+  transform: scale(1.03);
+}
+
+/**
+ * @utility
+ * @name .hover-bg-light
+ * @description Applies a light gray background color on hover.
+ */
+.hover-bg-light:not(.block):hover,
+.hover-bg-light.block .block-style-target:hover {
+  background-color: #f5f5f5;
+}
+
+/**
+ * @utility
+ * @name .hover-none
+ * @description Removes all styles on hover (hard reset).
+ */
+.hover-none:not(.block):hover,
+.hover-none.block .block-style-target:hover {
+  all: unset;
+}

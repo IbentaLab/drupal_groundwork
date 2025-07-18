@@ -109,3 +109,8 @@ user:
     component:
       css/vendor/user.css:
         weight: -10
+block-demo:
+  version: VERSION
+  css:
+    component:
+      css/admin/block-demo.css: {}

@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Padding Utilities – Internal Spacing for Blocks
+   These are Block Style Components (BSCs) for inside-spacing.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .p
+ * @description Applies medium padding (0.8rem) to all sides.
+ * @blockStyleComponent true
+ */
+.p:not(.block),
+.p.block .block-style-target {
+  padding: 0.8rem;
+}
+
+/**
+ * @utility
+ * @name .p--sm
+ * @description Applies small padding (0.4rem) to all sides.
+ */
+.p--sm:not(.block),
+.p--sm.block .block-style-target {
+  padding: 0.4rem;
+}
+
+/**
+ * @utility
+ * @name .p--lg
+ * @description Applies large padding (1.6rem) to all sides.
+ */
+.p--lg:not(.block),
+.p--lg.block .block-style-target {
+  padding: 1.6rem;
+}
+
+/**
+ * @utility
+ * @name .p--xl
+ * @description Applies extra-large padding (2.4rem) to all sides.
+ */
+.p--xl:not(.block),
+.p--xl.block .block-style-target {
+  padding: 2.4rem;
+}
+
+/**
+ * @utility
+ * @name .p--xxl
+ * @description Applies extra-extra-large padding (3.2rem) to all sides.
+ */
+.p--xxl:not(.block),
+.p--xxl.block .block-style-target {
+  padding: 3.2rem;
+}
+
+/**
+ * @utility
+ * @name .p--xxxl
+ * @description Applies maximum padding (4rem) to all sides.
+ */
+.p--xxxl:not(.block),
+.p--xxxl.block .block-style-target {
+  padding: 4rem;
+}

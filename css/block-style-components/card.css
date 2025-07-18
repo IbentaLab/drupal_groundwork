@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Block Style Component: Card
+   Applies elevation and radius to create visual container styles.
+   ========================================================================== */
+
+/**
+ * @component
+ * @name card
+ * @category block-style-component
+ * @description Elevation and surface styling for blocks with optional variants.
+ * @blockStyleComponent true
+ */
+
+/* Base radius for all card levels */
+.card:not(.block),
+.card--1:not(.block),
+.card--2:not(.block),
+.card--3:not(.block),
+.card.block .block-style-target,
+.card--1.block .block-style-target,
+.card--2.block .block-style-target,
+.card--3.block .block-style-target {
+  border-radius: 0.4rem;
+}
+
+/* Default card */
+.card:not(.block),
+.card.block .block-style-target {
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.16),
+              0 0.2rem 1rem rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Elevation levels */
+.card--1:not(.block),
+.card--1.block .block-style-target {
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.2),
+              0 0.6rem 2rem rgba(0, 0, 0, 0.19);
+}
+
+.card--2:not(.block),
+.card--2.block .block-style-target {
+  box-shadow: 0 1.6rem 2.4rem rgba(0, 0, 0, 0.22),
+              0 2.5rem 5.5rem rgba(0, 0, 0, 0.21);
+}
+
+.card--3:not(.block),
+.card--3.block .block-style-target {
+  box-shadow: 0 2.4rem 2.4rem rgba(0, 0, 0, 0.2),
+              0 4rem 7.7rem rgba(0, 0, 0, 0.22);
+}
+
+/* ---------------------------------------
+   🔁 Card Variants
+---------------------------------------- */
+
+/* Hover elevation (on hover only) */
+.card--hover:not(.block):hover,
+.card--hover.block .block-style-target:hover {
+  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.25),
+              0 0.6rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* Outline: transparent background, subtle border */
+.card--outline:not(.block),
+.card--outline.block .block-style-target {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* Inverse: dark surface with light text (pair with .text-light) */
+.card--inverse:not(.block),
+.card--inverse.block .block-style-target {
+  background-color: #222;
+  color: #fff;
+  border: none;
+}
+
+/* Primary color card (pulls from color-blue) */
+.card--primary:not(.block),
+.card--primary.block .block-style-target {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+}

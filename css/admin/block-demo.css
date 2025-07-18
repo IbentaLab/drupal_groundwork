@@ -1,0 +1,53 @@
+.page-block-demo {
+  background-color: white;
+  color: #333;
+}
+
+.page-block-demo .layout-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+.page-block-demo .block-region.demo-block {
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: transparent;
+  box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.16), 0 0.2rem 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.layout-billboard .block-region {
+    height: 7.6rem;
+}
+
+.page-block-demo .region-header .block-region.demo-block,
+.page-block-demo .region-footer .block-region.demo-block {
+  font-size: 3.6rem;
+  text-align: left;
+  background-color: grey;
+  color: #ffffff;
+}
+
+.page-block-demo .block-region.demo-block:hover {
+  background-color: #49535a;
+  color: #ffffff;
+  box-shadow: 0 1.6rem 2.4rem 0 rgba(0, 0, 0, 0.22), 0 2.5rem 5.5rem 0 rgba(0, 0, 0, 0.21);
+}
+
+.page-block-demo .region-primary-menu .block-region.demo-block,
+.page-block-demo .region-secondary-menu .block-region.demo-block {
+  margin-top: 0;
+}
+
+.page-block-demo .region-primary-menu .block-region.demo-block {
+  margin-bottom: 0;
+}
+
+.page-block-demo .region-secondary-menu .block-region.demo-block {
+  border-top-color: transparent;
+}

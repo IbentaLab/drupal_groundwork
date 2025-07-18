@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Border Utilities – Edge Placement and Thickness
+   These are Block Style Components (BSCs) for visual edge styling.
+   Does not include color or radius (see color-border.css / rounded.css)
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .border
+ * @description Applies a default 1px solid border around all sides.
+ * @blockStyleComponent true
+ */
+.border:not(.block),
+.border.block .block-style-target {
+  border: 0.1rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--top
+ * @description Adds a 1px top border only.
+ */
+.border--top:not(.block),
+.border--top.block .block-style-target {
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--bottom
+ * @description Adds a 1px bottom border only.
+ */
+.border--bottom:not(.block),
+.border--bottom.block .block-style-target {
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--left
+ * @description Adds a 1px left border only.
+ */
+.border--left:not(.block),
+.border--left.block .block-style-target {
+  border-left: 0.1rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--right
+ * @description Adds a 1px right border only.
+ */
+.border--right:not(.block),
+.border--right.block .block-style-target {
+  border-right: 0.1rem solid rgba(0, 0, 0, 0.12);
+}
+
+/* Decorative thick edge bars for emphasis */
+
+/**
+ * @utility
+ * @name .border--bar-top
+ * @description Adds a thick top bar (8px) for decorative section headers.
+ */
+.border--bar-top:not(.block),
+.border--bar-top.block .block-style-target {
+  border-top: 0.8rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--bar-bottom
+ * @description Adds a thick bottom bar (8px) for emphasis or section breaks.
+ */
+.border--bar-bottom:not(.block),
+.border--bar-bottom.block .block-style-target {
+  border-bottom: 0.8rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--bar-left
+ * @description Adds a thick left border (8px) for emphasis.
+ */
+.border--bar-left:not(.block),
+.border--bar-left.block .block-style-target {
+  border-left: 0.8rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--bar-right
+ * @description Adds a thick right border (8px) for emphasis.
+ */
+.border--bar-right:not(.block),
+.border--bar-right.block .block-style-target {
+  border-right: 0.8rem solid rgba(0, 0, 0, 0.12);
+}
+
+/**
+ * @utility
+ * @name .border--none
+ * @description Removes all borders. Useful for overrides or cleanup.
+ */
+.border--none:not(.block),
+.border--none.block .block-style-target {
+  border: none;
+}

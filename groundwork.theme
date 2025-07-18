@@ -5,6 +5,22 @@
  * Functions to support theming.
  */
 
+
+/**
+ * Implements hook_preprocess_HOOK() for html templates.
+ */
+function groundwork_preprocess_html(array &$variables) {
+  if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
+    $variables['attributes']['class'][] = 'page-block-demo';
+  }
+}
+
+function groundwork_preprocess_page(array &$variables) {
+  if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
+    $variables['#attached']['library'][] = 'groundwork/block-demo';
+  }
+}
+
 /**
  * Implements hook_preprocess_image_widget().
  */
@@ -33,6 +49,7 @@ function groundwork_theme_suggestions_region_alter(array &$suggestions, array $v
     'appendix',
     'sidebar_first',
     'sidebar_second',
+    'footer',
   ];
 
   // Get the current region name from the render array.

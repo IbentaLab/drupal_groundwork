@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Text Utilities – Font, Alignment, Transform, Spacing, Overflow
+   BSCs and single-purpose classes for textual behavior and formatting.
+   ========================================================================== */
+
+/* === Font Families === */
+
+/**
+ * @utility
+ * @name .font-sans
+ * @description Sans-serif font stack (Ubuntu, system fallback).
+ * @blockStyleComponent true
+ */
+.font-sans:not(.block),
+.font-sans.block .block-style-target {
+  font-family: var(--font-family-sans, Ubuntu, "Segoe UI", "San Francisco", Roboto, sans-serif);
+}
+
+/**
+ * @utility
+ * @name .font-serif
+ * @description Serif font stack for traditional styling.
+ */
+.font-serif:not(.block),
+.font-serif.block .block-style-target {
+  font-family: var(--font-family-serif, Georgia, "Times New Roman", Times, serif);
+}
+
+/**
+ * @utility
+ * @name .font-mono
+ * @description Monospaced font for code or tabular data.
+ */
+.font-mono:not(.block),
+.font-mono.block .block-style-target {
+  font-family: var(--font-family-mono, "Lucida Console", Monaco, monospace);
+}
+
+/* === Font Weight === */
+
+.text-thin     { font-weight: 100; }  /* Ultra light */
+.text-light    { font-weight: 300; }  /* Light */
+.text-normal   { font-weight: 400; }  /* Normal */
+.text-medium   { font-weight: 500; }  /* Medium */
+.text-semibold { font-weight: 600; }  /* Semi-bold */
+.text-bold     { font-weight: 700; }  /* Bold */
+.text-black    { font-weight: 900; }  /* Extra-bold */
+
+/* === Font Style === */
+.text-italic     { font-style: italic; }
+.text-not-italic { font-style: normal; }
+
+/* === Text Transform === */
+.text-uppercase   { text-transform: uppercase; }
+.text-lowercase   { text-transform: lowercase; }
+.text-capitalize  { text-transform: capitalize; }
+.text-normalcase  { text-transform: none; }
+
+/* === Alignment === */
+.text-left     { text-align: left; }
+.text-center   { text-align: center; }
+.text-right    { text-align: right; }
+.text-justify  { text-align: justify; }
+
+/* === Letter Spacing === */
+.text-tight    { letter-spacing: -0.05em; }
+.text-normal   { letter-spacing: 0; }
+.text-wide     { letter-spacing: 0.05em; }
+.text-wider    { letter-spacing: 0.1em; }
+
+/* === White Space === */
+.text-nowrap     { white-space: nowrap; }
+.text-pre        { white-space: pre; }
+.text-pre-line   { white-space: pre-line; }
+.text-pre-wrap   { white-space: pre-wrap; }
+
+/* === Line Height === */
+.leading-none   { line-height: 1; }
+.leading-tight  { line-height: 1.25; }
+.leading-normal { line-height: 1.5; }
+.leading-loose  { line-height: 1.75; }
+
+/* === Overflow + Truncation === */
+
+/**
+ * @utility
+ * @name .text-truncate
+ * @description Single-line overflow truncation with ellipsis.
+ */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * @utility
+ * @name .text-break
+ * @description Wraps and hyphenates overflowing words responsively.
+ * @blockStyleComponent true
+ */
+.text-break:not(.block),
+.text-break.block .block-style-target {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}

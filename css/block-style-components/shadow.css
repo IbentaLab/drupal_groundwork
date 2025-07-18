@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Shadow Utilities – Depth & Emphasis
+   These are Block Style Components (BSCs) that apply box shadows.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .shadow
+ * @description Default shadow for light elevation (1px blur).
+ * @blockStyleComponent true
+ */
+.shadow:not(.block),
+.shadow.block .block-style-target {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * @utility
+ * @name .shadow--sm
+ * @description Subtle shadow for minimal depth (2px blur).
+ */
+.shadow--sm:not(.block),
+.shadow--sm.block .block-style-target {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/**
+ * @utility
+ * @name .shadow--md
+ * @description Medium shadow for card-style emphasis (6px blur).
+ */
+.shadow--md:not(.block),
+.shadow--md.block .block-style-target {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * @utility
+ * @name .shadow--lg
+ * @description Large shadow for floating effect (15px blur).
+ */
+.shadow--lg:not(.block),
+.shadow--lg.block .block-style-target {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * @utility
+ * @name .shadow--xl
+ * @description Extra large shadow for modals or overlays (25px blur).
+ */
+.shadow--xl:not(.block),
+.shadow--xl.block .block-style-target {
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+/**
+ * @utility
+ * @name .shadow--none
+ * @description Removes all box-shadow from the block.
+ */
+.shadow--none:not(.block),
+.shadow--none.block .block-style-target {
+  box-shadow: none;
+}

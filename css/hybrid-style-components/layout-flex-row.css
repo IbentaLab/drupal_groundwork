@@ -1,0 +1,33 @@
+/* ==========================================================================
+   layout-flex-row
+   Hybrid Block Component (HBC)
+   Provides horizontal flex layout and spacing.
+   ========================================================================== */
+
+/**
+ * @component
+ * @name layout-flex-row
+ * @category hybrid-style-components
+ * @description Horizontal layout for full-width blocks.
+ *              Applies flex layout to .block and spacing to .block-style-target.
+ * @blockStyleComponent true
+ * @warning Do not use together with .is-* grid width classes (e.g. .is-6--s).
+ *          This component is a layout container, not a grid cell.
+ */
+
+/* Layout behavior on block */
+.layout-flex-row.block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  width: 100%;
+  flex-basis: auto;
+}
+
+/* Visual styling on block-style-target */
+.layout-flex-row.block .block-style-target {
+  width: 100%;
+  display: contents; /* allows direct children to participate in flex layout */
+}

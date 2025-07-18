@@ -18,8 +18,11 @@
   --bem-element-separator: "__";
   --bem-modifier-separator: "--";
 
-  /* modular scale / vertical rhythm */
-   /* Scale Ratios */
+  /* Base config */
+  --scale-type: var(--scale-perfect-fourth); /* ≈ 1.333 */
+  --scale-base: 1.5rem; /* ≈ 15px */
+
+  /* Scale ratios */
   --scale-minor-second: 1.067;
   --scale-major-second: 1.125;
   --scale-minor-third: 1.2;
@@ -32,27 +35,26 @@
   --scale-minor-seventh: 1.778;
   --scale-major-seventh: 1.875;
   --scale-octave: 2;
-  
-  /* Select your scale type and base font size */
-  --scale-type: var(--scale-perfect-fourth);
-  --scale-base: 1rem; /* Or 16px, etc. */
 
-  /* Calculated Modular Scale (ms) values */
-  --ms-0: var(--scale-base);
-  --ms-1: calc(var(--ms-0) * var(--scale-type));
-  --ms-2: calc(var(--ms-1) * var(--scale-type));
-  --ms-3: calc(var(--ms-2) * var(--scale-type));
-  --ms-4: calc(var(--ms-3) * var(--scale-type));
+  /* Modular scale values */
+  --ms-md: var(--scale-base);                               /* 1.5rem */
+  --ms-sm: calc(var(--ms-md) / var(--scale-type));          /* ≈ 1.125rem */
+  --ms-xs: calc(var(--ms-sm) / var(--scale-type));          /* ≈ 0.844rem */
+  --ms-lg: calc(var(--ms-md) * var(--scale-type));          /* ≈ 1.999rem */
+  --ms-xl: calc(var(--ms-lg) * var(--scale-type));          /* ≈ 2.665rem */
+  --ms-xxl: calc(var(--ms-xl) * var(--scale-type));         /* ≈ 3.553rem */
+  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type));       /* ≈ 4.736rem */
 
-
-  /* grid */
-  --gutter-width: 1.6rem;
+  /* Spacing scale */
+  --space-0: 0.4rem;
+  --space-1: 0.8rem;
+  --space-2: 1.6rem;
+  --space-3: 2.4rem;
+  --space-4: 3.2rem;
+  --space-5: 4.0rem;
 
   /* breakpoints */
   --breakpoint-small-screen: 768px;
   --breakpoint-medium-screen: 992px;
   --breakpoint-large-screen: 1200px;
-
-  /* skin / theme */
-  --skin-color: var(--grey);       /* expects --grey custom property */
 }

@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Border Radius Utilities – Rounded Corners
+   These are Block Style Components (BSCs) used to soften block edges.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .rounded
+ * @description Applies medium rounding (0.5rem) to all corners.
+ * @blockStyleComponent true
+ */
+.rounded:not(.block),
+.rounded.block .block-style-target {
+  border-radius: 0.5rem;
+}
+
+/**
+ * @utility
+ * @name .rounded--sm
+ * @description Applies small rounding (0.25rem) to all corners.
+ */
+.rounded--sm:not(.block),
+.rounded--sm.block .block-style-target {
+  border-radius: 0.25rem;
+}
+
+/**
+ * @utility
+ * @name .rounded--lg
+ * @description Applies large rounding (0.75rem) to all corners.
+ */
+.rounded--lg:not(.block),
+.rounded--lg.block .block-style-target {
+  border-radius: 0.75rem;
+}
+
+/**
+ * @utility
+ * @name .rounded--xl
+ * @description Applies extra-large rounding (1rem) to all corners.
+ */
+.rounded--xl:not(.block),
+.rounded--xl.block .block-style-target {
+  border-radius: 1rem;
+}
+
+/**
+ * @utility
+ * @name .rounded--pill
+ * @description Fully rounded edges for pill-like shape (9999px).
+ */
+.rounded--pill:not(.block),
+.rounded--pill.block .block-style-target {
+  border-radius: 9999px;
+}
+
+/**
+ * @utility
+ * @name .rounded--circle
+ * @description Perfect circle if width and height are equal (50%).
+ */
+.rounded--circle:not(.block),
+.rounded--circle.block .block-style-target {
+  border-radius: 50%;
+}
+
+/**
+ * @utility
+ * @name .rounded--none
+ * @description Removes all border radius (0).
+ */
+.rounded--none:not(.block),
+.rounded--none.block .block-style-target {
+  border-radius: 0;
+}
