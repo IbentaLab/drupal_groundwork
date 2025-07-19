@@ -15,30 +15,46 @@ global-styling:
       css/base/edits.css: {}
     layout:
       css/layout/grid.css: {}
+      css/layout/regions.css: {}
     component:
-      css/drupal-ui/action-links.css: {}
-      css/drupal-ui/breadcrumb.css: {}
-      css/drupal-ui/button.css: {}
-      css/drupal-ui/container-inline.css: {}
-      css/drupal-ui/details.css: {}
-      css/drupal-ui/exposed-filters.css: {}
-      css/drupal-ui/field.css: {}
-      css/drupal-ui/form.css: {}
-      css/drupal-ui/icons.css: {}
-      css/drupal-ui/inline-form.css: {}
-      css/drupal-ui/item-list.css: {}
-      css/drupal-ui/link.css: {}
-      css/drupal-ui/links.css: {}
-      css/drupal-ui/menu.css: {}
-      css/drupal-ui/more-link.css: {}
-      css/drupal-ui/pager.css: {}
-      css/drupal-ui/tabledrag.css: {}
-      css/drupal-ui/tableselect.css: {}
-      css/drupal-ui/tabs.css: {}
-      css/drupal-ui/textarea.css: {}
+      css/core-components/foundational-core-overrides/action-links.css: {}
+      css/core-components/foundational-core-overrides/breadcrumb.css: {}
+      css/core-components/foundational-core-overrides/button.css: {}
+      css/core-components/foundational-core-overrides/container-inline.css: {}
+      css/core-components/foundational-core-overrides/details.css: {}
+      css/core-components/foundational-core-overrides/dialog.css: {}
+      css/core-components/foundational-core-overrides/dropbutton.css: {}
+      css/core-components/foundational-core-overrides/exposed-filters.css: {}
+      css/core-components/foundational-core-overrides/field.css: {}
+      css/core-components/foundational-core-overrides/file.css: {}
+      css/core-components/foundational-core-overrides/form.css: {}
+      css/core-components/foundational-core-overrides/icons.css: {}
+      css/core-components/foundational-core-overrides/image-widget.css: {}
+      css/core-components/foundational-core-overrides/indented.css: {}
+      css/core-components/foundational-core-overrides/inline-form.css: {}
+      css/core-components/foundational-core-overrides/item-list.css: {}
+      css/core-components/foundational-core-overrides/link.css: {}
+      css/core-components/foundational-core-overrides/links.css: {}
+      css/core-components/foundational-core-overrides/menu.css: {}
+      css/core-components/foundational-core-overrides/messages.css: {}
+      css/core-components/foundational-core-overrides/more-link.css: {}
+      css/core-components/foundational-core-overrides/node.css: {}
+      css/core-components/foundational-core-overrides/pager.css: {}
+      css/core-components/foundational-core-overrides/progress.css: {}
+      css/core-components/foundational-core-overrides/search-results.css: {}
+      css/core-components/foundational-core-overrides/tabledrag.css: {}
+      css/core-components/foundational-core-overrides/tableselect.css: {}
+      css/core-components/foundational-core-overrides/tablesort.css: {}
+      css/core-components/foundational-core-overrides/tabs.css: {}
+      css/core-components/foundational-core-overrides/textarea.css: {}
+      css/core-components/foundational-core-overrides/ui-dialog.css: {}
+      css/core-components/foundational-core-overrides/user.css: {}
+      css/core-components/framework-core-overrides/blocks.css: {}
+      css/core-components/framework-core-overrides/buttons.css: {}
+      css/core-components/framework-core-overrides/site-branding.css: {}
     theme:
       css/theme/tokens.css: { weight: -40 }
-      css/utilities/color-utilities.css: {}
+      css/theme/color-utilities.css: {}
 
 dialog:
   version: VERSION

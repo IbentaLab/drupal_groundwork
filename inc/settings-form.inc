@@ -221,7 +221,7 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   $form['footer']['gw_footer_attribution'] = [
     '#type' => 'checkbox',
     '#title' => t('Show “Powered by Groundwork Theme Framework” in the footer'),
-    '#default_value' => theme_get_setting('gw_footer_attribution') ?? 1,
+    '#default_value' => 1,
     '#description' => t('This attribution helps support ongoing development. <strong>Removal is available with a <a href=":pro_url" target="_blank">Groundwork Pro license</a>.</strong>', [':pro_url' => 'https://groundwork.ibenta.no/pro']),
     '#attributes' => [
       'disabled' => 'disabled',
@@ -230,8 +230,11 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   $form['footer']['gw_footer_copyright_enable'] = [
     '#type' => 'checkbox',
     '#title' => t('Show copyright text in the footer'),
-    '#default_value' => theme_get_setting('gw_footer_copyright_enable') ?? 1,
+    '#default_value' => 1,
     '#description' => t('Uncheck to hide the copyright line from the footer.'),
+    '#attributes' => [
+      'disabled' => 'disabled',
+    ],
   ];
   $site_name = \Drupal::config('system.site')->get('name');
   $default_copyright = t('&copy; {year} @site_name. All rights reserved.', [
@@ -240,7 +243,7 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   $form['footer']['gw_footer_copyright'] = [
     '#type' => 'textfield',
     '#title' => t('Footer copyright text'),
-    '#description' => t('Supports tokens like {year}, {site_name}. Example: &copy; {year} My Company.'),
+    '#description' => t('Supports tokens like {year}, {site_name}. Example: &copy; {year} My Company.<br><strong>Removal is available with a <a href=":pro_url" target="_blank">Groundwork Pro license</a>.</strong>', [':pro_url' => 'https://groundwork.ibenta.no/pro']),
     '#default_value' => theme_get_setting('gw_footer_copyright') ?: $default_copyright,
     '#states' => [
       'visible' => [

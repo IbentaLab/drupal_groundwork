@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Buttons – Framework Core Overrides
+   ========================================================================== */
+
+/**
+ * @file
+ * Defines the Groundwork theme framework's specific, opinionated styling for
+ * button elements when the `.button` class is applied. These styles
+ * enhance and override the basic button appearance set in base/form-controls.css,
+ * providing a consistent and branded look across the site.
+ */
+
+/* --------------------------------------------------------------------------
+   Core .button Class Styling
+   This applies Groundwork's default visual framework to elements
+   with the .button class.
+   -------------------------------------------------------------------------- */
+.button {
+  /* Inherited or reset from base/form-controls.css (where available):
+   * font: inherit; margin: 0; color: inherit; background: none;
+   * border: 1px solid var(--color-border, rgba(0 0 0 /.12));
+   * cursor: pointer; transition: background .15s ease-in-out;
+   */
+
+  /* Groundwork's Core Button Design */
+  font-size: var(--ms-sm); /* Using modular scale for consistent sizing, approx 1.125rem */
+  font-weight: 700; /* Bold text for strong visual emphasis */
+  line-height: calc(var(--space-4) / var(--font-size-base)); /* Calculated for vertical alignment */
+  height: var(--space-4); /* Fixed height for consistent button sizing */
+  margin: 0; /* Override any external margins if desired for this class */
+  padding: calc(var(--space-1) * 0.75) var(--space-2); /* Custom padding derived from spacing scale */
+
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none; /* Ensure no underline for button links */
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+
+  border: var(--space-0) solid; /* Border width from spacing scale (0.4rem or 1px if that's the intent of 0.1rem originally) */
+  border-color: transparent; /* Default to transparent if background color defines the fill */
+  border-radius: var(--space-0); /* Border radius from spacing scale (0.4rem) */
+
+  /* Ensure consistent appearance across browsers for button elements */
+  appearance: none;
+
+  /* Basic button styling (can be defined by base/form-controls.css, but overridden/ensured here) */
+  background: var(--color-primary); /* Use primary brand color from tokens.css */
+  color: var(--color-text-light); /* Light text for contrast on colored backgrounds */
+
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   Button States (Focus, Hover, Disabled)
+   -------------------------------------------------------------------------- */
+
+/* Remove default outline and apply consistent focus/hover effects */
+.button:focus,
+.button:hover {
+  outline: 0; /* Remove browser default outline */
+  text-decoration: none; /* Ensure no underline on hover/focus for consistency */
+}
+
+/* Hover-specific visual feedback */
+.button:hover {
+  /* Apply a distinct box-shadow on hover for depth and interaction feedback */
+  box-shadow: var(--shadow-md), 0 0.6rem 2rem 0 rgba(0, 0, 0, 0.19);
+  background: color-mix(in srgb, var(--color-primary) 90%, #000); /* Recommended: Dynamic darkening on hover */
+}
+
+/* --------------------------------------------------------------------------
+   Disabled State
+   -------------------------------------------------------------------------- */
+/* Styling for disabled buttons */
+.button[disabled] {
+  cursor: default; /* Change cursor to indicate non-interactable state */
+  opacity: 0.5; /* Visually dim disabled buttons */
+}
+
+/* --------------------------------------------------------------------------
+   Image Button Specific Styles
+   These styles target buttons that might contain only an image or act like one.
+   -------------------------------------------------------------------------- */
+.image-button {
+  /* No specific styles currently defined for .image-button in the framework,
+   * but this selector is kept for consistency with FoCO if needed later. */
+}
+
+/* First/Last child adjustments for button groups or lists.
+ * These rules handle spacing when buttons are next to each other. */
+.button:first-child,
+.image-button:first-child {
+  margin-left: 0; /* Remove left margin for the very first button in a group/sequence */
+  /* The original FoCO snippet had `margin-right: 1em; margin-left: 1em;` for .button.
+   * By setting `margin: 0;` in the primary `.button` rule above, we explicitly override that.
+   * If spacing between buttons in a group is desired, consider using flexbox gap on a wrapper
+   * or defining specific margin utilities for grouped buttons. */
+}
