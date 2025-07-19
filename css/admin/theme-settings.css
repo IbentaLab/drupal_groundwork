@@ -1,0 +1,119 @@
+/* Groundwork Theme Settings (Admin UI) */
+
+.gw-settings-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 2px solid #067cc6;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: #f5f9fb;
+}
+.gw-settings-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(6, 124, 198, 0.09);
+  object-fit: contain;
+}
+.gw-settings-title {
+  font-size: 2.2rem;
+  margin: 0;
+  color: #067cc6;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+.gw-settings-lead {
+  flex: 1 1 auto;
+  font-size: 1.1rem;
+  color: #444;
+  margin-left: 1rem;
+}
+.gw-settings-lead a {
+  color: #067cc6;
+  text-decoration: underline;
+}
+.gw-settings-lead small {
+  color: #666;
+  font-size: 0.98em;
+  display: block;
+  margin-top: 0.3rem;
+}
+fieldset {
+  border-radius: 8px;
+  border: 1px solid #dde6ec;
+  background: #fafcff;
+  margin-top: 2.2rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  box-shadow: 0 1px 2px rgba(6,124,198,0.03);
+}
+legend {
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: #067cc6;
+  padding: 0 .6em;
+}
+.gw-pro-feature-disabled {
+  opacity: 0.65;
+  background: #f3f5fa;
+  border: 1px dashed #b3b3b3;
+  border-radius: 6px;
+  margin: 0.7rem 0 1.3rem 0;
+  padding: 1.1rem 1.2rem;
+  color: #666;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.gw-pro-feature-disabled [aria-hidden] {
+  font-size: 1.33em;
+}
+form .form-type-checkbox,
+form .form-type-radio {
+  margin-top: 1.2em;
+  margin-bottom: 0.8em;
+}
+input[type="checkbox"]:disabled + label,
+input[type="radio"]:disabled + label {
+  opacity: 0.68;
+}
+.description,
+.form-item .description {
+  font-size: 0.99em;
+  color: #556;
+  margin-top: 0.12em;
+  line-height: 1.5;
+}
+#ai-palette-result-wrapper {
+  margin-top: 1.6rem;
+  background: #f8fafc;
+  padding: 1rem 1.4rem;
+  border-radius: 6px;
+  border: 1px solid #dbeafe;
+  min-height: 48px;
+  font-size: 1.12em;
+  color: #335;
+}
+.gw-ai-palette-demo span {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  margin-right: 6px;
+  border: 1px solid #ccd;
+}
+@media (max-width: 768px) {
+  .gw-settings-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+  .gw-settings-title {
+    font-size: 1.3rem;
+  }
+  fieldset {
+    padding: 1.1rem 0.6rem 1.1rem 0.6rem;
+  }
+}

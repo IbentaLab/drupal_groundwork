@@ -134,5 +134,19 @@
   --shadow-md: 0 4px 6px rgba(255 255 255 /.10);
 }
 
+:root[data-theme="light"] {
+  /* These must match your normal (light) theme tokens exactly: */
+  --color-bg:            #ffffff;
+  --color-fg:            rgba(0, 0, 0, 0.87);
+  --color-surface:       #ffffff;
+  --color-surface-contrast: #f4f4f4;
+  --color-border:        rgba(0, 0, 0, 0.12);
+  --color-text:          var(--color-fg);
+  --color-text-light:    #ffffff;
+
+  /* And any other tokens that are overridden for dark mode! */
+}
+
+
 /* Support for native dark/light UI parts */
 html { color-scheme: light dark; }

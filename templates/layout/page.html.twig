@@ -45,47 +45,47 @@
 <div class="layout-page">
 
 	{% if page.billboard %}
-		<div class="layout-billboard">
+		<div id="billboard" class="layout-billboard" aria-label="Billboard">
 			{{ page.billboard }}
 		</div>
 	{% endif %}
 
-	<header role="banner" class="layout-header">
+	<header id="header" role="banner" class="layout-header" aria-label="Header">
 		{{ page.header }}
 	</header>
 
 	{% if page.primary_menu %}
-		<div class="layout-primary-menu">
+		<div id="primary-menu" class="layout-primary-menu" aria-label="Primary Menu">
 			{{ page.primary_menu }}
 		</div>
 	{% endif %}
 
 	{% if page.secondary_menu %}
-		<div class="layout-secondary_menu">
+		<div id="secondary-menu" class="layout-secondary-menu" aria-label="Secondary Menu">
 			{{ page.secondary_menu }}
 		</div>
 	{% endif %}
 
 	{% if page.hero %}
-		<div class="layout-hero">
+		<div id="hero" class="layout-hero" aria-label="Hero">
 			{{ page.hero }}
 		</div>
 	{% endif %}
 
 	{% if page.breadcrumb %}
-		<div class="layout-breadcrumb">
+		<div id="breadcrumb" class="layout-breadcrumb" aria-label="Breadcrumb">
 			{{ page.breadcrumb }}
 		</div>
 	{% endif %}
 
 	{% if page.highlighted %}
-		<div class="layout-highlighted">
+		<div id="highlighted" class="layout-highlighted" aria-label="Highlighted">
 			{{ page.highlighted }}
 		</div>
 	{% endif %}
 
 	{% if page.help %}
-		<div class="layout-help">
+		<div id="help" class="layout-help" aria-label="Help">
 			{{ page.help }}
 		</div>
 	{% endif %}
@@ -95,55 +95,53 @@
 		{# link is in html.html.twig #}
 
 		<div class="layout-container">
-
-			<div class="layout-content" id="content">
+			<div id="content" class="layout-content">
 				{{ page.preface }}
 				{{ page.content }}
 				{{ page.appendix }}
 			</div>
-			{# /#content #}
 
 			{% if page.sidebar_first %}
-				<aside id="sidebar-first" class="layout-sidebar-first" role="complementary">
+				<aside id="sidebar-first" class="layout-sidebar-first" role="complementary" aria-label="First Sidebar">
 					{{ page.sidebar_first }}
 				</aside>
 			{% endif %}
 			{# /#sidebar-first #}
 
 			{% if page.sidebar_second %}
-				<aside id="sidebar-second" class="layout-sidebar-second" role="complementary">
+				<aside id="sidebar-second" class="layout-sidebar-second" role="complementary" aria-label="Second Sidebar">
 					{{ page.sidebar_second }}
 				</aside>
 			{% endif %}
 			{# /#sidebar-second #}
 
 		</div>
-
 	</main>
 
 	{% if page.supplement %}
-		<div class="layout-supplement">
+		<div id="supplement" class="layout-supplement" aria-label="Supplement">
 			{{ page.supplement }}
 		</div>
 	{% endif %}
 
 	{% if page.extra %}
-		<div class="layout-extra">
+		<div id="extra" class="layout-extra" aria-label="Extra">
 			{{ page.extra }}
 		</div>
 	{% endif %}
 
 	{% if page.rider %}
-		<div class="layout-rider">
+		<div id="rider" class="layout-rider" aria-label="Rider">
 			{{ page.rider }}
 		</div>
 	{% endif %}
 
-	{% if page.footer %}
-		<footer class="layout-footer" role="contentinfo">
-			{{ page.footer }}
-		</footer>
-	{% endif %}
+	<footer id="footer" class="layout-footer" role="contentinfo" aria-label="Footer">
+		{{ page.footer }}
+	</footer>
+
+</div>
+{# /.layout-page #}
 
 </div>
 {# /.layout-page #}

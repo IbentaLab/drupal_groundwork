@@ -1,62 +1,19 @@
 <?php
-
 /**
  * @file
- * Functions to support theming.
+ * Functions to support theming in the Groundwork theme.
  */
 
-
-/**
- * Implements hook_preprocess_HOOK() for html templates.
- */
-function groundwork_preprocess_html(array &$variables) {
-  if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
-    $variables['attributes']['class'][] = 'page-block-demo';
-  }
+function groundwork_theme_path() {
+  return base_path() . Drupal::service('extension.list.theme')->getPath('groundwork');
 }
 
-function groundwork_preprocess_page(array &$variables) {
-  if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
-    $variables['#attached']['library'][] = 'groundwork/block-demo';
-  }
+if (file_exists(__DIR__ . '/inc/preprocess.inc')) { 
+  include_once __DIR__ . '/inc/preprocess.inc'; 
 }
-
-/**
- * Implements hook_preprocess_image_widget().
- */
-function groundwork_preprocess_image_widget(array &$variables): void {
-  $data = &$variables['data'];
-
-  // This prevents image widget templates from rendering preview container HTML
-  // to users that do not have permission to access these previews.
-  // @todo revisit in https://drupal.org/node/953034
-  // @todo revisit in https://drupal.org/node/3114318
-  if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
-    unset($data['preview']);
-  }
+if (file_exists(__DIR__ . '/inc/alter.inc')) { 
+  include_once __DIR__ . '/inc/alter.inc'; 
 }
-
-/**
- * Implements hook_theme_suggestions_region_alter().
- */
-function groundwork_theme_suggestions_region_alter(array &$suggestions, array $variables) {
-  // Define the list of regions that will use the custom template.
-  $target_regions = [
-    'billboard',
-    'header',
-    'preface',
-    'content',
-    'appendix',
-    'sidebar_first',
-    'sidebar_second',
-    'footer',
-  ];
-
-  // Get the current region name from the render array.
-  $region_name = $variables['elements']['#region'];
-
-  // If the current region is in our target list, add a new template suggestion.
-  if (in_array($region_name, $target_regions)) {
-    $suggestions[] = 'region__custom';
-  }
+if (file_exists(__DIR__ . '/inc/settings-form.inc')) { 
+  include_once __DIR__ . '/inc/settings-form.inc'; 
 }

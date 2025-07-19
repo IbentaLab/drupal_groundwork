@@ -1,7 +1,7 @@
-name: groundwork
+name: Groundwork
+description: 'A sleek, block-based Drupal theme framework optimized for accessibility, performance, and unlimited layout customization—fully compliant with WCAG, ARIA, and Norway’s universal design requirements.'
 type: theme
-description: ''
-version: 1.0.0
+version: VERSION
 core_version_requirement: ^11
 
 regions:
@@ -24,7 +24,9 @@ regions:
   footer: Footer
 
 libraries:
-  - groundwork/base
+  - groundwork/global-styling
+  - groundwork/block-styles
+  - groundwork/hybrid-styles
   - groundwork/messages
   - core/normalize
   
@@ -44,5 +46,3 @@ libraries-extend:
 
 'base theme': stable9
 generator: 'starterkit_theme:11.2.2'
-
-
