@@ -1,19 +1,52 @@
 <?php
+
+declare(strict_types = 1);
+
 /**
  * @file
- * Functions to support theming in the Groundwork theme.
+ * Bootstrap loader for the Groundwork theme.
+ *
+ *  • Defines helper functions shared across include files.
+ *  • Requires each include file (inc/*.inc) so Drupal can discover
+ *    the theme’s hook implementations.
+ *
+ * Keep heavy logic out of this file—add it to the relevant *.inc.
  */
 
-function groundwork_theme_path() {
-  return base_path() . Drupal::service('extension.list.theme')->getPath('groundwork');
+use Drupal\Core\Extension\ExtensionListTheme;
+
+/**
+ * Returns the public relative path to the Groundwork theme directory.
+ *
+ * @return string
+ *   Example: /themes/contrib/groundwork
+ */
+function groundwork_theme_path(): string {
+  /** @var \Drupal\Core\Extension\ExtensionListTheme $extensions */
+  $extensions = \Drupal::service('extension.list.theme');
+  return '/' . $extensions->getPath('groundwork');
 }
 
-if (file_exists(__DIR__ . '/inc/preprocess.inc')) { 
-  include_once __DIR__ . '/inc/preprocess.inc'; 
-}
-if (file_exists(__DIR__ . '/inc/alter.inc')) { 
-  include_once __DIR__ . '/inc/alter.inc'; 
-}
-if (file_exists(__DIR__ . '/inc/settings-form.inc')) { 
-  include_once __DIR__ . '/inc/settings-form.inc'; 
+/* ------------------------------------------------------------------
+ * Load include files (if present).  Edit the list to add or remove
+ * files as your theme grows.
+ * ------------------------------------------------------------------ */
+$includes = [
+  'init.inc',              // General constants, utility functions, postprocessors.
+  'preprocess.inc',        // hook_preprocess_*().
+  'macros.inc',            // Helper PHP functions -> Twig macros.
+  'twig.inc',              // Custom Twig extensions / globals.
+  'libraries.inc',         // hook_library_info_build().
+  'theme-suggestions.inc', // hook_theme_suggestions_*_alter().
+  'alter.inc',             // hook_*_alter() (forms, render arrays).
+  'attachments.inc',       // hook_page_attachments*().
+  'hooks.deprecated.inc',  // Legacy hooks kept for BC (optional).
+  'settings-form.inc',     // system_theme_settings() extensions.
+];
+
+foreach ($includes as $file) {
+  $path = __DIR__ . '/inc/' . $file;
+  if (is_readable($path)) {
+    include_once $path;
+  }
 }

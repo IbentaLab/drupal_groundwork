@@ -46,6 +46,7 @@
 
   /* ---------- Typography / modular scale (from variables.css) ---------- */
   --font-size-base: 1.5rem; /* ≈ 15px; */
+  --gw-icon-size: 2.4rem;   /* 24px for icons, Groundwork 1rem = 10px */
 
   /* Google-font preconnect helper (used in <head>) */
   --google-font-url: "fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin-ext";

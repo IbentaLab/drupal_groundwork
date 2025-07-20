@@ -1,12 +1,23 @@
 <?php
+
+declare(strict_types = 1);
+
 /**
  * @file
- * Preprocess functions for Groundwork theme.
- * Exposes theme settings to Twig for page/footer rendering.
+ * Preprocess hooks for the Groundwork theme.
  *
- * @ingroup groundwork
+ * Place all hook_preprocess_*() implementations here to keep
+ * groundwork.theme minimal and maintainable.
  */
 
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Modify global HTML variables before the page is rendered.
+ *
+ * @param array $variables
+ *   The variables for the HTML template.
+ */
 function groundwork_preprocess_html(array &$variables) {
   if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
     $variables['attributes']['class'][] = 'page-block-demo';
@@ -29,8 +40,20 @@ function groundwork_preprocess_html(array &$variables) {
       'groundwork-custom-css',
     ];
   }
+
+  // Expose the gwicons macro globally for use in all Twig templates.
+  $twig = \Drupal::service('twig');
+  $variables['gwicons'] = $twig->loadTemplate('@groundwork/gwicons/gwicons.twig');
 }
 
+/**
+ * Implements hook_preprocess_page().
+ *
+ * Adjusts page variables before rendering.
+ *
+ * @param array $variables
+ *   The variables array for the page template.
+ */
 function groundwork_preprocess_page(array &$variables) {
   $variables['theme_settings'] = [
     'gw_color_scheme' => theme_get_setting('gw_color_scheme'),
@@ -60,4 +83,44 @@ function groundwork_preprocess_image_widget(array &$variables): void {
   if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
     unset($data['preview']);
   }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * Alter variables before a node is rendered.
+ *
+ * @param array $variables
+ *   The variables array for the node template.
+ */
+function groundwork_preprocess_node(array &$variables): void {
+  // Example: Add a field value as a CSS class.
+  // if (!empty($variables['elements']['#node']->bundle())) {
+  //   $variables['attributes']['class'][] = 'gw-' . $variables['elements']['#node']->bundle();
+  // }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ *
+ * @param array $variables
+ *   The variables array for the block template.
+ */
+function groundwork_preprocess_block(array &$variables): void {
+  // Example: Add block ID as a class.
+  // if (!empty($variables['elements']['#id'])) {
+  //   $variables['attributes']['class'][] = 'block-id-' . $variables['elements']['#id'];
+  // }
+}
+
+/**
+ * Example: Custom preprocess function for a custom template.
+ *
+ * This would be auto-called as groundwork_preprocess_MY_TEMPLATE().
+ *
+ * @param array $variables
+ *   The variables array for the custom template.
+ */
+function groundwork_preprocess_my_custom_template(array &$variables): void {
+  // Custom logic for my-custom-template.html.twig.
 }

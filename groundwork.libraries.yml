@@ -155,3 +155,13 @@ admin:
   css:
     theme:
       css/admin/block-demo.css: {}
+
+main-menu:
+  version: VERSION  
+  css:
+    theme:
+      css/core-components/framework-core-overrides/main-menu.css: {}
+  js:
+    js/groundwork-main-menu.js: {}
+  dependencies:
+    - core/drupal

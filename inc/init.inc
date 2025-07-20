@@ -1,14 +1,28 @@
 <?php
 
+declare(strict_types = 1);
+
 use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * @file
+ * Initialisation and utility helpers for the Groundwork theme.
+ *
+ * - Define theme constants and functions needed site-wide.
+ * - Add system-level postprocessors or AJAX callbacks.
+ * - This file is included first from groundwork.theme.
+ */
 
 /**
  * Adds Groundwork's system utility to the footer region.
  * (Core theme integration — do not remove or modify.)
  *
  * @internal
+ *
+ * @param array $variables
+ *   The page variables array passed by reference.
  */
-function groundwork_postprocess_footer(array &$variables) {
+function groundwork_postprocess_footer(array &$variables): void {
   $show_attribution = theme_get_setting('gw_footer_attribution') ?? 1;
   $copyright_enabled = theme_get_setting('gw_footer_copyright_enable') ?? 1;
   $copyright_text = trim(theme_get_setting('gw_footer_copyright') ?? '');
@@ -43,6 +57,14 @@ function groundwork_postprocess_footer(array &$variables) {
 
 /**
  * AJAX callback for AI-powered color palette suggestion.
+ *
+ * @param array $form
+ *   The form render array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ *
+ * @return array
+ *   A render array representing the AJAX response.
  */
 function groundwork_ai_palette_callback(array &$form, FormStateInterface $form_state) {
   $provider = $form_state->getValue('ai_provider') ?? 'simulate';
@@ -82,7 +104,7 @@ function groundwork_ai_palette_callback(array &$form, FormStateInterface $form_s
     }
   }
 
-  // Handle "OpenAI" provider.
+  // Handle "OpenAI" AI provider.
   if ($provider === 'openai') {
     $palette = groundwork_fetch_openai_palette();
     if ($palette) {
@@ -144,7 +166,7 @@ function groundwork_ai_palette_callback(array &$form, FormStateInterface $form_s
  * Fetches a color palette from the Gemini API.
  *
  * @return array|null
- *   An array of color hex codes or NULL on failure.
+ *   An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_gemini_palette() {
   try {
@@ -170,7 +192,7 @@ function groundwork_fetch_gemini_palette() {
  * Fetches a color palette from the OpenAI API.
  *
  * @return array|null
- *   An array of color hex codes or NULL on failure.
+ *   An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_openai_palette() {
   try {
@@ -200,7 +222,7 @@ function groundwork_fetch_openai_palette() {
  * Fetches a color palette from the Azure API.
  *
  * @return array|null
- *   An array of color hex codes or NULL on failure.
+ *   An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_azure_palette() {
   try {
@@ -230,7 +252,7 @@ function groundwork_fetch_azure_palette() {
  * Fetches a color palette from a Custom API.
  *
  * @return array|null
- *   An array of color hex codes or NULL on failure.
+ *   An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_customapi_palette() {
   try {
@@ -265,7 +287,7 @@ function groundwork_fetch_customapi_palette() {
  * @return string
  *   Rendered HTML for the color palette.
  */
-function groundwork_render_palette(array $palette) {
+function groundwork_render_palette(array $palette): string {
   $output = '<div class="gw-ai-palette-demo"><strong>AI-Generated Color Palette:</strong><br>';
   foreach ($palette as $color) {
     $output .= '<span style="display:inline-block;width:32px;height:32px;background:' . \Drupal\Component\Utility\Html::escape($color) . ';border-radius:4px;margin-right:6px;border:1px solid #ccd;"></span>';
@@ -273,3 +295,15 @@ function groundwork_render_palette(array $palette) {
   $output .= '</div>';
   return $output;
 }
+
+/**
+ * Example: Define a theme constant.
+ */
+// define('GROUNDWORK_VERSION', '1.0.0');
+
+/**
+ * Example: Custom bootstrap logic (runs on every page).
+ */
+// function groundwork_init_custom() {
+//   // Add custom logic here.
+// }

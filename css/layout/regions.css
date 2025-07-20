@@ -16,6 +16,14 @@
   padding: 0;
 }
 
+.region-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-1) 0; /* Uses --space-1 (0.8rem) from tokens.css */
+}
+
 .region-header .block {
   float: left;
   padding: var(--space-1) 0;

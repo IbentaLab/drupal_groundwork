@@ -1,0 +1,209 @@
+/* --------------------------------------------------------------------
+   Framework-core override – Main Menu (horizontal w/ dropdowns)
+   --------------------------------------------------------------------
+   Applies to: nav.block.block-menu.menu--main (ID‑agnostic)
+   Mobile-first, flexbox layout.  JS toggle handled by
+   js/groundwork-main-menu.js.
+   ------------------------------------------------------------------ */
+
+:root {
+  /* Theme colour hooks */
+  --gw-menu-bg: transparent; /* Assuming parent header provides the blue bg */
+  --gw-menu-fg: #ffffff;
+  --gw-menu-hover-bg: #004183; /* Lighter blue for top-level hover */
+  --gw-menu-hover-fg: #ffffff;
+  --gw-submenu-bg: #800000; /* Maroon for dropdowns */
+  --gw-submenu-fg: #d4a12e; /* Gold for dropdown text */
+  --gw-menu-border: 1px solid var(--gw-menu-hover-bg);
+  --gw-menu-radius: 0;
+  --gw-menu-transition: background-color .2s ease, color .2s ease;
+}
+
+/* ====================================================================
+   1. Base reset & shared utilities
+   ==================================================================== */
+nav.block.block-menu.menu--main {
+  width: 100%; /* full-width on mobile under branding */
+}
+
+nav.block.block-menu.menu--main ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav.block.block-menu.menu--main li {
+  list-style: none; /* remove bullets at all levels */
+}
+
+nav.block.block-menu.menu--main a {
+  text-decoration: none;
+  color: var(--gw-menu-fg);
+  transition: var(--gw-menu-transition);
+}
+
+nav.block.block-menu.menu--main a:focus-visible {
+  outline: 2px solid var(--gw-color-focus, currentColor);
+  outline-offset: 2px;
+}
+
+/* ====================================================================
+   2. Mobile (<64em)
+   ==================================================================== */
+nav.block.block-menu.menu--main .menu {
+  display: none; /* toggled via .is-open */
+  background: #0d2c54; /* Dark blue background for mobile dropdown */
+}
+
+nav.block.block-menu.menu--main .menu > .menu-item {
+  border-bottom: var(--gw-menu-border);
+}
+nav.block.block-menu.menu--main .menu > .menu-item:last-child {
+  border-bottom: 0;
+}
+nav.block.block-menu.menu--main .menu > .menu-item > a {
+  display: block;
+  padding: 0.75rem 1rem;
+}
+
+/* Hide caret indicator on all screen sizes */
+nav.block.block-menu.menu--main .menu-item--expanded > a::after {
+  content: "";
+  display: none;
+}
+
+/* hide all nested menus on mobile */
+nav.block.block-menu.menu--main .menu .menu,
+nav.block.block-menu.menu--main .menu-item.is-expanded > .menu {
+  display: none !important;
+}
+
+/* ====================================================================
+   3. Hamburger toggle button
+   ==================================================================== */
+.gw-menu-toggle {
+  background: none;
+  border: 0;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--gw-menu-fg);
+}
+.gw-menu-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+nav.block.block-menu.menu--main.is-open .gw-menu-toggle svg {
+  transform: rotate(90deg);
+}
+nav.block.block-menu.menu--main.is-open .menu {
+  display: block;
+}
+
+/* ====================================================================
+   4. Desktop (≥64em)
+   ==================================================================== */
+@media (min-width: 64em) {
+  .gw-menu-toggle { display: none; }
+
+  nav.block.block-menu.menu--main {
+    width: auto;
+  }
+
+  nav.block.block-menu.menu--main .menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    background: var(--gw-menu-bg);
+  }
+  nav.block.block-menu.menu--main .menu > .menu-item { position: relative; }
+  nav.block.block-menu.menu--main .menu > .menu-item > a {
+    padding: 1rem 1.25rem;
+  }
+  nav.block.block-menu.menu--main .menu > .menu-item > a:hover,
+  nav.block.block-menu.menu--main .menu > .menu-item > a:focus,
+  nav.block.block-menu.menu--main .menu-item--active-trail > a {
+    background: var(--gw-menu-hover-bg);
+    color: var(--gw-menu-hover-fg);
+    box-shadow: none; /* remove default active trail style */
+  }
+
+  /* Second-level dropdown */
+  nav.block.block-menu.menu--main .menu > .menu-item > .menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 14rem;
+    background: var(--gw-submenu-bg);
+    border-radius: var(--gw-menu-radius);
+    box-shadow: none;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(.25rem);
+    visibility: hidden;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  nav.block.block-menu.menu--main .menu > .menu-item:hover > .menu,
+  nav.block.block-menu.menu--main .menu > .menu-item:focus-within > .menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  nav.block.block-menu.menu--main .menu > .menu-item > .menu .menu-item {
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+  }
+  nav.block.block-menu.menu--main .menu > .menu-item > .menu .menu-item:last-child {
+    border-bottom: 0;
+  }
+  nav.block.block-menu.menu--main .menu > .menu-item > .menu a {
+    padding: 0.75rem 1rem;
+    color: var(--gw-submenu-fg);
+    white-space: nowrap;
+  }
+  nav.block.block-menu.menu--main .menu > .menu-item > .menu a:hover,
+  nav.block.block-menu.menu--main .menu > .menu-item > .menu a:focus {
+    background: rgba(0,0,0,0.2);
+    color: var(--gw-menu-hover-fg);
+  }
+
+  /* Third-level dropdown */
+  nav.block.block-menu.menu--main .menu .menu-item--expanded > .menu {
+    left: 100%;
+    top: -1px; /* Align with parent item */
+    border-left: 1px solid rgba(0,0,0,0.25);
+  }
+
+  /* Re-enable caret for desktop dropdowns */
+  nav.block.block-menu.menu--main .menu-item--expanded > a::after {
+    display: inline-block;
+    content: "\25BC";
+    font-size: 0.6em;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    transition: transform .2s ease;
+  }
+  nav.block.block-menu.menu--main .menu .menu-item--expanded > a::after {
+    content: "\25B6"; /* right arrow for side menus */
+    transform: translateY(-1px);
+  }
+}
+
+/* ====================================================================
+   5. Utility class
+   ==================================================================== */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

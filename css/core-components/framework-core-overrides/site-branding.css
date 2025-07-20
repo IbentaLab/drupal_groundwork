@@ -44,7 +44,7 @@
 
 /* Font size and line height for the site name. */
 .site-branding__name {
-  font-size: var(--ms-lg); /* Uses --ms-lg from tokens.css */
+  font-size: var(--ms-xxl); /* Uses --ms-xxl from tokens.css */
   line-height: 1;
 }
 

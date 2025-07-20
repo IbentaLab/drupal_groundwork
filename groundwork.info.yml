@@ -27,6 +27,7 @@ libraries:
   - groundwork/global-styling
   - groundwork/block-styles
   - groundwork/hybrid-styles
+  - groundwork/main-menu
   - groundwork/messages
   - core/normalize
   
