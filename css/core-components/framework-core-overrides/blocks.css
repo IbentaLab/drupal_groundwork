@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Blocks – Framework Core Overrides
+   ========================================================================== */
+
+/**
+ * @file
+ * Framework-level overrides and base styling for Drupal's core .block element.
+ *
+ * These styles are specific to the Groundwork theme framework and define its
+ * opinionated defaults and utility modifiers for blocks. They are intended
+ * to customize or extend the appearance of Drupal blocks beyond the foundational
+ * styles provided by the Starterkit (foundational-core-overrides).
+ */
+
+/**
+ * @section Default Block Container Padding
+ * @description Applies the default internal padding for all Drupal block containers
+ * as defined by the Groundwork theme's design system. This sets the base spacing
+ * for the block wrapper itself.
+ *
+ * Note: This padding applies to the .block element, distinct from padding
+ * applied to content *within* a block via .block-style-target, which is
+ * handled by utilities in css/block-style-components/padding.css.
+ */
+.block {
+  padding: var(--space-1); /* Groundwork's default padding (0.8rem) for all block containers */
+}
+
+/**
+ * @section Block Container Padding Modifiers
+ * @description Utility classes provided by the Groundwork framework to explicitly
+ * control the padding on the .block container itself. These are used to override
+ * the default block padding or to enforce its presence in specific contexts.
+ */
+
+/**
+ * @utility
+ * @name .block.without-padding
+ * @description Removes all padding from the .block container, overriding any default
+ * or inherited padding.
+ * @usage Add this class to a Drupal block to remove its internal spacing.
+ */
+.block.without-padding {
+  padding: 0 !important; /* Force no padding on the block container */
+}
+
+/**
+ * @utility
+ * @name .block.with-padding
+ * @description Ensures the default block padding (defined by --space-1) is applied
+ * to the .block container, even if other more specific rules might otherwise remove it.
+ * @usage Add this class to a Drupal block to explicitly ensure it has Groundwork's default 0.8rem padding.
+ */
+.block.with-padding {
+  padding: var(--space-1) !important; /* Forces the default padding (0.8rem) onto the block container */
+}

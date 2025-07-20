@@ -1,0 +1,30 @@
+/* css/layout/regions.css */
+
+/* ==========================================================================
+   Regions Layout - Groundwork Theme
+   ========================================================================== */
+
+/**
+ * @file
+ * Defines layout-specific styles for blocks and other elements within Drupal regions.
+ * These rules govern the positioning, spacing, and flow of content at a macro level,
+ * aligning with how regions are handled in Drupal's template structure.
+ */
+
+.region-primary-menu .block,
+.region-secondary-menu .block {
+  padding: 0;
+}
+
+.region-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-1) 0; /* Uses --space-1 (0.8rem) from tokens.css */
+}
+
+.region-header .block {
+  float: left;
+  padding: var(--space-1) 0;
+}

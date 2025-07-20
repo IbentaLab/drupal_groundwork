@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Site Branding – Framework Core Overrides
+   ========================================================================== */
+
+/**
+ * @file
+ * Defines layout and styling for Drupal's core site branding block, including
+ * the site logo, site name, and slogan. These styles are specific to the
+ * Groundwork theme framework and enhance the foundational appearance of this
+ * core component.
+ */
+
+/* Default padding for the site branding block container.
+ * This overrides any inherited or default padding to ensure precise layout. */
+.block.site-branding {
+  padding: 0;
+}
+
+/* Flexbox layout for the inner site branding elements.
+ * This ensures the logo and text are aligned horizontally within the block. */
+.site-branding .block-style-target {
+  display: flex; /* Modern Flexbox property */
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+}
+
+/* Sizing and flexibility for logo and text elements within site branding. */
+.site-branding .block-style-target .site-branding__logo,
+.site-branding .block-style-target .site-branding__text {
+  flex: 0 0 auto;
+}
+
+/* Padding for the site logo, applying internal spacing around it. */
+.site-branding__logo {
+  padding: var(--space-1) var(--space-1) var(--space-1) 0; /* Uses --space-1 (0.8rem) from tokens.css */
+}
+
+/* Height for the site logo image.
+ * This uses a calculated rem value based on your base font size and a fixed pixel value for older browser fallback. */
+.site-branding__logo img {
+  height: calc(3.84 / 1.5)rem;
+}
+
+/* Font size and line height for the site name. */
+.site-branding__name {
+  font-size: var(--ms-xxl); /* Uses --ms-xxl from tokens.css */
+  line-height: 1;
+}
+
+/* Removes text decoration from the site name link. */
+.site-branding__name a {
+  text-decoration: none;
+}
+
+/* Responsive adjustments for larger screens (min-width: 769px). */
+@media only screen and (min-width: var(--breakpoint-small-screen)) { /* Uses --breakpoint-small-screen from tokens.css */
+  .site-branding__logo img {
+    height: 100%;
+  }
+  .site-branding__name {
+    font-size: var(--ms-xl); /* Uses --ms-xl from tokens.css */
+    transition: font-size 0.5s;
+  }
+}

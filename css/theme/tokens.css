@@ -46,6 +46,7 @@
 
   /* ---------- Typography / modular scale (from variables.css) ---------- */
   --font-size-base: 1.5rem; /* ≈ 15px; */
+  --gw-icon-size: 2.4rem;   /* 24px for icons, Groundwork 1rem = 10px */
 
   /* Google-font preconnect helper (used in <head>) */
   --google-font-url: "fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin-ext";
@@ -133,6 +134,20 @@
   --shadow-sm: 0 1px 2px rgba(255 255 255 /.05);
   --shadow-md: 0 4px 6px rgba(255 255 255 /.10);
 }
+
+:root[data-theme="light"] {
+  /* These must match your normal (light) theme tokens exactly: */
+  --color-bg:            #ffffff;
+  --color-fg:            rgba(0, 0, 0, 0.87);
+  --color-surface:       #ffffff;
+  --color-surface-contrast: #f4f4f4;
+  --color-border:        rgba(0, 0, 0, 0.12);
+  --color-text:          var(--color-fg);
+  --color-text-light:    #ffffff;
+
+  /* And any other tokens that are overridden for dark mode! */
+}
+
 
 /* Support for native dark/light UI parts */
 html { color-scheme: light dark; }

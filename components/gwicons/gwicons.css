@@ -1,0 +1,15 @@
+/* ==========================================================================
+   gwicons.css — Groundwork SVG icon base styles
+   --------------------------------------------------------------------------
+   • Sizes SVG icons using `font-size` (not width/height) so icons scale
+     with the --gw-icon-size token (set in tokens.css).
+   • Default: 2.4rem (24px; Groundwork's 1rem = 10px).
+   • Override per icon with utility classes (e.g. text-xl), or globally
+     by changing --gw-icon-size in tokens.css.
+   ========================================================================== */
+   
+.gw-icon {
+  display: inline-block;
+  font-size: var(--gw-icon-size, 2.4rem); /* 24px when 1rem = 10px */
+  vertical-align: -.125em;
+}

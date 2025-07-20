@@ -1,132 +1,167 @@
-base:
+# Groundwork Libraries.
+
+global-styling:
   version: VERSION
   css:
     base:
-      css/theme/tokens.css:          { weight: -40 }
-      css/base/root.css:             { weight: -20 }
-      css/base/sections.css:         {}
+      css/base/root.css: { weight: -20 }
+      css/base/sections.css: {}
       css/base/grouping-content.css: {}
-      css/base/text-level.css:       {}
-      css/base/edits.css:            {}
+      css/base/text-level.css: {}
       css/base/embedded-content.css: {}
-      css/base/tabular-data.css:     {}
-      css/base/form-controls.css:    {}
-      css/base/interactive.css:      {}
+      css/base/tabular-data.css: {}
+      css/base/form-controls.css: {}
+      css/base/interactive.css: {}
+      css/base/edits.css: {}
+    layout:
+      css/layout/grid.css: {}
+      css/layout/regions.css: {}
     component:
-      css/vendor/action-links.css:
-        weight: -10
-      css/vendor/breadcrumb.css:
-        weight: -10
-      css/vendor/button.css:
-        weight: -10
-      css/vendor/container-inline.css:
-        weight: -10
-      css/vendor/details.css:
-        weight: -10
-      css/vendor/exposed-filters.css:
-        weight: -10
-      css/vendor/field.css:
-        weight: -10
-      css/vendor/form.css:
-        weight: -10
-      css/vendor/icons.css:
-        weight: -10
-      css/vendor/inline-form.css:
-        weight: -10
-      css/vendor/item-list.css:
-        weight: -10
-      css/vendor/link.css:
-        weight: -10
-      css/vendor/links.css:
-        weight: -10
-      css/vendor/menu.css:
-        weight: -10
-      css/vendor/more-link.css:
-        weight: -10
-      css/vendor/pager.css:
-        weight: -10
-      css/vendor/tabledrag.css:
-        weight: -10
-      css/vendor/tableselect.css:
-        weight: -10
-      css/vendor/tabs.css:
-        weight: -10
-      css/vendor/textarea.css:
-        weight: -10
-      css/vendor/ui-dialog.css:
-        weight: -10
+      css/core-components/foundational-core-overrides/action-links.css: {}
+      css/core-components/foundational-core-overrides/breadcrumb.css: {}
+      css/core-components/foundational-core-overrides/button.css: {}
+      css/core-components/foundational-core-overrides/container-inline.css: {}
+      css/core-components/foundational-core-overrides/details.css: {}
+      css/core-components/foundational-core-overrides/dialog.css: {}
+      css/core-components/foundational-core-overrides/dropbutton.css: {}
+      css/core-components/foundational-core-overrides/exposed-filters.css: {}
+      css/core-components/foundational-core-overrides/field.css: {}
+      css/core-components/foundational-core-overrides/file.css: {}
+      css/core-components/foundational-core-overrides/form.css: {}
+      css/core-components/foundational-core-overrides/icons.css: {}
+      css/core-components/foundational-core-overrides/image-widget.css: {}
+      css/core-components/foundational-core-overrides/indented.css: {}
+      css/core-components/foundational-core-overrides/inline-form.css: {}
+      css/core-components/foundational-core-overrides/item-list.css: {}
+      css/core-components/foundational-core-overrides/link.css: {}
+      css/core-components/foundational-core-overrides/links.css: {}
+      css/core-components/foundational-core-overrides/menu.css: {}
+      css/core-components/foundational-core-overrides/messages.css: {}
+      css/core-components/foundational-core-overrides/more-link.css: {}
+      css/core-components/foundational-core-overrides/node.css: {}
+      css/core-components/foundational-core-overrides/pager.css: {}
+      css/core-components/foundational-core-overrides/progress.css: {}
+      css/core-components/foundational-core-overrides/search-results.css: {}
+      css/core-components/foundational-core-overrides/tabledrag.css: {}
+      css/core-components/foundational-core-overrides/tableselect.css: {}
+      css/core-components/foundational-core-overrides/tablesort.css: {}
+      css/core-components/foundational-core-overrides/tabs.css: {}
+      css/core-components/foundational-core-overrides/textarea.css: {}
+      css/core-components/foundational-core-overrides/ui-dialog.css: {}
+      css/core-components/foundational-core-overrides/user.css: {}
+      css/core-components/framework-core-overrides/blocks.css: {}
+      css/core-components/framework-core-overrides/buttons.css: {}
+      css/core-components/framework-core-overrides/site-branding.css: {}
+    theme:
+      css/theme/tokens.css: { weight: -40 }
+      css/theme/color-utilities.css: {}
+
 dialog:
   version: VERSION
   css:
     component:
-      css/vendor/dialog.css:
-        weight: -10
+      css/drupal-ui/dialog.css: { weight: -10 }
+      css/drupal-ui/ui-dialog.css: { weight: -10 }
+
 dropbutton:
   version: VERSION
   css:
     component:
-      css/vendor/dropbutton.css:
-        weight: -10
+      css/drupal-ui/dropbutton.css: { weight: -10 }
+
 file:
   version: VERSION
   css:
     component:
-      css/vendor/file.css:
-        weight: -10
+      css/drupal-ui/file.css: { weight: -10 }
+
 image-widget:
   version: VERSION
   css:
     component:
-      css/vendor/image-widget.css: {  }
+      css/drupal-ui/image-widget.css: {}
+
 indented:
   version: VERSION
   css:
     component:
-      css/vendor/indented.css: {  }
+      css/drupal-ui/indented.css: {}
+
 messages:
   version: VERSION
   css:
     component:
-      css/vendor/messages.css:
-        weight: -10
+      css/drupal-ui/messages.css: { weight: -10 }
+
 node:
   version: VERSION
   css:
     component:
-      css/vendor/node.css:
-        weight: -10
+      css/drupal-ui/node.css: { weight: -10 }
+
 progress:
   version: VERSION
   css:
     component:
-      css/vendor/progress.css:
-        weight: -10
+      css/drupal-ui/progress.css: { weight: -10 }
 
 drupal.tablesort:
   version: VERSION
   css:
     component:
-      css/vendor/tablesort.css:
-        weight: -10
+      css/drupal-ui/tablesort.css: { weight: -10 }
 
 search-results:
   version: VERSION
   css:
     component:
-      css/vendor/search-results.css: {  }
+      css/drupal-ui/search-results.css: {}
+
 user:
   version: VERSION
   css:
     component:
-      css/vendor/user.css:
-        weight: -10
-block-demo:
+      css/drupal-ui/user.css: { weight: -10 }
+
+block-styles:
   version: VERSION
   css:
     component:
-      css/admin/block-demo.css: {}
-utilities:
+      css/block-style-components/border.css: {}
+      css/block-style-components/card.css: {}
+      css/block-style-components/grid-widths.css: {}
+      css/block-style-components/hover.css: {}
+      css/block-style-components/margin.css: {}
+      css/block-style-components/padding.css: {}
+      css/block-style-components/rounded.css: {}
+      css/block-style-components/shadow.css: {}
+      css/block-style-components/text.css: {}
+      css/block-style-components/text-utilities.css: {}
+
+hybrid-styles:
+  version: VERSION
+  css:
+    component:
+      css/hybrid-style-components/layout-flex-row.css: {}
+
+theme-settings:
   version: VERSION
   css:
     theme:
-      css/utilities/color-utilities.css: {}
+      css/admin/theme-settings.css: {}
+
+admin:
+  version: VERSION
+  css:
+    theme:
+      css/admin/block-demo.css: {}
+
+main-menu:
+  version: VERSION  
+  css:
+    theme:
+      css/core-components/framework-core-overrides/main-menu.css: {}
+  js:
+    js/groundwork-main-menu.js: {}
+  dependencies:
+    - core/drupal

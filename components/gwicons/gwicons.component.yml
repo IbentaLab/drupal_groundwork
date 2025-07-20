@@ -1,0 +1,6 @@
+id: gwicons
+label: 'Groundwork Icons'
+category: 'Helper'
+template: gwicons.twig
+style:
+  - gwicons.css

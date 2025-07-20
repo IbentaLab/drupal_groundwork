@@ -10,8 +10,7 @@
 
 /* Optional global padding for headers/footers */
 :where(header, footer) {
-  padding-block: var(--space-3, 2.4rem);
-  background: var(--color-surface-contrast, #f4f4f4);
+  padding-block: 0;
 }
 
 /* Allow <main> to flex-grow in full-height layouts */
