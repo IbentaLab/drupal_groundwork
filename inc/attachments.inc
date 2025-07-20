@@ -23,17 +23,11 @@ use Drupal\Core\Render\Markup;
  *   A render array of assets already attached to the page.
  */
 function groundwork_page_attachments(array &$attachments): void {
-  $sprite = drupal_get_path('theme', 'groundwork') . '/gwicons/gwicons.svg';
-
-  if (is_readable($sprite)) {
-    $attachments['#attached']['html_head'][] = [
-      [
-        '#type'   => 'markup',
-        '#markup' => file_get_contents($sprite),
-      ],
-      'gwicons.sprite',
-    ];
-  }
+  // Example: add theme color meta tags for better mobile/PWA experience.
+  // $attachments['#attached']['html_head'][] = [
+  //   ['#tag' => 'meta', '#attributes' => ['name' => 'theme-color', 'content' => '#2563eb']],
+  //   'theme_color_meta'
+  // ];
 }
 
 /**

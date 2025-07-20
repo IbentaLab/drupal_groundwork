@@ -1,6 +1,14 @@
-id: gwicons
-label: 'Groundwork Icons'
-category: 'Helper'
-template: gwicons.twig
+name: 'Groundwork Icon'
+status: stable
+schema:
+  props:
+    name:
+      type: string
+      title: Icon Name
+    label:
+      type: string
+      default: ''
+    attributes:
+      type: Drupal\Core\Template\Attribute
 style:
   - gwicons.css

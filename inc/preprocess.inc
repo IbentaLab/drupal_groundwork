@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * @file
@@ -18,7 +18,8 @@ declare(strict_types = 1);
  * @param array $variables
  *   The variables for the HTML template.
  */
-function groundwork_preprocess_html(array &$variables) {
+function groundwork_preprocess_html(array &$variables)
+{
   if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
     $variables['attributes']['class'][] = 'page-block-demo';
   }
@@ -26,8 +27,7 @@ function groundwork_preprocess_html(array &$variables) {
   $color_scheme = theme_get_setting('gw_color_scheme') ?? 'auto';
   if ($color_scheme === 'dark') {
     $variables['html_attributes']['data-theme'] = 'dark';
-  }
-  elseif ($color_scheme === 'light') {
+  } elseif ($color_scheme === 'light') {
     $variables['html_attributes']['data-theme'] = 'light';
   }
 
@@ -40,10 +40,6 @@ function groundwork_preprocess_html(array &$variables) {
       'groundwork-custom-css',
     ];
   }
-
-  // Expose the gwicons macro globally for use in all Twig templates.
-  $twig = \Drupal::service('twig');
-  $variables['gwicons'] = $twig->loadTemplate('@groundwork/gwicons/gwicons.twig');
 }
 
 /**
@@ -54,7 +50,8 @@ function groundwork_preprocess_html(array &$variables) {
  * @param array $variables
  *   The variables array for the page template.
  */
-function groundwork_preprocess_page(array &$variables) {
+function groundwork_preprocess_page(array &$variables)
+{
   $variables['theme_settings'] = [
     'gw_color_scheme' => theme_get_setting('gw_color_scheme'),
     // Only what you actually need for Twig here!
@@ -77,7 +74,8 @@ function groundwork_preprocess_page(array &$variables) {
  *
  * @todo Revisit in https://drupal.org/node/953034 and https://drupal.org/node/3114318
  */
-function groundwork_preprocess_image_widget(array &$variables): void {
+function groundwork_preprocess_image_widget(array &$variables): void
+{
   $data = &$variables['data'];
 
   if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
@@ -93,7 +91,8 @@ function groundwork_preprocess_image_widget(array &$variables): void {
  * @param array $variables
  *   The variables array for the node template.
  */
-function groundwork_preprocess_node(array &$variables): void {
+function groundwork_preprocess_node(array &$variables): void
+{
   // Example: Add a field value as a CSS class.
   // if (!empty($variables['elements']['#node']->bundle())) {
   //   $variables['attributes']['class'][] = 'gw-' . $variables['elements']['#node']->bundle();
@@ -106,7 +105,8 @@ function groundwork_preprocess_node(array &$variables): void {
  * @param array $variables
  *   The variables array for the block template.
  */
-function groundwork_preprocess_block(array &$variables): void {
+function groundwork_preprocess_block(array &$variables): void
+{
   // Example: Add block ID as a class.
   // if (!empty($variables['elements']['#id'])) {
   //   $variables['attributes']['class'][] = 'block-id-' . $variables['elements']['#id'];
@@ -121,6 +121,7 @@ function groundwork_preprocess_block(array &$variables): void {
  * @param array $variables
  *   The variables array for the custom template.
  */
-function groundwork_preprocess_my_custom_template(array &$variables): void {
+function groundwork_preprocess_my_custom_template(array &$variables): void
+{
   // Custom logic for my-custom-template.html.twig.
 }

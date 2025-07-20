@@ -1,10 +1,4 @@
-{#
-  Macro for rendering an SVG icon from the Groundwork icon sprite.
-  Usage: {{ gwicons.icon('bars', 'Open menu') }}
-#}
-{% macro icon(name, label='') %}
-  <svg class="gw-icon gw-icon--{{ name }}"
-       {% if label %}role="img" aria-label="{{ label }}"{% else %}aria-hidden="true"{% endif %}>
-    <use href="#gw-{{ name }}" />
-  </svg>
-{% endmacro %}
+{% set attributes = attributes.addClass('gw-icon', 'gw-icon--' ~ name) %}
+<svg {{ attributes }} {% if label %}role="img" aria-label="{{ label }}"{% else %}aria-hidden="true"{% endif %}>
+  <use href="#gw-{{ name }}" />
+</svg>
