@@ -212,6 +212,79 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#allowed_tags' => ['div', 'span', 'strong'],
   ];
 
+  // ----- Social Links tab -----
+$form['social'] = [
+  '#type' => 'details',
+  '#title' => t('Social Links Bar'),
+  '#group' => 'gw_settings_tabs',
+  '#weight' => 25, // This places it before the Footer tab
+];
+
+// Location Setting
+$form['social']['gw_social_bar_location'] = [
+  '#type' => 'radios',
+  '#title' => t('Location'),
+  '#options' => [
+    'none' => t('None (Hide the bar)'),
+    'header' => t('Above the main site header'),
+    'footer' => t('In the footer (above the legal bar)'),
+  ],
+  '#default_value' => theme_get_setting('gw_social_bar_location') ?: 'footer',
+  '#description' => t('Choose where to display the full-width social links bar.'),
+];
+
+// Alignment Setting
+$form['social']['gw_social_bar_alignment'] = [
+  '#type' => 'radios',
+  '#title' => t('Link Alignment'),
+  '#options' => [
+    'left' => t('Left'),
+    'center' => t('Center'),
+    'right' => t('Right'),
+    'distributed' => t('Distributed (Justify)'),
+  ],
+  '#default_value' => theme_get_setting('gw_social_bar_alignment') ?: 'center',
+  '#description' => t('Align the links within the social bar.'),
+  // Use #states to hide this if the location is 'none'.
+  '#states' => [
+    'visible' => [
+      ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
+    ],
+  ],
+];
+
+// Social Network Fields
+$form['social']['gw_social_links_intro'] = [
+   '#type' => 'markup',
+   '#markup' => '<p><strong>' . t('Enter the full URLs for your social media profiles. The bar will only appear if at least one link is entered.') . '</strong></p>',
+   '#states' => [ // Also hide this if location is 'none'
+     'visible' => [
+       ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
+     ],
+   ],
+];
+
+$social_networks = [
+   'twitter'   => t('X (formerly Twitter)'),
+   'facebook'  => t('Facebook'),
+   'linkedin'  => t('LinkedIn'),
+   'instagram' => t('Instagram'),
+   'youtube'   => t('YouTube'),
+];
+
+foreach ($social_networks as $key => $title) {
+   $form['social']['gw_social_' . $key] = [
+       '#type' => 'url', // Use 'url' type for better validation
+       '#title' => $title,
+       '#default_value' => theme_get_setting('gw_social_' . $key),
+       '#states' => [ // Also hide these if location is 'none'
+         'visible' => [
+           ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
+         ],
+       ],
+   ];
+}
+
   // ----- Footer & Attribution tab -----
   $form['footer'] = [
     '#type' => 'details',

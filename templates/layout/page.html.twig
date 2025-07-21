@@ -44,8 +44,14 @@
 #}
 <div class="layout-page">
 
+	{% if page.social_bar_header %}
+		<div id="social-bar-header" class="social-bar-header" role="complementary" aria-label="Social Bar Header">
+			{{ page.social_bar_header }}
+		</div>
+	{% endif %}
+
 	{% if page.billboard %}
-		<div id="billboard" class="layout-billboard" aria-label="Billboard">
+		<div id="billboard" class="layout-billboard" role="complementary" aria-label="Billboard">
 			{{ page.billboard }}
 		</div>
 	{% endif %}

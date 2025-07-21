@@ -62,6 +62,54 @@ function groundwork_preprocess_page(array &$variables)
   if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
     $variables['#attached']['library'][] = 'groundwork/block-demo';
   }
+
+  // Pass pro status to all templates. We'll use this later.
+  $variables['is_pro'] = function_exists('groundwork_is_pro') && groundwork_is_pro();
+
+  // --- Prepare the Social Bar SDC ---
+  $location = theme_get_setting('gw_social_bar_location');
+
+  // Stop if the bar is disabled.
+  if ($location === 'none') {
+    return;
+  }
+
+  // Get social links from settings.
+  $social_networks = ['twitter', 'facebook', 'linkedin', 'instagram', 'youtube'];
+  $links = [];
+  foreach ($social_networks as $key) {
+    if ($url = theme_get_setting('gw_social_' . $key)) {
+      $links[] = [
+        'url' => $url,
+        // Capitalize the first letter for the name
+        'name' => ucfirst($key),
+      ];
+    }
+  }
+
+  // Stop if there are no links to show.
+  if (empty($links)) {
+    return;
+  }
+
+  // Build the render array for the SDC.
+  $social_bar_sdc = [
+    '#type' => 'component',
+    '#component' => 'groundwork:social-bar',
+    '#props' => [
+      'links' => $links,
+      'alignment' => theme_get_setting('gw_social_bar_alignment'),
+    ],
+  ];
+
+  // Put the SDC into the correct variable based on the location setting.
+  if ($location === 'header') {
+    $variables['page']['social_bar_header'] = $social_bar_sdc;
+  }
+  elseif ($location === 'footer') {
+    // Look at your screenshot, this should go above the grey legal bar.
+    $variables['page']['social_bar_footer'] = $social_bar_sdc;
+  }
 }
 
 /**

@@ -1,0 +1,23 @@
+# social-bar.component.yml
+name: 'Social Bar'
+status: 'stable'
+props:
+  type: object
+  properties:
+    alignment:
+      type: string
+      title: 'Alignment'
+      description: 'The alignment of the links within the bar.'
+      enum: ['left', 'center', 'right', 'distributed']
+      default: 'center'
+    links:
+      type: array
+      title: 'Social Links'
+      description: 'An array of social links, each with a url and name.'
+      items:
+        type: object
+        properties:
+          url:
+            type: string
+          name:
+            type: string
