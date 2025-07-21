@@ -81,6 +81,7 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#type' => 'select',
     '#title' => t('AI Provider'),
     '#options' => [
+      ''            => t('Choose provider...'),
       'gemini'      => t('Google Gemini (Gemini Pro – recommended, free tier)'),
       'openai'      => t('OpenAI (ChatGPT, GPT-4o, GPT-3.5 Turbo)'),
       'openrouter'  => t('OpenRouter (DeepSeek, Llama-3, Mixtral, GPT-4o, etc.)'),
@@ -90,7 +91,7 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
       'perplexity'  => t('Perplexity AI (PPLX-70B, web-powered Q&A, paid only)'),
       'simulate'    => t('Simulate AI (demo only, no real AI)'),
     ],
-    '#default_value' => theme_get_setting('ai_provider') ?: 'gemini',
+    '#default_value' => theme_get_setting('ai_provider') ?: '',
     '#description' => t('Choose your AI provider. Gemini is free for most users. OpenRouter gives you access to DeepSeek, Llama, and many others.'),
   ];
   // Provider-specific API keys
@@ -291,6 +292,13 @@ function groundwork_validate_custom_css($element, FormStateInterface $form_state
 // Add validation for API keys
 function groundwork_validate_api_key($element, FormStateInterface $form_state, $form) {
   $api_key = $form_state->getValue($element['#name']);
+  $provider = $form_state->getValue('ai_provider');
+  
+  // Skip validation if no provider is selected or simulate mode is used
+  if (empty($provider) || $provider === 'simulate') {
+    return;
+  }
+  
   if (empty($api_key)) {
     $form_state->setError($element, t('The API key cannot be empty.'));
   }
