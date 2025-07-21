@@ -55,6 +55,7 @@ global-styling:
     theme:
       css/theme/tokens.css: { weight: -40 }
       css/theme/color-utilities.css: {}
+      framework-partials/gwicons/gwicons.css: {}
 
 dialog:
   version: VERSION

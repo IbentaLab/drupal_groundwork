@@ -1,8 +1,29 @@
+# ------------------------------------------------------------------------------
+# Groundwork Theme Framework for Drupal 11
+#
+# Groundwork is a sleek, block-based Drupal theme framework optimized for:
+# - Accessibility (WCAG 2.1 AA, Norwegian universal design)
+# - Performance (vanilla CSS/JS, no build tools)
+# - Unlimited layout customization (Layout Builder, SDC, block regions)
+# - Modern CSS architecture (SMACSS/BEM, tokens, utility layers)
+# - Developer/editor friendly (clear regions, atomic and block style components)
+#
+# Features:
+# - Fully semantic regions and markup for assistive technology
+# - Design tokens for color, spacing, and typography
+# - Layout Builder, Single Directory Components (SDC), and flexible blocks
+# - No external dependencies; pure Drupal theming
+# ------------------------------------------------------------------------------
+
 name: Groundwork
-description: 'A sleek, block-based Drupal theme framework optimized for accessibility, performance, and unlimited layout customization—fully compliant with WCAG, ARIA, and Norway’s universal design requirements.'
+description: >
+  A sleek, block-based Drupal theme framework optimized for accessibility,
+  performance, and unlimited layout customization—fully compliant with WCAG,
+  ARIA, and Norway’s universal design requirements.
 type: theme
 version: VERSION
 core_version_requirement: ^11
+base theme: stable9
 
 regions:
   billboard: Billboard
@@ -24,13 +45,13 @@ regions:
   footer: Footer
 
 libraries:
+  - core/normalize
   - groundwork/global-styling
   - groundwork/block-styles
   - groundwork/hybrid-styles
   - groundwork/main-menu
   - groundwork/messages
-  - core/normalize
-  
+
 libraries-extend:
   user/drupal.user:
     - groundwork/user
@@ -45,5 +66,4 @@ libraries-extend:
   core/drupal.tablesort:
     - groundwork/drupal.tablesort
 
-'base theme': stable9
 generator: 'starterkit_theme:11.2.2'
