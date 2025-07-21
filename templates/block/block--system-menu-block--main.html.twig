@@ -53,6 +53,14 @@
 		<h2{{title_attributes.setAttribute('id',heading_id)}}>{{ configuration.label }}</h2>
 		{{ title_suffix }}
 
+		{# Hamburger for mobile (checkbox + label) - added here! #}
+		<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+		<label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+			<span style="display:block;width:2.2rem;height:0.3rem;background:#fff;margin:0.4rem 0;border-radius:2px"></span>
+			<span style="display:block;width:2.2rem;height:0.3rem;background:#fff;margin:0.4rem 0;border-radius:2px"></span>
+			<span style="display:block;width:2.2rem;height:0.3rem;background:#fff;margin:0.4rem 0;border-radius:2px"></span>
+		</label>
+
 		{# Menu. #}
 		{% block content %}
 			{{ content }}

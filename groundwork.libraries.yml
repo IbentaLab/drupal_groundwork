@@ -14,8 +14,10 @@ global-styling:
       css/base/interactive.css: {}
       css/base/edits.css: {}
     layout:
+      css/layout/page.css: {}
       css/layout/grid.css: {}
       css/layout/regions.css: {}
+      css/layout/footer.css: {}
     component:
       css/core-components/foundational-core-overrides/action-links.css: {}
       css/core-components/foundational-core-overrides/breadcrumb.css: {}
@@ -51,6 +53,8 @@ global-styling:
       css/core-components/foundational-core-overrides/user.css: {}
       css/core-components/framework-core-overrides/blocks.css: {}
       css/core-components/framework-core-overrides/buttons.css: {}
+      css/core-components/framework-core-overrides/main-menu.css: {}
+      css/core-components/framework-core-overrides/menu.css: {}
       css/core-components/framework-core-overrides/site-branding.css: {}
     theme:
       css/theme/tokens.css: { weight: -40 }

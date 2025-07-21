@@ -16,15 +16,17 @@
   padding: 0;
 }
 
+/* regions.css – region (header/footer/sidebar) layout */
+
 .region-header {
+  background: var(--nav-bg, var(--color-brand));
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  padding: var(--space-1) 0; /* Uses --space-1 (0.8rem) from tokens.css */
+  align-items: center;
+  position: relative;
+  height: 10rem;
+  width: 100%;
+  z-index: 10;
 }
 
-.region-header .block {
-  float: left;
-  padding: var(--space-1) 0;
-}
+

@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Site Footer Layout
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Site Footer Legal Section
+   ========================================================================== */
+
+.site-footer__legal {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--space-1) var(--space-2);
+  
+  /* These colors are static and won't change with the theme */
+  background-color: var(--grey);
+  color: var(--color-text-light);
+
+  font-size: var(--ms-sm);
+  text-align: center;
+}
+
+.site-footer__legal a {
+  color: var(--color-text-light);
+  text-decoration: underline;
+}
+
+.site-footer__legal a:hover {
+  text-decoration: none;
+}

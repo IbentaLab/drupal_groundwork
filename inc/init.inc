@@ -14,48 +14,6 @@ use Drupal\Core\Form\FormStateInterface;
  */
 
 /**
- * Adds Groundwork's system utility to the footer region.
- * (Core theme integration — do not remove or modify.)
- *
- * @internal
- *
- * @param array $variables
- *   The page variables array passed by reference.
- */
-function groundwork_postprocess_footer(array &$variables): void {
-  $show_attribution = theme_get_setting('gw_footer_attribution') ?? 1;
-  $copyright_enabled = theme_get_setting('gw_footer_copyright_enable') ?? 1;
-  $copyright_text = trim(theme_get_setting('gw_footer_copyright') ?? '');
-  $site_name = \Drupal::config('system.site')->get('name') ?? 'Drupal powered by Groundwork';
-  $default_copyright = t('&copy; {year} @site_name. All rights reserved.', [
-    '@site_name' => $site_name,
-  ]);
-  $year = date('Y');
-
-  $footer_utility = '';
-  if ($show_attribution) {
-    $footer_utility .= t('Site powered by') . ' <a href="https://groundwork.ibenta.no" rel="nofollow">Groundwork Theme Framework</a>.';
-  }
-  if ($show_attribution && $copyright_enabled) {
-    $footer_utility .= ' <span aria-hidden="true">|</span> ';
-  }
-  if ($copyright_enabled) {
-    $output_copyright = $copyright_text ?: $default_copyright;
-    $output_copyright = str_replace(['{year}', '{site_name}'], [$year, $site_name], $output_copyright);
-    $footer_utility .= $output_copyright;
-  }
-
-  if (!empty($variables['page']['footer'])) {
-    $variables['page']['footer']['groundwork_footer_system_utility'] = [
-      '#type' => 'markup',
-      '#markup' => '<div class="site-footer__legal">' . $footer_utility . '</div>',
-      '#allowed_tags' => ['a', 'span', 'div'],
-      '#weight' => 10000,
-    ];
-  }
-}
-
-/**
  * AJAX callback for AI-powered color palette suggestion.
  *
  * @param array $form
@@ -294,6 +252,50 @@ function groundwork_render_palette(array $palette): string {
   }
   $output .= '</div>';
   return $output;
+}
+
+/**
+ * Adds Groundwork's system utility to the footer region.
+ * (Core theme integration — do not remove or modify.)
+ *
+ * @internal
+ *
+ * @param array $variables
+ *   The page variables array passed by reference.
+ */
+function groundwork_postprocess_footer(array &$variables): void {
+  // --- Always show attribution and copyright for GPL (free) users ---
+  // For now, force both on for GPL version:
+  $show_attribution = 1;
+  $copyright_enabled = 1;
+
+  $copyright_text = trim(theme_get_setting('gw_footer_copyright') ?? '');
+  $site_name = \Drupal::config('system.site')->get('name') ?? 'Drupal powered by Groundwork';
+  $default_copyright = t('&copy; {year} @site_name. All rights reserved.', [
+    '@site_name' => $site_name,
+  ]);
+  $year = date('Y');
+
+  $footer_utility = '';
+  if ($show_attribution) {
+    $footer_utility .= t('Site powered by') . ' <a href="https://groundwork.ibenta.no" rel="nofollow">Groundwork Theme Framework</a>.';
+  }
+  if ($show_attribution && $copyright_enabled) {
+    $footer_utility .= ' <span aria-hidden="true">|</span> ';
+  }
+  if ($copyright_enabled) {
+    $output_copyright = $copyright_text ?: $default_copyright;
+    $output_copyright = str_replace(['{year}', '{site_name}'], [$year, $site_name], $output_copyright);
+    $footer_utility .= $output_copyright;
+  }
+
+  // This correctly adds the legal text as a renderable element to the footer region.
+  $variables['page']['footer']['groundwork_footer_system_utility'] = [
+    '#type' => 'markup',
+    '#markup' => '<div class="site-footer__legal">' . $footer_utility . '</div>',
+    '#allowed_tags' => ['a', 'span', 'div'],
+    '#weight' => 10000,
+  ];
 }
 
 /**

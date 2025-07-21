@@ -60,12 +60,12 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#description' => t('Switch between light and dark mode, or follow the user’s operating system preference.'),
   ];
   $form['design']['gw_custom_css'] = [
-    '#type' => 'textarea',
-    '#title' => t('Custom CSS'),
-    '#description' => t('Add custom CSS for quick tweaks or experiments. Only valid CSS will be rendered. HTML or JavaScript is not allowed.'),
-    '#default_value' => theme_get_setting('gw_custom_css'),
-    '#element_validate' => ['groundwork_validate_custom_css'],
-  ];
+  '#type' => 'textarea',
+  '#title' => t('Custom CSS'),
+  '#description' => t('Add custom CSS for quick tweaks or experiments. Only valid CSS will be rendered. For security reasons, HTML tags (such as &lt;div&gt;, &lt;script&gt;) or JavaScript code are not allowed—if your CSS includes &lt; or &gt;, it will be rejected.'),
+  '#default_value' => theme_get_setting('gw_custom_css'),
+  '#element_validate' => ['groundwork_validate_custom_css'],
+];
 
   // ----- AI-powered Tools tab -----
   $form['ai_tools'] = [
@@ -227,7 +227,7 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#attributes' => [
       'disabled' => 'disabled',
     ],
-  ];
+  ];  
   $form['footer']['gw_footer_copyright_enable'] = [
     '#type' => 'checkbox',
     '#title' => t('Show copyright text in the footer'),
@@ -281,8 +281,7 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
 /**
  * Validation for the custom CSS field.
  */
-function groundwork_validate_custom_css($element, FormStateInterface $form_state, $form)
-{
+function groundwork_validate_custom_css($element, FormStateInterface $form_state, $form) {
   $css = $form_state->getValue('gw_custom_css');
   if (preg_match('/[<>]/', $css)) {
     $form_state->setError($element, t('HTML tags are not allowed in custom CSS.'));

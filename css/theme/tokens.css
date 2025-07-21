@@ -9,18 +9,18 @@
 
 :root {
   /* ---------- Brand palette (HSL approximations in comments) ---------- */
-  --blue:   #067cc6;  /* hsl(202 94% 40%) */
-  --red:    #c61c06;  /* hsl(  7 94% 40%) */
-  --green:  #40ba44;  /* hsl(122 51% 49%) */
-  --orange: #ff8c00;  /* hsl( 34 100% 50%) */
-  --purple: #8906c6;  /* hsl(277 94% 40%) */
-  --pink:   #c60666;  /* hsl(330 94% 40%) */
-  --gold:   #c69c06;  /* hsl( 45 94% 40%) */
-  --brown:  #c65c06;  /* hsl( 26 94% 40%) */
-  --grey:   #808080;  /* hsl(  0  0% 50%) */
-  --teal:   #009688;  /* hsl(174 100% 29%) */
-  --lime:   #afb42b;  /* hsl( 62 63% 44%) */
-  --silver: #9e9e9e;  /* hsl(  0  0% 62%) */
+  --blue:   hsl(202 94% 40%);  /* #067cc6 */
+  --red:    hsl(7 94% 40%);    /* #c61c06 */
+  --green:  hsl(122 51% 49%);  /* #40ba44 */
+  --orange: hsl(34 100% 50%);  /* #ff8c00 */
+  --purple: hsl(277 94% 40%);  /* #8906c6 */
+  --pink:   hsl(330 94% 40%);  /* #c60666 */
+  --gold:   hsl(45 94% 40%);   /* #c69c06 */
+  --brown:  hsl(26 94% 40%);   /* #c65c06 */
+  --grey:   hsl(0 0% 50%);     /* #808080 */
+  --teal:   hsl(174 100% 29%); /* #009688 */
+  --lime:   hsl(62 63% 44%);   /* #afb42b */
+  --silver: hsl(0 0% 62%);     /* #9e9e9e */
 
   /* ---------- Semantic palette (light theme defaults) ---------- */
   --color-bg:            #ffffff;
@@ -30,19 +30,34 @@
   --color-border:        rgba(0 0 0 /.12);
 
   --color-link:          var(--blue);
-  --color-link-hover:    var(--blue--dark2, #04578b);
+  --color-link-hover:    hsl(from var(--blue) h s calc(l - 8%))
 
   /* Text helpers from colours.css root */
   --color-text:          var(--color-fg);
   --color-text-light:    #ffffff;
 
-  /* Semantic aliases (Bootstrap-like) */
+    /* Semantic aliases (Bootstrap-like) */
   --color-primary: var(--blue);
   --color-danger:  var(--red);
   --color-success: var(--green);
   --color-warning: var(--orange);
   --color-info:    var(--purple);
   --color-muted:   var(--grey);
+
+  /* Brand color: just set this once! */
+  --color-brand: var(--blue);
+  --color-brand-hover: hsl(from var(--color-brand) h s calc(l - 8%));
+  --color-brand-contrast: #fff;
+
+   /* Colors for the navigation bar in header */
+  --nav-bg: var(--color-brand);
+  --nav-hover: hsl(from var(--nav-bg) h s calc(l - 8%));
+  --nav-active: var(--color-brand);
+  --nav-text: var(--color-brand-contrast, #fff);
+  --nav-shadow: 0 2px 12px rgba(0,0,0,.12);
+
+  --dropdown-bg: hsl(0 0% 35%); /* Mid grey, adjust as needed */
+  --dropdown-text: #fff;
 
   /* ---------- Typography / modular scale (from variables.css) ---------- */
   --font-size-base: 1.5rem; /* ≈ 15px; */
@@ -148,6 +163,25 @@
   /* And any other tokens that are overridden for dark mode! */
 }
 
+:root, [data-theme="light"] {
+  --color-link:        var(--blue);
+  --color-link-hover:  hsl(from var(--color-link) h s calc(l - 8%));
+}
 
-/* Support for native dark/light UI parts */
-html { color-scheme: light dark; }
+[data-theme="dark"] {
+  --color-bg:  #121212;
+  --color-fg:  rgba(240, 240, 240, 0.87);
+  --color-surface: #1e1e1e;
+  --color-surface-contrast: #2a2a2a;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-link:        var(--blue);
+  --color-link-hover:  hsl(from var(--color-link) h s calc(l + 8%));
+  --color-brand-hover: hsl(from var(--color-brand) h s calc(l + 8%));
+  --nav-hover:         hsl(from var(--nav-bg) h s calc(l + 8%));
+  --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 4px 6px rgba(255, 255, 255, 0.10);
+  --dropdown-bg: hsl(0 0% 20%); /* Slightly darker for dark theme, but can be same if you prefer */
+  --dropdown-text: #fff;
+}
+
+

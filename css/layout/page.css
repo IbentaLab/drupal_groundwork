@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Page Layout Shell
+   ========================================================================== */
+
+/*
+ * Sticky Footer: Ensures the footer stays at the bottom of the viewport
+ * on pages with short content.
+ */
+.layout-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--drupal-displace-offset-top, 0px));
+}
+
+main.layout-main {
+  flex-grow: 1;
+}

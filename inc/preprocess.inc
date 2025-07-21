@@ -57,10 +57,8 @@ function groundwork_preprocess_page(array &$variables)
     // Only what you actually need for Twig here!
   ];
 
-  if (file_exists(__DIR__ . '/inc/init.inc')) {
-    include_once __DIR__ . '/inc/init.inc';
-    groundwork_postprocess_footer($variables);
-  }
+  groundwork_postprocess_footer($variables);
+  
   if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
     $variables['#attached']['library'][] = 'groundwork/block-demo';
   }

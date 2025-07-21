@@ -27,15 +27,15 @@
 {{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
-	{% import _self as menus %}
-	{% if items %}
-		{% if menu_level == 0 %}
-			<ul{{attributes.addClass('menu', 'menu--level-' ~ menu_level)}}>	
-		{% else %}
-			<ul class="menu menu--level-{{ menu_level }}">
-		{% endif %}
-		{% for item in items %}
-			{%
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass('menu', 'menu--level-' ~ menu_level) }}>
+    {% else %}
+      <ul class="menu menu--level-{{ menu_level }}">
+    {% endif %}
+    {% for item in items %}
+      {%
         set classes = [
           'menu-item',
           item.is_expanded ? 'menu-item--expanded',
@@ -43,13 +43,21 @@
           item.in_active_trail ? 'menu-item--active-trail',
         ]
       %}
-					<li{{item.attributes.addClass(classes)}}>
-						{{ link(item.title, item.url) }}
-						{% if item.below %}
-							{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-						{% endif %}
-					</li>
-				{% endfor %}
-			</ul>
-		{% endif %}
-	{% endmacro %}
+      <li{{ item.attributes.addClass(classes) }}>
+        {{ link(item.title, item.url) }}
+        {# Submenu toggle only if this item has children #}
+        {% if item.below %}
+          {# Unique id for toggle based on menu level and item url #}
+          {% set toggle_id = 'submenu-toggle-' ~ menu_level ~ '-' ~ loop.index %}
+          <input type="checkbox" id="{{ toggle_id }}" class="submenu-toggle" />
+          <label for="{{ toggle_id }}" class="submenu-toggle-label" tabindex="0" aria-label="Toggle submenu">
+            &#9660;
+          </label>
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
