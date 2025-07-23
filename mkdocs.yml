@@ -1,0 +1,101 @@
+# -----------------------------------------------------------------------------
+# MkDocs Configuration for the Groundwork Theme Codex
+# -----------------------------------------------------------------------------
+
+# Project Information
+site_name: 'Groundwork Codex'
+site_url: 'https://IbentaLab.github.io/drupal_groundwork/'
+repo_url: 'https://github.com/IbentaLab/drupal_groundwork'
+repo_name: 'IbentaLab/drupal_groundwork'
+site_description: 'The fast, accessible, atomic foundation for block-based Drupal.'
+site_author: 'John Filipstad | IbentaLab'
+
+# --- Custom Directory Configuration ---
+# This section tells MkDocs where to find your source files and where to place
+# the final generated website. Using custom directories like 'src' and 'public'
+# is a best practice that keeps the project's root directory clean and organized.
+
+# Source Directory:
+# All of your raw Markdown documentation files should live here. MkDocs will
+# recursively scan this directory to build the site navigation and content based
+# on the file structure and the 'nav' configuration below.
+docs_dir: 'codex/src'
+
+# Output Directory:
+# When you run the `mkdocs build` command, the final, static HTML website will be
+# generated inside this folder. This directory should be added to your .gitignore
+# file, as it contains generated code that should not be committed to the repository.
+site_dir: 'codex/public'
+
+
+# -----------------------------------------------------------------------------
+# Theme Configuration
+# -----------------------------------------------------------------------------
+theme:
+  name: 'material'
+  logo: 'images/groundwork-logo.svg' # Path is relative to docs_dir
+  favicon: 'images/groundwork-logo.svg' # Path is relative to docs_dir
+  palette:
+    # Light mode
+    - scheme: default
+      primary: 'blue'
+      accent: 'light-blue'
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: 'blue'
+      accent: 'light-blue'
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+
+# -----------------------------------------------------------------------------
+# Navigation Structure
+# -----------------------------------------------------------------------------
+nav:
+  - 'Home': 'index.md'
+  - 'Getting Started':
+    - 'Overview': 'getting-started/index.md'
+    - 'Installation': 'getting-started/installation.md'
+  - 'Guides':
+    - 'Overview': 'guides/index.md'
+    - 'Core Architecture': 'guides/core-architecture.md'
+    - 'Block Style Components (BSC)': 'guides/block-style-components.md'
+    - 'Hybrid Style Components (HSC)': 'guides/hybrid-style-components.md'
+    - 'Single Directory Components (SDC)': 'guides/single-directory-components.md'
+    - 'Framework Partials (FP)': 'guides/framework-partials.md'
+    - 'Grid System': 'guides/grid-system.md'
+    - 'Accessibility': 'guides/accessibility.md'
+  - 'Contributing':
+    - 'How to Contribute': 'contributing/index.md'
+    - 'Code Standards':
+      - 'Overview': 'contributing/code-standards/index.md'
+      - 'CSS': 'contributing/code-standards/css.md'
+      - 'JavaScript': 'contributing/code-standards/javascript.md'
+      - 'PHP': 'contributing/code-standards/php.md'
+      - 'Twig': 'contributing/code-standards/twig.md'
+      - 'YAML': 'contributing/code-standards/yaml.md'
+  - 'Demos':
+    - 'Overview': 'demos/index.md'
+    - 'Components': 'demos/components.md'
+    - 'Homepage Layout': 'demos/homepage.md'
+    - 'Landing Page Layout': 'demos/landing-page.md'
+
+# -----------------------------------------------------------------------------
+# Markdown Extensions
+# -----------------------------------------------------------------------------
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
