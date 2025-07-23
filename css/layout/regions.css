@@ -20,13 +20,17 @@
 
 .region-header {
   background: var(--nav-bg, var(--color-brand));
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
-  height: 10rem;
   width: 100%;
   z-index: 10;
 }
 
+/**
+ * The .region-header also has the .grid class applied via Twig.
+ * This rule vertically centers the grid cells (the blocks) within the header.
+ */
+.region-header.grid {
+  align-items: center;
+  min-height: var(--nav-height, 6rem); /* Ensure a minimum height for the header. */
+}
 

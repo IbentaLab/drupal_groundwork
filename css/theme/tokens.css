@@ -28,15 +28,12 @@
   --color-surface:       #ffffff;
   --color-surface-contrast: #f4f4f4;
   --color-border:        rgba(0 0 0 /.12);
-
   --color-link:          var(--blue);
-  --color-link-hover:    hsl(from var(--blue) h s calc(l - 8%))
-
-  /* Text helpers from colours.css root */
+  --color-link-hover:    hsl(from var(--blue) h s calc(l - 8%));
   --color-text:          var(--color-fg);
   --color-text-light:    #ffffff;
 
-    /* Semantic aliases (Bootstrap-like) */
+  /* Semantic aliases (Bootstrap-like) */
   --color-primary: var(--blue);
   --color-danger:  var(--red);
   --color-success: var(--green);
@@ -44,47 +41,47 @@
   --color-info:    var(--purple);
   --color-muted:   var(--grey);
 
-  /* Brand color: just set this once! */
+  /* Brand color */
   --color-brand: var(--blue);
   --color-brand-hover: hsl(from var(--color-brand) h s calc(l - 8%));
   --color-brand-contrast: #fff;
 
-   /* Colors for the navigation bar in header */
+  /* Navigation colors */
   --nav-bg: var(--color-brand);
   --nav-hover: hsl(from var(--nav-bg) h s calc(l - 8%));
   --nav-active: var(--color-brand);
   --nav-text: var(--color-brand-contrast, #fff);
   --nav-shadow: 0 2px 12px rgba(0,0,0,.12);
 
-  --dropdown-bg: hsl(0 0% 35%); /* Mid grey, adjust as needed */
+  /* Dropdown colors - consistent across themes */
+  --dropdown-bg: hsl(0 0% 20%); /* #333 */
+  --dropdown-hover-bg: hsl(0 0% 27%); /* #444 */
   --dropdown-text: #fff;
 
-  /* ---------- Typography / modular scale (from variables.css) ---------- */
-  --font-size-base: 1.5rem; /* ≈ 15px; */
-  --gw-icon-size: 2.4rem;   /* 24px for icons, Groundwork 1rem = 10px */
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.10);
 
-  /* Google-font preconnect helper (used in <head>) */
+  /* Typography */
+  --font-size-base: 1.5rem;
+  --gw-icon-size: 2.4rem;
   --google-font-url: "fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin-ext";
-
   --font-family-sans: "Ubuntu","Segoe UI","San Francisco","Roboto",sans-serif;
   --font-family-serif: Georgia,"Times New Roman",Times,serif;
   --font-family-mono:  "Lucida Console",Monaco,monospace;
-
   --font-family:            var(--font-family-sans);
   --heading-font-family:    var(--font-family-sans);
   --site-name-font-family:  var(--font-family-sans);
 
-  /* ---------- BEM helpers (rarely changed) ---------- */
+  /* BEM helpers */
   --bem-block-name:        "bem-block-name";
   --bem-element-name:      "bem-element";
   --bem-element-separator: "__";
   --bem-modifier-separator:"--";
 
-  /* ---------- Modular-scale config ---------- */
-  --scale-type: var(--scale-perfect-fourth); /* ≈ 1.333 */
-  --scale-base: 1.5rem;                      /* ≈ 15 px */
-
-  /* Ratio presets */
+  /* Modular-scale */
+  --scale-type: var(--scale-perfect-fourth);
+  --scale-base: 1.5rem;
   --scale-minor-second:      1.067;
   --scale-major-second:      1.125;
   --scale-minor-third:       1.2;
@@ -97,17 +94,15 @@
   --scale-minor-seventh:     1.778;
   --scale-major-seventh:     1.875;
   --scale-octave:            2;
+  --ms-md:   var(--scale-base);
+  --ms-sm:   calc(var(--ms-md) / var(--scale-type));
+  --ms-xs:   calc(var(--ms-sm) / var(--scale-type));
+  --ms-lg:   calc(var(--ms-md) * var(--scale-type));
+  --ms-xl:   calc(var(--ms-lg) * var(--scale-type));
+  --ms-xxl:  calc(var(--ms-xl) * var(--scale-type));
+  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type));
 
-  /* Named steps (≈ Major-Third scale) */
-  --ms-md:   var(--scale-base);                               /* 1.5 rem */
-  --ms-sm:   calc(var(--ms-md) / var(--scale-type));          /* ~1.125 rem */
-  --ms-xs:   calc(var(--ms-sm) / var(--scale-type));          /* ~0.844 rem */
-  --ms-lg:   calc(var(--ms-md) * var(--scale-type));          /* ~1.999 rem */
-  --ms-xl:   calc(var(--ms-lg) * var(--scale-type));          /* ~2.665 rem */
-  --ms-xxl:  calc(var(--ms-xl) * var(--scale-type));          /* ~3.553 rem */
-  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type));         /* ~4.736 rem */
-
-  /* ---------- Spacing scale (rem so 1 = base-font-size) ---------- */
+  /* Spacing */
   --space-0: 0.4rem;
   --space-1: 0.8rem;
   --space-2: 1.6rem;
@@ -115,73 +110,56 @@
   --space-4: 3.2rem;
   --space-5: 4.0rem;
 
-  /* ---------- Breakpoints ---------- */
+  /* Breakpoints */
   --breakpoint-small-screen:  768px;
   --breakpoint-medium-screen: 992px;
   --breakpoint-large-screen:  1200px;
 }
 
-/* -----------------------------------------------------------------
-   Optional dark-theme override — use OS setting **or**
-   add [data-theme="dark"] to <html> for manual toggle.
-   ----------------------------------------------------------------- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg:  #121212;
-    --color-fg:  rgba(240 240 240 /.87);
-    --color-surface: #1e1e1e;
-    --color-surface-contrast: #2a2a2a;
-    --color-border: rgba(255 255 255 /.12);
+/* ===================================================================
+   Dark & Light Theme Overrides
+   =================================================================== */
 
-    /* Optional shadows already in theme-tokens.css */  /* same values kept */
-    --shadow-sm: 0 1px 2px rgba(255 255 255 /.05);
-    --shadow-md: 0 4px 6px rgba(255 255 255 /.10);
-  }
-}
-
-:root[data-theme="dark"] {
-  /* identical overrides for manual switch */
-  --color-bg:  #121212;
-  --color-fg:  rgba(240 240 240 /.87);
-  --color-surface: #1e1e1e;
-  --color-surface-contrast: #2a2a2a;
-  --color-border: rgba(255 255 255 /.12);
-  --shadow-sm: 0 1px 2px rgba(255 255 255 /.05);
-  --shadow-md: 0 4px 6px rgba(255 255 255 /.10);
-}
-
-:root[data-theme="light"] {
-  /* These must match your normal (light) theme tokens exactly: */
+/* --- Light Theme (Default & Explicit) --- */
+:root:not([data-theme="dark"]),
+[data-theme="light"] {
   --color-bg:            #ffffff;
   --color-fg:            rgba(0, 0, 0, 0.87);
   --color-surface:       #ffffff;
   --color-surface-contrast: #f4f4f4;
   --color-border:        rgba(0, 0, 0, 0.12);
-  --color-text:          var(--color-fg);
-  --color-text-light:    #ffffff;
-
-  /* And any other tokens that are overridden for dark mode! */
+  --color-link-hover:    hsl(from var(--color-link) h s calc(l - 8%));
+  --color-brand-hover:   hsl(from var(--color-brand) h s calc(l - 8%));
+  --nav-hover:           hsl(from var(--nav-bg) h s calc(l - 8%));
+  --shadow-sm:           0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md:           0 4px 6px rgba(0, 0, 0, 0.10);
 }
 
-:root, [data-theme="light"] {
-  --color-link:        var(--blue);
-  --color-link-hover:  hsl(from var(--color-link) h s calc(l - 8%));
+/* --- Dark Theme (OS Preference & Explicit) --- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg:  #121212;
+    --color-fg:  rgba(240, 240, 240, 0.87);
+    --color-surface: #1e1e1e;
+    --color-surface-contrast: #2a2a2a;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-link-hover:  hsl(from var(--color-link) h s calc(l + 8%));
+    --color-brand-hover: hsl(from var(--color-brand) h s calc(l + 8%));
+    --nav-hover:         hsl(from var(--nav-bg) h s calc(l + 8%));
+    --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
+    --shadow-md: 0 4px 6px rgba(255, 255, 255, 0.10);
+  }
 }
 
 [data-theme="dark"] {
-  --color-bg:  #121212;
-  --color-fg:  rgba(240, 240, 240, 0.87);
-  --color-surface: #1e1e1e;
-  --color-surface-contrast: #2a2a2a;
-  --color-border: rgba(255, 255, 255, 0.12);
-  --color-link:        var(--blue);
-  --color-link-hover:  hsl(from var(--color-link) h s calc(l + 8%));
-  --color-brand-hover: hsl(from var(--color-brand) h s calc(l + 8%));
-  --nav-hover:         hsl(from var(--nav-bg) h s calc(l + 8%));
-  --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
-  --shadow-md: 0 4px 6px rgba(255, 255, 255, 0.10);
-  --dropdown-bg: hsl(0 0% 20%); /* Slightly darker for dark theme, but can be same if you prefer */
-  --dropdown-text: #fff;
+    --color-bg:  #121212;
+    --color-fg:  rgba(240, 240, 240, 0.87);
+    --color-surface: #1e1e1e;
+    --color-surface-contrast: #2a2a2a;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-link-hover:  hsl(from var(--color-link) h s calc(l + 8%));
+    --color-brand-hover: hsl(from var(--color-brand) h s calc(l + 8%));
+    --nav-hover:         hsl(from var(--nav-bg) h s calc(l + 8%));
+    --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
+    --shadow-md: 0 4px 6px rgba(255, 255, 255, 0.10);
 }
-
-

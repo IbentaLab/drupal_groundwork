@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Hybrid Style Component: Horizontal Menu
+   ========================================================================== */
+
+/**
+ * @file
+ * Provides the styles for the "Horizontal Menu" HSC.
+ *
+ * This component transforms any menu block with the .menu--horizontal class
+ * into a responsive, multi-level navigation bar. It displays as a horizontal
+ * bar with dropdowns on desktop and collapses into a hamburger-toggled,
+ * full-screen accordion on mobile devices.
+ */
+
+/* --- Component-Specific Layout Variables ---------------------------------- */
+
+.menu--horizontal {
+  --nav-height: 6rem; /* Base height for the desktop nav bar */
+  --dropdown-width: 220px;
+  --transition-speed: 0.2s;
+}
+
+/* --- Base & Link Styles ---------------------------------------------------- */
+
+.menu--horizontal {
+  padding: 0; /* Override default block padding */
+  margin: 0;
+  position: relative; /* Needed for hamburger absolute positioning */
+}
+
+.menu--horizontal.menu--transparent .menu--level-0 {
+  background-color: transparent;
+}
+
+.menu--horizontal a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  color: var(--color-brand-contrast);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  white-space: nowrap;
+}
+
+.menu--horizontal .menu--level-0 > .menu-item > a {
+  height: var(--nav-height);
+}
+
+.menu--horizontal .menu-item.is-active-trail > a {
+  background-color: var(--color-brand-hover);
+}
+
+/* --- Desktop Styles (min-width: 992px) ------------------------------------ */
+
+@media (min-width: 992px) {
+  /* Hide mobile toggles on desktop */
+  .menu--horizontal .gw-menu-toggle,
+  .menu--horizontal .submenu-toggle {
+    display: none;
+  }
+
+  /* Level 0: The main horizontal bar */
+  .menu--horizontal .menu--level-0 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Align menu items to the right */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-brand);
+    height: var(--nav-height);
+  }
+
+  .menu--horizontal .menu--level-0 > .menu-item {
+    position: relative;
+  }
+
+  .menu--horizontal .menu--level-0 > .menu-item:hover > a,
+  .menu--horizontal .menu--level-0 > .menu-item > a:focus {
+    background-color: var(--color-brand-hover);
+  }
+
+  /* Levels 1+ : Dropdowns */
+  .menu--horizontal .menu--level-1,
+  .menu--horizontal .menu--level-2 {
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: var(--dropdown-width);
+    background-color: var(--dropdown-bg);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease, visibility 0s var(--transition-speed);
+    z-index: 100;
+  }
+
+  /* THIS IS THE DYNAMIC FIX: Make each level-1 item a positioning context */
+  .menu--horizontal .menu--level-1 > .menu-item {
+    position: relative;
+  }
+
+  .menu--horizontal .menu--level-2 {
+    top: 0; /* This now correctly aligns the sub-menu with its parent link */
+    left: 100%;
+  }
+
+  /* Show dropdown on hover/focus */
+  .menu--horizontal .menu-item:hover > .menu,
+  .menu--horizontal .menu-item:focus-within > .menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  /* Dropdown Links */
+  .menu--horizontal .menu--level-1 a,
+  .menu--horizontal .menu--level-2 a {
+    color: var(--dropdown-text);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-xs);
+  }
+
+  .menu--horizontal .menu--level-1 a:hover,
+  .menu--horizontal .menu--level-1 a:focus,
+  .menu--horizontal .menu--level-2 a:hover,
+  .menu--horizontal .menu--level-2 a:focus {
+    background-color: var(--dropdown-hover-bg);
+  }
+
+  /* Arrow indicator for expanded items */
+  .menu--horizontal .menu-item--expanded > a::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 0.5rem;
+    display: inline-block;
+    transform: scaleY(0.8);
+  }
+
+  .menu--horizontal .menu--level-1 .menu-item--expanded > a::after {
+    content: '►';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+/* --- Mobile Styles (max-width: 991.98px) ---------------------------------- */
+
+@media (max-width: 991.98px) {
+  /* Prevent body scroll when mobile menu is open */
+  body.is-menu-open {
+    overflow: hidden;
+  }
+
+  /* Hamburger Toggle Button - FIXED Z-INDEX */
+  .menu--horizontal .gw-menu-toggle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: var(--space-2);
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1002; /* Higher than mobile menu overlay (1001) */
+    padding: 0;
+  }
+
+  .menu--horizontal .gw-menu-toggle__icon {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-brand-contrast);
+    margin: 0 auto;
+    transition: all 0s var(--transition-speed);
+  }
+  .menu--horizontal .gw-menu-toggle__icon::before,
+  .menu--horizontal .gw-menu-toggle__icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-brand-contrast);
+    transition: transform var(--transition-speed) ease, top var(--transition-speed) ease;
+  }
+  .menu--horizontal .gw-menu-toggle__icon::before { top: -7px; }
+  .menu--horizontal .gw-menu-toggle__icon::after { top: 7px; }
+
+  /* Hamburger animation to "X" */
+  .menu--horizontal .gw-menu-toggle[aria-expanded="true"] .gw-menu-toggle__icon {
+    background-color: transparent;
+  }
+  .menu--horizontal .gw-menu-toggle[aria-expanded="true"] .gw-menu-toggle__icon::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .menu--horizontal .gw-menu-toggle[aria-expanded="true"] .gw-menu-toggle__icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /* Mobile Menu Container */
+  .menu--horizontal .menu--level-0 {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dropdown-bg);
+    overflow-y: auto;
+    padding: calc(var(--nav-height) + 2rem) 0 2rem;
+    z-index: 1001; /* Below hamburger button (1002) */
+  }
+
+  .menu--horizontal .menu--level-0.is-open {
+    display: block;
+  }
+
+  /* Mobile Menu Links */
+  .menu--horizontal .menu-item {
+    position: relative;
+  }
+  .menu--horizontal .menu-item a {
+    padding: 1rem var(--space-3);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .menu--horizontal .menu--level-0 > .menu-item:first-child > a {
+    border-top: none;
+  }
+
+  /* Submenu Accordion */
+  .menu--horizontal .menu--level-1,
+  .menu--horizontal .menu--level-2 {
+    display: none; /* Submenus hidden by default */
+    background-color: rgba(0,0,0,0.2);
+    padding-left: var(--space-2);
+  }
+  .menu--horizontal .menu.is-open {
+    display: block;
+  }
+
+  /* Submenu Toggle Button */
+  .menu--horizontal .submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--nav-height);
+    height: var(--nav-height);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .menu--horizontal .submenu-toggle__icon {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-style: solid;
+    border-color: var(--color-brand-contrast);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    transition: transform var(--transition-speed) ease;
+  }
+
+  .menu--horizontal .submenu-toggle[aria-expanded="true"] .submenu-toggle__icon {
+    transform: rotate(-135deg);
+  }
+}

@@ -284,10 +284,11 @@ function groundwork_postprocess_footer(array &$variables): void {
     $footer_utility .= ' <span aria-hidden="true">|</span> ';
   }
   if ($copyright_enabled) {
-    $output_copyright = $copyright_text ?: $default_copyright;
-    $output_copyright = str_replace(['{year}', '{site_name}'], [$year, $site_name], $output_copyright);
-    $footer_utility .= $output_copyright;
-  }
+  $output_copyright = $copyright_text ?: $default_copyright;
+  // Cast the variable to a string before using it in str_replace.
+  $output_copyright = str_replace(['{year}', '{site_name}'], [$year, $site_name], (string) $output_copyright);
+  $footer_utility .= $output_copyright;
+}
 
   // This correctly adds the legal text as a renderable element to the footer region.
   $variables['page']['footer']['groundwork_footer_system_utility'] = [

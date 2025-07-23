@@ -67,6 +67,41 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   '#element_validate' => ['groundwork_validate_custom_css'],
 ];
 
+// ----- Navigation & Menus tab -----
+  $form['gw_navigation'] = [
+    '#type' => 'details',
+    '#title' => t('Navigation & Menus'),
+    '#group' => 'gw_settings_tabs',
+    '#weight' => 15,
+    '#description' => t('Configure display options for menus.'),
+  ];
+
+  $form['gw_navigation']['gw_menu_main_horizontal'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Display Main menu as a horizontal, responsive menu'),
+    '#default_value' => theme_get_setting('gw_menu_main_horizontal') ?? 1, // Default to checked (1)
+    '#description' => t('When checked, the main menu will be styled as a horizontal bar with dropdowns on desktop, and a collapsible accordion on mobile. Best used in the Header or Primary Menu regions.'),
+  ];
+
+  $form['gw_navigation']['gw_menu_secondary_horizontal'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Display Secondary menu as a horizontal, responsive menu'),
+    '#default_value' => theme_get_setting('gw_menu_secondary_horizontal') ?? 0, // Default to unchecked (0)
+    '#description' => t('When checked, the secondary menu will be styled as a horizontal bar.'),
+  ];
+
+  $form['gw_navigation']['gw_menu_main_transparent'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Make the horizontal main menu background transparent'),
+    '#default_value' => theme_get_setting('gw_menu_main_transparent') ?? 0, // Default to unchecked (0)
+    '#description' => t('This only applies if the main menu is set to display horizontally. The menu will inherit the background of its parent region.'),
+    '#states' => [
+      'visible' => [
+        ':input[name="gw_menu_main_horizontal"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
+
   // ----- AI-powered Tools tab -----
   $form['ai_tools'] = [
     '#type' => 'details',
@@ -300,7 +335,7 @@ foreach ($social_networks as $key => $title) {
     '#attributes' => [
       'disabled' => 'disabled',
     ],
-  ];  
+  ];
   $form['footer']['gw_footer_copyright_enable'] = [
     '#type' => 'checkbox',
     '#title' => t('Show copyright text in the footer'),
@@ -365,12 +400,12 @@ function groundwork_validate_custom_css($element, FormStateInterface $form_state
 function groundwork_validate_api_key($element, FormStateInterface $form_state, $form) {
   $api_key = $form_state->getValue($element['#name']);
   $provider = $form_state->getValue('ai_provider');
-  
+
   // Skip validation if no provider is selected or simulate mode is used
   if (empty($provider) || $provider === 'simulate') {
     return;
   }
-  
+
   if (empty($api_key)) {
     $form_state->setError($element, t('The API key cannot be empty.'));
   }

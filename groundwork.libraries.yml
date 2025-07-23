@@ -2,8 +2,11 @@
 
 global-styling:
   version: VERSION
+  js:
+    js/menu-toggle.js: {}
   css:
     base:
+      # CSS Reset and Base Elements
       css/base/root.css: { weight: -20 }
       css/base/sections.css: {}
       css/base/grouping-content.css: {}
@@ -13,12 +16,8 @@ global-styling:
       css/base/form-controls.css: {}
       css/base/interactive.css: {}
       css/base/edits.css: {}
-    layout:
-      css/layout/page.css: {}
-      css/layout/grid.css: {}
-      css/layout/regions.css: {}
-      css/layout/footer.css: {}
     component:
+      # Foundational Core Overrides (from Starterkit)
       css/core-components/foundational-core-overrides/action-links.css: {}
       css/core-components/foundational-core-overrides/breadcrumb.css: {}
       css/core-components/foundational-core-overrides/button.css: {}
@@ -51,11 +50,31 @@ global-styling:
       css/core-components/foundational-core-overrides/textarea.css: {}
       css/core-components/foundational-core-overrides/ui-dialog.css: {}
       css/core-components/foundational-core-overrides/user.css: {}
+      # Framework Core Overrides (Groundwork Opinionated)
       css/core-components/framework-core-overrides/blocks.css: {}
       css/core-components/framework-core-overrides/buttons.css: {}
       css/core-components/framework-core-overrides/main-menu.css: {}
       css/core-components/framework-core-overrides/menu.css: {}
       css/core-components/framework-core-overrides/site-branding.css: {}
+      # Block Style Components
+      css/block-style-components/border.css: {}
+      css/block-style-components/card.css: {}
+      css/block-style-components/grid-widths.css: {}
+      css/block-style-components/hover.css: {}
+      css/block-style-components/margin.css: {}
+      css/block-style-components/padding.css: {}
+      css/block-style-components/rounded.css: {}
+      css/block-style-components/shadow.css: {}
+      css/block-style-components/text.css: {}
+      css/block-style-components/text-utilities.css: {}
+      # Hybrid Style Components
+      css/hybrid-style-components/layout-flex-row.css: {}
+      css/hybrid-style-components/menu-horizontal.css: {}
+    layout:
+      css/layout/grid.css: {}
+      css/layout/page.css: {}
+      css/layout/regions.css: {}
+      css/layout/footer.css: {}
     theme:
       css/theme/tokens.css: { weight: -40 }
       css/theme/color-utilities.css: {}
@@ -149,24 +168,16 @@ hybrid-styles:
     component:
       css/hybrid-style-components/layout-flex-row.css: {}
 
+# Library for administrative pages and theme settings form.
 theme-settings:
   version: VERSION
   css:
     theme:
       css/admin/theme-settings.css: {}
 
+# Library for the block style demo page.
 admin:
   version: VERSION
   css:
     theme:
       css/admin/block-demo.css: {}
-
-main-menu:
-  version: VERSION  
-  css:
-    theme:
-      css/core-components/framework-core-overrides/main-menu.css: {}
-  js:
-    js/groundwork-main-menu.js: {}
-  dependencies:
-    - core/drupal
