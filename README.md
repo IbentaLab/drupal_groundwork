@@ -1,13 +1,20 @@
 <br>
 
-<div style="font-size: 24px; color: #ffffff; font-weight: bold; text-align: center; background-color: #dc3545; border: 3px solid #7e0a14ff; padding: 20px; border-radius: 10px; margin: 20px 0;">
-⚠️ NOT PRODUCTION READY ⚠️<br>
-<span style="font-size: 16px;">This repository is under heavy development</span>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" bgcolor="#dc3545">
+        <h1>⚠️ NOT PRODUCTION READY ⚠️</h1>
+        <h3>This repository is under heavy development</h3>
+        <p>Features may be incomplete, theme structure may change without notice, and breaking changes are expected.</p>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <br>
 
-# 🚀 What Is Groundwork Theme Framework?
+## 🚀 What Is Groundwork Theme Framework?
 
 **The fast, accessible, atomic foundation for block-based Drupal.**
 

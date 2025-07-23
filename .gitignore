@@ -24,3 +24,5 @@ sites/*/services.yml
 # ✅ Groundwork-specific
 .history/
 codex/public/
+.backups/
+.devfiles/

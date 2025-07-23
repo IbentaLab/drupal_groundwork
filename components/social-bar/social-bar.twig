@@ -1,0 +1,24 @@
+
+{#
+  Template for the Social Bar component.
+
+  Available variables:
+  - links: An array of social links.
+  - alignment: A string for text alignment (e.g., 'left', 'center', 'right').
+#}
+{% if links %}
+  <div class="social-bar social-bar--align-{{ alignment|default('left') }}">
+    <div class="social-bar__inner">
+      <ul class="social-links__list">
+        {% for link in links %}
+          <li class="social-links__item">
+            <a href="{{ link.url }}" class="social-links__link social-links__link--{{ link.name|lower|replace({' ': '-'}) }}" target="_blank" rel="noopener">
+              <span class="visually-hidden">{{ link.name }}</span>
+              {# You would typically include an SVG icon here #}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}
