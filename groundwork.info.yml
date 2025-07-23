@@ -27,7 +27,7 @@ base theme: stable9
 
 regions:
   billboard: Billboard
-  header: Header  
+  header: Header
   primary_menu: 'Primary Menu'
   secondary_menu: 'Secondary Menu'
   hero: Hero

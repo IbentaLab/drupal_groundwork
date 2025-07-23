@@ -1,3 +1,12 @@
+<br>
+
+<div style="font-size: 24px; color: #ffffff; font-weight: bold; text-align: center; background-color: #dc3545; border: 3px solid #7e0a14ff; padding: 20px; border-radius: 10px; margin: 20px 0;">
+⚠️ NOT PRODUCTION READY ⚠️<br>
+<span style="font-size: 16px;">This repository is under heavy development</span>
+</div>
+
+<br>
+
 # 🚀 What Is Groundwork Theme Framework?
 
 **The fast, accessible, atomic foundation for block-based Drupal.**
