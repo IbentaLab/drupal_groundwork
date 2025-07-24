@@ -86,6 +86,33 @@ input[type="radio"]:disabled + label {
   margin-top: 0.12em;
   line-height: 1.5;
 }
+.gw-horizontal-selects {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .gw-horizontal-selects {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .gw-horizontal-selects .form-item {
+    flex: 1 1 150px;
+    margin: 0;
+  }
+}
+
+.gw-horizontal-selects .form-item label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
 #ai-palette-result-wrapper {
   margin-top: 1.6rem;
   background: #f8fafc;

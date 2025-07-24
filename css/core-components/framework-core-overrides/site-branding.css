@@ -1,6 +1,7 @@
 .site-branding .block-style-target {
   display: flex;
   align-items: center;
+  gap: var(--space-1, 0.8rem);
 }
 .site-branding__logo img {
   display: block;
@@ -9,7 +10,6 @@
 }
 .site-branding__text,
 .site-branding__name {
-  margin-left: var(--space-1, 0.8rem);
   font-family: var(--site-name-font-family, var(--font-family, "Ubuntu", sans-serif));
   font-size: var(--ms-lg, 2rem);
   line-height: 1.2;

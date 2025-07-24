@@ -60,20 +60,85 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#description' => t('Switch between light and dark mode, or follow the user’s operating system preference.'),
   ];
   $form['design']['gw_custom_css'] = [
-  '#type' => 'textarea',
-  '#title' => t('Custom CSS'),
-  '#description' => t('Add custom CSS for quick tweaks or experiments. Only valid CSS will be rendered. For security reasons, HTML tags (such as &lt;div&gt;, &lt;script&gt;) or JavaScript code are not allowed—if your CSS includes &lt; or &gt;, it will be rejected.'),
-  '#default_value' => theme_get_setting('gw_custom_css'),
-  '#element_validate' => ['groundwork_validate_custom_css'],
-];
+    '#type' => 'textarea',
+    '#title' => t('Custom CSS'),
+    '#description' => t('Add custom CSS for quick tweaks or experiments. Only valid CSS will be rendered. For security reasons, HTML tags (such as &lt;div&gt;, &lt;script&gt;) or JavaScript code are not allowed—if your CSS includes &lt; or &gt;, it will be rejected.'),
+    '#default_value' => theme_get_setting('gw_custom_css'),
+    '#element_validate' => ['groundwork_validate_custom_css'],
+  ];
 
-// ----- Navigation & Menus tab -----
+  // Sidebar First fieldset
+  $form['design']['gw_sidebar_first'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Sidebar First Grid Widths'),
+    '#description' => t('Choose how many grid cells Sidebar First should occupy on each breakpoint. Default layout is 4 on desktop and 3 on wide.'),
+    '#attributes' => ['class' => ['gw-sidebar-settings', 'gw-horizontal-selects']],
+  ];
+  $form['design']['gw_sidebar_first']['gw_sidebar_first_cells_s'] = [
+    '#type' => 'select',
+    '#title' => t('Mobile (S)'),
+    '#options' => array_combine(range(1, 12), range(1, 12)),
+    '#default_value' => theme_get_setting('gw_sidebar_first_cells_s') ?? 12,
+  ];
+  $form['design']['gw_sidebar_first']['gw_sidebar_first_cells_m'] = [
+    '#type' => 'select',
+    '#title' => t('Desktop (M)'),
+    '#options' => array_combine(range(1, 12), range(1, 12)),
+    '#default_value' => theme_get_setting('gw_sidebar_first_cells_m') ?? 4,
+  ];
+  $form['design']['gw_sidebar_first']['gw_sidebar_first_cells_l'] = [
+    '#type' => 'select',
+    '#title' => t('Wide (L)'),
+    '#options' => array_combine(range(1, 12), range(1, 12)),
+    '#default_value' => theme_get_setting('gw_sidebar_first_cells_l') ?? 3,
+  ];
+
+  // Sidebar Second fieldset
+  $form['design']['gw_sidebar_second'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Sidebar Second Grid Widths'),
+    '#description' => t('Choose how many grid cells Sidebar Second should occupy on each breakpoint. Default layout is 2 on desktop and wide.'),
+    '#attributes' => ['class' => ['gw-sidebar-settings', 'gw-horizontal-selects']],
+  ];
+  $form['design']['gw_sidebar_second']['gw_sidebar_second_cells_s'] = [
+    '#type' => 'select',
+    '#title' => t('Mobile (S)'),
+    '#options' => array_combine(range(1, 12), range(1, 12)),
+    '#default_value' => theme_get_setting('gw_sidebar_second_cells_s') ?? 12,
+  ];
+  $form['design']['gw_sidebar_second']['gw_sidebar_second_cells_m'] = [
+    '#type' => 'select',
+    '#title' => t('Desktop (M)'),
+    '#options' => array_combine(range(1, 12), range(1, 12)),
+    '#default_value' => theme_get_setting('gw_sidebar_second_cells_m') ?? 2,
+  ];
+  $form['design']['gw_sidebar_second']['gw_sidebar_second_cells_l'] = [
+    '#type' => 'select',
+    '#title' => t('Wide (L)'),
+    '#options' => array_combine(range(1, 12), range(1, 12)),
+    '#default_value' => theme_get_setting('gw_sidebar_second_cells_l') ?? 2,
+  ];
+
+
+  // ----- Navigation & Menus tab -----
   $form['gw_navigation'] = [
     '#type' => 'details',
     '#title' => t('Navigation & Menus'),
     '#group' => 'gw_settings_tabs',
     '#weight' => 15,
-    '#description' => t('Configure display options for menus.'),
+    '#description' => t('Configure display options for the site header and menus.'),
+  ];
+
+  $form['gw_navigation']['gw_header_layout'] = [
+    '#type'          => 'radios',
+    '#title'         => t('Header Layout'),
+    '#default_value' => theme_get_setting('gw_header_layout') ?: 'header--brand-left',
+    '#options'       => [
+      'header--brand-left'  => t('Brand Left (Default)'),
+      'header--brand-center' => t('Brand Center'),
+      'header--brand-stacked' => t('Stacked'),
+    ],
+    '#description'   => t('Select the layout for the site header. This applies a CSS class to the <body> tag.'),
   ];
 
   $form['gw_navigation']['gw_menu_main_horizontal'] = [
@@ -116,15 +181,15 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#type' => 'select',
     '#title' => t('AI Provider'),
     '#options' => [
-      ''            => t('Choose provider...'),
-      'gemini'      => t('Google Gemini (Gemini Pro – recommended, free tier)'),
-      'openai'      => t('OpenAI (ChatGPT, GPT-4o, GPT-3.5 Turbo)'),
-      'openrouter'  => t('OpenRouter (DeepSeek, Llama-3, Mixtral, GPT-4o, etc.)'),
+      '' => t('Choose provider...'),
+      'gemini' => t('Google Gemini (Gemini Pro – recommended, free tier)'),
+      'openai' => t('OpenAI (ChatGPT, GPT-4o, GPT-3.5 Turbo)'),
+      'openrouter' => t('OpenRouter (DeepSeek, Llama-3, Mixtral, GPT-4o, etc.)'),
       'huggingface' => t('HuggingFace (DeepSeek, Llama, Mistral, open source)'),
-      'azure'       => t('Azure AI (GPT-4, GPT-3.5, vision, enterprise)'),
-      'aws'         => t('AWS Bedrock (Anthropic, Amazon Titan, Llama)'),
-      'perplexity'  => t('Perplexity AI (PPLX-70B, web-powered Q&A, paid only)'),
-      'simulate'    => t('Simulate AI (demo only, no real AI)'),
+      'azure' => t('Azure AI (GPT-4, GPT-3.5, vision, enterprise)'),
+      'aws' => t('AWS Bedrock (Anthropic, Amazon Titan, Llama)'),
+      'perplexity' => t('Perplexity AI (PPLX-70B, web-powered Q&A, paid only)'),
+      'simulate' => t('Simulate AI (demo only, no real AI)'),
     ],
     '#default_value' => theme_get_setting('ai_provider') ?: '',
     '#description' => t('Choose your AI provider. Gemini is free for most users. OpenRouter gives you access to DeepSeek, Llama, and many others.'),
@@ -248,77 +313,77 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   ];
 
   // ----- Social Links tab -----
-$form['social'] = [
-  '#type' => 'details',
-  '#title' => t('Social Links Bar'),
-  '#group' => 'gw_settings_tabs',
-  '#weight' => 25, // This places it before the Footer tab
-];
+  $form['social'] = [
+    '#type' => 'details',
+    '#title' => t('Social Links Bar'),
+    '#group' => 'gw_settings_tabs',
+    '#weight' => 25, // This places it before the Footer tab
+  ];
 
-// Location Setting
-$form['social']['gw_social_bar_location'] = [
-  '#type' => 'radios',
-  '#title' => t('Location'),
-  '#options' => [
-    'none' => t('None (Hide the bar)'),
-    'header' => t('Above the main site header'),
-    'footer' => t('In the footer (above the legal bar)'),
-  ],
-  '#default_value' => theme_get_setting('gw_social_bar_location') ?: 'footer',
-  '#description' => t('Choose where to display the full-width social links bar.'),
-];
-
-// Alignment Setting
-$form['social']['gw_social_bar_alignment'] = [
-  '#type' => 'radios',
-  '#title' => t('Link Alignment'),
-  '#options' => [
-    'left' => t('Left'),
-    'center' => t('Center'),
-    'right' => t('Right'),
-    'distributed' => t('Distributed (Justify)'),
-  ],
-  '#default_value' => theme_get_setting('gw_social_bar_alignment') ?: 'center',
-  '#description' => t('Align the links within the social bar.'),
-  // Use #states to hide this if the location is 'none'.
-  '#states' => [
-    'visible' => [
-      ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
+  // Location Setting
+  $form['social']['gw_social_bar_location'] = [
+    '#type' => 'radios',
+    '#title' => t('Location'),
+    '#options' => [
+      'none' => t('None (Hide the bar)'),
+      'header' => t('Above the main site header'),
+      'footer' => t('In the footer (above the legal bar)'),
     ],
-  ],
-];
+    '#default_value' => theme_get_setting('gw_social_bar_location') ?: 'footer',
+    '#description' => t('Choose where to display the full-width social links bar.'),
+  ];
 
-// Social Network Fields
-$form['social']['gw_social_links_intro'] = [
-   '#type' => 'markup',
-   '#markup' => '<p><strong>' . t('Enter the full URLs for your social media profiles. The bar will only appear if at least one link is entered.') . '</strong></p>',
-   '#states' => [ // Also hide this if location is 'none'
-     'visible' => [
-       ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
-     ],
-   ],
-];
+  // Alignment Setting
+  $form['social']['gw_social_bar_alignment'] = [
+    '#type' => 'radios',
+    '#title' => t('Link Alignment'),
+    '#options' => [
+      'left' => t('Left'),
+      'center' => t('Center'),
+      'right' => t('Right'),
+      'distributed' => t('Distributed (Justify)'),
+    ],
+    '#default_value' => theme_get_setting('gw_social_bar_alignment') ?: 'center',
+    '#description' => t('Align the links within the social bar.'),
+    // Use #states to hide this if the location is 'none'.
+    '#states' => [
+      'visible' => [
+        ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
+      ],
+    ],
+  ];
 
-$social_networks = [
-   'twitter'   => t('X (formerly Twitter)'),
-   'facebook'  => t('Facebook'),
-   'linkedin'  => t('LinkedIn'),
-   'instagram' => t('Instagram'),
-   'youtube'   => t('YouTube'),
-];
+  // Social Network Fields
+  $form['social']['gw_social_links_intro'] = [
+    '#type' => 'markup',
+    '#markup' => '<p><strong>' . t('Enter the full URLs for your social media profiles. The bar will only appear if at least one link is entered.') . '</strong></p>',
+    '#states' => [ // Also hide this if location is 'none'
+      'visible' => [
+        ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
+      ],
+    ],
+  ];
 
-foreach ($social_networks as $key => $title) {
-   $form['social']['gw_social_' . $key] = [
-       '#type' => 'url', // Use 'url' type for better validation
-       '#title' => $title,
-       '#default_value' => theme_get_setting('gw_social_' . $key),
-       '#states' => [ // Also hide these if location is 'none'
-         'visible' => [
-           ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
-         ],
-       ],
-   ];
-}
+  $social_networks = [
+    'twitter' => t('X (formerly Twitter)'),
+    'facebook' => t('Facebook'),
+    'linkedin' => t('LinkedIn'),
+    'instagram' => t('Instagram'),
+    'youtube' => t('YouTube'),
+  ];
+
+  foreach ($social_networks as $key => $title) {
+    $form['social']['gw_social_' . $key] = [
+      '#type' => 'url', // Use 'url' type for better validation
+      '#title' => $title,
+      '#default_value' => theme_get_setting('gw_social_' . $key),
+      '#states' => [ // Also hide these if location is 'none'
+        'visible' => [
+          ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
+        ],
+      ],
+    ];
+  }
 
   // ----- Footer & Attribution tab -----
   $form['footer'] = [
@@ -397,8 +462,8 @@ function groundwork_validate_custom_css($element, FormStateInterface $form_state
 }
 
 // Add validation for API keys
+// Add validation for API keys
 function groundwork_validate_api_key($element, FormStateInterface $form_state, $form) {
-  $api_key = $form_state->getValue($element['#name']);
   $provider = $form_state->getValue('ai_provider');
 
   // Skip validation if no provider is selected or simulate mode is used

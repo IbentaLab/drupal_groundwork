@@ -1,12 +1,19 @@
 # Groundwork Libraries.
 
-global-styling:
+# Core library for essential JS and CSS tokens.
+global-styles:
   version: VERSION
   js:
     js/menu-toggle.js: {}
   css:
+    theme:
+      css/theme/tokens.css: { weight: -40 }
+
+# Base HTML element styling.
+base-styles:
+  version: VERSION
+  css:
     base:
-      # CSS Reset and Base Elements
       css/base/root.css: { weight: -20 }
       css/base/sections.css: {}
       css/base/grouping-content.css: {}
@@ -16,6 +23,19 @@ global-styling:
       css/base/form-controls.css: {}
       css/base/interactive.css: {}
       css/base/edits.css: {}
+
+# Page layout and region styling.
+layout-styles:
+  version: VERSION
+  css:
+    layout:
+      css/layout/page.css: {}
+      css/layout/regions.css: {}
+
+# Core and framework component overrides.
+component-styles:
+  version: VERSION
+  css:
     component:
       # Foundational Core Overrides (from Starterkit)
       css/core-components/foundational-core-overrides/action-links.css: {}
@@ -53,13 +73,33 @@ global-styling:
       # Framework Core Overrides (Groundwork Opinionated)
       css/core-components/framework-core-overrides/blocks.css: {}
       css/core-components/framework-core-overrides/buttons.css: {}
-      css/core-components/framework-core-overrides/main-menu.css: {}
       css/core-components/framework-core-overrides/menu.css: {}
       css/core-components/framework-core-overrides/site-branding.css: {}
-      # Block Style Components
+
+# Framework Partials (FP).
+framework-partial-styles:
+  version: VERSION
+  css:
+    theme:
+      framework-partials/gwicons/gwicons.css: {}
+
+# Hybrid Style Components (HSC).
+hybrid-styles:
+  version: VERSION
+  css:
+    component:
+      css/hybrid-style-components/header-layouts.css: {}
+      css/hybrid-style-components/layout-flex-row.css: {}
+      css/hybrid-style-components/menu-horizontal.css: {}
+
+# Block Style Components (BSC).
+block-styles:
+  version: VERSION
+  css:
+    component:
       css/block-style-components/border.css: {}
       css/block-style-components/card.css: {}
-      css/block-style-components/grid-widths.css: {}
+      css/block-style-components/grid-system.css: {}
       css/block-style-components/hover.css: {}
       css/block-style-components/margin.css: {}
       css/block-style-components/padding.css: {}
@@ -67,19 +107,9 @@ global-styling:
       css/block-style-components/shadow.css: {}
       css/block-style-components/text.css: {}
       css/block-style-components/text-utilities.css: {}
-      # Hybrid Style Components
-      css/hybrid-style-components/layout-flex-row.css: {}
-      css/hybrid-style-components/menu-horizontal.css: {}
-    layout:
-      css/layout/grid.css: {}
-      css/layout/page.css: {}
-      css/layout/regions.css: {}
-      css/layout/footer.css: {}
-    theme:
-      css/theme/tokens.css: { weight: -40 }
       css/theme/color-utilities.css: {}
-      framework-partials/gwicons/gwicons.css: {}
 
+# The following are Drupal UI element libraries, kept separate for targeted overrides.
 dialog:
   version: VERSION
   css:
@@ -147,27 +177,6 @@ user:
     component:
       css/drupal-ui/user.css: { weight: -10 }
 
-block-styles:
-  version: VERSION
-  css:
-    component:
-      css/block-style-components/border.css: {}
-      css/block-style-components/card.css: {}
-      css/block-style-components/grid-widths.css: {}
-      css/block-style-components/hover.css: {}
-      css/block-style-components/margin.css: {}
-      css/block-style-components/padding.css: {}
-      css/block-style-components/rounded.css: {}
-      css/block-style-components/shadow.css: {}
-      css/block-style-components/text.css: {}
-      css/block-style-components/text-utilities.css: {}
-
-hybrid-styles:
-  version: VERSION
-  css:
-    component:
-      css/hybrid-style-components/layout-flex-row.css: {}
-
 # Library for administrative pages and theme settings form.
 theme-settings:
   version: VERSION
@@ -176,7 +185,7 @@ theme-settings:
       css/admin/theme-settings.css: {}
 
 # Library for the block style demo page.
-admin:
+admin-styles:
   version: VERSION
   css:
     theme:

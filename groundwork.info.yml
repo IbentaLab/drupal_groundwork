@@ -15,15 +15,18 @@
 # - No external dependencies; pure Drupal theming
 # ------------------------------------------------------------------------------
 
-name: Groundwork
+name: Groundwork 🔥
 description: >
-  A sleek, block-based Drupal theme framework optimized for accessibility,
-  performance, and unlimited layout customization—fully compliant with WCAG,
-  ARIA, and Norway’s universal design requirements.
+  <strong>Groundwork is your new default.</strong> The fastest, most accessible Drupal theme—no build tools, no bloat.<br><br>
+  <strong>Install it. Use it. Never look back.</strong><br>
+  <em>Built by John Filipstad (JohnNoc) / <a href="https://www.ibenta.no" target="_blank">Ibenta</a></em><br><br>
+  <a href="https://ibentalab.github.io/drupal_groundwork" target="_blank">Docs</a> • <a href="https://www.ibenta.no/projects/groundwork" target="_blank">Demo</a>
 type: theme
 version: VERSION
 core_version_requirement: ^11
 base theme: stable9
+screenshot: screenshot.gif
+logo: logo/groundwork-logo-70.svg
 
 regions:
   billboard: Billboard
@@ -45,12 +48,16 @@ regions:
   footer: Footer
 
 libraries:
+  # Core and Foundational Libraries (loaded in order)
   - core/normalize
-  - groundwork/global-styling
-  - groundwork/block-styles
-  - groundwork/hybrid-styles
-  - groundwork/main-menu
-  - groundwork/messages
+  - groundwork/global-styles         # Core JS, CSS tokens
+  - groundwork/base-styles           # Base HTML element styling
+  - groundwork/layout-styles         # Page layout and regions
+  - groundwork/component-styles      # Drupal core component overrides
+  - groundwork/framework-partial-styles # Framework Partials (FPs)
+  - groundwork/hybrid-styles         # Hybrid Style Components (HSCs)
+  - groundwork/block-styles          # Block Style Components (BSCs) - MUST BE LAST
+  - groundwork/messages              # Drupal status messages
 
 libraries-extend:
   user/drupal.user:

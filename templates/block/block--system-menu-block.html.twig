@@ -52,16 +52,24 @@
   <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
   {{ title_suffix }}
 
-  {# Conditionally add the hamburger button for the horizontal menu HSC. #}
-  {% if content['#is_horizontal'] %}
-    <button class="gw-menu-toggle" aria-expanded="false" aria-controls="menu-{{ derivative_plugin_id|clean_id }}">
-      <span class="visually-hidden">{{ 'Toggle ' ~ configuration.label }}</span>
-      <span class="gw-menu-toggle__icon" aria-hidden="true"></span>
-    </button>
-  {% endif %}
+  {#
+    Wrap the menu and its toggle in a div. This div becomes the positioning
+    context for the absolute-positioned hamburger button, ensuring it is
+    always placed correctly relative to the menu, regardless of whether the
+    block is in a grid or not.
+  #}
+  <div class="menu-wrapper">
+    {# Conditionally add the hamburger button for the horizontal menu HSC. #}
+    {% if content['#is_horizontal'] %}
+      <button class="gw-menu-toggle" aria-expanded="false" aria-controls="menu-{{ derivative_plugin_id|clean_id }}">
+        <span class="visually-hidden">{{ 'Toggle ' ~ configuration.label }}</span>
+        <span class="gw-menu-toggle__icon" aria-hidden="true"></span>
+      </button>
+    {% endif %}
 
-  {# Menu. #}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+    {# Menu. #}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
 </nav>

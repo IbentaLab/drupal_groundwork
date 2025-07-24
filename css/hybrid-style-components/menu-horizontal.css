@@ -25,6 +25,9 @@
 .menu--horizontal {
   padding: 0; /* Override default block padding */
   margin: 0;
+}
+
+.menu--horizontal .menu-wrapper {
   position: relative; /* Needed for hamburger absolute positioning */
 }
 

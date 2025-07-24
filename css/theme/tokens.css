@@ -114,6 +114,8 @@
   --breakpoint-small-screen:  768px;
   --breakpoint-medium-screen: 992px;
   --breakpoint-large-screen:  1200px;
+
+  --grid-gutter: var(--space-1);
 }
 
 /* ===================================================================

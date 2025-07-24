@@ -43,6 +43,10 @@ function groundwork_preprocess_html(array &$variables)
     ];
   }
 
+  // Add header layout class to the body.
+  $header_layout = theme_get_setting('gw_header_layout') ?? 'header--brand-left';
+  $variables['attributes']['class'][] = $header_layout;
+
   // Set the name of the theme's signature validation function.
   $groundwork_signature_function = 'groundwork_signature_check';
 
@@ -233,11 +237,17 @@ function groundwork_preprocess_block(array &$variables): void {
     }
   }
 
+  // Use responsive grid classes for header blocks.
+  // This makes them full-width on mobile and sized on desktop.
   if (($variables['elements']['#region'] ?? '') === 'header') {
     if ($plugin_id === 'system_branding_block') {
+      // Full width on small, 4/12 on medium+.
+      $variables['attributes']['class'][] = 'is-12--s';
       $variables['attributes']['class'][] = 'is-4';
     }
     elseif ($plugin_id === 'system_menu_block:main') {
+      // Full width on small, 8/12 on medium+.
+      $variables['attributes']['class'][] = 'is-12--s';
       $variables['attributes']['class'][] = 'is-8';
     }
   }
