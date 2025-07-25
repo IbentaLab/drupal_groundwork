@@ -103,7 +103,7 @@
     z-index: 100;
   }
 
-  /* THIS IS THE DYNAMIC FIX: Make each level-1 item a positioning context */
+  /* Make each level-1 item a positioning context */
   .menu--horizontal .menu--level-1 > .menu-item {
     position: relative;
   }
@@ -255,6 +255,16 @@
   .menu--horizontal .menu.is-open {
     display: block;
   }
+
+  /* Level 3 */
+.menu--horizontal .menu--level-3 {
+  display: none;
+  background-color: rgba(0,0,0,0.1);
+  padding-left: calc(var(--space-2) * 2);
+}
+.menu--horizontal .menu--level-3.menu.is-open {
+  display: block;
+}
 
   /* Submenu Toggle Button */
   .menu--horizontal .submenu-toggle {

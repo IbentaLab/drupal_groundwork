@@ -29,7 +29,7 @@
   --color-surface-contrast: #f4f4f4;
   --color-border:        rgba(0 0 0 /.12);
   --color-link:          var(--blue);
-  --color-link-hover:    hsl(from var(--blue) h s calc(l - 8%));
+  --color-link-hover:    hsl(from var(--color-link) h s calc(l - 8%));
   --color-text:          var(--color-fg);
   --color-text-light:    #ffffff;
 
@@ -94,13 +94,13 @@
   --scale-minor-seventh:     1.778;
   --scale-major-seventh:     1.875;
   --scale-octave:            2;
-  --ms-md:   var(--scale-base);
-  --ms-sm:   calc(var(--ms-md) / var(--scale-type));
-  --ms-xs:   calc(var(--ms-sm) / var(--scale-type));
-  --ms-lg:   calc(var(--ms-md) * var(--scale-type));
-  --ms-xl:   calc(var(--ms-lg) * var(--scale-type));
-  --ms-xxl:  calc(var(--ms-xl) * var(--scale-type));
-  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type));
+  --ms-md:   var(--scale-base);                        /* 1.5rem */
+  --ms-sm:   calc(var(--ms-md) / var(--scale-type));   /* 1.125rem (1.5 ÷ 1.333) */
+  --ms-xs:   calc(var(--ms-sm) / var(--scale-type));   /* 0.844rem (1.125 ÷ 1.333) */
+  --ms-lg:   calc(var(--ms-md) * var(--scale-type));   /* 2rem (1.5 × 1.333) */
+  --ms-xl:   calc(var(--ms-lg) * var(--scale-type));   /* 2.667rem (2 × 1.333) */
+  --ms-xxl:  calc(var(--ms-xl) * var(--scale-type));   /* 3.556rem (2.667 × 1.333) */
+  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type));  /* 4.741rem (3.556 × 1.333) */
 
   /* Spacing */
   --space-0: 0.4rem;

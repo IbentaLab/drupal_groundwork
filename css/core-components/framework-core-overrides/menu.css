@@ -1,17 +1,26 @@
 ul.menu a.is-active {
   color: var(--color-link, var(--blue));
+  font-weight: bold;
+}
+
+.region-header ul.menu a.is-active {
+  color: var(--color-brand-contrast);
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand-contrast);
+  text-decoration-thickness: 2px;
+  text-underline-offset:  50%;
+  transition: text-decoration 0.2s ease;
+}
+
+ul.menu--level-0 li:hover {
+  background: var(--nav-hover);
 }
 
 li.menu-item {
-    list-style: none;
+  list-style: none;
 }
 
 ul.menu--level-1,
 ul.menu--level-2 {
   margin-bottom: 0;
-
 }
-
-
-
-

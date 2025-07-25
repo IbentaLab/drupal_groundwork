@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override for the messages block.
+ *
+ * Removes wrapper elements from block so that empty block does not appear when
+ * there are no messages.
+ *
+ * Available variables:
+ * - content: The content of this block.
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'grid-cell',
+  ]
+%}
+<div{{attributes.addClass(classes)}}>
+	<div class="block-style-target">
+    {{ content }}
+  </div>
+</div>

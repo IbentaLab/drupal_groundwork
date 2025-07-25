@@ -17,7 +17,7 @@
  * and the other blocks (like main navigation) are on the far right.
    ========================================================================== */
 
-.header--brand-left .region-header {
+.header--brand-left.region-header {
   display: flex;
   align-items: center;
   justify-content: space-between; /* Pushes first and last children to the edges */
@@ -39,7 +39,7 @@
  * ideal for minimalist designs.
    ========================================================================== */
 
-.header--brand-center .region-header {
+.header--brand-center.region-header {
   display: flex;
   flex-direction: column;   /* Stacks the grid cells vertically */
   align-items: center;      /* Centers the cells horizontally */
@@ -56,7 +56,7 @@
  * It is ideal for mobile views or very simple site structures.
    ========================================================================== */
 
-.header--brand-stacked .region-header {
+.header--brand-stacked.region-header {
   display: flex;
   flex-direction: column;   /* Stacks the grid cells vertically */
   align-items: stretch;     /* Makes each cell take up the full width */
@@ -71,3 +71,4 @@
 .header--brand-stacked .grid-cell:last-child {
   margin-bottom: 0;
 }
+

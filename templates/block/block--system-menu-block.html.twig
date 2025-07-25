@@ -61,9 +61,11 @@
   <div class="menu-wrapper">
     {# Conditionally add the hamburger button for the horizontal menu HSC. #}
     {% if content['#is_horizontal'] %}
-      <button class="gw-menu-toggle" aria-expanded="false" aria-controls="menu-{{ derivative_plugin_id|clean_id }}">
-        <span class="visually-hidden">{{ 'Toggle ' ~ configuration.label }}</span>
-        <span class="gw-menu-toggle__icon" aria-hidden="true"></span>
+      <button class="gw-menu-toggle" type="button" aria-controls="menu-{{ derivative_plugin_id|clean_id }}" aria-expanded="false">
+        <span class="gw-menu-toggle__icon"></span>
+        <span class="visually-hidden">
+          {{ 'Toggle ' ~ configuration.label }}
+        </span>
       </button>
     {% endif %}
 

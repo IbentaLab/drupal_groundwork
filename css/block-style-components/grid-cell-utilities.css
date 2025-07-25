@@ -1,0 +1,57 @@
+/* ─── Auto Layout Utilities ─────────────────────────────── */
+.grid > .grid-cell.col-auto,
+.grid--with-gutter > .grid-cell.col-auto {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.grid > .grid-cell.col-fill,
+.grid--with-gutter > .grid-cell.col-fill {
+  flex: 1 1 auto;
+}
+
+.grid > .grid-cell.col-grow,
+.grid--with-gutter > .grid-cell.col-grow {
+  flex-grow: 1;
+}
+
+.grid > .grid-cell.col-shrink,
+.grid--with-gutter > .grid-cell.col-shrink {
+  flex-shrink: 1;
+}
+
+/* ─── Offset Utilities ───────────────────────────────────── */
+.grid > .grid-cell.is-offset-1,
+.grid--with-gutter > .grid-cell.is-offset-1 { margin-left: 8.33333%; }
+
+.grid > .grid-cell.is-offset-2,
+.grid--with-gutter > .grid-cell.is-offset-2 { margin-left: 16.66667%; }
+
+/* Add more offsets as needed */
+
+/* ─── Ordering Utilities ─────────────────────────────────── */
+.grid > .grid-cell.order-1,
+.grid--with-gutter > .grid-cell.order-1 { order: 1; }
+
+.grid > .grid-cell.order-2,
+.grid--with-gutter > .grid-cell.order-2 { order: 2; }
+
+.grid > .grid-cell.order-first,
+.grid--with-gutter > .grid-cell.order-first { order: -1; }
+
+.grid > .grid-cell.order-last,
+.grid--with-gutter > .grid-cell.order-last { order: 9999; }
+
+/* ─── Vertical Alignment Utilities ───────────────────────── */
+.grid > .grid-cell.align-top,
+.grid--with-gutter > .grid-cell.align-top { align-self: flex-start; }
+
+.grid > .grid-cell.align-middle,
+.grid--with-gutter > .grid-cell.align-middle { align-self: center; }
+
+.grid > .grid-cell.align-bottom,
+.grid--with-gutter > .grid-cell.align-bottom { align-self: flex-end; }
+
+.grid > .grid-cell.align-stretch,
+.grid--with-gutter > .grid-cell.align-stretch { align-self: stretch; }

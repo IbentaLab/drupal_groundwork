@@ -30,20 +30,30 @@
           return; // Already processed
         }
 
+        // Attempt to resolve the controlled menu via aria-controls, but fall back
+        // to the first level‑0 menu if the ID is missing or invalid.
         const controlledMenuId = mainMenuToggleButton.getAttribute('aria-controls');
-        const mainMenu = document.getElementById(controlledMenuId);
-
-        if (mainMenu) {
-          mainMenuToggleButton.addEventListener('click', () => {
-            const isExpanded = mainMenuToggleButton.getAttribute('aria-expanded') === 'true';
-            mainMenuToggleButton.setAttribute('aria-expanded', !isExpanded);
-            mainMenu.classList.toggle('is-open');
-            navBlock.classList.toggle('is-open');
-            document.body.classList.toggle('is-menu-open');
-          });
+        let mainMenu = null;
+        if (controlledMenuId) {
+          mainMenu = document.getElementById(controlledMenuId);
         }
-        mainMenuToggleButton.setAttribute('data-js-initialized', 'true');
+        if (!mainMenu) {
+          mainMenu = navBlock.querySelector('.menu--level-0');
+        }
 
+        // Always attach the click handler, toggling aria-expanded on the button
+        // and the .is-open class on the menu, nav block and body.  The toggle
+        // still works if no menu is found (e.g., when markup is misconfigured).
+        mainMenuToggleButton.addEventListener('click', () => {
+          const isExpanded = mainMenuToggleButton.getAttribute('aria-expanded') === 'true';
+          mainMenuToggleButton.setAttribute('aria-expanded', !isExpanded);
+          if (mainMenu) {
+            mainMenu.classList.toggle('is-open');
+          }
+          navBlock.classList.toggle('is-open');
+          document.body.classList.toggle('is-menu-open');
+        });
+        mainMenuToggleButton.setAttribute('data-js-initialized', 'true');
 
         // --- Submenu Toggles (Accordion on Mobile) ---
         const submenuToggleButtons = navBlock.querySelectorAll('.submenu-toggle');
@@ -57,7 +67,19 @@
             const button = e.currentTarget;
             const isExpanded = button.getAttribute('aria-expanded') === 'true';
             const controlledSubmenuId = button.getAttribute('aria-controls');
-            const controlledSubmenu = document.getElementById(controlledSubmenuId);
+            let controlledSubmenu = null;
+
+            // Resolve the submenu via its ID, or fall back to the nearest
+            // `.menu` within the same list item if the ID is missing.
+            if (controlledSubmenuId) {
+              controlledSubmenu = document.getElementById(controlledSubmenuId);
+            }
+            if (!controlledSubmenu) {
+              const parentListItem = button.closest('li');
+              if (parentListItem) {
+                controlledSubmenu = parentListItem.querySelector('.menu');
+              }
+            }
 
             if (controlledSubmenu) {
               button.setAttribute('aria-expanded', !isExpanded);

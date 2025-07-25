@@ -20,17 +20,20 @@ use Drupal\block\BlockInterface;
  * @param array $variables
  *   The variables for the HTML template.
  */
-function groundwork_preprocess_html(array &$variables)
-{
-  if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
-    $variables['attributes']['class'][] = 'page-block-demo';
-  }
-
+function groundwork_preprocess_html(array &$variables) {
   $color_scheme = theme_get_setting('gw_color_scheme') ?? 'auto';
   if ($color_scheme === 'dark') {
     $variables['html_attributes']['data-theme'] = 'dark';
   } elseif ($color_scheme === 'light') {
     $variables['html_attributes']['data-theme'] = 'light';
+  }
+
+  // Check the current route machine name.
+  $route = \Drupal::routeMatch()->getRouteName();
+  if ($route === 'block.admin_demo') {
+    $variables['attributes']['class'][] = 'page-block-demo';
+    // Attach only needed library for this screen
+    $variables['#attached']['library'][] = 'groundwork/admin-styles';
   }
 
   if ($gw_custom_css = theme_get_setting('gw_custom_css') ?? '') {
@@ -42,10 +45,6 @@ function groundwork_preprocess_html(array &$variables)
       'groundwork-custom-css',
     ];
   }
-
-  // Add header layout class to the body.
-  $header_layout = theme_get_setting('gw_header_layout') ?? 'header--brand-left';
-  $variables['attributes']['class'][] = $header_layout;
 
   // Set the name of the theme's signature validation function.
   $groundwork_signature_function = 'groundwork_signature_check';
@@ -111,12 +110,7 @@ function groundwork_preprocess_page(array &$variables)
 
   groundwork_postprocess_footer($variables);
 
-  if (\Drupal::routeMatch()->getRouteName() === 'block.admin_demo') {
-    $variables['#attached']['library'][] = 'groundwork/block-demo';
-  }
 
-  // Pass pro status to all templates. We'll use this later.
-  $variables['is_pro'] = function_exists('groundwork_is_pro') && groundwork_is_pro();
 
   // --- Prepare the Social Bar SDC ---
   $location = theme_get_setting('gw_social_bar_location');
@@ -172,6 +166,14 @@ function groundwork_preprocess_page(array &$variables)
     $variables['page']['social_bar_footer'] = $social_bar_sdc;
   }
 
+}
+
+function groundwork_preprocess_region(array &$variables): void {
+  // Add header layout class to the header region.
+  if ($variables['region'] === 'header') {
+    $header_layout = theme_get_setting('gw_header_layout') ?? 'header--brand-left';
+    $variables['attributes']['class'][] = $header_layout;
+  }
 }
 
 /**

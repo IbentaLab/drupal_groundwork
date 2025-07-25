@@ -10,13 +10,51 @@
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - var(--drupal-displace-offset-top, 0px));
+  min-width: 32rem;
+}
+
+.layout-container {
+  margin: auto;
 }
 
 main.layout-main {
   flex-grow: 1;
+  transition: margin-left 0.4s;
 }
 
+@media only screen and (min-width: 769px) {
+ main .layout-container {
+   display: flex;
+   flex-direction: row;
+   flex: 1;
+ }
+ #sidebar-first,
+ #sidebar-second {
+   flex: 0 0 25%;
+ }
+ #sidebar-first {
+   order: -1;
+ }
+ #content {
+   flex: 1;
+ }
+}
 
+.layout-container {
+  width: 100%;
+}
+
+@media only screen and (min-width: 993px) {
+  .layout-container {
+    width: 992px;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .layout-container {
+    width: 1200px;
+  }
+}
 
 
 /* ==========================================================================

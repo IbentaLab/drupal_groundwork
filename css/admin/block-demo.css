@@ -1,13 +1,10 @@
 .page-block-demo {
-  background-color: white;
-  color: #333;
+  background-color: var(--color-bg);
+  color:var(--color-fg);
 }
 
 .page-block-demo .layout-container {
   margin: 0 auto;
-  max-width: 1200px;
-  padding-left: 1rem;
-  padding-right: 1rem;
   box-sizing: border-box;
 }
 
@@ -16,19 +13,29 @@
   padding: 16px;
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  background-color: transparent;
+  background-color: var(--color-bg);
+  color:var(--color-fg);
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.16), 0 0.2rem 10px 0 rgba(0, 0, 0, 0.12);
+  flex: 0 0 100%;
 }
 
-.layout-billboard .block-region {
+.page-block-demo .layout-billboard .block-region {
     height: 7.6rem;
+    flex: 0 0 100%;
 }
 
 .page-block-demo .region-header .block-region.demo-block,
 .page-block-demo .region-footer .block-region.demo-block {
   font-size: 3.6rem;
-  background-color: grey;
-  color: #ffffff;
+  color: var()
+}
+
+.page-block-demo .region-header .block-region.demo-block {
+  background-color: var(--color-primary);
+}
+
+.page-block-demo .region-footer .block-region.demo-block {
+  background-color: var(--color-success);
 }
 
 .page-block-demo .block-region.demo-block:hover {
@@ -50,6 +57,6 @@
   border-top-color: transparent;
 }
 
-* {
-  outline: 1px solid red;
+.layout-page * {
+  outline: 1px solid rgb(80, 80, 80);
 }
