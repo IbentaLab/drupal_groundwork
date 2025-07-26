@@ -20,23 +20,24 @@ use Drupal\block\BlockInterface;
  * @param array $variables
  *   The variables for the HTML template.
  */
-function groundwork_preprocess_html(array &$variables) {
-  $color_scheme = theme_get_setting('gw_color_scheme') ?? 'auto';
-  if ($color_scheme === 'dark') {
-    $variables['html_attributes']['data-theme'] = 'dark';
-  } elseif ($color_scheme === 'light') {
-    $variables['html_attributes']['data-theme'] = 'light';
+function groundwork_preprocess_html(array &$variables): void {
+  $config = \Drupal::config('groundwork.settings');
+
+  // Add a data-theme attribute for the selected color scheme.
+  $color_scheme = $config->get('gw_color_scheme') ?? 'auto';
+  if (in_array($color_scheme, ['dark', 'light'])) {
+    $variables['html_attributes']['data-theme'] = $color_scheme;
   }
 
-  // Check the current route machine name.
+  // Add a class for the block demo page for specific styling.
   $route = \Drupal::routeMatch()->getRouteName();
   if ($route === 'block.admin_demo') {
     $variables['attributes']['class'][] = 'page-block-demo';
-    // Attach only needed library for this screen
     $variables['#attached']['library'][] = 'groundwork/admin-styles';
   }
 
-  if ($gw_custom_css = theme_get_setting('gw_custom_css') ?? '') {
+  // Attach custom CSS from theme settings.
+  if ($gw_custom_css = $config->get('gw_custom_css') ?? '') {
     $variables['#attached']['html_head'][] = [
       [
         '#tag' => 'style',
@@ -49,26 +50,13 @@ function groundwork_preprocess_html(array &$variables) {
   // Set the name of the theme's signature validation function.
   $groundwork_signature_function = 'groundwork_signature_check';
 
-  // Verify the theme's signature.
+  // Verify the theme's signature (for Pro version).
   if (function_exists($groundwork_signature_function) && $groundwork_signature_function()) {
+    $site_salt = \Drupal::service('settings')->get('hash_salt');
+    $groundwork_signature_class = 'gw-auth-' . substr(md5($groundwork_signature_function . $site_salt), 0, 12);
+    $variables['html_attributes']['class'][] = $groundwork_signature_class;
 
-    // Get the unique, private hash salt for this specific Drupal site.
-    $site_salt = \Drupal\Component\Utility\Crypt::getHashSalt();
-
-    // Generate a dynamic class name unique to this site.
-    $groundwork_signature_class = '.gw-auth-' . substr(md5($groundwork_signature_function . $site_salt), 0, 12);
-
-    // Add the unique class to the <html> element.
-    $variables['html_attributes']['class'][] = ltrim($groundwork_signature_class, '.');
-
-    // Define a dynamic CSS variable to hold the unique signature class.
-    $groundwork_signature_css_variable = "
-      :root {
-        --groundwork-signature-scope: {$groundwork_signature_class};
-      }
-    ";
-
-    // Attach the dynamic CSS variable definition to the page header.
+    $groundwork_signature_css_variable = ":root { --groundwork-signature-scope: .{$groundwork_signature_class}; }";
     $variables['#attached']['html_head'][] = [
       [
         '#tag' => 'style',
@@ -78,7 +66,6 @@ function groundwork_preprocess_html(array &$variables) {
       'groundwork-signature-scope'
     ];
 
-    // Add a generator meta tag for identification.
     $variables['#attached']['html_head'][] = [
       [
         '#type' => 'html_tag',
@@ -101,29 +88,19 @@ function groundwork_preprocess_html(array &$variables) {
  * @param array $variables
  *   The variables array for the page template.
  */
-function groundwork_preprocess_page(array &$variables)
-{
-  $variables['theme_settings'] = [
-    'gw_color_scheme' => theme_get_setting('gw_color_scheme'),
-    // Only what you actually need for Twig here!
-  ];
+function groundwork_preprocess_page(array &$variables): void {
+  $config = \Drupal::config('groundwork.settings');
 
+  // Process footer elements.
   groundwork_postprocess_footer($variables);
 
-
-
-  // --- Prepare the Social Bar SDC ---
-  $location = theme_get_setting('gw_social_bar_location');
-
-  // Stop if the bar is disabled.
-  if ($location === 'none') {
+  // Process social media bar.
+  $location = $config->get('gw_social_bar_location');
+  if ($location === 'none' || !$location) {
     return;
   }
 
-  // Get social links from settings.
   $social_networks = ['twitter', 'facebook', 'linkedin', 'instagram', 'youtube'];
-
-  // Create a mapping for proper brand names.
   $social_network_names = [
     'twitter' => 'Twitter',
     'facebook' => 'Facebook',
@@ -134,60 +111,50 @@ function groundwork_preprocess_page(array &$variables)
 
   $links = [];
   foreach ($social_networks as $key) {
-    if ($url = theme_get_setting('gw_social_' . $key)) {
+    if ($url = $config->get('gw_social_' . $key)) {
       $links[] = [
         'url' => $url,
-        // Use the mapping, with a fallback to the old behavior.
         'name' => $social_network_names[$key] ?? ucfirst($key),
       ];
     }
   }
 
-  // Stop if there are no links to show.
   if (empty($links)) {
     return;
   }
 
-  // Build the render array for the SDC.
   $social_bar_sdc = [
     '#type' => 'component',
     '#component' => 'groundwork:social-bar',
     '#props' => [
       'links' => $links,
-      'alignment' => theme_get_setting('gw_social_bar_alignment'),
+      'alignment' => $config->get('gw_social_bar_alignment') ?? 'center',
     ],
   ];
 
-  // Put the SDC into the correct variable based on the location setting.
   if ($location === 'header') {
     $variables['page']['social_bar_header'] = $social_bar_sdc;
-  } elseif ($location === 'footer') {
-    // Look at your screenshot, this should go above the grey legal bar.
+  }
+  elseif ($location === 'footer') {
     $variables['page']['social_bar_footer'] = $social_bar_sdc;
   }
-
 }
 
+/**
+ * Implements hook_preprocess_region().
+ */
 function groundwork_preprocess_region(array &$variables): void {
-  // Add header layout class to the header region.
   if ($variables['region'] === 'header') {
-    $header_layout = theme_get_setting('gw_header_layout') ?? 'header--brand-left';
+    $header_layout = \Drupal::config('groundwork.settings')->get('gw_header_layout') ?? 'header--brand-left';
     $variables['attributes']['class'][] = $header_layout;
   }
 }
 
 /**
  * Implements hook_preprocess_image_widget().
- *
- * Prevents image widget templates from rendering the preview container
- * to users without permission to access previews.
- *
- * @todo Revisit in https://drupal.org/node/953034 and https://drupal.org/node/3114318
  */
-function groundwork_preprocess_image_widget(array &$variables): void
-{
+function groundwork_preprocess_image_widget(array &$variables): void {
   $data = &$variables['data'];
-
   if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
     unset($data['preview']);
   }
@@ -195,14 +162,8 @@ function groundwork_preprocess_image_widget(array &$variables): void
 
 /**
  * Implements hook_preprocess_node().
- *
- * Alter variables before a node is rendered.
- *
- * @param array $variables
- *   The variables array for the node template.
  */
-function groundwork_preprocess_node(array &$variables): void
-{
+function groundwork_preprocess_node(array &$variables): void {
   // Example: Add a field value as a CSS class.
   // if (!empty($variables['elements']['#node']->bundle())) {
   //   $variables['attributes']['class'][] = 'gw-' . $variables['elements']['#node']->bundle();
@@ -211,44 +172,33 @@ function groundwork_preprocess_node(array &$variables): void
 
 /**
  * Implements hook_preprocess_block().
- *
- * @param array $variables
- * An associative array containing:
- * - elements: An array of elements for this block.
- * - attributes: An array of HTML attributes for the block wrapper.
- * - configuration: An array of configuration values for this block.
- * - plugin_id: The ID of the block plugin.
  */
 function groundwork_preprocess_block(array &$variables): void {
+  $config = \Drupal::config('groundwork.settings');
   $plugin_id = $variables['plugin_id'] ?? '';
-  $is_system_menu_block = str_starts_with($plugin_id, 'system_menu_block:');
 
-  if ($is_system_menu_block) {
-    $menu_name = substr($plugin_id, strlen('system_menu_block:'));
-    $is_horizontal_main = (theme_get_setting('gw_menu_main_horizontal') ?? 1) && $menu_name === 'main';
-    $is_horizontal_secondary = (theme_get_setting('gw_menu_secondary_horizontal') ?? 0) && $menu_name === 'secondary';
+  // Add horizontal menu classes and pass a flag to the menu template.
+  if (str_starts_with($plugin_id, 'system_menu_block:')) {
+    $menu_name = str_replace('system_menu_block:', '', $plugin_id);
+    $is_horizontal_main = ($config->get('gw_menu_main_horizontal') ?? TRUE) && $menu_name === 'main';
+    $is_horizontal_secondary = ($config->get('gw_menu_secondary_horizontal') ?? FALSE) && $menu_name === 'secondary';
 
     if ($is_horizontal_main || $is_horizontal_secondary) {
       $variables['attributes']['class'][] = 'menu--horizontal';
-      // Pass the #is_horizontal flag to the menu's render array.
       $variables['content']['#is_horizontal'] = TRUE;
-
-      if ($is_horizontal_main && (theme_get_setting('gw_menu_main_transparent') ?? 0)) {
+      if ($is_horizontal_main && ($config->get('gw_menu_main_transparent') ?? FALSE)) {
         $variables['attributes']['class'][] = 'menu--transparent';
       }
     }
   }
 
   // Use responsive grid classes for header blocks.
-  // This makes them full-width on mobile and sized on desktop.
   if (($variables['elements']['#region'] ?? '') === 'header') {
     if ($plugin_id === 'system_branding_block') {
-      // Full width on small, 4/12 on medium+.
       $variables['attributes']['class'][] = 'is-12--s';
       $variables['attributes']['class'][] = 'is-4';
     }
     elseif ($plugin_id === 'system_menu_block:main') {
-      // Full width on small, 8/12 on medium+.
       $variables['attributes']['class'][] = 'is-12--s';
       $variables['attributes']['class'][] = 'is-8';
     }
@@ -257,10 +207,6 @@ function groundwork_preprocess_block(array &$variables): void {
 
 /**
  * Implements hook_preprocess_menu().
- *
- * This function acts as a bridge, passing the #is_horizontal flag from the
- * block's content render array into the menu.html.twig template's scope.
- * THIS IS THE KEY FIX for the mobile menu.
  */
 function groundwork_preprocess_menu(array &$variables): void {
   if (isset($variables['#is_horizontal'])) {
@@ -270,13 +216,7 @@ function groundwork_preprocess_menu(array &$variables): void {
 
 /**
  * Example: Custom preprocess function for a custom template.
- *
- * This would be auto-called as groundwork_preprocess_MY_TEMPLATE().
- *
- * @param array $variables
- *   The variables array for the custom template.
  */
-function groundwork_preprocess_my_custom_template(array &$variables): void
-{
+function groundwork_preprocess_my_custom_template(array &$variables): void {
   // Custom logic for my-custom-template.html.twig.
 }

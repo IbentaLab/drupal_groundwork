@@ -14,13 +14,16 @@ include_once __DIR__ . '/init.inc';
 
 function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface $form_state)
 {
+  // Load the theme's configuration object to get settings.
+  $config = \Drupal::config('groundwork.settings');
+
   // ----- Branded header -----
-  $logo_path = groundwork_theme_path() . '/images/groundwork-logo.svg';
+  $logo_path = \Drupal::theme()->getActiveTheme()->getPath() . '/images/groundwork-logo.svg';
   $form['gw_intro'] = [
     '#type' => 'item',
     '#markup' => '
       <div class="gw-settings-header">
-        <img src="' . $logo_path . '" alt="Groundwork Logo" class="gw-settings-logo" />
+        <img src="/' . $logo_path . '" alt="Groundwork Logo" class="gw-settings-logo" />
         <h2 class="gw-settings-title">Groundwork Theme Settings</h2>
         <div class="gw-settings-lead">
           Modern, accessible, and AI-powered for Drupal 11+.<br>
@@ -37,129 +40,129 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   // ----- Vertical tabs -----
   $form['gw_settings_tabs'] = [
     '#type' => 'vertical_tabs',
-    '#title' => t('Groundwork Theme Settings'),
+    '#title' => \Drupal::translation()->translate('Groundwork Theme Settings'),
     '#weight' => -90,
   ];
 
   // ----- Design & Branding tab -----
   $form['design'] = [
     '#type' => 'details',
-    '#title' => t('Design & Branding'),
+    '#title' => \Drupal::translation()->translate('Design & Branding'),
     '#group' => 'gw_settings_tabs',
     '#weight' => 10,
   ];
   $form['design']['gw_color_scheme'] = [
     '#type' => 'radios',
-    '#title' => t('Color scheme'),
-    '#default_value' => theme_get_setting('gw_color_scheme'),
+    '#title' => \Drupal::translation()->translate('Color scheme'),
+    '#default_value' => $config->get('gw_color_scheme'),
     '#options' => [
-      'auto' => t('Follow OS setting'),
-      'light' => t('Light'),
-      'dark' => t('Dark'),
+      'auto' => \Drupal::translation()->translate('Follow OS setting'),
+      'light' => \Drupal::translation()->translate('Light'),
+      'dark' => \Drupal::translation()->translate('Dark'),
     ],
-    '#description' => t('Switch between light and dark mode, or follow the user’s operating system preference.'),
+    '#description' => \Drupal::translation()->translate('Switch between light and dark mode, or follow the user’s operating system preference.'),
   ];
   $form['design']['gw_custom_css'] = [
     '#type' => 'textarea',
-    '#title' => t('Custom CSS'),
-    '#description' => t('Add custom CSS for quick tweaks or experiments. Only valid CSS will be rendered. For security reasons, HTML tags (such as &lt;div&gt;, &lt;script&gt;) or JavaScript code are not allowed—if your CSS includes &lt; or &gt;, it will be rejected.'),
-    '#default_value' => theme_get_setting('gw_custom_css'),
+    '#title' => \Drupal::translation()->translate('Custom CSS'),
+    '#description' => \Drupal::translation()->translate('Add custom CSS for quick tweaks or experiments. Only valid CSS will be rendered. For security reasons, HTML tags (such as &lt;div&gt;, &lt;script&gt;) or JavaScript code are not allowed—if your CSS includes &lt; or &gt;, it will be rejected.'),
+    '#default_value' => $config->get('gw_custom_css'),
     '#element_validate' => ['groundwork_validate_custom_css'],
   ];
 
   // Sidebar First fieldset
   $form['design']['gw_sidebar_first'] = [
     '#type' => 'fieldset',
-    '#title' => t('Sidebar First Grid Widths'),
-    '#description' => t('Choose how many grid cells Sidebar First should occupy on each breakpoint. Default layout is 4 on desktop and 3 on wide.'),
+    '#title' => \Drupal::translation()->translate('Sidebar First Grid Widths'),
+    '#description' => \Drupal::translation()->translate('Choose how many grid cells Sidebar First should occupy on each breakpoint. Default layout is 4 on desktop and 3 on wide.'),
     '#attributes' => ['class' => ['gw-sidebar-settings', 'gw-horizontal-selects']],
   ];
   $form['design']['gw_sidebar_first']['gw_sidebar_first_cells_s'] = [
     '#type' => 'select',
-    '#title' => t('Mobile (S)'),
+    '#title' => \Drupal::translation()->translate('Mobile (S)'),
     '#options' => array_combine(range(1, 12), range(1, 12)),
-    '#default_value' => theme_get_setting('gw_sidebar_first_cells_s') ?? 12,
+    '#default_value' => $config->get('gw_sidebar_first_cells_s') ?? 12,
   ];
   $form['design']['gw_sidebar_first']['gw_sidebar_first_cells_m'] = [
     '#type' => 'select',
-    '#title' => t('Desktop (M)'),
+    '#title' => \Drupal::translation()->translate('Desktop (M)'),
     '#options' => array_combine(range(1, 12), range(1, 12)),
-    '#default_value' => theme_get_setting('gw_sidebar_first_cells_m') ?? 4,
+    '#default_value' => $config->get('gw_sidebar_first_cells_m') ?? 4,
   ];
   $form['design']['gw_sidebar_first']['gw_sidebar_first_cells_l'] = [
     '#type' => 'select',
-    '#title' => t('Wide (L)'),
+    '#title' => \Drupal::translation()->translate('Wide (L)'),
     '#options' => array_combine(range(1, 12), range(1, 12)),
-    '#default_value' => theme_get_setting('gw_sidebar_first_cells_l') ?? 3,
+    '#default_value' => $config->get('gw_sidebar_first_cells_l') ?? 3,
   ];
 
   // Sidebar Second fieldset
   $form['design']['gw_sidebar_second'] = [
     '#type' => 'fieldset',
-    '#title' => t('Sidebar Second Grid Widths'),
-    '#description' => t('Choose how many grid cells Sidebar Second should occupy on each breakpoint. Default layout is 2 on desktop and wide.'),
+    '#title' => \Drupal::translation()->translate('Sidebar Second Grid Widths'),
+    '#description' => \Drupal::translation()->translate('Choose how many grid cells Sidebar Second should occupy on each breakpoint. Default layout is 2 on desktop and wide.'),
     '#attributes' => ['class' => ['gw-sidebar-settings', 'gw-horizontal-selects']],
   ];
   $form['design']['gw_sidebar_second']['gw_sidebar_second_cells_s'] = [
     '#type' => 'select',
-    '#title' => t('Mobile (S)'),
+    '#title' => \Drupal::translation()->translate('Mobile (S)'),
     '#options' => array_combine(range(1, 12), range(1, 12)),
-    '#default_value' => theme_get_setting('gw_sidebar_second_cells_s') ?? 12,
+    '#default_value' => $config->get('gw_sidebar_second_cells_s') ?? 12,
   ];
   $form['design']['gw_sidebar_second']['gw_sidebar_second_cells_m'] = [
     '#type' => 'select',
-    '#title' => t('Desktop (M)'),
+    '#title' => \Drupal::translation()->translate('Desktop (M)'),
     '#options' => array_combine(range(1, 12), range(1, 12)),
-    '#default_value' => theme_get_setting('gw_sidebar_second_cells_m') ?? 2,
+    '#default_value' => $config->get('gw_sidebar_second_cells_m') ?? 2,
   ];
   $form['design']['gw_sidebar_second']['gw_sidebar_second_cells_l'] = [
     '#type' => 'select',
-    '#title' => t('Wide (L)'),
+    '#title' => \Drupal::translation()->translate('Wide (L)'),
     '#options' => array_combine(range(1, 12), range(1, 12)),
-    '#default_value' => theme_get_setting('gw_sidebar_second_cells_l') ?? 2,
+    '#default_value' => $config->get('gw_sidebar_second_cells_l') ?? 2,
   ];
 
 
   // ----- Navigation & Menus tab -----
   $form['gw_navigation'] = [
     '#type' => 'details',
-    '#title' => t('Navigation & Menus'),
+    '#title' => \Drupal::translation()->translate('Navigation & Menus'),
     '#group' => 'gw_settings_tabs',
     '#weight' => 15,
-    '#description' => t('Configure display options for the site header and menus.'),
+    '#description' => \Drupal::translation()->translate('Configure display options for the site header and menus.'),
   ];
 
   $form['gw_navigation']['gw_header_layout'] = [
     '#type'          => 'radios',
-    '#title'         => t('Header Layout'),
-    '#default_value' => theme_get_setting('gw_header_layout') ?: 'header--brand-left',
+    '#title'         => \Drupal::translation()->translate('Header Layout'),
+    '#default_value' => $config->get('gw_header_layout') ?: 'header--brand-left',
     '#options'       => [
-      'header--brand-left'  => t('Brand Left (Default)'),
-      'header--brand-center' => t('Brand Center'),
-      'header--brand-stacked' => t('Stacked'),
+      'header--brand-left'  => \Drupal::translation()->translate('Brand Left (Default)'),
+      'header--brand-center' => \Drupal::translation()->translate('Brand Center'),
+      'header--brand-stacked' => \Drupal::translation()->translate('Stacked'),
     ],
-    '#description'   => t('Select the layout for the site header. This applies a CSS class to the <body> tag.'),
+    '#description'   => \Drupal::translation()->translate('Select the layout for the site header. This applies a CSS class to the <body> tag.'),
   ];
 
   $form['gw_navigation']['gw_menu_main_horizontal'] = [
     '#type' => 'checkbox',
-    '#title' => t('Display Main menu as a horizontal, responsive menu'),
-    '#default_value' => theme_get_setting('gw_menu_main_horizontal') ?? 1, // Default to checked (1)
-    '#description' => t('When checked, the main menu will be styled as a horizontal bar with dropdowns on desktop, and a collapsible accordion on mobile. Best used in the Header or Primary Menu regions.'),
+    '#title' => \Drupal::translation()->translate('Display Main menu as a horizontal, responsive menu'),
+    '#default_value' => $config->get('gw_menu_main_horizontal') ?? 1,
+    '#description' => \Drupal::translation()->translate('When checked, the main menu will be styled as a horizontal bar with dropdowns on desktop, and a collapsible accordion on mobile. Best used in the Header or Primary Menu regions.'),
   ];
 
   $form['gw_navigation']['gw_menu_secondary_horizontal'] = [
     '#type' => 'checkbox',
-    '#title' => t('Display Secondary menu as a horizontal, responsive menu'),
-    '#default_value' => theme_get_setting('gw_menu_secondary_horizontal') ?? 0, // Default to unchecked (0)
-    '#description' => t('When checked, the secondary menu will be styled as a horizontal bar.'),
+    '#title' => \Drupal::translation()->translate('Display Secondary menu as a horizontal, responsive menu'),
+    '#default_value' => $config->get('gw_menu_secondary_horizontal') ?? 0,
+    '#description' => \Drupal::translation()->translate('When checked, the secondary menu will be styled as a horizontal bar.'),
   ];
 
   $form['gw_navigation']['gw_menu_main_transparent'] = [
     '#type' => 'checkbox',
-    '#title' => t('Make the horizontal main menu background transparent'),
-    '#default_value' => theme_get_setting('gw_menu_main_transparent') ?? 0, // Default to unchecked (0)
-    '#description' => t('This only applies if the main menu is set to display horizontally. The menu will inherit the background of its parent region.'),
+    '#title' => \Drupal::translation()->translate('Make the horizontal main menu background transparent'),
+    '#default_value' => $config->get('gw_menu_main_transparent') ?? 0,
+    '#description' => \Drupal::translation()->translate('This only applies if the main menu is set to display horizontally. The menu will inherit the background of its parent region.'),
     '#states' => [
       'visible' => [
         ':input[name="gw_menu_main_horizontal"]' => ['checked' => TRUE],
@@ -170,136 +173,95 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   // ----- AI-powered Tools tab -----
   $form['ai_tools'] = [
     '#type' => 'details',
-    '#title' => t('AI-powered Tools'),
+    '#title' => \Drupal::translation()->translate('AI-powered Tools'),
     '#group' => 'gw_settings_tabs',
     '#weight' => 20,
-    '#description' => t('Try the AI-powered color palette generator! Gemini offers 1,000 free requests/month.'),
+    '#description' => \Drupal::translation()->translate('Try the AI-powered color palette generator! Gemini offers 1,000 free requests/month.'),
   ];
 
-  // AI provider dropdown (models in parentheses)
   $form['ai_tools']['ai_provider'] = [
     '#type' => 'select',
-    '#title' => t('AI Provider'),
+    '#title' => \Drupal::translation()->translate('AI Provider'),
     '#options' => [
-      '' => t('Choose provider...'),
-      'gemini' => t('Google Gemini (Gemini Pro – recommended, free tier)'),
-      'openai' => t('OpenAI (ChatGPT, GPT-4o, GPT-3.5 Turbo)'),
-      'openrouter' => t('OpenRouter (DeepSeek, Llama-3, Mixtral, GPT-4o, etc.)'),
-      'huggingface' => t('HuggingFace (DeepSeek, Llama, Mistral, open source)'),
-      'azure' => t('Azure AI (GPT-4, GPT-3.5, vision, enterprise)'),
-      'aws' => t('AWS Bedrock (Anthropic, Amazon Titan, Llama)'),
-      'perplexity' => t('Perplexity AI (PPLX-70B, web-powered Q&A, paid only)'),
-      'simulate' => t('Simulate AI (demo only, no real AI)'),
+      '' => \Drupal::translation()->translate('Choose provider...'),
+      'gemini' => \Drupal::translation()->translate('Google Gemini (Gemini Pro – recommended, free tier)'),
+      'openai' => \Drupal::translation()->translate('OpenAI (ChatGPT, GPT-4o, GPT-3.5 Turbo)'),
+      'openrouter' => \Drupal::translation()->translate('OpenRouter (DeepSeek, Llama-3, Mixtral, GPT-4o, etc.)'),
+      'huggingface' => \Drupal::translation()->translate('HuggingFace (DeepSeek, Llama, Mistral, open source)'),
+      'azure' => \Drupal::translation()->translate('Azure AI (GPT-4, GPT-3.5, vision, enterprise)'),
+      'aws' => \Drupal::translation()->translate('AWS Bedrock (Anthropic, Amazon Titan, Llama)'),
+      'perplexity' => \Drupal::translation()->translate('Perplexity AI (PPLX-70B, web-powered Q&A, paid only)'),
+      'simulate' => \Drupal::translation()->translate('Simulate AI (demo only, no real AI)'),
     ],
-    '#default_value' => theme_get_setting('ai_provider') ?: '',
-    '#description' => t('Choose your AI provider. Gemini is free for most users. OpenRouter gives you access to DeepSeek, Llama, and many others.'),
+    '#default_value' => $config->get('ai_provider') ?: '',
+    '#description' => \Drupal::translation()->translate('Choose your AI provider. Gemini is free for most users. OpenRouter gives you access to DeepSeek, Llama, and many others.'),
   ];
-  // Provider-specific API keys
   $form['ai_tools']['ai_gemini_api_key'] = [
     '#type' => 'textfield',
-    '#title' => t('Google Gemini API Key'),
-    '#description' => t('Get your free API key at <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank">Gemini API</a>.'),
-    '#default_value' => theme_get_setting('ai_gemini_api_key'),
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'gemini'],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('Google Gemini API Key'),
+    '#description' => \Drupal::translation()->translate('Get your free API key at <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank">Gemini API</a>.'),
+    '#default_value' => $config->get('ai_gemini_api_key'),
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'gemini']]],
     '#element_validate' => ['groundwork_validate_api_key'],
   ];
   $form['ai_tools']['ai_openai_api_key'] = [
     '#type' => 'textfield',
-    '#title' => t('OpenAI API Key'),
-    '#description' => t('Get your API key at <a href="https://platform.openai.com/" target="_blank">OpenAI</a>.'),
-    '#default_value' => theme_get_setting('ai_openai_api_key'),
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'openai'],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('OpenAI API Key'),
+    '#description' => \Drupal::translation()->translate('Get your API key at <a href="https://platform.openai.com/" target="_blank">OpenAI</a>.'),
+    '#default_value' => $config->get('ai_openai_api_key'),
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'openai']]],
     '#element_validate' => ['groundwork_validate_api_key'],
   ];
   $form['ai_tools']['ai_openrouter_api_key'] = [
     '#type' => 'textfield',
-    '#title' => t('OpenRouter API Key'),
-    '#description' => t('Get your API key at <a href="https://openrouter.ai/" target="_blank">OpenRouter.ai</a>. Choose your model (DeepSeek, Llama, etc.) in your OpenRouter dashboard.'),
-    '#default_value' => theme_get_setting('ai_openrouter_api_key'),
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'openrouter'],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('OpenRouter API Key'),
+    '#description' => \Drupal::translation()->translate('Get your API key at <a href="https://openrouter.ai/" target="_blank">OpenRouter.ai</a>. Choose your model (DeepSeek, Llama, etc.) in your OpenRouter dashboard.'),
+    '#default_value' => $config->get('ai_openrouter_api_key'),
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'openrouter']]],
   ];
   $form['ai_tools']['ai_huggingface_api_key'] = [
     '#type' => 'textfield',
-    '#title' => t('HuggingFace API Key'),
-    '#description' => t('Get your API token at <a href="https://huggingface.co/settings/tokens" target="_blank">HuggingFace</a>. Choose DeepSeek or other open models.'),
-    '#default_value' => theme_get_setting('ai_huggingface_api_key'),
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'huggingface'],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('HuggingFace API Key'),
+    '#description' => \Drupal::translation()->translate('Get your API token at <a href="https://huggingface.co/settings/tokens" target="_blank">HuggingFace</a>. Choose DeepSeek or other open models.'),
+    '#default_value' => $config->get('ai_huggingface_api_key'),
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'huggingface']]],
   ];
   $form['ai_tools']['ai_azure_api_key'] = [
     '#type' => 'textfield',
-    '#title' => t('Azure AI API Key'),
-    '#description' => t('Get your API key at <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.'),
-    '#default_value' => theme_get_setting('ai_azure_api_key'),
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'azure'],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('Azure AI API Key'),
+    '#description' => \Drupal::translation()->translate('Get your API key at <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>.'),
+    '#default_value' => $config->get('ai_azure_api_key'),
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'azure']]],
   ];
   $form['ai_tools']['ai_aws_api_key'] = [
     '#type' => 'textfield',
-    '#title' => t('AWS Bedrock API Key'),
-    '#description' => t('Get your API key at <a href="https://console.aws.amazon.com/" target="_blank">AWS Console</a>.'),
-    '#default_value' => theme_get_setting('ai_aws_api_key'),
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'aws'],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('AWS Bedrock API Key'),
+    '#description' => \Drupal::translation()->translate('Get your API key at <a href="https://console.aws.amazon.com/" target="_blank">AWS Console</a>.'),
+    '#default_value' => $config->get('ai_aws_api_key'),
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'aws']]],
   ];
   $form['ai_tools']['ai_perplexity_api_key'] = [
     '#type' => 'textfield',
-    '#title' => t('Perplexity API Key'),
-    '#description' => t('Sign up for a Perplexity API key at <a href="https://docs.perplexity.ai/" target="_blank">Perplexity docs</a>. No free tier.'),
-    '#default_value' => theme_get_setting('ai_perplexity_api_key'),
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'perplexity'],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('Perplexity API Key'),
+    '#description' => \Drupal::translation()->translate('Sign up for a Perplexity API key at <a href="https://docs.perplexity.ai/" target="_blank">Perplexity docs</a>. No free tier.'),
+    '#default_value' => $config->get('ai_perplexity_api_key'),
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'perplexity']]],
   ];
-  // Simulate AI: no API key, just a note
   $form['ai_tools']['ai_simulate_note'] = [
     '#type' => 'container',
-    '#states' => [
-      'visible' => [
-        ':input[name="ai_provider"]' => ['value' => 'simulate'],
-      ],
-    ],
+    '#states' => ['visible' => [':input[name="ai_provider"]' => ['value' => 'simulate']]],
+    '#markup' => '<div class="gw-pro-feature-disabled"><strong>' . \Drupal::translation()->translate('Simulate AI:') . '</strong> ' . \Drupal::translation()->translate('This is a demo result for testing and development. No real AI is used.') . '</div>',
   ];
-  $form['ai_tools']['ai_simulate_note']['markup'] = [
-    '#type' => 'markup',
-    '#markup' => '<div class="gw-pro-feature-disabled"><strong>Simulate AI:</strong> This is a demo result for testing and development. No real AI is used.</div>',
-  ];
-
-  // Image upload for palette suggestion
   $form['ai_tools']['ai_palette_logo'] = [
     '#type' => 'managed_file',
-    '#title' => t('Upload logo or image for color palette suggestion'),
+    '#title' => \Drupal::translation()->translate('Upload logo or image for color palette suggestion'),
     '#upload_location' => 'public://ai_palette/',
-    '#default_value' => theme_get_setting('ai_palette_logo'),
-    '#description' => t('Upload a logo or image for AI-powered color palette suggestions.'),
+    '#default_value' => $config->get('ai_palette_logo'),
+    '#description' => \Drupal::translation()->translate('Upload a logo or image for AI-powered color palette suggestions.'),
   ];
-  // Suggestion button (AJAX submit, not fully implemented here)
   $form['ai_tools']['ai_suggest_palette'] = [
     '#type' => 'submit',
-    '#value' => t('Suggest Color Palette (AI-powered)'),
+    '#value' => \Drupal::translation()->translate('Suggest Color Palette (AI-powered)'),
     '#ajax' => [
       'callback' => 'groundwork_ai_palette_callback',
       'wrapper' => 'ai-palette-result-wrapper',
@@ -315,127 +277,91 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   // ----- Social Links tab -----
   $form['social'] = [
     '#type' => 'details',
-    '#title' => t('Social Links Bar'),
+    '#title' => \Drupal::translation()->translate('Social Links Bar'),
     '#group' => 'gw_settings_tabs',
-    '#weight' => 25, // This places it before the Footer tab
+    '#weight' => 25,
   ];
-
-  // Location Setting
   $form['social']['gw_social_bar_location'] = [
     '#type' => 'radios',
-    '#title' => t('Location'),
+    '#title' => \Drupal::translation()->translate('Location'),
     '#options' => [
-      'none' => t('None (Hide the bar)'),
-      'header' => t('Above the main site header'),
-      'footer' => t('In the footer (above the legal bar)'),
+      'none' => \Drupal::translation()->translate('None (Hide the bar)'),
+      'header' => \Drupal::translation()->translate('Above the main site header'),
+      'footer' => \Drupal::translation()->translate('In the footer (above the legal bar)'),
     ],
-    '#default_value' => theme_get_setting('gw_social_bar_location') ?: 'footer',
-    '#description' => t('Choose where to display the full-width social links bar.'),
+    '#default_value' => $config->get('gw_social_bar_location') ?: 'footer',
+    '#description' => \Drupal::translation()->translate('Choose where to display the full-width social links bar.'),
   ];
-
-  // Alignment Setting
   $form['social']['gw_social_bar_alignment'] = [
     '#type' => 'radios',
-    '#title' => t('Link Alignment'),
+    '#title' => \Drupal::translation()->translate('Link Alignment'),
     '#options' => [
-      'left' => t('Left'),
-      'center' => t('Center'),
-      'right' => t('Right'),
-      'distributed' => t('Distributed (Justify)'),
+      'left' => \Drupal::translation()->translate('Left'),
+      'center' => \Drupal::translation()->translate('Center'),
+      'right' => \Drupal::translation()->translate('Right'),
+      'distributed' => \Drupal::translation()->translate('Distributed (Justify)'),
     ],
-    '#default_value' => theme_get_setting('gw_social_bar_alignment') ?: 'center',
-    '#description' => t('Align the links within the social bar.'),
-    // Use #states to hide this if the location is 'none'.
-    '#states' => [
-      'visible' => [
-        ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
-      ],
-    ],
+    '#default_value' => $config->get('gw_social_bar_alignment') ?: 'center',
+    '#description' => \Drupal::translation()->translate('Align the links within the social bar.'),
+    '#states' => ['visible' => [':input[name="gw_social_bar_location"]' => ['!value' => 'none']]],
   ];
-
-  // Social Network Fields
   $form['social']['gw_social_links_intro'] = [
     '#type' => 'markup',
-    '#markup' => '<p><strong>' . t('Enter the full URLs for your social media profiles. The bar will only appear if at least one link is entered.') . '</strong></p>',
-    '#states' => [ // Also hide this if location is 'none'
-      'visible' => [
-        ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
-      ],
-    ],
+    '#markup' => '<p><strong>' . \Drupal::translation()->translate('Enter the full URLs for your social media profiles. The bar will only appear if at least one link is entered.') . '</strong></p>',
+    '#states' => ['visible' => [':input[name="gw_social_bar_location"]' => ['!value' => 'none']]],
   ];
-
   $social_networks = [
-    'twitter' => t('X (formerly Twitter)'),
-    'facebook' => t('Facebook'),
-    'linkedin' => t('LinkedIn'),
-    'instagram' => t('Instagram'),
-    'youtube' => t('YouTube'),
+    'twitter' => \Drupal::translation()->translate('X (formerly Twitter)'),
+    'facebook' => \Drupal::translation()->translate('Facebook'),
+    'linkedin' => \Drupal::translation()->translate('LinkedIn'),
+    'instagram' => \Drupal::translation()->translate('Instagram'),
+    'youtube' => \Drupal::translation()->translate('YouTube'),
   ];
-
   foreach ($social_networks as $key => $title) {
     $form['social']['gw_social_' . $key] = [
-      '#type' => 'url', // Use 'url' type for better validation
+      '#type' => 'url',
       '#title' => $title,
-      '#default_value' => theme_get_setting('gw_social_' . $key),
-      '#states' => [ // Also hide these if location is 'none'
-        'visible' => [
-          ':input[name="gw_social_bar_location"]' => ['!value' => 'none'],
-        ],
-      ],
+      '#default_value' => $config->get('gw_social_' . $key),
+      '#states' => ['visible' => [':input[name="gw_social_bar_location"]' => ['!value' => 'none']]],
     ];
   }
 
   // ----- Footer & Attribution tab -----
   $form['footer'] = [
     '#type' => 'details',
-    '#title' => t('Footer & Attribution'),
+    '#title' => \Drupal::translation()->translate('Footer & Attribution'),
     '#group' => 'gw_settings_tabs',
     '#weight' => 30,
   ];
   $form['footer']['gw_footer_attribution'] = [
     '#type' => 'checkbox',
-    '#title' => t('Show “Powered by Groundwork Theme Framework” in the footer'),
+    '#title' => \Drupal::translation()->translate('Show “Powered by Groundwork Theme Framework” in the footer'),
     '#default_value' => 1,
-    '#description' => t('This attribution helps support ongoing development. <strong>Removal is available with a <a href=":pro_url" target="_blank">Groundwork Pro license</a>.</strong>', [':pro_url' => 'https://groundwork.ibenta.no/pro']),
-    '#attributes' => [
-      'disabled' => 'disabled',
-    ],
+    '#description' => \Drupal::translation()->translate('This attribution helps support ongoing development. <strong>Removal is available with a <a href=":pro_url" target="_blank">Groundwork Pro license</a>.</strong>', [':pro_url' => 'https://groundwork.ibenta.no/pro']),
+    '#attributes' => ['disabled' => 'disabled'],
   ];
   $form['footer']['gw_footer_copyright_enable'] = [
     '#type' => 'checkbox',
-    '#title' => t('Show copyright text in the footer'),
+    '#title' => \Drupal::translation()->translate('Show copyright text in the footer'),
     '#default_value' => 1,
-    '#description' => t('Uncheck to hide the copyright line from the footer.'),
-    '#attributes' => [
-      'disabled' => 'disabled',
-    ],
+    '#description' => \Drupal::translation()->translate('Uncheck to hide the copyright line from the footer.'),
+    '#attributes' => ['disabled' => 'disabled'],
   ];
   $site_name = \Drupal::config('system.site')->get('name');
-  $default_copyright = t('&copy; {year} @site_name. All rights reserved.', [
-    '@site_name' => $site_name,
-  ]);
+  $default_copyright = \Drupal::translation()->translate('&copy; {year} @site_name. All rights reserved.', ['@site_name' => $site_name]);
   $form['footer']['gw_footer_copyright'] = [
     '#type' => 'textfield',
-    '#title' => t('Footer copyright text'),
-    '#description' => t('Supports tokens like {year}, {site_name}. Example: &copy; {year} My Company.<br><strong>Removal is available with a <a href=":pro_url" target="_blank">Groundwork Pro license</a>.</strong>', [':pro_url' => 'https://groundwork.ibenta.no/pro']),
-    '#default_value' => theme_get_setting('gw_footer_copyright') ?: $default_copyright,
-    '#states' => [
-      'visible' => [
-        ':input[name="gw_footer_copyright_enable"]' => ['checked' => TRUE],
-      ],
-    ],
+    '#title' => \Drupal::translation()->translate('Footer copyright text'),
+    '#description' => \Drupal::translation()->translate('Supports tokens like {year}, {site_name}. Example: &copy; {year} My Company.<br><strong>Removal is available with a <a href=":pro_url" target="_blank">Groundwork Pro license</a>.</strong>', [':pro_url' => 'https://groundwork.ibenta.no/pro']),
+    '#default_value' => $config->get('gw_footer_copyright') ?: $default_copyright,
+    '#states' => ['visible' => [':input[name="gw_footer_copyright_enable"]' => ['checked' => TRUE]]],
   ];
 
   // ----- Collapse core Drupal theme settings in their own fieldset -----
-  $core_settings = [
-    'theme_settings',
-    'logo',
-    'favicon',
-    // Add more as needed.
-  ];
+  $core_settings = ['theme_settings', 'logo', 'favicon'];
   $form['core_settings'] = [
     '#type' => 'details',
-    '#title' => t('Drupal Core Theme Settings'),
+    '#title' => \Drupal::translation()->translate('Drupal Core Theme Settings'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
     '#weight' => 100,
@@ -457,21 +383,22 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
 function groundwork_validate_custom_css($element, FormStateInterface $form_state, $form) {
   $css = $form_state->getValue('gw_custom_css');
   if (preg_match('/[<>]/', $css)) {
-    $form_state->setError($element, t('HTML tags are not allowed in custom CSS.'));
+    $form_state->setError($element, \Drupal::translation()->translate('HTML tags are not allowed in custom CSS.'));
   }
 }
 
-// Add validation for API keys
-// Add validation for API keys
+/**
+ * Validation for API keys.
+ */
 function groundwork_validate_api_key($element, FormStateInterface $form_state, $form) {
   $provider = $form_state->getValue('ai_provider');
+  $api_key = $form_state->getValue($element['#name']);
 
-  // Skip validation if no provider is selected or simulate mode is used
   if (empty($provider) || $provider === 'simulate') {
     return;
   }
 
   if (empty($api_key)) {
-    $form_state->setError($element, t('The API key cannot be empty.'));
+    $form_state->setError($element, \Drupal::translation()->translate('The API key cannot be empty.'));
   }
 }

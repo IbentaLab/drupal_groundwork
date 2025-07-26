@@ -26,7 +26,7 @@ function groundwork_page_attachments(array &$attachments): void
 {
   // Load the global SVG icon sprite into the HTML head.
   // The sprite is co-located with the gwicons Twig partial and CSS for better encapsulation.
-  $sprite_path = drupal_get_path('theme', 'groundwork') . '/framework-partials/gwicons/gwicons.svg';
+  $sprite_path = \Drupal::theme()->getActiveTheme()->getPath(). '/framework-partials/gwicons/gwicons.svg';
 
   // Check if the SVG sprite file exists and is readable before attempting to load it.
   if (is_readable($sprite_path)) {

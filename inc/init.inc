@@ -17,12 +17,12 @@ use Drupal\Core\Form\FormStateInterface;
  * AJAX callback for AI-powered color palette suggestion.
  *
  * @param array $form
- *   The form render array.
+ * The form render array.
  * @param \Drupal\Core\Form\FormStateInterface $form_state
- *   The current state of the form.
+ * The current state of the form.
  *
  * @return array
- *   A render array representing the AJAX response.
+ * A render array representing the AJAX response.
  */
 function groundwork_ai_palette_callback(array &$form, FormStateInterface $form_state) {
   $provider = $form_state->getValue('ai_provider') ?? 'simulate';
@@ -124,18 +124,22 @@ function groundwork_ai_palette_callback(array &$form, FormStateInterface $form_s
  * Fetches a color palette from the Gemini API.
  *
  * @return array|null
- *   An array of color hex codes, or NULL on failure.
+ * An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_gemini_palette() {
   try {
+    // UPDATED: Use the config service to get the theme setting.
+    $config = \Drupal::config('groundwork.settings');
+    $api_key = $config->get('ai_gemini_api_key') ?? '';
+
     $response = \Drupal::httpClient()->get('https://api.gemini.com/palette', [
       'headers' => [
-        'Authorization' => 'Bearer ' . (theme_get_setting('ai_gemini_api_key') ?? ''),
+        'Authorization' => 'Bearer ' . $api_key,
       ],
     ]);
 
     if ($response->getStatusCode() === 200) {
-      $data = json_decode($response->getBody(), TRUE);
+      $data = json_decode((string) $response->getBody(), TRUE);
       return $data['palette'] ?? NULL;
     }
   }
@@ -150,13 +154,17 @@ function groundwork_fetch_gemini_palette() {
  * Fetches a color palette from the OpenAI API.
  *
  * @return array|null
- *   An array of color hex codes, or NULL on failure.
+ * An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_openai_palette() {
   try {
+    // UPDATED: Use the config service to get the theme setting.
+    $config = \Drupal::config('groundwork.settings');
+    $api_key = $config->get('ai_openai_api_key') ?? '';
+
     $response = \Drupal::httpClient()->post('https://api.openai.com/v1/palette', [
       'headers' => [
-        'Authorization' => 'Bearer ' . (theme_get_setting('ai_openai_api_key') ?? ''),
+        'Authorization' => 'Bearer ' . $api_key,
         'Content-Type' => 'application/json',
       ],
       'json' => [
@@ -165,7 +173,7 @@ function groundwork_fetch_openai_palette() {
     ]);
 
     if ($response->getStatusCode() === 200) {
-      $data = json_decode($response->getBody(), TRUE);
+      $data = json_decode((string) $response->getBody(), TRUE);
       return $data['palette'] ?? NULL;
     }
   }
@@ -180,13 +188,17 @@ function groundwork_fetch_openai_palette() {
  * Fetches a color palette from the Azure API.
  *
  * @return array|null
- *   An array of color hex codes, or NULL on failure.
+ * An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_azure_palette() {
   try {
+    // UPDATED: Use the config service to get the theme setting.
+    $config = \Drupal::config('groundwork.settings');
+    $api_key = $config->get('ai_azure_api_key') ?? '';
+
     $response = \Drupal::httpClient()->post('https://api.azure.com/v1/palette', [
       'headers' => [
-        'Authorization' => 'Bearer ' . (theme_get_setting('ai_azure_api_key') ?? ''),
+        'Authorization' => 'Bearer ' . $api_key,
         'Content-Type' => 'application/json',
       ],
       'json' => [
@@ -195,7 +207,7 @@ function groundwork_fetch_azure_palette() {
     ]);
 
     if ($response->getStatusCode() === 200) {
-      $data = json_decode($response->getBody(), TRUE);
+      $data = json_decode((string) $response->getBody(), TRUE);
       return $data['palette'] ?? NULL;
     }
   }
@@ -210,13 +222,17 @@ function groundwork_fetch_azure_palette() {
  * Fetches a color palette from a Custom API.
  *
  * @return array|null
- *   An array of color hex codes, or NULL on failure.
+ * An array of color hex codes, or NULL on failure.
  */
 function groundwork_fetch_customapi_palette() {
   try {
+    // UPDATED: Use the config service to get the theme setting.
+    $config = \Drupal::config('groundwork.settings');
+    $api_key = $config->get('ai_customapi_api_key') ?? '';
+
     $response = \Drupal::httpClient()->post('https://api.customapi.com/palette', [
       'headers' => [
-        'Authorization' => 'Bearer ' . (theme_get_setting('ai_customapi_api_key') ?? ''),
+        'Authorization' => 'Bearer ' . $api_key,
         'Content-Type' => 'application/json',
       ],
       'json' => [
@@ -225,7 +241,7 @@ function groundwork_fetch_customapi_palette() {
     ]);
 
     if ($response->getStatusCode() === 200) {
-      $data = json_decode($response->getBody(), TRUE);
+      $data = json_decode((string) $response->getBody(), TRUE);
       return $data['palette'] ?? NULL;
     }
   }
@@ -240,10 +256,10 @@ function groundwork_fetch_customapi_palette() {
  * Renders a color palette as HTML.
  *
  * @param array $palette
- *   An array of color hex codes.
+ * An array of color hex codes.
  *
  * @return string
- *   Rendered HTML for the color palette.
+ * Rendered HTML for the color palette.
  */
 function groundwork_render_palette(array $palette): string {
   $output = '<div class="gw-ai-palette-demo"><strong>AI-Generated Color Palette:</strong><br>';
@@ -261,7 +277,7 @@ function groundwork_render_palette(array $palette): string {
  * @internal
  *
  * @param array $variables
- *   The page variables array passed by reference.
+ * The page variables array passed by reference.
  */
 function groundwork_postprocess_footer(array &$variables): void {
   // --- Always show attribution and copyright for GPL (free) users ---
@@ -269,26 +285,31 @@ function groundwork_postprocess_footer(array &$variables): void {
   $show_attribution = 1;
   $copyright_enabled = 1;
 
-  $copyright_text = trim(theme_get_setting('gw_footer_copyright') ?? '');
+  // UPDATED: Use the config service to get the theme setting.
+  $config = \Drupal::config('groundwork.settings');
+  $copyright_text = trim($config->get('gw_footer_copyright') ?? '');
+
   $site_name = \Drupal::config('system.site')->get('name') ?? 'Drupal powered by Groundwork';
-  $default_copyright = t('&copy; {year} @site_name. All rights reserved.', [
+  // Use the string_translation service, as global t() is removed in Drupal 11.
+  $default_copyright = \Drupal::translation()->translate('&copy; {year} @site_name. All rights reserved.', [
     '@site_name' => $site_name,
   ]);
   $year = date('Y');
 
   $footer_utility = '';
   if ($show_attribution) {
-    $footer_utility .= t('Site powered by') . ' <a href="https://groundwork.ibenta.no" rel="nofollow">Groundwork Theme Framework</a>.';
+    // Use the string_translation service here as well.
+    $footer_utility .= \Drupal::translation()->translate('Site powered by') . ' <a href="https://groundwork.ibenta.no" rel="nofollow">Groundwork Theme Framework</a>.';
   }
   if ($show_attribution && $copyright_enabled) {
     $footer_utility .= ' <span aria-hidden="true">|</span> ';
   }
   if ($copyright_enabled) {
-  $output_copyright = $copyright_text ?: $default_copyright;
-  // Cast the variable to a string before using it in str_replace.
-  $output_copyright = str_replace(['{year}', '{site_name}'], [$year, $site_name], (string) $output_copyright);
-  $footer_utility .= $output_copyright;
-}
+    $output_copyright = $copyright_text ?: $default_copyright;
+    // Cast the variable to a string before using it in str_replace.
+    $output_copyright = str_replace(['{year}', '{site_name}'], [$year, $site_name], (string) $output_copyright);
+    $footer_utility .= $output_copyright;
+  }
 
   // This correctly adds the legal text as a renderable element to the footer region.
   $variables['page']['footer']['groundwork_footer_system_utility'] = [
@@ -310,3 +331,4 @@ function groundwork_postprocess_footer(array &$variables): void {
 // function groundwork_init_custom() {
 //   // Add custom logic here.
 // }
+
