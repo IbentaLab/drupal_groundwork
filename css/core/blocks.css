@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Core: Blocks
+   ==========================================================================
+   Groundwork's base styling for the .block output in Drupal.
+   Uses Groundwork tokens and utility philosophy.
+   Supports light/dark themes and follows design system spacing, color, and type.
+   ========================================================================== */
+
+   /* 🧱 Base block padding */
+.block {
+  padding: var(--space-1, 0.8rem); /* 0.8rem = 8px */
+}
+
+/* 🔧 Utility override: remove padding completely */
+.block.without-padding {
+  padding: 0 !important;
+}
+
+/* 🔧 Utility override: enforce default padding */
+.block.with-padding {
+  padding: var(--space-1) !important;
+}
+
+/* 🌗 Theming Support */
+:where([data-theme="light"] .block),
+:where([data-theme="dark"] .block) {
+  background-color: transparent; /* Inherit context */
+  color: inherit;
+}
+
+/* 💬 Notes:
+   - Groundwork uses padding on the .block itself for outer spacing.
+   - Inner spacing or styling is done inside .block-style-target (separate).
+   - These utility classes (.with-padding, .without-padding) are safe for editors to toggle from the Block Styles UI.
+*/

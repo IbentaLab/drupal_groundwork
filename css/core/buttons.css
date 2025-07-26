@@ -1,33 +1,19 @@
 /* ==========================================================================
-   Buttons – Framework Core Overrides
+   Core: Buttons
+   ==========================================================================
+   Groundwork's base styling for the .button output in Drupal.
+   Uses Groundwork tokens and utility philosophy.
+   Supports light/dark themes and follows design system spacing, color, and type.
    ========================================================================== */
 
-/**
- * @file
- * Defines the Groundwork theme framework's specific, opinionated styling for
- * button elements when the `.button` class is applied. These styles
- * enhance and override the basic button appearance set in base/form-controls.css,
- * providing a consistent and branded look across the site.
- */
-
-/* --------------------------------------------------------------------------
-   Core .button Class Styling
-   This applies Groundwork's default visual framework to elements
-   with the .button class.
-   -------------------------------------------------------------------------- */
 .button {
-  /* Inherited or reset from base/form-controls.css (where available):
-   * font: inherit; margin: 0; color: inherit; background: none;
-   * border: 1px solid var(--color-border, rgba(0 0 0 /.12));
-   * cursor: pointer; transition: background .15s ease-in-out;
-   */
-
   /* Groundwork's Core Button Design */
   font-size: var(--ms-sm); /* Using modular scale for consistent sizing, approx 1.125rem */
   font-weight: 700; /* Bold text for strong visual emphasis */
   line-height: calc(var(--space-4) / var(--font-size-base)); /* Calculated for vertical alignment */
   height: var(--space-4); /* Fixed height for consistent button sizing */
-  margin: 0; /* Override any external margins if desired for this class */
+  margin-right: var(--space-2, 1.6rem);
+  margin-left: var(--space-2, 1.6rem);
   padding: calc(var(--space-1) * 0.75) var(--space-2); /* Custom padding derived from spacing scale */
 
   text-align: center;
@@ -82,8 +68,8 @@
    These styles target buttons that might contain only an image or act like one.
    -------------------------------------------------------------------------- */
 .image-button {
-  /* No specific styles currently defined for .image-button in the framework,
-   * but this selector is kept for consistency with FoCO if needed later. */
+  margin-right: var(--space-2, 1.6rem);
+  margin-left: var(--space-2, 1.6rem);
 }
 
 /* First/Last child adjustments for button groups or lists.
@@ -91,7 +77,7 @@
 .button:first-child,
 .image-button:first-child {
   margin-left: 0; /* Remove left margin for the very first button in a group/sequence */
-  /* The original FoCO snippet had `margin-right: 1em; margin-left: 1em;` for .button.
+  /* The original FoCO snippet had `margin-right: var(--space-2, 1.6rem); margin-left: var(--space-2, 1.6rem);` for .button.
    * By setting `margin: 0;` in the primary `.button` rule above, we explicitly override that.
    * If spacing between buttons in a group is desired, consider using flexbox gap on a wrapper
    * or defining specific margin utilities for grouped buttons. */

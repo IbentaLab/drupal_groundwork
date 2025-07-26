@@ -40,43 +40,40 @@ component-styles:
   css:
     component:
       # Foundational Core Overrides (from Starterkit)
-      css/core-components/foundational-core-overrides/action-links.css: {}
-      css/core-components/foundational-core-overrides/breadcrumb.css: {}
-      css/core-components/foundational-core-overrides/button.css: {}
-      css/core-components/foundational-core-overrides/container-inline.css: {}
-      css/core-components/foundational-core-overrides/details.css: {}
-      css/core-components/foundational-core-overrides/dialog.css: {}
-      css/core-components/foundational-core-overrides/dropbutton.css: {}
-      css/core-components/foundational-core-overrides/exposed-filters.css: {}
-      css/core-components/foundational-core-overrides/field.css: {}
-      css/core-components/foundational-core-overrides/file.css: {}
-      css/core-components/foundational-core-overrides/form.css: {}
-      css/core-components/foundational-core-overrides/icons.css: {}
-      css/core-components/foundational-core-overrides/image-widget.css: {}
-      css/core-components/foundational-core-overrides/indented.css: {}
-      css/core-components/foundational-core-overrides/inline-form.css: {}
-      css/core-components/foundational-core-overrides/item-list.css: {}
-      css/core-components/foundational-core-overrides/link.css: {}
-      css/core-components/foundational-core-overrides/links.css: {}
-      css/core-components/foundational-core-overrides/menu.css: {}
-      css/core-components/foundational-core-overrides/messages.css: {}
-      css/core-components/foundational-core-overrides/more-link.css: {}
-      css/core-components/foundational-core-overrides/node.css: {}
-      css/core-components/foundational-core-overrides/pager.css: {}
-      css/core-components/foundational-core-overrides/progress.css: {}
-      css/core-components/foundational-core-overrides/search-results.css: {}
-      css/core-components/foundational-core-overrides/tabledrag.css: {}
-      css/core-components/foundational-core-overrides/tableselect.css: {}
-      css/core-components/foundational-core-overrides/tablesort.css: {}
-      css/core-components/foundational-core-overrides/tabs.css: {}
-      css/core-components/foundational-core-overrides/textarea.css: {}
-      css/core-components/foundational-core-overrides/ui-dialog.css: {}
-      css/core-components/foundational-core-overrides/user.css: {}
-      # Framework Core Overrides (Groundwork Opinionated)
-      css/core-components/framework-core-overrides/blocks.css: {}
-      css/core-components/framework-core-overrides/buttons.css: {}
-      css/core-components/framework-core-overrides/menu.css: {}
-      css/core-components/framework-core-overrides/site-branding.css: {}
+      css/core/action-links.css: {}
+      css/core/blocks.css: {}
+      css/core/breadcrumb.css: {}
+      css/core/buttons.css: {}
+      css/core/container-inline.css: {}
+      css/core/details.css: {}
+      css/core/dialog.css: {}
+      css/core/dropbutton.css: {}
+      css/core/exposed-filters.css: {}
+      css/core/field.css: {}
+      css/core/file.css: {}
+      css/core/form.css: {}
+      css/core/icons.css: {}
+      css/core/image-widget.css: {}
+      css/core/indented.css: {}
+      css/core/inline-form.css: {}
+      css/core/item-list.css: {}
+      css/core/link.css: {}
+      css/core/links.css: {}
+      css/core/menu.css: {}
+      css/core/messages.css: {}
+      css/core/more-link.css: {}
+      css/core/node.css: {}
+      css/core/pager.css: {}
+      css/core/progress.css: {}
+      css/core/search-results.css: {}
+      css/core/site-branding.css: {}
+      css/core/tabledrag.css: {}
+      css/core/tableselect.css: {}
+      css/core/tablesort.css: {}
+      css/core/tabs.css: {}
+      css/core/textarea.css: {}
+      css/core/ui-dialog.css: {}
+      css/core/user.css: {}
 
 # Framework Partials (FP).
 framework-partial-styles:
@@ -123,7 +120,8 @@ block-styles:
       css/block-style-components/typography.css: {}
       css/block-style-components/user-select.css: {}
       css/block-style-components/well.css: {}
-      css/theme/color-utilities.css: {}
+      css/block-style-components/theme-blue.css: {}
+      css/block-style-components/theme-gray.css: {}
 
 # The following are Drupal UI element libraries, kept separate for targeted overrides.
 dialog:
