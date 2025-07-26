@@ -1,0 +1,132 @@
+/* ==========================================================================
+   BROWN COLOR UTILITIES
+   This file extends the Brown base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .brown, .brown-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Brown" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Brown Tokens
+    ========================================================================== */
+:root {
+  --brown-light5: hsl(from var(--brown) h s calc(l + 57%)); /* #fef4f2 */
+  --brown-light4: hsl(from var(--brown) h s calc(l + 48%)); /* #fcecdf */
+  --brown-light3: hsl(from var(--brown) h s calc(l + 36%)); /* #f8bca0 */
+  --brown-light2: hsl(from var(--brown) h s calc(l + 24%)); /* #f49971 */
+  --brown-light1: hsl(from var(--brown) h s calc(l + 12%)); /* #f07641 */
+  --brown-dark1:  hsl(from var(--brown) h s calc(l - 4%));  /* #b25305 */
+  --brown-dark2:  hsl(from var(--brown) h s calc(l - 8%));  /* #9e4905 */
+  --brown-dark3:  hsl(from var(--brown) h s calc(l - 11%)); /* #8a4004 */
+  --brown-dark4:  hsl(from var(--brown) h s calc(l - 17%)); /* #6c3203 */
+  --brown-dark5:  hsl(from var(--brown) h s calc(l - 21%)); /* #582903 */
+}
+
+/* ==========================================================================
+   Brown Utilities
+   ========================================================================== */
+.brown:not(.block),
+.brown.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown) !important;
+}
+
+.brown-inverted:not(.block),
+.brown-inverted.block .block-style-target {
+  color: var(--brown) !important;
+  background-color: var(--color-text-light) !important;
+}
+
+.brown--light5:not(.block),
+.brown--light5.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--brown-light5) !important;
+}
+
+.brown--light4:not(.block),
+.brown--light4.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--brown-light4) !important;
+}
+
+.brown--light3:not(.block),
+.brown--light3.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--brown-light3) !important;
+}
+
+.brown--light2:not(.block),
+.brown--light2.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--brown-light2) !important;
+}
+
+.brown--light1:not(.block),
+.brown--light1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown-light1) !important;
+}
+
+.brown--dark1:not(.block),
+.brown--dark1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown-dark1) !important;
+}
+
+.brown--dark2:not(.block),
+.brown--dark2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown-dark2) !important;
+}
+
+.brown--dark3:not(.block),
+.brown--dark3.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown-dark3) !important;
+}
+
+.brown--dark4:not(.block),
+.brown--dark4.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown-dark4) !important;
+}
+
+.brown--dark5:not(.block),
+.brown--dark5.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown-dark5) !important;
+}
+
+.brown-text:not(.block),
+.brown-text.block .block-style-target {
+  color: var(--brown) !important;
+}
+
+.brown-border:not(.block),
+.brown-border.block .block-style-target {
+  border-color: var(--brown) !important;
+}
+
+.brown-hover:not(.block):hover,
+.brown-hover.block .block-style-target:hover {
+  color: var(--color-text-light) !important;
+  background-color: var(--brown) !important;
+}
+
+.brown-hover-text:not(.block):hover,
+.brown-hover-text.block .block-style-target:hover {
+  color: var(--brown) !important;
+}
+
+.brown-hover-border:not(.block):hover,
+.brown-hover-border.block .block-style-target:hover {
+  border-color: var(--brown) !important;
+}

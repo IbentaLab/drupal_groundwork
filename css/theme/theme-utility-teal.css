@@ -1,0 +1,133 @@
+/* ==========================================================================
+   TEAL COLOR UTILITIES
+   This file extends the Teal base color in tokens.css with different shades
+   and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .teal, .teal-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Teal" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Teal Tokens
+    ========================================================================== */
+:root {
+  --teal-light5: hsl(from var(--teal) h s calc(l + 68%)); /* #f0fcfb */
+  --teal-light4: hsl(from var(--teal) h s calc(l + 58%)); /* #d9f8f6 */
+  --teal-light3: hsl(from var(--teal) h s calc(l + 47%)); /* #b8f3ef */
+  --teal-light2: hsl(from var(--teal) h s calc(l + 37%)); /* #96eee8 */
+  --teal-light1: hsl(from var(--teal) h s calc(l + 28%)); /* #75e9e1 */
+  --teal-dark1:  hsl(from var(--teal) h s calc(l - 3%));  /* #008a7d */
+  --teal-dark2:  hsl(from var(--teal) h s calc(l - 6%));  /* #007d72 */
+  --teal-dark3:  hsl(from var(--teal) h s calc(l - 9%));  /* #007167 */
+  --teal-dark4:  hsl(from var(--teal) h s calc(l - 12%)); /* #00655c */
+  --teal-dark5:  hsl(from var(--teal) h s calc(l - 15%)); /* #005851 */
+}
+
+/* ==========================================================================
+   Teal Utilities
+   ========================================================================== */
+.teal:not(.block),
+.teal.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--teal) !important;
+}
+
+.teal-inverted:not(.block),
+.teal-inverted.block .block-style-target {
+  color: var(--teal) !important;
+  background-color: var(--color-text-light) !important;
+}
+
+.teal--light5:not(.block),
+.teal--light5.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--teal-light5) !important;
+}
+
+.teal--light4:not(.block),
+.teal--light4.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--teal-light4) !important;
+}
+
+.teal--light3:not(.block),
+.teal--light3.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--teal-light3) !important;
+}
+
+.teal--light2:not(.block),
+.teal--light2.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--teal-light2) !important;
+}
+
+.teal--light1:not(.block),
+.teal--light1.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--teal-light1) !important;
+}
+
+.teal--dark1:not(.block),
+.teal--dark1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--teal-dark1) !important;
+}
+
+.teal--dark2:not(.block),
+.teal--dark2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--teal-dark2) !important;
+}
+
+.teal--dark3:not(.block),
+.teal--dark3.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--teal-dark3) !important;
+}
+
+.teal--dark4:not(.block),
+.teal--dark4.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--teal-dark4) !important;
+}
+
+.teal--dark5:not(.block),
+.teal--dark5.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--teal-dark5) !important;
+}
+
+.teal-text:not(.block),
+.teal-text.block .block-style-target {
+  color: var(--teal) !important;
+}
+
+.teal-border:not(.block),
+.teal-border.block .block-style-target {
+  border-color: var(--teal) !important;
+}
+
+.teal-hover:not(.block):hover,
+.teal-hover.block .block-style-target:hover {
+  color: var(--color-text-light) !important;
+  background-color: var(--teal) !important;
+}
+
+.teal-hover-text:not(.block):hover,
+.teal-hover-text.block .block-style-target:hover {
+  color: var(--teal) !important;
+}
+
+.teal-hover-border:not(.block):hover,
+.teal-hover-border.block .block-style-target:hover {
+  border-color: var(--teal) !important;
+}

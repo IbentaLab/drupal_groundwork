@@ -1,0 +1,132 @@
+/* ==========================================================================
+   PURPLE COLOR UTILITIES
+   This file extends the Purple base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .purple, .purple-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Purple" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Purple Tokens
+    ========================================================================== */
+:root {
+  --purple-light5: hsl(from var(--purple) h s calc(l + 57%)); /* #f7f2fe */
+  --purple-light4: hsl(from var(--purple) h s calc(l + 48%)); /* #e7d0fc */
+  --purple-light3: hsl(from var(--purple) h s calc(l + 36%)); /* #d3a0f8 */
+  --purple-light2: hsl(from var(--purple) h s calc(l + 24%)); /* #bf71f4 */
+  --purple-light1: hsl(from var(--purple) h s calc(l + 12%)); /* #ab41f0 */
+  --purple-dark1:  hsl(from var(--purple) h s calc(l - 4%));  /* #7a05b2 */
+  --purple-dark2:  hsl(from var(--purple) h s calc(l - 8%));  /* #6c059e */
+  --purple-dark3:  hsl(from var(--purple) h s calc(l - 11%)); /* #5e048a */
+  --purple-dark4:  hsl(from var(--purple) h s calc(l - 17%)); /* #49036c */
+  --purple-dark5:  hsl(from var(--purple) h s calc(l - 21%)); /* #3b0358 */
+}
+
+/* ==========================================================================
+   Purple Utilities
+   ========================================================================== */
+.purple:not(.block),
+.purple.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple) !important;
+}
+
+.purple-inverted:not(.block),
+.purple-inverted.block .block-style-target {
+  color: var(--purple) !important;
+  background-color: var(--color-text-light) !important;
+}
+
+.purple--light5:not(.block),
+.purple--light5.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--purple-light5) !important;
+}
+
+.purple--light4:not(.block),
+.purple--light4.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--purple-light4) !important;
+}
+
+.purple--light3:not(.block),
+.purple--light3.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--purple-light3) !important;
+}
+
+.purple--light2:not(.block),
+.purple--light2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple-light2) !important;
+}
+
+.purple--light1:not(.block),
+.purple--light1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple-light1) !important;
+}
+
+.purple--dark1:not(.block),
+.purple--dark1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple-dark1) !important;
+}
+
+.purple--dark2:not(.block),
+.purple--dark2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple-dark2) !important;
+}
+
+.purple--dark3:not(.block),
+.purple--dark3.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple-dark3) !important;
+}
+
+.purple--dark4:not(.block),
+.purple--dark4.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple-dark4) !important;
+}
+
+.purple--dark5:not(.block),
+.purple--dark5.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple-dark5) !important;
+}
+
+.purple-text:not(.block),
+.purple-text.block .block-style-target {
+  color: var(--purple) !important;
+}
+
+.purple-border:not(.block),
+.purple-border.block .block-style-target {
+  border-color: var(--purple) !important;
+}
+
+.purple-hover:not(.block):hover,
+.purple-hover.block .block-style-target:hover {
+  color: var(--color-text-light) !important;
+  background-color: var(--purple) !important;
+}
+
+.purple-hover-text:not(.block):hover,
+.purple-hover-text.block .block-style-target:hover {
+  color: var(--purple) !important;
+}
+
+.purple-hover-border:not(.block):hover,
+.purple-hover-border.block .block-style-target:hover {
+  border-color: var(--purple) !important;
+}

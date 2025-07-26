@@ -1,0 +1,132 @@
+/* ==========================================================================
+   GREY COLOR UTILITIES
+   This file extends the Grey base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .grey, .grey-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Grey" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Grey Tokens
+    ========================================================================== */
+:root {
+  --grey-light5: hsl(from var(--grey) h s calc(l + 47%)); /* #f7f7f7 */
+  --grey-light4: hsl(from var(--grey) h s calc(l + 36%)); /* #dbdbdb */
+  --grey-light3: hsl(from var(--grey) h s calc(l + 26%)); /* #c2c2c2 */
+  --grey-light2: hsl(from var(--grey) h s calc(l + 16%)); /* #a8a8a8 */
+  --grey-light1: hsl(from var(--grey) h s calc(l + 9%));  /* #969696 */
+  --grey-dark1:  hsl(from var(--grey) h s calc(l - 7%));  /* #6e6e6e */
+  --grey-dark2:  hsl(from var(--grey) h s calc(l - 11%)); /* #636363 */
+  --grey-dark3:  hsl(from var(--grey) h s calc(l - 15%)); /* #595959 */
+  --grey-dark4:  hsl(from var(--grey) h s calc(l - 19%)); /* #4f4f4f */
+  --grey-dark5:  hsl(from var(--grey) h s calc(l - 23%)); /* #454545 */
+}
+
+/* ==========================================================================
+   Grey Utilities
+   ========================================================================== */
+.grey:not(.block),
+.grey.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--grey) !important;
+}
+
+.grey-inverted:not(.block),
+.grey-inverted.block .block-style-target {
+  color: var(--grey) !important;
+  background-color: var(--color-text-light) !important;
+}
+
+.grey--light5:not(.block),
+.grey--light5.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--grey-light5) !important;
+}
+
+.grey--light4:not(.block),
+.grey--light4.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--grey-light4) !important;
+}
+
+.grey--light3:not(.block),
+.grey--light3.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--grey-light3) !important;
+}
+
+.grey--light2:not(.block),
+.grey--light2.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--grey-light2) !important;
+}
+
+.grey--light1:not(.block),
+.grey--light1.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--grey-light1) !important;
+}
+
+.grey--dark1:not(.block),
+.grey--dark1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--grey-dark1) !important;
+}
+
+.grey--dark2:not(.block),
+.grey--dark2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--grey-dark2) !important;
+}
+
+.grey--dark3:not(.block),
+.grey--dark3.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--grey-dark3) !important;
+}
+
+.grey--dark4:not(.block),
+.grey--dark4.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--grey-dark4) !important;
+}
+
+.grey--dark5:not(.block),
+.grey--dark5.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--grey-dark5) !important;
+}
+
+.grey-text:not(.block),
+.grey-text.block .block-style-target {
+  color: var(--grey) !important;
+}
+
+.grey-border:not(.block),
+.grey-border.block .block-style-target {
+  border-color: var(--grey) !important;
+}
+
+.grey-hover:not(.block):hover,
+.grey-hover.block .block-style-target:hover {
+  color: var(--color-text-light) !important;
+  background-color: var(--grey) !important;
+}
+
+.grey-hover-text:not(.block):hover,
+.grey-hover-text.block .block-style-target:hover {
+  color: var(--grey) !important;
+}
+
+.grey-hover-border:not(.block):hover,
+.grey-hover-border.block .block-style-target:hover {
+  border-color: var(--grey) !important;
+}

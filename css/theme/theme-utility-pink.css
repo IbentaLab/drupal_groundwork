@@ -1,0 +1,132 @@
+/* ==========================================================================
+   PINK COLOR UTILITIES
+   This file extends the Pink base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .pink, .pink-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Pink" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Pink Tokens
+    ========================================================================== */
+:root {
+  --pink-light5: hsl(from var(--pink) h s calc(l + 57%)); /* #fef2f7 */
+  --pink-light4: hsl(from var(--pink) h s calc(l + 48%)); /* #fcd0e5 */
+  --pink-light3: hsl(from var(--pink) h s calc(l + 36%)); /* #f8a0ce */
+  --pink-light2: hsl(from var(--pink) h s calc(l + 24%)); /* #f471b8 */
+  --pink-light1: hsl(from var(--pink) h s calc(l + 12%)); /* #f041a1 */
+  --pink-dark1:  hsl(from var(--pink) h s calc(l - 4%));  /* #b2055c */
+  --pink-dark2:  hsl(from var(--pink) h s calc(l - 8%));  /* #9e0552 */
+  --pink-dark3:  hsl(from var(--pink) h s calc(l - 11%)); /* #8a0447 */
+  --pink-dark4:  hsl(from var(--pink) h s calc(l - 17%)); /* #6c0338 */
+  --pink-dark5:  hsl(from var(--pink) h s calc(l - 21%)); /* #58032e */
+}
+
+/* ==========================================================================
+   Pink Utilities
+   ========================================================================== */
+.pink:not(.block),
+.pink.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink) !important;
+}
+
+.pink-inverted:not(.block),
+.pink-inverted.block .block-style-target {
+  color: var(--pink) !important;
+  background-color: var(--color-text-light) !important;
+}
+
+.pink--light5:not(.block),
+.pink--light5.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--pink-light5) !important;
+}
+
+.pink--light4:not(.block),
+.pink--light4.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--pink-light4) !important;
+}
+
+.pink--light3:not(.block),
+.pink--light3.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--pink-light3) !important;
+}
+
+.pink--light2:not(.block),
+.pink--light2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink-light2) !important;
+}
+
+.pink--light1:not(.block),
+.pink--light1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink-light1) !important;
+}
+
+.pink--dark1:not(.block),
+.pink--dark1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink-dark1) !important;
+}
+
+.pink--dark2:not(.block),
+.pink--dark2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink-dark2) !important;
+}
+
+.pink--dark3:not(.block),
+.pink--dark3.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink-dark3) !important;
+}
+
+.pink--dark4:not(.block),
+.pink--dark4.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink-dark4) !important;
+}
+
+.pink--dark5:not(.block),
+.pink--dark5.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink-dark5) !important;
+}
+
+.pink-text:not(.block),
+.pink-text.block .block-style-target {
+  color: var(--pink) !important;
+}
+
+.pink-border:not(.block),
+.pink-border.block .block-style-target {
+  border-color: var(--pink) !important;
+}
+
+.pink-hover:not(.block):hover,
+.pink-hover.block .block-style-target:hover {
+  color: var(--color-text-light) !important;
+  background-color: var(--pink) !important;
+}
+
+.pink-hover-text:not(.block):hover,
+.pink-hover-text.block .block-style-target:hover {
+  color: var(--pink) !important;
+}
+
+.pink-hover-border:not(.block):hover,
+.pink-hover-border.block .block-style-target:hover {
+  border-color: var(--pink) !important;
+}

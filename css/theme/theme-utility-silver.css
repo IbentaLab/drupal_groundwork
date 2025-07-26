@@ -1,0 +1,132 @@
+/* ==========================================================================
+   SILVER COLOR UTILITIES
+   This file extends the Silver base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .silver, .silver-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Silver" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Silver Tokens
+    ========================================================================== */
+:root {
+  --silver-light5: hsl(from var(--silver) h s calc(l + 35%)); /* #f7f7f7 */
+  --silver-light4: hsl(from var(--silver) h s calc(l + 25%)); /* #dedede */
+  --silver-light3: hsl(from var(--silver) h s calc(l + 17%)); /* #cecece */
+  --silver-light2: hsl(from var(--silver) h s calc(l + 9%));  /* #b5b5b5 */
+  --silver-light1: hsl(from var(--silver) h s calc(l + 3%));  /* #a3a3a3 */
+  --silver-dark1:  hsl(from var(--silver) h s calc(l - 3%));  /* #949494 */
+  --silver-dark2:  hsl(from var(--silver) h s calc(l - 6%));  /* #8f8f8f */
+  --silver-dark3:  hsl(from var(--silver) h s calc(l - 9%));  /* #8a8a8a */
+  --silver-dark4:  hsl(from var(--silver) h s calc(l - 12%)); /* #858585 */
+  --silver-dark5:  hsl(from var(--silver) h s calc(l - 15%)); /* #808080 */
+}
+
+/* ==========================================================================
+   Silver Utilities
+   ========================================================================== */
+.silver:not(.block),
+.silver.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--silver) !important;
+}
+
+.silver-inverted:not(.block),
+.silver-inverted.block .block-style-target {
+  color: var(--silver) !important;
+  background-color: var(--color-text-light) !important;
+}
+
+.silver--light5:not(.block),
+.silver--light5.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--silver-light5) !important;
+}
+
+.silver--light4:not(.block),
+.silver--light4.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--silver-light4) !important;
+}
+
+.silver--light3:not(.block),
+.silver--light3.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--silver-light3) !important;
+}
+
+.silver--light2:not(.block),
+.silver--light2.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--silver-light2) !important;
+}
+
+.silver--light1:not(.block),
+.silver--light1.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--silver-light1) !important;
+}
+
+.silver--dark1:not(.block),
+.silver--dark1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--silver-dark1) !important;
+}
+
+.silver--dark2:not(.block),
+.silver--dark2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--silver-dark2) !important;
+}
+
+.silver--dark3:not(.block),
+.silver--dark3.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--silver-dark3) !important;
+}
+
+.silver--dark4:not(.block),
+.silver--dark4.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--silver-dark4) !important;
+}
+
+.silver--dark5:not(.block),
+.silver--dark5.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--silver-dark5) !important;
+}
+
+.silver-text:not(.block),
+.silver-text.block .block-style-target {
+  color: var(--silver) !important;
+}
+
+.silver-border:not(.block),
+.silver-border.block .block-style-target {
+  border-color: var(--silver) !important;
+}
+
+.silver-hover:not(.block):hover,
+.silver-hover.block .block-style-target:hover {
+  color: var(--color-text-light) !important;
+  background-color: var(--silver) !important;
+}
+
+.silver-hover-text:not(.block):hover,
+.silver-hover-text.block .block-style-target:hover {
+  color: var(--silver) !important;
+}
+
+.silver-hover-border:not(.block):hover,
+.silver-hover-border.block .block-style-target:hover {
+  border-color: var(--silver) !important;
+}

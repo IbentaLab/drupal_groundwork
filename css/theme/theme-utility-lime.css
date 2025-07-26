@@ -1,0 +1,132 @@
+/* ==========================================================================
+   LIME COLOR UTILITIES
+   This file extends the Lime base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .lime, .lime-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Lime" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Lime Tokens
+    ========================================================================== */
+:root {
+  --lime-light5: hsl(from var(--lime) h s calc(l + 50%)); /* #f9faed */
+  --lime-light4: hsl(from var(--lime) h s calc(l + 37%)); /* #f1f4d6 */
+  --lime-light3: hsl(from var(--lime) h s calc(l + 25%)); /* #e6eab9 */
+  --lime-light2: hsl(from var(--lime) h s calc(l + 16%)); /* #dcdf9f */
+  --lime-light1: hsl(from var(--lime) h s calc(l + 9%));  /* #d3d686 */
+  --lime-dark1:  hsl(from var(--lime) h s calc(l - 4%));  /* #a2a629 */
+  --lime-dark2:  hsl(from var(--lime) h s calc(l - 7%));  /* #949826 */
+  --lime-dark3:  hsl(from var(--lime) h s calc(l - 10%)); /* #878a23 */
+  --lime-dark4:  hsl(from var(--lime) h s calc(l - 13%)); /* #797b20 */
+  --lime-dark5:  hsl(from var(--lime) h s calc(l - 16%)); /* #6c6d1e */
+}
+
+/* ==========================================================================
+   Lime Utilities
+   ========================================================================== */
+.lime:not(.block),
+.lime.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--lime) !important;
+}
+
+.lime-inverted:not(.block),
+.lime-inverted.block .block-style-target {
+  color: var(--lime) !important;
+  background-color: var(--color-text-light) !important;
+}
+
+.lime--light5:not(.block),
+.lime--light5.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--lime-light5) !important;
+}
+
+.lime--light4:not(.block),
+.lime--light4.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--lime-light4) !important;
+}
+
+.lime--light3:not(.block),
+.lime--light3.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--lime-light3) !important;
+}
+
+.lime--light2:not(.block),
+.lime--light2.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--lime-light2) !important;
+}
+
+.lime--light1:not(.block),
+.lime--light1.block .block-style-target {
+  color: var(--color-text) !important;
+  background-color: var(--lime-light1) !important;
+}
+
+.lime--dark1:not(.block),
+.lime--dark1.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--lime-dark1) !important;
+}
+
+.lime--dark2:not(.block),
+.lime--dark2.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--lime-dark2) !important;
+}
+
+.lime--dark3:not(.block),
+.lime--dark3.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--lime-dark3) !important;
+}
+
+.lime--dark4:not(.block),
+.lime--dark4.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--lime-dark4) !important;
+}
+
+.lime--dark5:not(.block),
+.lime--dark5.block .block-style-target {
+  color: var(--color-text-light) !important;
+  background-color: var(--lime-dark5) !important;
+}
+
+.lime-text:not(.block),
+.lime-text.block .block-style-target {
+  color: var(--lime) !important;
+}
+
+.lime-border:not(.block),
+.lime-border.block .block-style-target {
+  border-color: var(--lime) !important;
+}
+
+.lime-hover:not(.block):hover,
+.lime-hover.block .block-style-target:hover {
+  color: var(--color-text-light) !important;
+  background-color: var(--lime) !important;
+}
+
+.lime-hover-text:not(.block):hover,
+.lime-hover-text.block .block-style-target:hover {
+  color: var(--lime) !important;
+}
+
+.lime-hover-border:not(.block):hover,
+.lime-hover-border.block .block-style-target:hover {
+  border-color: var(--lime) !important;
+}
