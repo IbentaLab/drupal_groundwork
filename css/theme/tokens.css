@@ -31,10 +31,32 @@
   --pink:   hsl(330 94% 40%);  /* #c60666 */
   --gold:   hsl(45 94% 40%);   /* #c69c06 */
   --brown:  hsl(26 94% 40%);   /* #c65c06 */
-  --grey:   hsl(0 0% 50%);     /* #808080 */
+  --gray:   hsl(0 0% 50%);     /* #808080 */
   --teal:   hsl(174 100% 29%); /* #009688 */
   --lime:   hsl(62 63% 44%);   /* #afb42b */
   --silver: hsl(0 0% 62%);     /* #9e9e9e */
+
+  --blue-light5: hsl(from var(--blue) h s calc(l + 57%)); /* #f2f9fe */
+  --blue-light4: hsl(from var(--blue) h s calc(l + 48%)); /* #d0eafc */
+  --blue-light3: hsl(from var(--blue) h s calc(l + 36%)); /* #a0d5f8 */
+  --blue-light2: hsl(from var(--blue) h s calc(l + 24%)); /* #71c0f4 */
+  --blue-light1: hsl(from var(--blue) h s calc(l + 12%)); /* #41abf0 */
+  --blue-dark1:  hsl(from var(--blue) h s calc(l - 4%));  /* #056eb2 */
+  --blue-dark2:  hsl(from var(--blue) h s calc(l - 8%));  /* #05619e */
+  --blue-dark3:  hsl(from var(--blue) h s calc(l - 11%)); /* #04548a */
+  --blue-dark4:  hsl(from var(--blue) h s calc(l - 17%)); /* #03406c */
+  --blue-dark5:  hsl(from var(--blue) h s calc(l - 21%)); /* #033358 */
+
+  --gray-light5: hsl(from var(--gray) h s calc(l + 47%)); /* #f7f7f7 */
+  --gray-light4: hsl(from var(--gray) h s calc(l + 36%)); /* #dbdbdb */
+  --gray-light3: hsl(from var(--gray) h s calc(l + 26%)); /* #c2c2c2 */
+  --gray-light2: hsl(from var(--gray) h s calc(l + 16%)); /* #a8a8a8 */
+  --gray-light1: hsl(from var(--gray) h s calc(l + 9%));  /* #969696 */
+  --gray-dark1:  hsl(from var(--gray) h s calc(l - 7%));  /* #6e6e6e */
+  --gray-dark2:  hsl(from var(--gray) h s calc(l - 11%)); /* #636363 */
+  --gray-dark3:  hsl(from var(--gray) h s calc(l - 15%)); /* #595959 */
+  --gray-dark4:  hsl(from var(--gray) h s calc(l - 19%)); /* #4f4f4f */
+  --gray-dark5:  hsl(from var(--gray) h s calc(l - 23%)); /* #454545 */
 
 
   /* ===================================================================
@@ -192,7 +214,7 @@
   --color-success: var(--green);
   --color-warning: var(--orange);
   --color-info:    var(--purple);
-  --color-muted:   var(--grey);
+  --color-muted:   var(--gray);
 
   /* --- Brand Color --- */
   --color-brand: var(--blue);

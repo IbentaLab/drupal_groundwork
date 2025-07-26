@@ -1,6 +1,6 @@
 /* ==========================================================================
    BLUE COLOR UTILITIES
-   This file extends the Blue base color in tokens.css with different shades and provides utility classes for applying them.
+   This file provides utility classes for applying different shades of blue to elements.
 
    USAGE:
 
@@ -8,31 +8,8 @@
    HTML element.
    Block-level: Apply the same classes to a Drupal block to style the blocks
    content through the "Block Styles" UI.
-
-   ACTIVATION:
-   To use these styles, you must first enable the "Blue" color option in the
-   Groundwork theme settings page.
    ========================================================================== */
 
-/* ==========================================================================
-    Blue Tokens
-    ========================================================================== */
-:root {
-  --blue-light5: hsl(from var(--blue) h s calc(l + 57%)); /* #f2f9fe */
-  --blue-light4: hsl(from var(--blue) h s calc(l + 48%)); /* #d0eafc */
-  --blue-light3: hsl(from var(--blue) h s calc(l + 36%)); /* #a0d5f8 */
-  --blue-light2: hsl(from var(--blue) h s calc(l + 24%)); /* #71c0f4 */
-  --blue-light1: hsl(from var(--blue) h s calc(l + 12%)); /* #41abf0 */
-  --blue-dark1:  hsl(from var(--blue) h s calc(l - 4%));  /* #056eb2 */
-  --blue-dark2:  hsl(from var(--blue) h s calc(l - 8%));  /* #05619e */
-  --blue-dark3:  hsl(from var(--blue) h s calc(l - 11%)); /* #04548a */
-  --blue-dark4:  hsl(from var(--blue) h s calc(l - 17%)); /* #03406c */
-  --blue-dark5:  hsl(from var(--blue) h s calc(l - 21%)); /* #033358 */
-}
-
-/* ==========================================================================
-   Blue Utilities
-   ========================================================================== */
 .blue:not(.block),
 .blue.block .block-style-target {
   color: var(--color-text-light) !important;
