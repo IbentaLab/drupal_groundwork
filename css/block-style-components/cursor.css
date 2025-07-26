@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Cursor Utilities – Interactive Feedback
+   These are BSCs for changing the mouse cursor to indicate interactivity.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .cursor-pointer
+ * @description Changes the cursor to a pointer (hand), indicating a clickable element.
+ * @blockStyleComponent true
+ */
+.cursor-pointer:not(.block),
+.cursor-pointer.block .block-style-target {
+  cursor: pointer;
+}
+
+/**
+ * @utility
+ * @name .cursor-not-allowed
+ * @description Changes the cursor to indicate a disabled or non-interactive element.
+ */
+.cursor-not-allowed:not(.block),
+.cursor-not-allowed.block .block-style-target {
+  cursor: not-allowed;
+}
+
+/**
+ * @utility
+ * @name .cursor-wait
+ * @description Changes the cursor to indicate a process is running in the background.
+ */
+.cursor-wait:not(.block),
+.cursor-wait.block .block-style-target {
+  cursor: wait;
+}
+
+/**
+ * @utility
+ * @name .cursor-default
+ * @description Ensures the cursor is the default system pointer.
+ */
+.cursor-default:not(.block),
+.cursor-default.block .block-style-target {
+  cursor: default;
+}

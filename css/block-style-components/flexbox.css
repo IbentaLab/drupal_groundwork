@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Flexbox Utilities – Alignment & Flow for Flex Containers
+   These are BSCs for controlling the layout of items inside a flex container.
+   ========================================================================== */
+
+/*
+  IMPORTANT: These utilities are effective only on an element that is a
+  flex container. First, apply the .d-flex class from display.css to a
+  block or element before using these classes.
+*/
+
+/* --- Flex Direction --- */
+
+/**
+ * @utility
+ * @name .flex-row
+ * @description Positions flex items horizontally in a row (default).
+ * @blockStyleComponent true
+ */
+.flex-row:not(.block),
+.flex-row.block .block-style-target {
+  flex-direction: row;
+}
+
+/**
+ * @utility
+ * @name .flex-col
+ * @description Stacks flex items vertically in a column.
+ */
+.flex-col:not(.block),
+.flex-col.block .block-style-target {
+  flex-direction: column;
+}
+
+.flex-row-reverse:not(.block),
+.flex-row-reverse.block .block-style-target {
+  flex-direction: row-reverse;
+}
+
+.flex-col-reverse:not(.block),
+.flex-col-reverse.block .block-style-target {
+  flex-direction: column-reverse;
+}
+
+
+/* --- Align Items --- */
+/* Controls how items are aligned on the cross-axis. */
+
+/**
+ * @utility
+ * @name .items-start
+ * @description Aligns items to the start of the cross-axis.
+ */
+.items-start:not(.block),
+.items-start.block .block-style-target {
+  align-items: flex-start;
+}
+
+/**
+ * @utility
+ * @name .items-center
+ * @description Aligns items to the center of the cross-axis.
+ */
+.items-center:not(.block),
+.items-center.block .block-style-target {
+  align-items: center;
+}
+
+/**
+ * @utility
+ * @name .items-end
+ * @description Aligns items to the end of the cross-axis.
+ */
+.items-end:not(.block),
+.items-end.block .block-style-target {
+  align-items: flex-end;
+}
+
+
+/* --- Justify Content --- */
+/* Controls how items are aligned on the main-axis. */
+
+/**
+ * @utility
+ * @name .justify-start
+ * @description Justifies items to the start of the main-axis.
+ */
+.justify-start:not(.block),
+.justify-start.block .block-style-target {
+  justify-content: flex-start;
+}
+
+/**
+ * @utility
+ * @name .justify-center
+ * @description Justifies items to the center of the main-axis.
+ */
+.justify-center:not(.block),
+.justify-center.block .block-style-target {
+  justify-content: center;
+}
+
+/**
+ * @utility
+ * @name .justify-end
+ * @description Justifies items to the end of the main-axis.
+ */
+.justify-end:not(.block),
+.justify-end.block .block-style-target {
+  justify-content: flex-end;
+}
+
+/**
+ * @utility
+ * @name .justify-between
+ * @description Distributes items evenly; first item is at the start, last at the end.
+ */
+.justify-between:not(.block),
+.justify-between.block .block-style-target {
+  justify-content: space-between;
+}
+
+
+/* --- Flex Wrap --- */
+
+/**
+ * @utility
+ * @name .flex-wrap
+ * @description Allows flex items to wrap onto multiple lines.
+ */
+.flex-wrap:not(.block),
+.flex-wrap.block .block-style-target {
+  flex-wrap: wrap;
+}
+
+/**
+ * @utility
+ * @name .flex-nowrap
+ * @description Prevents flex items from wrapping (default).
+ */
+.flex-nowrap:not(.block),
+.flex-nowrap.block .block-style-target {
+  flex-wrap: nowrap;
+}

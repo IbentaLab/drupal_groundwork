@@ -27,9 +27,7 @@
 <img src="images/performance-first-informational.svg" alt="Performance First" height="24">
 </div>
 
----
-
-**Groundwork Theme Framework** is a next-generation frontend framework built specifically for **Drupal**. Engineered for ⚡ speed, ♿ accessibility, and 💡 developer joy, it empowers developers, designers, and site builders to build modern, flexible websites using pure Drupal features and vanilla web technologies—**no build tools required**.
+**Groundwork Theme Framework** is a next-generation frontend framework built specifically for  **Drupal** . Engineered for ⚡ speed, ♿ accessibility, and 💡 developer joy, it empowers developers, designers, and site builders to build modern, flexible websites using pure Drupal features and vanilla web technologies— **no build tools required** .
 
 <br>
 
@@ -39,127 +37,150 @@
 
 ## 🎯 Why Groundwork?
 
-- ♿ **Accessibility-first** – Built to meet WCAG 2.1 AA and Norwegian digital accessibility laws
-- ⚡ **Performance-first** – Every line of code is designed for speed and efficiency
-- 🧱 **Structure-first** – Logical, maintainable architecture with consistent file and CSS structure
-- 🧰 **No-code-friendly** – Editors and content creators can style pages without touching code
-- 🎨 **Utility-first** – Use composable, reusable CSS classes across any part of the site
-- 🚫 **Build-free** – No compiling, no build step — just native Drupal and vanilla tech
+* ♿ **Accessibility-first** – Built to meet WCAG 2.1 AA and Norwegian digital accessibility laws
+* ⚡ **Performance-first** – Every line of code is designed for speed and efficiency
+* 🧱 **Structure-first** – Logical, maintainable architecture with consistent file and CSS structure
+* 🧰 **No-code-friendly** – Editors and content creators can style pages without touching code
+* 🎨 **Utility-first** – Use composable, reusable CSS classes across any part of the site
+* 🚫 **Build-free** – No compiling, no build step — just native Drupal and vanilla tech
 
 Groundwork isn't just a theme you install and forget—it's a frontend **philosophy** that helps your entire team build better, faster, and more accessibly.
 
----
-
 ## 🚀 Quick Start
 
-**This next-generation Groundwork, compatible with Drupal 11+, will be officially released on drupal.org upon reaching stable status.**
+#### **This next-generation Groundwork, compatible with Drupal 11+, will be officially released on drupal.org *upon reaching stable status*.**
 
-```sh
+```
 composer require drupal/groundwork
+
 ```
 
-Or download from [drupal.org/project/groundwork](https://www.drupal.org/project/groundwork).
+Or download from [drupal.org/project/groundwork](https://www.drupal.org/project/groundwork "null").
 
-```sh
+```
 drush theme:enable groundwork
 drush config-set system.theme default groundwork
+
 ```
 
 1. **Compose pages using either:**
-   - **Layout Builder** for visual, drag-and-drop page building (optional but fully supported), **or**
-   - **Drupal's core Block UI** for familiar block placement.
-2. **Apply Block Style Components (BSC) atomic classes** or block presets via the “Groundwork Block Styles” UI (see below) or class field.
-3. **Use Hybrid Style Components (HSC)** for complex internal layouts.
-4. **Build with Single Directory Components (SDC)** for modular, reusable custom elements.
+   * **Layout Builder** for visual, drag-and-drop page building, **or**
+   * **Drupal's core Block UI** for familiar block placement.
+2. **Apply Block Style Components (BSC)** to blocks using the **Block Styles UI** (from the Groundwork Helpers module) to control layout, spacing, colors, and more.
+3. **Build with Single Directory Components (SDC)** for modular, reusable custom elements like accordions or modals.
 
 <br>
 
----
-
 # 🧱 Core Architecture
 
-Groundwork is built around **six powerful frontend building blocks**, each serving a different purpose:
+Groundwork is built around a powerful, layered frontend architecture:
 
-| Type                                         | Folder                           | Purpose                                              |
-| -------------------------------------------- | -------------------------------- | ---------------------------------------------------- |
-| **BSC** – Block Style Components      | `css/block-style-components/`  | Atomic utility classes for styling blocks and fields |
-| **HSC** – Hybrid Style Components     | `css/hybrid-style-components/` | Layout + style combinations for flexible sections    |
-| **SDC** – Single Directory Components | `components/`                  | Fully reusable, self-contained UI components         |
-| **FP** – Framework Partials           | `framework-partials/`          | Small chunks of reusable UI used across templates    |
-| **Grid System**                        | `css/layout/`                  | Responsive, class-based 12-column layout system      |
-| **Layout Builder**                     | Core Drupal                      | Visual content composition with drag-and-drop tools  |
+| **Type**                              | **Folder**                 | **Purpose**                                                              |
+| ------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------ |
+| **Page Layout Grid**                  | `css/layout/`                  | The primary Flexbox grid for arranging**blocks**in **regions** .   |
+| **BSC**– Block Style Components      | `css/block-style-components/`  | A comprehensive library of utility classes for styling blocks and content.     |
+| **SDC**– Single Directory Components | `components/`                  | Fully reusable, self-contained UI components with their own Twig, CSS, and JS. |
+| **HSC**– Hybrid Style Components     | `css/hybrid-style-components/` | Pre-composed layout patterns for common block structures.                      |
+| **FP**– Framework Partials           | `framework-partials/`          | Small, reusable UI fragments (like icons) used across templates.               |
+
+## 🧮 The Dual Grid System
+
+Groundwork features two distinct grid systems, each designed for a specific purpose.
+
+### 1. Page Layout Grid (Flexbox)
+
+This is the foundational 12-column Flexbox grid that controls the main structure of your site. It is designed to arrange **blocks** (`.grid-cell`) within your theme's **regions** (`.grid`).
+
+**Use this grid for:**
+
+* Creating complex, multi-block layouts inside a single region.
+* Defining the width of blocks in a region.
+* Reordering blocks visually.
+
+**Example:**
+
+```
+<!-- A region is automatically a .grid container -->
+<div class="region grid">
+  <!-- This block takes up 2/3 of the width -->
+  <div class="block grid-cell is-8"> ... </div>
+  <!-- This block takes up 1/3 of the width -->
+  <div class="block grid-cell is-4"> ... </div>
+</div>
+
+```
+
+📁 Located in: `css/layout/`
+
+### 2. Content Layout Grid (CSS Grid)
+
+This is an optional but powerful **CSS Grid** system that you can apply to any block to arrange the  **content inside it** .
+
+**Use this grid for:**
+
+* Creating a multi-column list of features inside a single block.
+* Building complex, card-like layouts with images and text.
+* Aligning items in a two-dimensional grid.
+
+**Example:**
+
+```
+<!-- A single block with the .d-grid BSC applied -->
+<div class="block grid-cell d-grid d-grid-cols-3 gap-4">
+  <div class="block-style-target">
+    <!-- The content inside is now arranged on a 3-column grid -->
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div class="col-span-2">Item 3 (spans 2 columns)</div>
+  </div>
+</div>
+
+```
+
+📁 Located in: `css/block-style-components/d-grid.css`
 
 ## 🎨 Block Style Components (BSC)
 
-BSCs are dual-purpose. They are **atomic utility classes** — small, single-purpose CSS classes you can apply directly to any element or to style blocks to change their appearance.
-
-### Example:
-
-```html
-<div class="card p-4 shadow text-center">
-  I’m styled with BSCs!
-</div>
-```
+BSCs are dual-purpose utility classes for styling blocks and content. They are the primary tool for customizing the look and feel of your site without writing custom CSS.
 
 ### What can you do with BSCs?
 
-- Add spacing (`.p-4`, `.mt-2`)
-- Control alignment (`.text-center`, `.text-right`)
-- Apply colors (`.bg-primary`, `.text-light`)
-- Add visual effects (`.shadow`, `.border`, `.card`, `.alert--warning`)
+* **Layout:** Create complex internal layouts with Flexbox (`.d-flex`) or CSS Grid (`.d-grid`).
+* **Spacing:** Control internal and external space with a full suite of `padding`, `margin`, and `gap` utilities.
+* **Appearance:** Apply pre-styled components like `.card` and `.alert`, or compose your own with `.border`, `.rounded`, and `.shadow`.
+* **Typography:** Control every aspect of text with a comprehensive `typography.css` file.
+* **Interactivity:** Add polished user feedback with `.hover-*`, `.cursor-*`, and `.transition-all`.
 
 ### How are they used?
 
-- 💻 Developers can apply them anywhere.
-- 🧑‍🎨 Editors can apply them visually in blocks using the **Block Styles UI**
-- 🎯 You can stack them freely — e.g. `.card.bg-light.p-4.shadow-lg`
+* 💻 Developers can apply them anywhere.
+* 🧑‍🎨 Editors can apply them visually to blocks using the  **Block Styles UI** .
+* 🎯 You can stack them freely — e.g. `.card .p-4 .shadow-lg .hover-raise .transition-all`
 
 📁 Located in: `css/block-style-components/`
 
 ## ⚗️ Hybrid Style Components (HSC)
 
-HSCs are **ready-made layout + style patterns**. They’re more than simple utilities but not full components. Think of them as reusable building blocks for structuring a section of your site.
+HSCs are  **ready-made layout + style patterns** . They’re more than simple utilities but not full components. Think of them as reusable building blocks for structuring a section of your site.
 
 ### Use HSCs when you need:
 
-- A **media + text** layout that works on all screen sizes
-- A **card grid** with consistent spacing and alignment
-- A **two-column hero section** or feature band
-
-### What makes them useful?
-
-- They’re consistent: once you define an HSC layout, it works across the entire site
-- They’re flexible: you can combine them with BSCs for even more control
-- They require no JS or Twig: just apply the right classes
+* A **media + text** layout that works on all screen sizes
+* A **card grid** with consistent spacing and alignment
+* A **two-column hero section** or feature band
 
 📁 Located in: `css/hybrid-style-components/`
 
 ## 🧩 Single Directory Components (SDC)
 
-SDCs are very muc supported and utilized in Groundwork. An SDC is a Drupal core feature that is **self-contained**. It includes everything a component needs to work:
+SDCs are a Drupal core feature for creating  **self-contained, reusable components** . Each SDC has its own Twig, CSS, JS, and metadata.
 
-```
-components/
-  └── hero/
-      ├── hero.twig
-      ├── hero.css
-      ├── hero.js
-      └── hero.component.yml
-```
+### Use SDCs for:
 
-### Why SDCs rock:
-
-- ✅ They’re lazy-loaded — only load when the component is rendered
-- ✅ They’re native to Drupal 11 — no custom module needed
-- ✅ They’re reusable — add them via Layout Builder, blocks, or templates
-
-### Use cases:
-
-- Hero sections
-- Accordions
-- Tabs
-- Modals
-- Call-to-action blocks
+* Accordions, Tabs, and Modals
+* Complex hero sections with multiple fields
+* Sliders or Carousels
+* Any component with its own unique structure and behavior.
 
 📁 Located in: `components/`
 
@@ -169,119 +190,44 @@ Framework Partials are **tiny UI fragments** you use inside templates or SDCs to
 
 ### Examples:
 
-- A reusable `<svg>` icon
-- A “New!” ribbon
-- A visual divider
-- A simple tagline block
+* A reusable `<svg>` icon
+* A “New!” ribbon
+* A visual divider
 
-These aren’t full components — they’re **helpers**. Think of them like includes or macros that help you keep things DRY.
+These aren’t full components — they’re  **helpers** .
 
 📁 Located in: `framework-partials/`
 
-## 🧮 Grid System
-
-Groundwork features a comprehensive *12-column Flexbox grid* system, built with semantic, class-based utilities that provide exceptional flexibility and ease of use.
-
-With its highly configurable grid settings, Groundwork offers unlimited layout possibilities. The framework makes it simple to customize websites with specific layout requirements, enabling developers to create virtually any block layout configuration through its robust grid system.
-
-Whether you're building simple layouts or complex responsive designs, Groundwork's grid system adapts to meet your project's unique needs.
-
-### Example:
-
-```html
-<div class="grid grid--with-gutter">
-  <div class="grid-cell is-4">One third</div>
-  <div class="grid-cell is-8">Two thirds</div>
-</div>
-```
-
-### Features:
-
-- `.grid`, `.grid-cell`, `.grid--with-gutter`
-- Width utilities: `.is-6`, `.is-third`, `.is-quarter`, etc.
-- Fully responsive
-- Works with Layout Builder, SDCs, plain Twig markup, and even in blocks.
-
-📁 Located in: `css/layout/`
-
-## 🧰 Layout Builder
-
-Groundwork is built to work **seamlessly with Layout Builder**.
-
-- Drop in blocks or SDCs
-- Apply Block Style Components via the UI
-- Use Layout Patterns from Groundwork Helpers (see below)
-- No extra configuration — it just works
-
-## ✅ Accessibility & Performance Standards
-
-- ✅ WCAG 2.1 AA compliant by default
-- ✅ Supports Norwegian digital accessibility laws
-- ✅ Mobile-first, responsive, and semantic HTML
-- ✅ Uses CSS custom properties (`var(--token)`) for consistency
-- ✅ Fast-loading, minimal CSS/JS footprint
-
 ## 🧰 Groundwork Helpers (Optional Module)
 
-This is a **modular companion module** that extends Groundwork’s capabilities with powerful UI tools — great for both devs and editors.
+This is a **modular companion module** that extends Groundwork’s capabilities with powerful UI tools.
 
-| Feature                     | Description                                   |
-| --------------------------- | --------------------------------------------- |
-| **Block Styles UI**   | Drag-and-drop block styling with live preview |
-| **Gwicons**           | SVG icon picker with sprite management        |
-| **Responsive Images** | Automatic `<picture>` tags for perf & a11y  |
-| **Layout Patterns**   | Prebuilt layout sections ready for use        |
-| **Dev & A11y Tools**  | Debug tools, contrast checker, markup audit   |
+| **Feature**         | **Description**                                                       |
+| ------------------------- | --------------------------------------------------------------------------- |
+| **Block Styles UI** | An interactive design tool for applying BSCs to blocks with a live preview. |
+| **Gwicons**         | An SVG icon picker and management system.                                   |
+| **Layout Patterns** | Pre-built layout sections ready for use in Layout Builder.                  |
 
 📦 Install once, enable only what you need.
 
 ## 📚 Documentation: The Groundwork Codex
 
-The **Groundwork Codex** serves as the comprehensive documentation hub for the Groundwork Theme Framework, which is managed directly on GitHub for easy access and version control alongside the project's codebase.
+The **Groundwork Codex** is the comprehensive documentation hub for the framework.
 
-You can access the full documentation site at:
-
-https://IbentaLab.github.io/drupal_groundwork/
-
-The Codex provides detailed guides and references across various aspects of the framework, including:
-
-* **Getting Started:**
-  * `/getting-started/` – An introduction to the framework.
-  * `/getting-started/installation/` – Step-by-step instructions for setting up Groundwork.
-* **Guides:**
-  * `/guides/accessibility/` – Information on Groundwork's built-in accessibility features.
-  * `/guides/block-style-components/` – Deep dive into Block Style Components (BSCs).
-  * `/guides/core-architecture/` – Understanding the foundational structure of Groundwork.
-  * `/guides/framework-partials/` – Details on using Framework Partials (FPs).
-  * `/guides/grid-system/` – Comprehensive guide to the responsive 12-column Flexbox grid.
-  * `/guides/hybrid-style-components/` – Explanation of Hybrid Style Components (HSCs).
-  * `/guides/single-directory-components/` – How to leverage Single Directory Components (SDCs).
-* **Contributing:**
-  * `/contributing/` – Guidelines for contributing to the Groundwork project.
-  * `/contributing/code-standards/` – Specific code standards for CSS, JavaScript, PHP, Twig, and YAML.
+[https://IbentaLab.github.io/drupal_groundwork/](https://ibentalab.github.io/drupal_groundwork/ "null")
 
 ## 💡 Demo Site
 
-Beyond the documentation, a live demo site showcases Groundwork's visual components and layout patterns in action. **This demo site is built using Groundwork itself, demonstrating its capabilities in a real-world application.** This allows you to see how various elements and structures render, providing a practical demonstration of the framework's flexibility and design capabilities.
+A live demo site showcases Groundwork's visual components and layout patterns in action. **This demo site is built using Groundwork itself, demonstrating its capabilities in a real-world application.**
 
-Explore the demo site at:
-
-https://www.ibenta.no/projects/groundwork
-
-The demo site features:
-
-* `/demos/homepage/` – An example of a homepage built with Groundwork.
-* `/demos/landing-page/` – A demonstration of a landing page.
-* `/demos/components/` – Live previews of individual components in various contexts.
-
-For a more extensive demonstration of Groundwork's capabilities, we invite you to explore the entire Ibenta.no website, which is also powered by this framework.
+[https://www.ibenta.no/projects/groundwork](https://www.ibenta.no/projects/groundwork "null")
 
 ## 🧠 Why Groundwork Wins
 
-- ✨ **Faster theming, fewer bugs**
-- 🧼 **Clean, modular architecture** (BSC, HSC, SDC, FP)
-- ⚡ **No builds, no dependencies**
-- 🌍 **Accessibility built-in**
-- 🧩 **Truly block-based Drupal theming** — without compromise
+* ✨ **Faster theming, fewer bugs**
+* 🧼 **Clean, modular architecture** (BSC, HSC, SDC, FP)
+* ⚡ **No builds, no dependencies**
+* 🌍 **Accessibility built-in**
+* 🧩 **Truly block-based Drupal theming** — without compromise
 
 <br>

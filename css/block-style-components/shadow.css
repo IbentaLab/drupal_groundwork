@@ -1,65 +1,55 @@
 /* ==========================================================================
-   Shadow Utilities – Depth & Emphasis
-   These are Block Style Components (BSCs) that apply box shadows.
+   Shadow Utilities – A Token-Driven System for Depth & Emphasis
+   These are BSCs that apply box shadows using design tokens.
    ========================================================================== */
 
 /**
  * @utility
- * @name .shadow
- * @description Default shadow for light elevation (1px blur).
+ * @name .shadow-sm
+ * @description Applies a small, subtle shadow (var(--shadow-sm)).
  * @blockStyleComponent true
+ */
+.shadow-sm:not(.block),
+.shadow-sm.block .block-style-target {
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.05));
+}
+
+/**
+ * @utility
+ * @name .shadow
+ * @description Applies a standard-sized shadow (var(--shadow-md)).
  */
 .shadow:not(.block),
 .shadow.block .block-style-target {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.10));
 }
 
 /**
  * @utility
- * @name .shadow--sm
- * @description Subtle shadow for minimal depth (2px blur).
+ * @name .shadow-lg
+ * @description Applies a large, prominent shadow (var(--shadow-lg)).
  */
-.shadow--sm:not(.block),
-.shadow--sm.block .block-style-target {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+.shadow-lg:not(.block),
+.shadow-lg.block .block-style-target {
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.12));
 }
 
 /**
  * @utility
- * @name .shadow--md
- * @description Medium shadow for card-style emphasis (6px blur).
+ * @name .shadow-inner
+ * @description Applies an inner shadow to create an inset effect.
  */
-.shadow--md:not(.block),
-.shadow--md.block .block-style-target {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.shadow-inner:not(.block),
+.shadow-inner.block .block-style-target {
+  box-shadow: var(--shadow-inner, inset 0 1px 2px rgba(0, 0, 0, 0.06));
 }
 
 /**
  * @utility
- * @name .shadow--lg
- * @description Large shadow for floating effect (15px blur).
- */
-.shadow--lg:not(.block),
-.shadow--lg.block .block-style-target {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-/**
- * @utility
- * @name .shadow--xl
- * @description Extra large shadow for modals or overlays (25px blur).
- */
-.shadow--xl:not(.block),
-.shadow--xl.block .block-style-target {
-  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
-}
-
-/**
- * @utility
- * @name .shadow--none
+ * @name .shadow-none
  * @description Removes all box-shadow from the block.
  */
-.shadow--none:not(.block),
-.shadow--none.block .block-style-target {
+.shadow-none:not(.block),
+.shadow-none.block .block-style-target {
   box-shadow: none;
 }

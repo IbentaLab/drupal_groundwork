@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Content Layout Grid – CSS Grid Utilities
+   This system is for arranging content *inside* a block.
+   It is separate from the page layout grid (.grid & .grid-cell).
+   ========================================================================== */
+
+/* --- Grid Container (BSCs) --- */
+/*
+  NOTE: Apply these classes to a block to turn its .block-style-target
+  into a CSS Grid container.
+*/
+
+/**
+ * @utility
+ * @name .d-grid
+ * @description Renders the block's content area as a grid container.
+ * @blockStyleComponent true
+ */
+.d-grid:not(.block),
+.d-grid.block .block-style-target {
+  display: grid;
+}
+
+/**
+ * @utility
+ * @name .d-grid-cols-2
+ * @description Creates a grid with 2 equal-width columns.
+ */
+.d-grid-cols-2:not(.block),
+.d-grid-cols-2.block .block-style-target {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/**
+ * @utility
+ * @name .d-grid-cols-3
+ * @description Creates a grid with 3 equal-width columns.
+ */
+.d-grid-cols-3:not(.block),
+.d-grid-cols-3.block .block-style-target {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/**
+ * @utility
+ * @name .d-grid-cols-4
+ * @description Creates a grid with 4 equal-width columns.
+ */
+.d-grid-cols-4:not(.block),
+.d-grid-cols-4.block .block-style-target {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/**
+ * @utility
+ * @name .d-grid-cols-6
+ * @description Creates a grid with 6 equal-width columns.
+ */
+.d-grid-cols-6:not(.block),
+.d-grid-cols-6.block .block-style-target {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+/**
+ * @utility
+ * @name .d-grid-cols-12
+ * @description Creates a grid with 12 equal-width columns.
+ */
+.d-grid-cols-12:not(.block),
+.d-grid-cols-12.block .block-style-target {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+
+/* --- Grid Item (Atomic Utilities) --- */
+/*
+  NOTE: These are standard atomic utilities. Apply them directly to the
+  HTML elements *inside* a grid container, not to the block itself.
+*/
+
+/**
+ * @utility
+ * @name .col-span-2
+ * @description Makes an item span across 2 grid columns.
+ */
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+/**
+ * @utility
+ * @name .col-span-3
+ * @description Makes an item span across 3 grid columns.
+ */
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+/**
+ * @utility
+ * @name .col-span-full
+ * @description Makes an item span across all available grid columns.
+ */
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
+/**
+ * @utility
+ * @name .row-span-2
+ * @description Makes an item span across 2 grid rows.
+ */
+.row-span-2 {
+  grid-row: span 2 / span 2;
+}
+
+/**
+ * @utility
+ * @name .col-start-2
+ * @description Makes an item start on the 2nd grid column line.
+ */
+.col-start-2 {
+  grid-column-start: 2;
+}
+
+/**
+ * @utility
+ * @name .col-start-3
+ * @description Makes an item start on the 3rd grid column line.
+ */
+.col-start-3 {
+  grid-column-start: 3;
+}

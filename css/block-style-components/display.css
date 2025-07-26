@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Display Utilities – Toggles Rendering Behavior
+   These are BSCs for controlling the CSS display property. They are the
+   foundation for enabling flex and grid content layouts.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .d-block
+ * @description Renders the block's content area as a block-level element.
+ * @blockStyleComponent true
+ */
+.d-block:not(.block),
+.d-block.block .block-style-target {
+  display: block;
+}
+
+/**
+ * @utility
+ * @name .d-flex
+ * @description Renders the block's content area as a block-level flex container.
+ */
+.d-flex:not(.block),
+.d-flex.block .block-style-target {
+  display: flex;
+}
+
+/**
+ * @utility
+ * @name .d-grid
+ * @description Renders the block's content area as a block-level grid container.
+ */
+.d-grid:not(.block),
+.d-grid.block .block-style-target {
+  display: grid;
+}
+
+/**
+ * @utility
+ * @name .d-none
+ * @description Hides the block's content area entirely.
+ */
+.d-none:not(.block),
+.d-none.block .block-style-target {
+  display: none !important;
+}

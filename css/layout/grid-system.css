@@ -1,3 +1,70 @@
+/* ============================================================
+  @file       _grid-layout.css
+  @description Block Style Component (BSC): Grid layout system (atomic & layout-ready)
+               Includes advanced modifiers for enhanced layout control (gated via signature)
+  @version    1.3
+============================================================ */
+
+/*
+  GRID SYSTEM OVERVIEW
+  ---------------------
+  The Groundwork grid system is a dual-purpose BSC—meaning it functions both as atomic utility and full layout engine.
+
+  ✔ All regions in Groundwork are flexbox-based grid containers (.grid)
+  ✔ All blocks are grid cells (.grid-cell)
+  ✔ Widths are fully customizable using responsive column classes (e.g. .is-4, .is-6--l)
+  ✔ Media-aware modifiers allow different column spans per breakpoint (small, medium, large)
+  ✔ Use the Block Styles UI, custom Twig, or programmatic means to assign widths
+  ✔ Total columns: 12 (not 24 like Groundwork 7.x)
+*/
+
+/* ─── Grid Container ───────────────────────────────────────────────────────── */
+.grid,
+.grid--with-gutter {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.grid.grid--center,
+.grid--with-gutter.grid--center {
+  align-content: center;
+}
+
+.grid--with-gutter > .grid-cell {
+  padding: var(--grid-gutter);
+}
+
+/* ─── Grid Cells ────────────────────────────────────────── */
+.grid > .grid-cell,
+.grid--with-gutter > .grid-cell{
+  flex: 0 0 100%;
+}
+
+.grid > .grid-cell.col-auto,
+.grid--with-gutter > .grid-cell.col-auto {
+  flex-basis: auto;
+}
+
+/*
+  RESPONSIVE COLUMN WIDTHS
+  -------------------------
+  The following classes define flex-basis widths based on media queries:
+  • Small screen:     .is-X--s       (≤780px)
+  • Medium screen:    .is-X          (≥992px)
+  • Large screen:     .is-X--l       (≥1200px)
+
+  Semantic Aliases (Readable Shortcuts):
+  • .is-half          = .is-6        (50%)
+  • .is-quarter       = .is-3        (25%)
+  • .is-third         = .is-4        (33.333%)
+
+  These aliases improve clarity and readability in markup while mapping directly
+  to their numeric column equivalents. All variants support responsive suffixes:
+  • .is-half--s, .is-quarter--l, etc.
+*/
+
 
 /* ─── Column Widths: Small (≤780px) ───────────────────────────────── */
 @media (max-width: var(--breakpoint-small-screen)) {
@@ -100,3 +167,16 @@
   .grid > .grid-cell.is-12--l,
   .grid--with-gutter > .grid-cell.is-12--l { flex-basis: 100%; }
 }
+
+
+/* ─── Scoped Modifiers: Alignment & Layout Options This is wrong  ───────────────────────
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--centered)   { justify-content: center; }
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--between)    { justify-content: space-between; }
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--middle)     { align-items: center; }
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--stretch)    { align-items: stretch; }
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--reverse)    { flex-direction: row-reverse; }
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--stacked)    { flex-direction: column; }
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--gap)        { gap: var(--grid-gutter); }
+var(--groundwork-signature-scope) .grid:has(> .grid-cell.grid--equal) .grid-cell { align-self: stretch; } /*
+
+/* Note: Runtime signature scope is handled in PHP */

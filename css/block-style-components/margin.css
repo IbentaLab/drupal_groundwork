@@ -1,105 +1,129 @@
 /* ==========================================================================
-   Margin Utilities – Spacing Outside Blocks
-   These are Block Style Components (BSCs) for external spacing control.
+   Margin Utilities – A Composable System for External Spacing
+   These are BSCs for controlling the margin around a block or element.
+   Values are derived from the design tokens in tokens.css.
    ========================================================================== */
 
+/* --- Margin Scale (0-6) --- */
+/* Example: .m-3 applies margin on all sides. .mt-2 applies margin-top. */
+
+.m-0:not(.block), .m-0.block .block-style-target { margin: 0; }
+.mt-0:not(.block), .mt-0.block .block-style-target { margin-top: 0; }
+.mr-0:not(.block), .mr-0.block .block-style-target { margin-right: 0; }
+.mb-0:not(.block), .mb-0.block .block-style-target { margin-bottom: 0; }
+.ml-0:not(.block), .ml-0.block .block-style-target { margin-left: 0; }
+.mx-0:not(.block), .mx-0.block .block-style-target { margin-left: 0; margin-right: 0; }
+.my-0:not(.block), .my-0.block .block-style-target { margin-top: 0; margin-bottom: 0; }
+
+.m-1:not(.block), .m-1.block .block-style-target { margin: var(--space-0, 0.4rem); }
+.mt-1:not(.block), .mt-1.block .block-style-target { margin-top: var(--space-0, 0.4rem); }
+.mr-1:not(.block), .mr-1.block .block-style-target { margin-right: var(--space-0, 0.4rem); }
+.mb-1:not(.block), .mb-1.block .block-style-target { margin-bottom: var(--space-0, 0.4rem); }
+.ml-1:not(.block), .ml-1.block .block-style-target { margin-left: var(--space-0, 0.4rem); }
+.mx-1:not(.block), .mx-1.block .block-style-target { margin-left: var(--space-0, 0.4rem); margin-right: var(--space-0, 0.4rem); }
+.my-1:not(.block), .my-1.block .block-style-target { margin-top: var(--space-0, 0.4rem); margin-bottom: var(--space-0, 0.4rem); }
+
+.m-2:not(.block), .m-2.block .block-style-target { margin: var(--space-1, 0.8rem); }
+.mt-2:not(.block), .mt-2.block .block-style-target { margin-top: var(--space-1, 0.8rem); }
+.mr-2:not(.block), .mr-2.block .block-style-target { margin-right: var(--space-1, 0.8rem); }
+.mb-2:not(.block), .mb-2.block .block-style-target { margin-bottom: var(--space-1, 0.8rem); }
+.ml-2:not(.block), .ml-2.block .block-style-target { margin-left: var(--space-1, 0.8rem); }
+.mx-2:not(.block), .mx-2.block .block-style-target { margin-left: var(--space-1, 0.8rem); margin-right: var(--space-1, 0.8rem); }
+.my-2:not(.block), .my-2.block .block-style-target { margin-top: var(--space-1, 0.8rem); margin-bottom: var(--space-1, 0.8rem); }
+
+.m-3:not(.block), .m-3.block .block-style-target { margin: var(--space-2, 1.6rem); }
+.mt-3:not(.block), .mt-3.block .block-style-target { margin-top: var(--space-2, 1.6rem); }
+.mr-3:not(.block), .mr-3.block .block-style-target { margin-right: var(--space-2, 1.6rem); }
+.mb-3:not(.block), .mb-3.block .block-style-target { margin-bottom: var(--space-2, 1.6rem); }
+.ml-3:not(.block), .ml-3.block .block-style-target { margin-left: var(--space-2, 1.6rem); }
+.mx-3:not(.block), .mx-3.block .block-style-target { margin-left: var(--space-2, 1.6rem); margin-right: var(--space-2, 1.6rem); }
+.my-3:not(.block), .my-3.block .block-style-target { margin-top: var(--space-2, 1.6rem); margin-bottom: var(--space-2, 1.6rem); }
+
+.m-4:not(.block), .m-4.block .block-style-target { margin: var(--space-3, 2.4rem); }
+.mt-4:not(.block), .mt-4.block .block-style-target { margin-top: var(--space-3, 2.4rem); }
+.mr-4:not(.block), .mr-4.block .block-style-target { margin-right: var(--space-3, 2.4rem); }
+.mb-4:not(.block), .mb-4.block .block-style-target { margin-bottom: var(--space-3, 2.4rem); }
+.ml-4:not(.block), .ml-4.block .block-style-target { margin-left: var(--space-3, 2.4rem); }
+.mx-4:not(.block), .mx-4.block .block-style-target { margin-left: var(--space-3, 2.4rem); margin-right: var(--space-3, 2.4rem); }
+.my-4:not(.block), .my-4.block .block-style-target { margin-top: var(--space-3, 2.4rem); margin-bottom: var(--space-3, 2.4rem); }
+
+.m-5:not(.block), .m-5.block .block-style-target { margin: var(--space-4, 3.2rem); }
+.mt-5:not(.block), .mt-5.block .block-style-target { margin-top: var(--space-4, 3.2rem); }
+.mr-5:not(.block), .mr-5.block .block-style-target { margin-right: var(--space-4, 3.2rem); }
+.mb-5:not(.block), .mb-5.block .block-style-target { margin-bottom: var(--space-4, 3.2rem); }
+.ml-5:not(.block), .ml-5.block .block-style-target { margin-left: var(--space-4, 3.2rem); }
+.mx-5:not(.block), .mx-5.block .block-style-target { margin-left: var(--space-4, 3.2rem); margin-right: var(--space-4, 3.2rem); }
+.my-5:not(.block), .my-5.block .block-style-target { margin-top: var(--space-4, 3.2rem); margin-bottom: var(--space-4, 3.2rem); }
+
+.m-6:not(.block), .m-6.block .block-style-target { margin: var(--space-5, 4.0rem); }
+.mt-6:not(.block), .mt-6.block .block-style-target { margin-top: var(--space-5, 4.0rem); }
+.mr-6:not(.block), .mr-6.block .block-style-target { margin-right: var(--space-5, 4.0rem); }
+.mb-6:not(.block), .mb-6.block .block-style-target { margin-bottom: var(--space-5, 4.0rem); }
+.ml-6:not(.block), .ml-6.block .block-style-target { margin-left: var(--space-5, 4.0rem); }
+.mx-6:not(.block), .mx-6.block .block-style-target { margin-left: var(--space-5, 4.0rem); margin-right: var(--space-5, 4.0rem); }
+.my-6:not(.block), .my-6.block .block-style-target { margin-top: var(--space-5, 4.0rem); margin-bottom: var(--space-5, 4.0rem); }
+
+/* --- Auto Margin --- */
+
 /**
  * @utility
- * @name .m
- * @description Applies a uniform margin (1.6rem) to all sides.
+ * @name .mx-auto
+ * @description Horizontally centers a block-level element by setting left and right margins to auto.
  * @blockStyleComponent true
  */
-.m:not(.block),
-.m.block .block-style-target {
-  margin: 1.6rem;
+.mx-auto:not(.block),
+.mx-auto.block .block-style-target {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/**
- * @utility
- * @name .mt
- * @description Adds 1.6rem margin to the top of the block.
- */
-.mt:not(.block),
-.mt.block .block-style-target {
-  margin-top: 1.6rem;
-}
+/* --- Negative Margins --- */
+/* Useful for overlapping elements and advanced layouts. */
 
-/**
- * @utility
- * @name .mb
- * @description Adds 1.6rem margin to the bottom of the block.
- */
-.mb:not(.block),
-.mb.block .block-style-target {
-  margin-bottom: 1.6rem;
-}
+.-m-1:not(.block), .-m-1.block .block-style-target { margin: calc(var(--space-0, 0.4rem) * -1); }
+.-mt-1:not(.block), .-mt-1.block .block-style-target { margin-top: calc(var(--space-0, 0.4rem) * -1); }
+.-mr-1:not(.block), .-mr-1.block .block-style-target { margin-right: calc(var(--space-0, 0.4rem) * -1); }
+.-mb-1:not(.block), .-mb-1.block .block-style-target { margin-bottom: calc(var(--space-0, 0.4rem) * -1); }
+.-ml-1:not(.block), .-ml-1.block .block-style-target { margin-left: calc(var(--space-0, 0.4rem) * -1); }
+.-mx-1:not(.block), .-mx-1.block .block-style-target { margin-left: calc(var(--space-0, 0.4rem) * -1); margin-right: calc(var(--space-0, 0.4rem) * -1); }
+.-my-1:not(.block), .-my-1.block .block-style-target { margin-top: calc(var(--space-0, 0.4rem) * -1); margin-bottom: calc(var(--space-0, 0.4rem) * -1); }
 
-/**
- * @utility
- * @name .ml
- * @description Adds 1.6rem margin to the left of the block.
- */
-.ml:not(.block),
-.ml.block .block-style-target {
-  margin-left: 1.6rem;
-}
+.-m-2:not(.block), .-m-2.block .block-style-target { margin: calc(var(--space-1, 0.8rem) * -1); }
+.-mt-2:not(.block), .-mt-2.block .block-style-target { margin-top: calc(var(--space-1, 0.8rem) * -1); }
+.-mr-2:not(.block), .-mr-2.block .block-style-target { margin-right: calc(var(--space-1, 0.8rem) * -1); }
+.-mb-2:not(.block), .-mb-2.block .block-style-target { margin-bottom: calc(var(--space-1, 0.8rem) * -1); }
+.-ml-2:not(.block), .-ml-2.block .block-style-target { margin-left: calc(var(--space-1, 0.8rem) * -1); }
+.-mx-2:not(.block), .-mx-2.block .block-style-target { margin-left: calc(var(--space-1, 0.8rem) * -1); margin-right: calc(var(--space-1, 0.8rem) * -1); }
+.-my-2:not(.block), .-my-2.block .block-style-target { margin-top: calc(var(--space-1, 0.8rem) * -1); margin-bottom: calc(var(--space-1, 0.8rem) * -1); }
 
-/**
- * @utility
- * @name .mr
- * @description Adds 1.6rem margin to the right of the block.
- */
-.mr:not(.block),
-.mr.block .block-style-target {
-  margin-right: 1.6rem;
-}
+.-m-3:not(.block), .-m-3.block .block-style-target { margin: calc(var(--space-2, 1.6rem) * -1); }
+.-mt-3:not(.block), .-mt-3.block .block-style-target { margin-top: calc(var(--space-2, 1.6rem) * -1); }
+.-mr-3:not(.block), .-mr-3.block .block-style-target { margin-right: calc(var(--space-2, 1.6rem) * -1); }
+.-mb-3:not(.block), .-mb-3.block .block-style-target { margin-bottom: calc(var(--space-2, 1.6rem) * -1); }
+.-ml-3:not(.block), .-ml-3.block .block-style-target { margin-left: calc(var(--space-2, 1.6rem) * -1); }
+.-mx-3:not(.block), .-mx-3.block .block-style-target { margin-left: calc(var(--space-2, 1.6rem) * -1); margin-right: calc(var(--space-2, 1.6rem) * -1); }
+.-my-3:not(.block), .-my-3.block .block-style-target { margin-top: calc(var(--space-2, 1.6rem) * -1); margin-bottom: calc(var(--space-2, 1.6rem) * -1); }
 
-/**
- * @utility
- * @name .m-0
- * @description Removes all margin from the block.
- */
-.m-0:not(.block),
-.m-0.block .block-style-target {
-  margin: 0;
-}
+.-m-4:not(.block), .-m-4.block .block-style-target { margin: calc(var(--space-3, 2.4rem) * -1); }
+.-mt-4:not(.block), .-mt-4.block .block-style-target { margin-top: calc(var(--space-3, 2.4rem) * -1); }
+.-mr-4:not(.block), .-mr-4.block .block-style-target { margin-right: calc(var(--space-3, 2.4rem) * -1); }
+.-mb-4:not(.block), .-mb-4.block .block-style-target { margin-bottom: calc(var(--space-3, 2.4rem) * -1); }
+.-ml-4:not(.block), .-ml-4.block .block-style-target { margin-left: calc(var(--space-3, 2.4rem) * -1); }
+.-mx-4:not(.block), .-mx-4.block .block-style-target { margin-left: calc(var(--space-3, 2.4rem) * -1); margin-right: calc(var(--space-3, 2.4rem) * -1); }
+.-my-4:not(.block), .-my-4.block .block-style-target { margin-top: calc(var(--space-3, 2.4rem) * -1); margin-bottom: calc(var(--space-3, 2.4rem) * -1); }
 
-/**
- * @utility
- * @name .mt-0
- * @description Removes top margin from the block.
- */
-.mt-0:not(.block),
-.mt-0.block .block-style-target {
-  margin-top: 0;
-}
+.-m-5:not(.block), .-m-5.block .block-style-target { margin: calc(var(--space-4, 3.2rem) * -1); }
+.-mt-5:not(.block), .-mt-5.block .block-style-target { margin-top: calc(var(--space-4, 3.2rem) * -1); }
+.-mr-5:not(.block), .-mr-5.block .block-style-target { margin-right: calc(var(--space-4, 3.2rem) * -1); }
+.-mb-5:not(.block), .-mb-5.block .block-style-target { margin-bottom: calc(var(--space-4, 3.2rem) * -1); }
+.-ml-5:not(.block), .-ml-5.block .block-style-target { margin-left: calc(var(--space-4, 3.2rem) * -1); }
+.-mx-5:not(.block), .-mx-5.block .block-style-target { margin-left: calc(var(--space-4, 3.2rem) * -1); margin-right: calc(var(--space-4, 3.2rem) * -1); }
+.-my-5:not(.block), .-my-5.block .block-style-target { margin-top: calc(var(--space-4, 3.2rem) * -1); margin-bottom: calc(var(--space-4, 3.2rem) * -1); }
 
-/**
- * @utility
- * @name .mb-0
- * @description Removes bottom margin from the block.
- */
-.mb-0:not(.block),
-.mb-0.block .block-style-target {
-  margin-bottom: 0;
-}
-
-/**
- * @utility
- * @name .ml-0
- * @description Removes left margin from the block.
- */
-.ml-0:not(.block),
-.ml-0.block .block-style-target {
-  margin-left: 0;
-}
-
-/**
- * @utility
- * @name .mr-0
- * @description Removes right margin from the block.
- */
-.mr-0:not(.block),
-.mr-0.block .block-style-target {
-  margin-right: 0;
-}
+.-m-6:not(.block), .-m-6.block .block-style-target { margin: calc(var(--space-5, 4.0rem) * -1); }
+.-mt-6:not(.block), .-mt-6.block .block-style-target { margin-top: calc(var(--space-5, 4.0rem) * -1); }
+.-mr-6:not(.block), .-mr-6.block .block-style-target { margin-right: calc(var(--space-5, 4.0rem) * -1); }
+.-mb-6:not(.block), .-mb-6.block .block-style-target { margin-bottom: calc(var(--space-5, 4.0rem) * -1); }
+.-ml-6:not(.block), .-ml-6.block .block-style-target { margin-left: calc(var(--space-5, 4.0rem) * -1); }
+.-mx-6:not(.block), .-mx-6.block .block-style-target { margin-left: calc(var(--space-5, 4.0rem) * -1); margin-right: calc(var(--space-5, 4.0rem) * -1); }
+.-my-6:not(.block), .-my-6.block .block-style-target { margin-top: calc(var(--space-5, 4.0rem) * -1); margin-bottom: calc(var(--space-5, 4.0rem) * -1); }

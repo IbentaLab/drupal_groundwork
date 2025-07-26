@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Filter Utilities – For Applying Visual Effects
+   These are BSCs for applying CSS filter effects like blur, grayscale, etc.
+   Combine with transition and hover utilities for dynamic effects.
+   ========================================================================== */
+
+/* --- Filter Enabler & Composition --- */
+/*
+  NOTE: The .filter class enables the filter functionality. Other utilities
+  below modify the --filter-* variables that this class consumes.
+  You can stack multiple filter utilities together.
+*/
+
+/**
+ * @utility
+ * @name .filter
+ * @description Enables the CSS filter property. Must be used with other filter utilities.
+ * @blockStyleComponent true
+ */
+.filter:not(.block),
+.filter.block .block-style-target {
+  filter: var(--filter-blur, '') var(--filter-brightness, '') var(--filter-contrast, '') var(--filter-grayscale, '');
+}
+
+
+/* --- Filter Utilities --- */
+
+/**
+ * @utility
+ * @name .blur-sm
+ * @description Applies a small blur effect.
+ */
+.blur-sm:not(.block),
+.blur-sm.block .block-style-target {
+  --filter-blur: blur(4px);
+}
+
+/**
+ * @utility
+ * @name .grayscale
+ * @description Renders the element in black and white.
+ */
+.grayscale:not(.block),
+.grayscale.block .block-style-target {
+  --filter-grayscale: grayscale(100%);
+}
+
+/**
+ * @utility
+ * @name .brightness-75
+ * @description Reduces the brightness of the element to 75%.
+ */
+.brightness-75:not(.block),
+.brightness-75.block .block-style-target {
+  --filter-brightness: brightness(0.75);
+}
+
+/**
+ * @utility
+ * @name .contrast-125
+ * @description Increases the contrast of the element to 125%.
+ */
+.contrast-125:not(.block),
+.contrast-125.block .block-style-target {
+  --filter-contrast: contrast(1.25);
+}
+
+
+/* --- Filter Reset --- */
+
+/**
+ * @utility
+ * @name .filter-none
+ * @description Removes all filter effects.
+ */
+.filter-none:not(.block),
+.filter-none.block .block-style-target {
+  filter: none;
+}
+
+/* --- Hover Variant --- */
+/*
+  NOTE: This is an example of how to create a hover variant.
+  You can create more for other filter types as needed.
+*/
+
+/**
+ * @utility
+ * @name .hover-grayscale-0
+ * @description Removes the grayscale effect on hover.
+ */
+.hover-grayscale-0:not(.block):hover,
+.hover-grayscale-0.block .block-style-target:hover {
+  --filter-grayscale: grayscale(0);
+}

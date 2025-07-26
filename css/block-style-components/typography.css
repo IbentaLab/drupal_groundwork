@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Typography Utilities – The Complete System for Text Styling
+   This file contains all utilities for controlling font family, size, weight,
+   alignment, decoration, and more. Values are derived from tokens.css.
+   ========================================================================== */
+
+/* --- Font Family --- */
+
+/**
+ * @utility
+ * @name .font-sans
+ * @description Applies the sans-serif font stack.
+ * @blockStyleComponent true
+ */
+.font-sans:not(.block), .font-sans.block .block-style-target { font-family: var(--font-family-sans, "Ubuntu", "Segoe UI", sans-serif); }
+
+/**
+ * @utility
+ * @name .font-serif
+ * @description Applies the serif font stack.
+ */
+.font-serif:not(.block), .font-serif.block .block-style-target { font-family: var(--font-family-serif, Georgia, serif); }
+
+/**
+ * @utility
+ * @name .font-mono
+ * @description Applies the monospace font stack.
+ */
+.font-mono:not(.block), .font-mono.block .block-style-target { font-family: var(--font-family-mono, "Lucida Console", monospace); }
+
+
+/* --- Font Size (Modular Scale) --- */
+
+/**
+ * @utility
+ * @name .text-xs
+ * @description Extra small text (var(--ms-xs)).
+ */
+.text-xs:not(.block), .text-xs.block .block-style-target { font-size: var(--ms-xs, 0.844rem); }
+
+/**
+ * @utility
+ * @name .text-sm
+ * @description Small text (var(--ms-sm)).
+ */
+.text-sm:not(.block), .text-sm.block .block-style-target { font-size: var(--ms-sm, 1.125rem); }
+
+/**
+ * @utility
+ * @name .text-md
+ * @description Medium / base text size (var(--ms-md)).
+ */
+.text-md:not(.block), .text-md.block .block-style-target { font-size: var(--ms-md, 1.5rem); }
+
+/**
+ * @utility
+ * @name .text-lg
+ * @description Large text (var(--ms-lg)).
+ */
+.text-lg:not(.block), .text-lg.block .block-style-target { font-size: var(--ms-lg, 2rem); }
+
+/**
+ * @utility
+ * @name .text-xl
+ * @description Extra-large text (var(--ms-xl)).
+ */
+.text-xl:not(.block), .text-xl.block .block-style-target { font-size: var(--ms-xl, 2.667rem); }
+
+/**
+ * @utility
+ * @name .text-xxl
+ * @description 2x extra-large text (var(--ms-xxl)).
+ */
+.text-xxl:not(.block), .text-xxl.block .block-style-target { font-size: var(--ms-xxl, 3.556rem); }
+
+/**
+ * @utility
+ * @name .text-xxxl
+ * @description 3x extra-large text (var(--ms-xxxl)).
+ */
+.text-xxxl:not(.block), .text-xxxl.block .block-style-target { font-size: var(--ms-xxxl, 4.741rem); }
+
+
+/* --- Font Weight & Style --- */
+
+.font-thin:not(.block), .font-thin.block .block-style-target       { font-weight: 100; }
+.font-light:not(.block), .font-light.block .block-style-target      { font-weight: 300; }
+.font-normal:not(.block), .font-normal.block .block-style-target     { font-weight: 400; }
+.font-medium:not(.block), .font-medium.block .block-style-target     { font-weight: 500; }
+.font-semibold:not(.block), .font-semibold.block .block-style-target   { font-weight: 600; }
+.font-bold:not(.block), .font-bold.block .block-style-target       { font-weight: 700; }
+.font-black:not(.block), .font-black.block .block-style-target      { font-weight: 900; }
+
+.italic:not(.block), .italic.block .block-style-target          { font-style: italic; }
+.not-italic:not(.block), .not-italic.block .block-style-target      { font-style: normal; }
+
+
+/* --- Text Alignment --- */
+
+.text-left:not(.block), .text-left.block .block-style-target       { text-align: left; }
+.text-center:not(.block), .text-center.block .block-style-target     { text-align: center; }
+.text-right:not(.block), .text-right.block .block-style-target      { text-align: right; }
+.text-justify:not(.block), .text-justify.block .block-style-target    { text-align: justify; }
+
+
+/* --- Text Decoration --- */
+
+.underline:not(.block), .underline.block .block-style-target       { text-decoration-line: underline; }
+.line-through:not(.block), .line-through.block .block-style-target    { text-decoration-line: line-through; }
+.no-underline:not(.block), .no-underline.block .block-style-target    { text-decoration-line: none; }
+
+
+/* --- Text Transform --- */
+
+.uppercase:not(.block), .uppercase.block .block-style-target       { text-transform: uppercase; }
+.lowercase:not(.block), .lowercase.block .block-style-target       { text-transform: lowercase; }
+.capitalize:not(.block), .capitalize.block .block-style-target      { text-transform: capitalize; }
+.normal-case:not(.block), .normal-case.block .block-style-target     { text-transform: none; }
+
+
+/* --- Line Height --- */
+
+.leading-none:not(.block), .leading-none.block .block-style-target    { line-height: 1; }
+.leading-tight:not(.block), .leading-tight.block .block-style-target   { line-height: 1.25; }
+.leading-normal:not(.block), .leading-normal.block .block-style-target  { line-height: var(--line-height-base, 1.5); }
+.leading-loose:not(.block), .leading-loose.block .block-style-target   { line-height: 1.75; }
+
+
+/* --- Letter Spacing --- */
+
+.tracking-tight:not(.block), .tracking-tight.block .block-style-target  { letter-spacing: var(--letter-spacing-tight, -0.05em); }
+.tracking-normal:not(.block), .tracking-normal.block .block-style-target { letter-spacing: var(--letter-spacing-normal, 0); }
+.tracking-wide:not(.block), .tracking-wide.block .block-style-target   { letter-spacing: var(--letter-spacing-wide, 0.05em); }
+
+
+/* --- Vertical Alignment (Atomic Only) --- */
+/* Note: These are atomic-only because vertical-align does not apply to block containers. */
+
+.align-baseline  { vertical-align: baseline; }
+.align-top       { vertical-align: top; }
+.align-middle    { vertical-align: middle; }
+.align-bottom    { vertical-align: bottom; }
+.align-text-top  { vertical-align: text-top; }
+.align-text-bottom { vertical-align: text-bottom; }
+
+
+/* --- White Space & Word Breaking --- */
+
+.whitespace-nowrap:not(.block), .whitespace-nowrap.block .block-style-target { white-space: nowrap; }
+.text-truncate:not(.block), .text-truncate.block .block-style-target   { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.text-break:not(.block), .text-break.block .block-style-target      { overflow-wrap: break-word; word-break: break-word; hyphens: auto; }
+
+
+/* --- Accessibility --- */
+
+/**
+ * @utility
+ * @name .sr-only
+ * @description Hides an element visually while keeping it accessible to screen readers.
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

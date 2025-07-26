@@ -31,6 +31,8 @@ layout-styles:
     layout:
       css/layout/page.css: {}
       css/layout/regions.css: {}
+      css/layout/grid.css: {}
+      css/layout/grid-cell-utilities.css: {}
 
 # Core and framework component overrides.
 component-styles:
@@ -97,16 +99,30 @@ block-styles:
   version: VERSION
   css:
     component:
+      css/block-style-components/alerts.css: {}
+      css/block-style-components/blockquote.css: {}
       css/block-style-components/border.css: {}
       css/block-style-components/card.css: {}
-      css/block-style-components/grid-system.css: {}
+      css/block-style-components/cursor.css: {}
+      css/block-style-components/d.grid.css: {}
+      css/block-style-components/display.css: {}
+      css/block-style-components/filters.css: {}
+      css/block-style-components/flexbox.css: {}
+      css/block-style-components/gap.css: {}
       css/block-style-components/hover.css: {}
+      css/block-style-components/lists.css: {}
       css/block-style-components/margin.css: {}
+      css/block-style-components/overflow.css: {}
       css/block-style-components/padding.css: {}
       css/block-style-components/rounded.css: {}
       css/block-style-components/shadow.css: {}
-      css/block-style-components/text.css: {}
-      css/block-style-components/text-utilities.css: {}
+      css/block-style-components/sizing.css: {}
+      css/block-style-components/svg.css: {}
+      css/block-style-components/transforms.css: {}
+      css/block-style-components/transitions: {}
+      css/block-style-components/typography.css: {}
+      css/block-style-components/user-select.css: {}
+      css/block-style-components/well.css: {}
       css/theme/color-utilities.css: {}
 
 # The following are Drupal UI element libraries, kept separate for targeted overrides.

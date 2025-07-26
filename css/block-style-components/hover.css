@@ -1,16 +1,18 @@
 /* ==========================================================================
    Hover Utilities – Transitions and Interactive Effects
    These are BSCs intended for Block Styles UI and interactive design.
+   NOTE: For best results, combine with a transition utility (e.g., .transition-all).
    ========================================================================== */
 
 /**
  * @utility
  * @name .hover-shadow
  * @description Applies a soft shadow on hover for depth.
+ * @blockStyleComponent true
  */
 .hover-shadow:not(.block):hover,
 .hover-shadow.block .block-style-target:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.10));
 }
 
 /**
@@ -46,11 +48,11 @@
 /**
  * @utility
  * @name .hover-bg-light
- * @description Applies a light gray background color on hover.
+ * @description Applies a light contrasting background color on hover.
  */
 .hover-bg-light:not(.block):hover,
 .hover-bg-light.block .block-style-target:hover {
-  background-color: #f5f5f5;
+  background-color: var(--color-surface-contrast, #f4f4f4);
 }
 
 /**

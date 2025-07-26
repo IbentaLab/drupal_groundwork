@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Gap Utilities – Spacing for Grid & Flex Containers
+   These are BSCs for adding space between items in a layout container.
+   Values are derived from the design tokens in tokens.css.
+   ========================================================================== */
+
+/*
+  NOTE: These utilities are effective only on elements that are
+  grid or flex containers (e.g., a region, or a block with .d-grid/.d-flex).
+*/
+
+/**
+ * @utility
+ * @name .gap-1
+ * @description Adds a small gap (var(--space-0), default 0.4rem) between items.
+ */
+.gap-1:not(.block),
+.gap-1.block .block-style-target {
+  gap: var(--space-0, 0.4rem);
+}
+
+/**
+ * @utility
+ * @name .gap-2
+ * @description Adds a small-medium gap (var(--space-1), default 0.8rem) between items.
+ */
+.gap-2:not(.block),
+.gap-2.block .block-style-target {
+  gap: var(--space-1, 0.8rem);
+}
+
+/**
+ * @utility
+ * @name .gap-3
+ * @description Adds a medium gap (var(--space-2), default 1.6rem) between items.
+ */
+.gap-3:not(.block),
+.gap-3.block .block-style-target {
+  gap: var(--space-2, 1.6rem);
+}
+
+/**
+ * @utility
+ * @name .gap-4
+ * @description Adds a medium-large gap (var(--space-3), default 2.4rem) between items.
+ * @blockStyleComponent true
+ */
+.gap-4:not(.block),
+.gap-4.block .block-style-target {
+  gap: var(--space-3, 2.4rem);
+}
+
+/**
+ * @utility
+ * @name .gap-5
+ * @description Adds a large gap (var(--space-4), default 3.2rem) between items.
+ */
+.gap-5:not(.block),
+.gap-5.block .block-style-target {
+  gap: var(--space-4, 3.2rem);
+}
+
+/**
+ * @utility
+ * @name .gap-6
+ * @description Adds an extra-large gap (var(--space-5), default 4.0rem) between items.
+ */
+.gap-6:not(.block),
+.gap-6.block .block-style-target {
+  gap: var(--space-5, 4.0rem);
+}
+
+/**
+ * @utility
+ * @name .gap-x-3
+ * @description Adds a medium gap (var(--space-2), default 1.6rem) on the horizontal axis only.
+ */
+.gap-x-3:not(.block),
+.gap-x-3.block .block-style-target {
+  column-gap: var(--space-2, 1.6rem);
+}
+
+/**
+ * @utility
+ * @name .gap-y-3
+ * @description Adds a medium gap (var(--space-2), default 1.6rem) on the vertical axis only.
+ */
+.gap-y-3:not(.block),
+.gap-y-3.block .block-style-target {
+  row-gap: var(--space-2, 1.6rem);
+}

@@ -1,0 +1,76 @@
+/* ==========================================================================
+   SVG Styling Utilities – For Inline SVGs
+   Contains dual-purpose utilities for styling single SVGs or all SVGs
+   within a block.
+   ========================================================================== */
+
+/* --- Dynamic Color (currentColor) --- */
+/*
+  These classes can be applied directly to a single <svg> element (atomic use)
+  or to a block to style ALL SVGs within it (BSC use).
+*/
+
+/**
+ * @utility
+ * @name .svg-fill-current
+ * @description Sets the fill color of an SVG (or all SVGs in a block) to the current text color.
+ * @blockStyleComponent true
+ */
+.svg-fill-current:not(.block),
+.svg-fill-current.block .block-style-target svg {
+  fill: currentColor;
+}
+
+/**
+ * @utility
+ * @name .svg-stroke-current
+ * @description Sets the stroke color of an SVG (or all SVGs in a block) to the current text color.
+ */
+.svg-stroke-current:not(.block),
+.svg-stroke-current.block .block-style-target svg {
+  stroke: currentColor;
+}
+
+
+/* --- Static Color BSCs --- */
+/* Apply to a single SVG for atomic use, or to a block for BSC use. */
+
+/* Blue */
+.svg-fill-blue:not(.block), .svg-fill-blue.block .block-style-target svg { fill: var(--blue, #067cc6); }
+.svg-stroke-blue:not(.block), .svg-stroke-blue.block .block-style-target svg { stroke: var(--blue, #067cc6); }
+
+/* Red */
+.svg-fill-red:not(.block), .svg-fill-red.block .block-style-target svg { fill: var(--red, #c61c06); }
+.svg-stroke-red:not(.block), .svg-stroke-red.block .block-style-target svg { stroke: var(--red, #c61c06); }
+
+/* Green */
+.svg-fill-green:not(.block), .svg-fill-green.block .block-style-target svg { fill: var(--green, #40ba44); }
+.svg-stroke-green:not(.block), .svg-stroke-green.block .block-style-target svg { stroke: var(--green, #40ba44); }
+
+/* Orange */
+.svg-fill-orange:not(.block), .svg-fill-orange.block .block-style-target svg { fill: var(--orange, #ff8c00); }
+.svg-stroke-orange:not(.block), .svg-stroke-orange.block .block-style-target svg { stroke: var(--orange, #ff8c00); }
+
+/* Purple */
+.svg-fill-purple:not(.block), .svg-fill-purple.block .block-style-target svg { fill: var(--purple, #8906c6); }
+.svg-stroke-purple:not(.block), .svg-stroke-purple.block .block-style-target svg { stroke: var(--purple, #8906c6); }
+
+/* Pink */
+.svg-fill-pink:not(.block), .svg-fill-pink.block .block-style-target svg { fill: var(--pink, #c60666); }
+.svg-stroke-pink:not(.block), .svg-stroke-pink.block .block-style-target svg { stroke: var(--pink, #c60666); }
+
+/* Gold */
+.svg-fill-gold:not(.block), .svg-fill-gold.block .block-style-target svg { fill: var(--gold, #c69c06); }
+.svg-stroke-gold:not(.block), .svg-stroke-gold.block .block-style-target svg { stroke: var(--gold, #c69c06); }
+
+/* Brown */
+.svg-fill-brown:not(.block), .svg-fill-brown.block .block-style-target svg { fill: var(--brown, #c65c06); }
+.svg-stroke-brown:not(.block), .svg-stroke-brown.block .block-style-target svg { stroke: var(--brown, #c65c06); }
+
+/* Grey */
+.svg-fill-grey:not(.block), .svg-fill-grey.block .block-style-target svg { fill: var(--grey, #808080); }
+.svg-stroke-grey:not(.block), .svg-stroke-grey.block .block-style-target svg { stroke: var(--grey, #808080); }
+
+/* Teal */
+.svg-fill-teal:not(.block), .svg-fill-teal.block .block-style-target svg { fill: var(--teal, #009688); }
+.svg-stroke-teal:not(.block), .svg-stroke-teal.block .block-style-target svg { stroke: var(--teal, #009688); }

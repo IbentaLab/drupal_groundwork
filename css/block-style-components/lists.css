@@ -1,0 +1,61 @@
+/* ==========================================================================
+   List Style Utilities – For Styling List Markers
+   These are BSCs for controlling the appearance of list bullets and numbers.
+   ========================================================================== */
+
+/**
+ * @utility
+ * @name .list-disc
+ * @description Sets the list marker style to a disc (bullet).
+ * @blockStyleComponent true
+ */
+.list-disc:not(.block) ul,
+.list-disc.block .block-style-target ul {
+  list-style-type: disc;
+}
+
+/**
+ * @utility
+ * @name .list-decimal
+ * @description Sets the list marker style to decimal numbers.
+ */
+.list-decimal:not(.block) ol,
+.list-decimal.block .block-style-target ol {
+  list-style-type: decimal;
+}
+
+/**
+ * @utility
+ * @name .list-none
+ * @description Removes all list markers.
+ */
+.list-none:not(.block) ul,
+.list-none:not(.block) ol,
+.list-none.block .block-style-target ul,
+.list-none.block .block-style-target ol {
+  list-style-type: none;
+}
+
+/**
+ * @utility
+ * @name .list-inside
+ * @description Positions the list marker inside the list item's text flow.
+ */
+.list-inside:not(.block) ul,
+.list-inside:not(.block) ol,
+.list-inside.block .block-style-target ul,
+.list-inside.block .block-style-target ol {
+  list-style-position: inside;
+}
+
+/**
+ * @utility
+ * @name .list-outside
+ * @description Positions the list marker outside the list item's text flow (default).
+ */
+.list-outside:not(.block) ul,
+.list-outside:not(.block) ol,
+.list-outside.block .block-style-target ul,
+.list-outside.block .block-style-target ol {
+  list-style-position: outside;
+}

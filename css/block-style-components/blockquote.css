@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Blockquote Component – For Highlighting Quoted Text
+   This is a pre-styled BSC for visually distinguishing quoted text.
+   ========================================================================== */
+
+/**
+ * @component
+ * @name .blockquote
+ * @description A component for styling quoted text with a prominent left border.
+ * @blockStyleComponent true
+ */
+.blockquote:not(.block),
+.blockquote.block .block-style-target {
+  padding: var(--space-2, 1.6rem);
+  margin-left: var(--space-1, 0.8rem);
+  border-left: 8px solid var(--color-border, rgba(0, 0, 0, 0.12));
+  background-color: var(--color-surface-contrast, #f4f4f4);
+  font-style: italic;
+  border-radius: var(--radius-sm, 0.4rem);
+}

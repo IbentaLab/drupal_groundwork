@@ -1,65 +1,64 @@
 /* ==========================================================================
-   Padding Utilities – Internal Spacing for Blocks
-   These are Block Style Components (BSCs) for inside-spacing.
+   Padding Utilities – A Composable System for Internal Spacing
+   These are BSCs for controlling the padding inside a block or element.
+   Values are derived from the design tokens in tokens.css.
    ========================================================================== */
 
-/**
- * @utility
- * @name .p
- * @description Applies medium padding (0.8rem) to all sides.
- * @blockStyleComponent true
- */
-.p:not(.block),
-.p.block .block-style-target {
-  padding: 0.8rem;
-}
+/* --- Padding Scale (0-6) --- */
+/* Example: .p-3 applies padding on all sides. .pt-2 applies padding-top. */
 
-/**
- * @utility
- * @name .p--sm
- * @description Applies small padding (0.4rem) to all sides.
- */
-.p--sm:not(.block),
-.p--sm.block .block-style-target {
-  padding: 0.4rem;
-}
+.p-0:not(.block), .p-0.block .block-style-target { padding: 0; }
+.pt-0:not(.block), .pt-0.block .block-style-target { padding-top: 0; }
+.pr-0:not(.block), .pr-0.block .block-style-target { padding-right: 0; }
+.pb-0:not(.block), .pb-0.block .block-style-target { padding-bottom: 0; }
+.pl-0:not(.block), .pl-0.block .block-style-target { padding-left: 0; }
+.px-0:not(.block), .px-0.block .block-style-target { padding-left: 0; padding-right: 0; }
+.py-0:not(.block), .py-0.block .block-style-target { padding-top: 0; padding-bottom: 0; }
 
-/**
- * @utility
- * @name .p--lg
- * @description Applies large padding (1.6rem) to all sides.
- */
-.p--lg:not(.block),
-.p--lg.block .block-style-target {
-  padding: 1.6rem;
-}
+.p-1:not(.block), .p-1.block .block-style-target { padding: var(--space-0, 0.4rem); }
+.pt-1:not(.block), .pt-1.block .block-style-target { padding-top: var(--space-0, 0.4rem); }
+.pr-1:not(.block), .pr-1.block .block-style-target { padding-right: var(--space-0, 0.4rem); }
+.pb-1:not(.block), .pb-1.block .block-style-target { padding-bottom: var(--space-0, 0.4rem); }
+.pl-1:not(.block), .pl-1.block .block-style-target { padding-left: var(--space-0, 0.4rem); }
+.px-1:not(.block), .px-1.block .block-style-target { padding-left: var(--space-0, 0.4rem); padding-right: var(--space-0, 0.4rem); }
+.py-1:not(.block), .py-1.block .block-style-target { padding-top: var(--space-0, 0.4rem); padding-bottom: var(--space-0, 0.4rem); }
 
-/**
- * @utility
- * @name .p--xl
- * @description Applies extra-large padding (2.4rem) to all sides.
- */
-.p--xl:not(.block),
-.p--xl.block .block-style-target {
-  padding: 2.4rem;
-}
+.p-2:not(.block), .p-2.block .block-style-target { padding: var(--space-1, 0.8rem); }
+.pt-2:not(.block), .pt-2.block .block-style-target { padding-top: var(--space-1, 0.8rem); }
+.pr-2:not(.block), .pr-2.block .block-style-target { padding-right: var(--space-1, 0.8rem); }
+.pb-2:not(.block), .pb-2.block .block-style-target { padding-bottom: var(--space-1, 0.8rem); }
+.pl-2:not(.block), .pl-2.block .block-style-target { padding-left: var(--space-1, 0.8rem); }
+.px-2:not(.block), .px-2.block .block-style-target { padding-left: var(--space-1, 0.8rem); padding-right: var(--space-1, 0.8rem); }
+.py-2:not(.block), .py-2.block .block-style-target { padding-top: var(--space-1, 0.8rem); padding-bottom: var(--space-1, 0.8rem); }
 
-/**
- * @utility
- * @name .p--xxl
- * @description Applies extra-extra-large padding (3.2rem) to all sides.
- */
-.p--xxl:not(.block),
-.p--xxl.block .block-style-target {
-  padding: 3.2rem;
-}
+.p-3:not(.block), .p-3.block .block-style-target { padding: var(--space-2, 1.6rem); }
+.pt-3:not(.block), .pt-3.block .block-style-target { padding-top: var(--space-2, 1.6rem); }
+.pr-3:not(.block), .pr-3.block .block-style-target { padding-right: var(--space-2, 1.6rem); }
+.pb-3:not(.block), .pb-3.block .block-style-target { padding-bottom: var(--space-2, 1.6rem); }
+.pl-3:not(.block), .pl-3.block .block-style-target { padding-left: var(--space-2, 1.6rem); }
+.px-3:not(.block), .px-3.block .block-style-target { padding-left: var(--space-2, 1.6rem); padding-right: var(--space-2, 1.6rem); }
+.py-3:not(.block), .py-3.block .block-style-target { padding-top: var(--space-2, 1.6rem); padding-bottom: var(--space-2, 1.6rem); }
 
-/**
- * @utility
- * @name .p--xxxl
- * @description Applies maximum padding (4rem) to all sides.
- */
-.p--xxxl:not(.block),
-.p--xxxl.block .block-style-target {
-  padding: 4rem;
-}
+.p-4:not(.block), .p-4.block .block-style-target { padding: var(--space-3, 2.4rem); }
+.pt-4:not(.block), .pt-4.block .block-style-target { padding-top: var(--space-3, 2.4rem); }
+.pr-4:not(.block), .pr-4.block .block-style-target { padding-right: var(--space-3, 2.4rem); }
+.pb-4:not(.block), .pb-4.block .block-style-target { padding-bottom: var(--space-3, 2.4rem); }
+.pl-4:not(.block), .pl-4.block .block-style-target { padding-left: var(--space-3, 2.4rem); }
+.px-4:not(.block), .px-4.block .block-style-target { padding-left: var(--space-3, 2.4rem); padding-right: var(--space-3, 2.4rem); }
+.py-4:not(.block), .py-4.block .block-style-target { padding-top: var(--space-3, 2.4rem); padding-bottom: var(--space-3, 2.4rem); }
+
+.p-5:not(.block), .p-5.block .block-style-target { padding: var(--space-4, 3.2rem); }
+.pt-5:not(.block), .pt-5.block .block-style-target { padding-top: var(--space-4, 3.2rem); }
+.pr-5:not(.block), .pr-5.block .block-style-target { padding-right: var(--space-4, 3.2rem); }
+.pb-5:not(.block), .pb-5.block .block-style-target { padding-bottom: var(--space-4, 3.2rem); }
+.pl-5:not(.block), .pl-5.block .block-style-target { padding-left: var(--space-4, 3.2rem); }
+.px-5:not(.block), .px-5.block .block-style-target { padding-left: var(--space-4, 3.2rem); padding-right: var(--space-4, 3.2rem); }
+.py-5:not(.block), .py-5.block .block-style-target { padding-top: var(--space-4, 3.2rem); padding-bottom: var(--space-4, 3.2rem); }
+
+.p-6:not(.block), .p-6.block .block-style-target { padding: var(--space-5, 4.0rem); }
+.pt-6:not(.block), .pt-6.block .block-style-target { padding-top: var(--space-5, 4.0rem); }
+.pr-6:not(.block), .pr-6.block .block-style-target { padding-right: var(--space-5, 4.0rem); }
+.pb-6:not(.block), .pb-6.block .block-style-target { padding-bottom: var(--space-5, 4.0rem); }
+.pl-6:not(.block), .pl-6.block .block-style-target { padding-left: var(--space-5, 4.0rem); }
+.px-6:not(.block), .px-6.block .block-style-target { padding-left: var(--space-5, 4.0rem); padding-right: var(--space-5, 4.0rem); }
+.py-6:not(.block), .py-6.block .block-style-target { padding-top: var(--space-5, 4.0rem); padding-bottom: var(--space-5, 4.0rem); }
