@@ -1,0 +1,21 @@
+<div class="accordion">
+  {% for item in items %}
+    <h3 class="accordion__header">
+      <button
+        class="accordion__trigger"
+        aria-expanded="false"
+        aria-controls="content-accordion-panel-{{ loop.index0 }}"
+        id="content-accordion-trigger-{{ loop.index0 }}">
+        {{ item.title }}
+      </button>
+    </h3>
+    <div
+      id="content-accordion-panel-{{ loop.index0 }}"
+      class="accordion__panel"
+      role="region"
+      aria-labelledby="content-accordion-trigger-{{ loop.index0 }}"
+      hidden>
+      {{ item.content|raw }}
+    </div>
+  {% endfor %}
+</div>

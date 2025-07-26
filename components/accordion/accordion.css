@@ -1,0 +1,55 @@
+.accordion {
+  margin: 0;
+  padding: 0;
+  background: var(--accordion-bg);
+  color: var(--accordion-text);
+  border: 1px solid var(--accordion-border);
+  border-radius: 0.3rem;
+}
+
+.accordion__header {
+  margin: 0;
+  font-family: var(--heading-font-family);
+}
+
+.accordion__trigger {
+  width: 100%;
+  padding: var(--space-1) var(--space-2);
+  font-size: 1.1rem;
+  color: var(--accordion-text);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  border-bottom: 1px solid var(--accordion-border);
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.accordion__trigger[aria-expanded="true"] {
+  background: var(--dropdown-hover-bg);
+  font-weight: bold;
+}
+
+.accordion__trigger::after {
+  content: "▼";
+  font-size: 0.9em;
+  color: var(--accordion-icon-color);
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.accordion__trigger[aria-expanded="true"]::after {
+  transform: rotate(-180deg);
+}
+
+.accordion__panel {
+  padding: var(--space-1) var(--space-2);
+  background: var(--accordion-bg);
+  color: var(--accordion-text);
+  border-bottom: 1px solid var(--accordion-border);
+}
+.accordion__panel[hidden] {
+  display: none !important;
+}

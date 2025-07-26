@@ -1,0 +1,21 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Navigation Accordion
+props:
+  type: object
+  required:
+    - items
+  properties:
+    items:
+      type: array
+      title: Menu items
+      items:
+        type: object
+        required: [title]
+        properties:
+          title:
+            type: string
+          url:
+            type: string
+          children:
+            type: array
+            items: {}

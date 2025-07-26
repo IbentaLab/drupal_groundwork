@@ -1,0 +1,104 @@
+.dropdown--level-0,
+.dropdown--level-1,
+.dropdown--level-2 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-item {
+  position: relative;
+}
+
+.dropdown--level-0 > .dropdown-item > a {
+  display: block;
+  padding: var(--space-1) var(--space-2);
+  color: var(--nav-text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown--level-0 > .dropdown-item:hover > a,
+.dropdown--level-0 > .dropdown-item > a:focus {
+  background-color: var(--nav-hover);
+}
+
+.dropdown-item--expanded > a::after {
+  content: '▼';
+  font-size: 0.7em;
+  margin-left: var(--space-0);
+  display: inline-block;
+  transform: scaleY(0.8);
+}
+
+.dropdown--level-1,
+.dropdown--level-2 {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+  max-width: 320px;
+  width: max-content;
+  background-color: var(--dropdown-bg);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
+  z-index: 100;
+  padding: var(--space-0) 0;
+  word-break: break-word;
+}
+
+.dropdown--level-2 {
+  left: 100%;
+  top: 0;
+}
+
+/* Show on hover/focus of parent .dropdown-item--expanded */
+.dropdown-item--expanded:hover > .dropdown--level-1,
+.dropdown-item--expanded:focus-within > .dropdown--level-1,
+.dropdown-item--expanded:hover > .dropdown--level-2,
+.dropdown-item--expanded:focus-within > .dropdown--level-2 {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.dropdown--level-1 a,
+.dropdown--level-2 a {
+  color: var(--dropdown-text);
+  padding: var(--space-1) var(--space-2);
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown--level-1 a:hover,
+.dropdown--level-1 a:focus,
+.dropdown--level-2 a:hover,
+.dropdown--level-2 a:focus {
+  background-color: var(--dropdown-hover-bg);
+}
+
+.dropdown--level-1 .dropdown-item--expanded > a::after {
+  content: '►';
+  float: right;
+  margin-left: var(--space-0);
+  margin-right: var(--space-0);
+}
+
+/* Pointer events */
+.dropdown--level-1,
+.dropdown--level-2 {
+  pointer-events: none;
+}
+.dropdown-item--expanded:hover > .dropdown--level-1,
+.dropdown-item--expanded:focus-within > .dropdown--level-1,
+.dropdown-item--expanded:hover > .dropdown--level-2,
+.dropdown-item--expanded:focus-within > .dropdown--level-2 {
+  pointer-events: auto;
+}

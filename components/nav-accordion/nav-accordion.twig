@@ -1,0 +1,27 @@
+<ul class="nav-accordion nav-accordion--level-0">
+  {% for item in items %}
+    <li class="nav-accordion__item{% if item.children %} nav-accordion__item--expandable{% endif %}">
+      <button
+        type="button"
+        class="nav-accordion__trigger"
+        aria-expanded="false"
+        {% if item.children %}aria-controls="nav-accordion-panel-{{ loop.index0 }}"{% endif %}
+      >
+        {{ item.title }}
+      </button>
+      {% if item.children %}
+        <ul
+          class="nav-accordion nav-accordion--level-1"
+          id="nav-accordion-panel-{{ loop.index0 }}"
+          hidden
+        >
+          {% for child in item.children %}
+            <li class="nav-accordion__item">
+              <a href="{{ child.url|default('#') }}">{{ child.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,25 @@
+<ul class="dropdown dropdown--level-0">
+  {% for item in items %}
+    <li class="dropdown-item{% if item.children %} dropdown-item--expanded{% endif %}">
+      <a href="{{ item.url|default('#') }}">{{ item.title }}</a>
+      {% if item.children %}
+        <ul class="dropdown dropdown--level-1">
+          {% for child in item.children %}
+            <li class="dropdown-item{% if child.children %} dropdown-item--expanded{% endif %}">
+              <a href="{{ child.url|default('#') }}">{{ child.title }}</a>
+              {% if child.children %}
+                <ul class="dropdown dropdown--level-2">
+                  {% for grandchild in child.children %}
+                    <li class="dropdown-item">
+                      <a href="{{ grandchild.url|default('#') }}">{{ grandchild.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
