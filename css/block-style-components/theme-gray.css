@@ -1,6 +1,6 @@
 /* ==========================================================================
    GRAY COLOR UTILITIES
-   This file provides utility classes for applying different shades of gray to elements.
+   This file provides utility classes for applying different shades of gray.
 
    USAGE:
 
@@ -9,76 +9,82 @@
    Block-level: Apply the same classes to a Drupal block to style the blocks
    content through the "Block Styles" UI.
    ========================================================================== */
-   
+
+/* ==========================================================================
+   GRAY COLOR UTILITIES (ACCESSIBLE & THEME-PROOF)
+   This file provides utility classes for applying different shades of gray.
+   Each class now defines its own high-contrast text color.
+   ========================================================================== */
+
 .gray:not(.block),
 .gray.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--black) !important;
   background-color: var(--gray) !important;
 }
 
 .gray-inverted:not(.block),
 .gray-inverted.block .block-style-target {
   color: var(--gray) !important;
-  background-color: var(--color-text-light) !important;
+  background-color: var(--white) !important;
 }
 
 .gray--light5:not(.block),
 .gray--light5.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--gray-light5) !important;
 }
 
 .gray--light4:not(.block),
 .gray--light4.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--gray-light4) !important;
 }
 
 .gray--light3:not(.block),
 .gray--light3.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--gray-light3) !important;
 }
 
 .gray--light2:not(.block),
 .gray--light2.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--gray-light2) !important;
 }
 
 .gray--light1:not(.block),
 .gray--light1.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--gray-light1) !important;
 }
 
 .gray--dark1:not(.block),
 .gray--dark1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--gray-dark1) !important;
 }
 
 .gray--dark2:not(.block),
 .gray--dark2.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--gray-dark2) !important;
 }
 
 .gray--dark3:not(.block),
 .gray--dark3.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--gray-dark3) !important;
 }
 
 .gray--dark4:not(.block),
 .gray--dark4.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--gray-dark4) !important;
 }
 
 .gray--dark5:not(.block),
 .gray--dark5.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--gray-dark5) !important;
 }
 
@@ -94,7 +100,7 @@
 
 .gray-hover:not(.block):hover,
 .gray-hover.block .block-style-target:hover {
-  color: var(--color-text-light) !important;
+  color: var(--black) !important;
   background-color: var(--gray) !important;
 }
 

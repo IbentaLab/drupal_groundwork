@@ -1,0 +1,136 @@
+/* ==========================================================================
+   CYAN COLOR UTILITIES
+   This file extends the Cyan base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .cyan, .cyan-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Cyan" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Cyan Tokens
+    These variables are defined here and become globally available only when
+    this file is loaded by the theme setting.
+   ========================================================================== */
+:root {
+  --cyan-light5: #E0F7FA;
+  --cyan-light4: #B2EBF2;
+  --cyan-light3: #80DEEA;
+  --cyan-light2: #4DD0E1;
+  --cyan-light1: #26C6DA;
+  --cyan-dark1: #00ACC1;
+  --cyan-dark2: #0097A7;
+  --cyan-dark3: #00838F;
+  --cyan-dark4: #006064;
+  --cyan-dark5: #00494C;
+}
+
+/* ==========================================================================
+   Cyan Utilities
+   These classes are theme-proof and WCAG-compliant.
+   ========================================================================== */
+.cyan:not(.block),
+.cyan.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--cyan) !important;
+}
+
+.cyan-inverted:not(.block),
+.cyan-inverted.block .block-style-target {
+  color: var(--cyan) !important;
+  background-color: var(--white) !important;
+}
+
+.cyan--light5:not(.block),
+.cyan--light5.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--cyan-light5) !important;
+}
+
+.cyan--light4:not(.block),
+.cyan--light4.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--cyan-light4) !important;
+}
+
+.cyan--light3:not(.block),
+.cyan--light3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--cyan-light3) !important;
+}
+
+.cyan--light2:not(.block),
+.cyan--light2.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--cyan-light2) !important;
+}
+
+.cyan--light1:not(.block),
+.cyan--light1.block .block-style-target {
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
+  background-color: var(--cyan-light1) !important;
+}
+
+.cyan--dark1:not(.block),
+.cyan--dark1.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--cyan-dark1) !important;
+}
+
+.cyan--dark2:not(.block),
+.cyan--dark2.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--cyan-dark2) !important;
+}
+
+.cyan--dark3:not(.block),
+.cyan--dark3.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--cyan-dark3) !important;
+}
+
+.cyan--dark4:not(.block),
+.cyan--dark4.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--cyan-dark4) !important;
+}
+
+.cyan--dark5:not(.block),
+.cyan--dark5.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--cyan-dark5) !important;
+}
+
+.cyan-text:not(.block),
+.cyan-text.block .block-style-target {
+  color: var(--cyan) !important;
+}
+
+.cyan-border:not(.block),
+.cyan-border.block .block-style-target {
+  border-color: var(--cyan) !important;
+}
+
+.cyan-hover:not(.block):hover,
+.cyan-hover.block .block-style-target:hover {
+  color: var(--text-on-dark) !important;
+  background-color: var(--cyan) !important;
+}
+
+.cyan-hover-text:not(.block):hover,
+.cyan-hover-text.block .block-style-target:hover {
+  color: var(--cyan) !important;
+}
+
+.cyan-hover-border:not(.block):hover,
+.cyan-hover-border.block .block-style-target:hover {
+  border-color: var(--cyan) !important;
+}

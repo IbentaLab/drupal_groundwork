@@ -16,18 +16,18 @@
 
 /* ==========================================================================
     Green Tokens
-    ========================================================================== */
+   ========================================================================== */
 :root {
-  --green-light5: hsl(from var(--green) h s calc(l + 48%)); /* #eef9ef */
-  --green-light4: hsl(from var(--green) h s calc(l + 39%)); /* #d8f3d9 */
-  --green-light3: hsl(from var(--green) h s calc(l + 28%)); /* #b6eabb */
-  --green-light2: hsl(from var(--green) h s calc(l + 19%)); /* #94e09d */
-  --green-light1: hsl(from var(--green) h s calc(l + 10%)); /* #71d77e */
-  --green-dark1:  hsl(from var(--green) h s calc(l - 3%));  /* #3ca940 */
-  --green-dark2:  hsl(from var(--green) h s calc(l - 6%));  /* #389c3c */
-  --green-dark3:  hsl(from var(--green) h s calc(l - 9%));  /* #348f38 */
-  --green-dark4:  hsl(from var(--green) h s calc(l - 12%)); /* #2f8233 */
-  --green-dark5:  hsl(from var(--green) h s calc(l - 15%)); /* #2b752f */
+  --green-light5: #E8F5E9;
+  --green-light4: #C8E6C9;
+  --green-light3: #A5D6A7;
+  --green-light2: #81C784;
+  --green-light1: #66BB6A;
+  --green-dark1: #43A047;
+  --green-dark2: #388E3C;
+  --green-dark3: #2E7D32;
+  --green-dark4: #1B5E20;
+  --green-dark5: #134617;
 }
 
 /* ==========================================================================
@@ -35,73 +35,75 @@
    ========================================================================== */
 .green:not(.block),
 .green.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
   background-color: var(--green) !important;
 }
 
 .green-inverted:not(.block),
 .green-inverted.block .block-style-target {
   color: var(--green) !important;
-  background-color: var(--color-text-light) !important;
+  background-color: var(--white) !important;
 }
 
 .green--light5:not(.block),
 .green--light5.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--green-light5) !important;
 }
 
 .green--light4:not(.block),
 .green--light4.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--green-light4) !important;
 }
 
 .green--light3:not(.block),
 .green--light3.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--green-light3) !important;
 }
 
 .green--light2:not(.block),
 .green--light2.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--green-light2) !important;
 }
 
 .green--light1:not(.block),
 .green--light1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
   background-color: var(--green-light1) !important;
 }
 
 .green--dark1:not(.block),
 .green--dark1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--green-dark1) !important;
 }
 
 .green--dark2:not(.block),
 .green--dark2.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--green-dark2) !important;
 }
 
 .green--dark3:not(.block),
 .green--dark3.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--green-dark3) !important;
 }
 
 .green--dark4:not(.block),
 .green--dark4.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--green-dark4) !important;
 }
 
 .green--dark5:not(.block),
 .green--dark5.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--green-dark5) !important;
 }
 
@@ -117,7 +119,7 @@
 
 .green-hover:not(.block):hover,
 .green-hover.block .block-style-target:hover {
-  color: var(--color-text-light) !important;
+  color: var(--black) !important;
   background-color: var(--green) !important;
 }
 

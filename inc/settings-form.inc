@@ -62,6 +62,28 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     ],
     '#description' => \Drupal::translation()->translate('Switch between light and dark mode, or follow the user’s operating system preference.'),
   ];
+  $form['design']['gw_color_utilities'] = [
+    '#type' => 'checkboxes',
+    '#title' => \Drupal::translation()->translate('Enable Color Utility Palettes'),
+    '#description' => \Drupal::translation()->translate('Select which color utility stylesheets to load. Each enabled color provides a set of utility classes (e.g., .red, .red--dark1).'),
+    '#options' => [
+      'amber' => \Drupal::translation()->translate('Amber'),
+      'blue-gray' => \Drupal::translation()->translate('Blue Gray'),
+      'brown' => \Drupal::translation()->translate('Brown'),
+      'cyan' => \Drupal::translation()->translate('Cyan'),
+      'deep-purple' => \Drupal::translation()->translate('Deep Purple'),
+      'green' => \Drupal::translation()->translate('Green'),
+      'indigo' => \Drupal::translation()->translate('Indigo'),
+      'lime' => \Drupal::translation()->translate('Lime'),
+      'orange' => \Drupal::translation()->translate('Orange'),
+      'pink' => \Drupal::translation()->translate('Pink'),
+      'purple' => \Drupal::translation()->translate('Purple'),
+      'red' => \Drupal::translation()->translate('Red'),
+      'teal' => \Drupal::translation()->translate('Teal'),
+      'yellow' => \Drupal::translation()->translate('Yellow'),
+    ],
+    '#default_value' => $config->get('gw_color_utilities') ?? [],
+  ];
   $form['design']['gw_custom_css'] = [
     '#type' => 'textarea',
     '#title' => \Drupal::translation()->translate('Custom CSS'),

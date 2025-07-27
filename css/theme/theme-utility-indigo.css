@@ -1,0 +1,132 @@
+/* ==========================================================================
+   INDIGO COLOR UTILITIES
+   This file extends the Indigo base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .indigo, .indigo-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Indigo" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Indigo Tokens
+   ========================================================================== */
+:root {
+  --indigo-light5: #E8EAF6;
+  --indigo-light4: #C5CAE9;
+  --indigo-light3: #9FA8DA;
+  --indigo-light2: #7986CB;
+  --indigo-light1: #5C6BC0;
+  --indigo-dark1: #3949AB;
+  --indigo-dark2: #303F9F;
+  --indigo-dark3: #283593;
+  --indigo-dark4: #1A237E;
+  --indigo-dark5: #131A5F;
+}
+
+/* ==========================================================================
+   Indigo Utilities
+   ========================================================================== */
+.indigo:not(.block),
+.indigo.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo) !important;
+}
+
+.indigo-inverted:not(.block),
+.indigo-inverted.block .block-style-target {
+  color: var(--indigo) !important;
+  background-color: var(--white) !important;
+}
+
+.indigo--light5:not(.block),
+.indigo--light5.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--indigo-light5) !important;
+}
+
+.indigo--light4:not(.block),
+.indigo--light4.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--indigo-light4) !important;
+}
+
+.indigo--light3:not(.block),
+.indigo--light3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--indigo-light3) !important;
+}
+
+.indigo--light2:not(.block),
+.indigo--light2.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo-light2) !important;
+}
+
+.indigo--light1:not(.block),
+.indigo--light1.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo-light1) !important;
+}
+
+.indigo--dark1:not(.block),
+.indigo--dark1.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo-dark1) !important;
+}
+
+.indigo--dark2:not(.block),
+.indigo--dark2.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo-dark2) !important;
+}
+
+.indigo--dark3:not(.block),
+.indigo--dark3.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo-dark3) !important;
+}
+
+.indigo--dark4:not(.block),
+.indigo--dark4.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo-dark4) !important;
+}
+
+.indigo--dark5:not(.block),
+.indigo--dark5.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo-dark5) !important;
+}
+
+.indigo-text:not(.block),
+.indigo-text.block .block-style-target {
+  color: var(--indigo) !important;
+}
+
+.indigo-border:not(.block),
+.indigo-border.block .block-style-target {
+  border-color: var(--indigo) !important;
+}
+
+.indigo-hover:not(.block):hover,
+.indigo-hover.block .block-style-target:hover {
+  color: var(--text-on-dark) !important;
+  background-color: var(--indigo) !important;
+}
+
+.indigo-hover-text:not(.block):hover,
+.indigo-hover-text.block .block-style-target:hover {
+  color: var(--indigo) !important;
+}
+
+.indigo-hover-border:not(.block):hover,
+.indigo-hover-border.block .block-style-target:hover {
+  border-color: var(--indigo) !important;
+}

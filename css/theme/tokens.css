@@ -13,9 +13,8 @@
    5.  Borders & Radii
    6.  Effects & Shadows
    7.  Transitions & Animations
-   8.  Helpers & Configuration
-   9.  Semantic & Component Theming (Defaults to Light Theme)
-   10. Theme Overrides (Dark Mode)
+   8.  Semantic & Component Theming (Defaults to Light Theme)
+   9.  Theme Overrides (Dark Mode)
    =================================================================== */
 
 :root {
@@ -23,87 +22,105 @@
      1. CORE & BRAND COLORS
      - The raw color palette for brand identity.
      =================================================================== */
-  --blue:   hsl(202 94% 40%);  /* #067cc6 */
-  --red:    hsl(7 94% 40%);    /* #c61c06 */
-  --green:  hsl(122 51% 49%);  /* #40ba44 */
-  --orange: hsl(34 100% 50%);  /* #ff8c00 */
-  --purple: hsl(277 94% 40%);  /* #8906c6 */
-  --pink:   hsl(330 94% 40%);  /* #c60666 */
-  --gold:   hsl(45 94% 40%);   /* #c69c06 */
-  --brown:  hsl(26 94% 40%);   /* #c65c06 */
-  --gray:   hsl(0 0% 50%);     /* #808080 */
-  --teal:   hsl(174 100% 29%); /* #009688 */
-  --lime:   hsl(62 63% 44%);   /* #afb42b */
-  --silver: hsl(0 0% 62%);     /* #9e9e9e */
 
-  --blue-light5: hsl(from var(--blue) h s calc(l + 57%)); /* #f2f9fe */
-  --blue-light4: hsl(from var(--blue) h s calc(l + 48%)); /* #d0eafc */
-  --blue-light3: hsl(from var(--blue) h s calc(l + 36%)); /* #a0d5f8 */
-  --blue-light2: hsl(from var(--blue) h s calc(l + 24%)); /* #71c0f4 */
-  --blue-light1: hsl(from var(--blue) h s calc(l + 12%)); /* #41abf0 */
-  --blue-dark1:  hsl(from var(--blue) h s calc(l - 4%));  /* #056eb2 */
-  --blue-dark2:  hsl(from var(--blue) h s calc(l - 8%));  /* #05619e */
-  --blue-dark3:  hsl(from var(--blue) h s calc(l - 11%)); /* #04548a */
-  --blue-dark4:  hsl(from var(--blue) h s calc(l - 17%)); /* #03406c */
-  --blue-dark5:  hsl(from var(--blue) h s calc(l - 21%)); /* #033358 */
+  /* It's good practice to define white/black for reusability */
+  --white: #ffffff;
+  --black: #000000;
 
-  --gray-light5: hsl(from var(--gray) h s calc(l + 47%)); /* #f7f7f7 */
-  --gray-light4: hsl(from var(--gray) h s calc(l + 36%)); /* #dbdbdb */
-  --gray-light3: hsl(from var(--gray) h s calc(l + 26%)); /* #c2c2c2 */
-  --gray-light2: hsl(from var(--gray) h s calc(l + 16%)); /* #a8a8a8 */
-  --gray-light1: hsl(from var(--gray) h s calc(l + 9%));  /* #969696 */
-  --gray-dark1:  hsl(from var(--gray) h s calc(l - 7%));  /* #6e6e6e */
-  --gray-dark2:  hsl(from var(--gray) h s calc(l - 11%)); /* #636363 */
-  --gray-dark3:  hsl(from var(--gray) h s calc(l - 15%)); /* #595959 */
-  --gray-dark4:  hsl(from var(--gray) h s calc(l - 19%)); /* #4f4f4f */
-  --gray-dark5:  hsl(from var(--gray) h s calc(l - 23%)); /* #454545 */
+  /* Blues & Purples */
+  --blue: #2196f3;
+  --indigo: #3f51b5;
+  --deep-purple: #673ab7;
+  --purple: #9c27b0;
 
+  /* Pinks & Reds */
+  --pink: #e91e63;
+  --red: #f44336;
+
+  /* Oranges & Yellows */
+  --orange: #ff9800;
+  --amber: #ffc107;
+  --yellow: #ffeb3b;
+
+  /* Greens & Cyans */
+  --lime: #cddc39;
+  --green: #4caf50;
+  --teal: #009688;
+  --cyan: #00bcd4;
+
+  /* Neutrals & Earth Tones */
+  --brown: #795548;
+  --blue-gray: #607d8b;
+  --gray: #9e9e9e;
+
+  /* --- Blue Variants --- */
+  --blue-light5: #e3f2fd;
+  --blue-light4: #bbdefb;
+  --blue-light3: #90caf9;
+  --blue-light2: #64b5f6;
+  --blue-light1: #42a5f5;
+  --blue-dark1: #1e88e5;
+  --blue-dark2: #1976d2;
+  --blue-dark3: #1565c0;
+  --blue-dark4: #0d47a1;
+  --blue-dark5: #0a3880;
+
+  /* --- Gray Variants --- */
+  --gray-light5: #fafafa;
+  --gray-light4: #f5f5f5;
+  --gray-light3: #eeeeee;
+  --gray-light2: #e0e0e0;
+  --gray-light1: #bdbdbd;
+  --gray-dark1: #757575;
+  --gray-dark2: #616161;
+  --gray-dark3: #424242;
+  --gray-dark4: #212121;
+  --gray-dark5: #111111;
 
   /* ===================================================================
      2. TYPOGRAPHY
      - Font families, modular scale, and base sizes.
      =================================================================== */
   /* --- Font Families --- */
-  --font-family-sans: "Ubuntu","Segoe UI","San Francisco","Roboto",sans-serif;
-  --font-family-serif: Georgia,"Times New Roman",Times,serif;
-  --font-family-mono:  "Lucida Console",Monaco,monospace;
-  --font-family:            var(--font-family-sans);
-  --heading-font-family:    var(--font-family-sans);
-  --site-name-font-family:  var(--font-family-sans);
+  --font-family-sans: "Ubuntu", "Segoe UI", "San Francisco", "Roboto", sans-serif;
+  --font-family-serif: Georgia, "Times New Roman", Times, serif;
+  --font-family-mono: "Lucida Console", Monaco, monospace;
+  --font-family: var(--font-family-sans);
+  --heading-font-family: var(--font-family-sans);
+  --site-name-font-family: var(--font-family-sans);
 
   /* --- Font Sizing (Modular Scale) --- */
   --font-size-base: 1.5rem;
   --scale-type: var(--scale-perfect-fourth); /* Default scale ratio */
-  --ms-md:   var(--scale-base);                        /* 1.5rem */
-  --ms-sm:   calc(var(--ms-md) / var(--scale-type));   /* 1.125rem */
-  --ms-xs:   calc(var(--ms-sm) / var(--scale-type));   /* 0.844rem */
-  --ms-lg:   calc(var(--ms-md) * var(--scale-type));   /* 2rem */
-  --ms-xl:   calc(var(--ms-lg) * var(--scale-type));   /* 2.667rem */
-  --ms-xxl:  calc(var(--ms-xl) * var(--scale-type));   /* 3.556rem */
-  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type));  /* 4.741rem */
+  --ms-md: var(--scale-base); /* 1.5rem */
+  --ms-sm: calc(var(--ms-md) / var(--scale-type)); /* 1.125rem */
+  --ms-xs: calc(var(--ms-sm) / var(--scale-type)); /* 0.844rem */
+  --ms-lg: calc(var(--ms-md) * var(--scale-type)); /* 2rem */
+  --ms-xl: calc(var(--ms-lg) * var(--scale-type)); /* 2.667rem */
+  --ms-xxl: calc(var(--ms-xl) * var(--scale-type)); /* 3.556rem */
+  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type)); /* 4.741rem */
 
   /* --- Line Height & Letter Spacing --- */
-  --line-height-base:    1.5;
+  --line-height-base: 1.5;
   --line-height-heading: 1.2;
   --letter-spacing-tight: -0.05em;
   --letter-spacing-normal: 0;
-  --letter-spacing-wide:   0.05em;
+  --letter-spacing-wide: 0.05em;
 
   /* --- Modular Scale Ratios (for reference) --- */
   --scale-base: 1.5rem;
-  --scale-minor-second:      1.067;
-  --scale-major-second:      1.125;
-  --scale-minor-third:       1.2;
-  --scale-major-third:       1.25;
-  --scale-perfect-fourth:    1.333;
-  --scale-augmented-fourth:  1.414;
-  --scale-perfect-fifth:     1.5;
-  --scale-golden-section:    1.618;
-  --scale-major-sixth:       1.667;
-  --scale-minor-seventh:     1.778;
-  --scale-major-seventh:     1.875;
-  --scale-octave:            2;
-
+  --scale-minor-second: 1.067;
+  --scale-major-second: 1.125;
+  --scale-minor-third: 1.2;
+  --scale-major-third: 1.25;
+  --scale-perfect-fourth: 1.333;
+  --scale-augmented-fourth: 1.414;
+  --scale-perfect-fifth: 1.5;
+  --scale-golden-section: 1.618;
+  --scale-major-sixth: 1.667;
+  --scale-minor-seventh: 1.778;
+  --scale-major-seventh: 1.875;
+  --scale-octave: 2;
 
   /* ===================================================================
      3. SPACING & SIZING
@@ -114,18 +131,17 @@
   --space-2: 1.6rem;
   --space-3: 2.4rem;
   --space-4: 3.2rem;
-  --space-5: 4.0rem;
+  --space-5: 4rem;
   --gw-icon-size: 2.4rem; /* Specific size for icons */
-
 
   /* ===================================================================
      4. LAYOUT & BREAKPOINTS
      - Responsive breakpoints, container widths, and z-index scale.
      =================================================================== */
   /* --- Breakpoints --- */
-  --breakpoint-small-screen:  768px;
+  --breakpoint-small-screen: 768px;
   --breakpoint-medium-screen: 992px;
-  --breakpoint-large-screen:  1200px;
+  --breakpoint-large-screen: 1200px;
 
   /* --- Grid --- */
   --grid-gutter: var(--space-1);
@@ -136,117 +152,111 @@
   --container-width-xl: 1320px;
 
   /* --- Z-Index Scale --- */
-  --z-index-base:     1;
+  --z-index-base: 1;
   --z-index-dropdown: 1000;
-  --z-index-sticky:   1020;
-  --z-index-popover:  1060;
-  --z-index-tooltip:  1070;
-  --z-index-modal:    1080;
-
+  --z-index-sticky: 1020;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-modal: 1080;
 
   /* ===================================================================
      5. BORDERS & RADII
      - Border radii for rounding corners.
      =================================================================== */
-  --radius-0:    0;
-  --radius-xs:   0.2rem;
-  --radius-sm:   0.4rem;
-  --radius-md:   0.8rem;
-  --radius-lg:   1.2rem;
-  --radius-xl:   1.6rem;
+  --radius-0: 0;
+  --radius-xs: 0.2rem;
+  --radius-sm: 0.4rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.2rem;
+  --radius-xl: 1.6rem;
   --radius-full: 9999px; /* For pills and circles */
-
 
   /* ===================================================================
      6. EFFECTS & SHADOWS
      - Box shadows for depth and focus indicators.
      =================================================================== */
-  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md:   0 4px 8px rgba(0, 0, 0, 0.10);
-  --shadow-lg:   0 8px 16px rgba(0, 0, 0, 0.12);
-  --shadow-inner: inset 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-focus: 0 0 0 3px rgba(0, 120, 255, 0.50);
+  --shadow-sm: 0 1px 2px rgba(from var(--black) r g b / 0.05);
+  --shadow-md: 0 4px 8px rgba(from var(--black) r g b / 0.1);
+  --shadow-lg: 0 8px 16px rgba(from var(--black) r g b / 0.12);
+  --shadow-inner: inset 0 1px 2px rgba(from var(--black) r g b / 0.06);
 
+  /* Linked to primary color for brand consistency */
+  --shadow-focus: 0 0 0 3px rgba(from var(--color-primary) r g b / 0.5);
 
   /* ===================================================================
      7. TRANSITIONS & ANIMATIONS
      - Durations and timing functions for motion.
      =================================================================== */
   --duration-short: 150ms;
-  --duration-base:  250ms;
-  --duration-long:  400ms;
+  --duration-base: 250ms;
+  --duration-long: 400ms;
   --timing-function-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: var(--duration-base) var(--timing-function-ease);
 
-
   /* ===================================================================
-     8. HELPERS & CONFIGURATION
-     - Miscellaneous variables for tooling and external resources.
-     =================================================================== */
-  /* --- BEM Naming Convention --- */
-  --bem-block-name:        "bem-block-name";
-  --bem-element-name:      "bem-element";
-  --bem-element-separator: "__";
-  --bem-modifier-separator:"--";
-
-  /* --- External Resources --- */
-  --google-font-url: "fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin-ext";
-
-
-  /* ===================================================================
-     9. SEMANTIC & COMPONENT THEMING (Defaults to Light Theme)
+     8. SEMANTIC & COMPONENT THEMING (Defaults to Light Theme)
      - These variables change with the active color theme.
      =================================================================== */
-  /* --- Semantic Colors --- */
-  --color-bg:            #ffffff;
-  --color-fg:            rgba(0 0 0 /.87);
-  --color-surface:       #ffffff;
-  --color-surface-contrast: #f4f4f4;
-  --color-border:        rgba(0 0 0 /.12);
-  --color-link:          var(--blue);
-  --color-link-hover:    hsl(from var(--color-link) h s calc(l - 8%));
-  --color-text:          var(--color-fg);
-  --color-text-light:    #ffffff;
 
-  /* --- Semantic Aliases (Bootstrap-like) --- */
+  /* --- Base Text Colors (Theme Agnostic) --- */
+  --text-on-dark: rgba(from var(--white) r g b / 0.87); /* High-emphasis white text */
+  --text-on-light: rgba(from var(--black) r g b / 0.87); /* High-emphasis black text */
+
+  /* --- Base Semantic Colors --- */
   --color-primary: var(--blue);
-  --color-danger:  var(--red);
+  --color-secondary: var(--gray);
+  --color-info: var(--purple);
   --color-success: var(--green);
+  --color-danger: var(--red);
   --color-warning: var(--orange);
-  --color-info:    var(--purple);
-  --color-muted:   var(--gray);
+  --color-muted: var(--gray);
 
-  /* --- Brand Color --- */
-  --color-brand: var(--blue);
-  --color-brand-hover: hsl(from var(--color-brand) h s calc(l - 8%));
-  --color-brand-contrast: #fff;
+  /* --- Dark Semantic Colors --- */
+  --color-primary-dark: var(--blue-dark2);
+  --color-secondary-dark: var(--gray-dark2);
+  --color-info-dark: #7b1fa2; /* based on --purple-dark2 */
+  --color-success-dark: #388e3c; /* based on --green-dark2 */
+  --color-danger-dark: #d32f2f; /* based on --red-dark2 */
+  --color-warning-dark: #f57c00; /* based on --orange-dark2 */
+  --color-muted-dark: var(--gray-dark2);
+
+  /* --- Light Theme --- */
+  --color-bg: var(--white);
+  --color-fg: var(--text-on-light);
+  --color-surface: var(--white);
+  --color-surface-contrast: var(--gray-light4);
+  --color-border: rgba(from var(--black) r g b / 0.12);
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-dark);
+  --color-text: var(--color-fg);
+  /* The old --color-text-light is now aliased to the more semantic --text-on-dark */
+  --color-text-light: var(--text-on-dark);
 
   /* --- Disabled States --- */
-  --color-disabled-bg: #f4f4f4;
-  --color-disabled-fg: #9e9e9e;
+  --color-disabled-bg: var(--gray-light4);
+  --color-disabled-fg: var(--gray);
 
   /* --- Navigation Colors --- */
-  --nav-bg: var(--color-brand);
-  --nav-hover: hsl(from var(--nav-bg) h s calc(l - 8%));
-  --nav-active: var(--color-brand);
-  --nav-text: var(--color-brand-contrast, #fff);
-  --nav-shadow: 0 2px 12px rgba(0,0,0,.12);
+  --nav-bg: var(--color-primary);
+  --nav-hover: var(--color-primary-dark);
+  --nav-active: rgba(from var(--white) r g b / 0.15); /* A subtle overlay */
+  --nav-text: var(--white);
+  --nav-shadow: 0 2px 4px rgba(from var(--black) r g b / 0.15);
 
   /* --- Dropdown Colors (Consistent across themes) --- */
-  --dropdown-bg: hsl(0 0% 20%); /* #333 */
-  --dropdown-hover-bg: hsl(0 0% 27%); /* #444 */
-  --dropdown-text: #fff;
+  --dropdown-bg: var(--color-surface);
+  --dropdown-hover-bg: var(--color-surface-contrast);
+  --dropdown-text: var(--color-text);
 
   /* --- Accordion Colors --- */
-  --accordion-bg: var(--color-surface);
+  --accordion-bg: transparent; /* Accordion items sit on the main background */
   --accordion-text: var(--color-text);
   --accordion-border: var(--color-border);
   --accordion-icon-color: currentColor;
 }
 
-
 /* ===================================================================
-   10. THEME OVERRIDES (Dark Mode)
+   9. THEME OVERRIDES (Dark Mode)
    - Applies dark theme based on OS preference or an explicit
      `data-theme="dark"` attribute.
    =================================================================== */
@@ -254,35 +264,32 @@
 /* --- Dark Theme (OS Preference) --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg:  #121212;
-    --color-fg:  rgba(240, 240, 240, 0.87);
-    --color-surface: #1e1e1e;
-    --color-surface-contrast: #2a2a2a;
-    --color-border: rgba(255, 255, 255, 0.12);
-    --color-link-hover:  hsl(from var(--color-link) h s calc(l + 8%));
-    --color-brand-hover: hsl(from var(--color-brand) h s calc(l + 8%));
-    --color-disabled-bg: rgba(255, 255, 255, 0.12);
-    --color-disabled-fg: rgba(255, 255, 255, 0.38);
-    --nav-hover:         hsl(from var(--nav-bg) h s calc(l + 8%));
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
-    --accordion-icon-color: var(--color-fg);
+    /* These are the core theme variables we need to override. */
+    --color-bg: #121212; /* A standard, deep gray for dark mode */
+    --color-fg: var(--text-on-dark); /* High-emphasis white text */
+    --color-surface: var(--gray-dark4); /* Surfaces are slightly elevated (lighter) */
+    --color-surface-contrast: var(--gray-dark3); /* For hovers on surfaces */
+    --color-border: rgba(from var(--white) r g b / 0.12); /* Light, subtle borders */
+
+    /* A lighter, accessible link color is crucial for readability.*/
+    --color-link: var(--blue-light2);
+    --color-link-hover: var(--blue-light1);
+
+    /* Disabled states are inverted, using semi-transparent white. */
+    --color-disabled-bg: rgba(from var(--white) r g b / 0.12);
+    --color-disabled-fg: rgba(from var(--white) r g b / 0.38);
   }
 }
 
 /* --- Dark Theme (Explicit Override) --- */
 [data-theme="dark"] {
-    --color-bg:  #121212;
-    --color-fg:  rgba(240, 240, 240, 0.87);
-    --color-surface: #1e1e1e;
-    --color-surface-contrast: #2a2a2a;
-    --color-border: rgba(255, 255, 255, 0.12);
-    --color-link-hover:  hsl(from var(--color-link) h s calc(l + 8%));
-    --color-brand-hover: hsl(from var(--color-brand) h s calc(l + 8%));
-    --color-disabled-bg: rgba(255, 255, 255, 0.12);
-    --color-disabled-fg: rgba(255, 255, 255, 0.38);
-    --nav-hover:         hsl(from var(--nav-bg) h s calc(l + 8%));
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
-    --accordion-icon-color: var(--color-fg);
+  --color-bg: #121212;
+  --color-fg: var(--text-on-dark);
+  --color-surface: var(--gray-dark4);
+  --color-surface-contrast: var(--gray-dark3);
+  --color-border: rgba(from var(--white) r g b / 0.12);
+  --color-link: var(--blue-light2);
+  --color-link-hover: var(--blue-light1);
+  --color-disabled-bg: rgba(from var(--white) r g b / 0.12);
+  --color-disabled-fg: rgba(from var(--white) r g b / 0.38);
 }

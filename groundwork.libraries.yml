@@ -40,40 +40,40 @@ component-styles:
   css:
     component:
       # Foundational Core Overrides (from Starterkit)
-      css/core/action-links.css: {}
-      css/core/blocks.css: {}
-      css/core/breadcrumb.css: {}
-      css/core/buttons.css: {}
-      css/core/container-inline.css: {}
-      css/core/details.css: {}
-      css/core/dialog.css: {}
-      css/core/dropbutton.css: {}
-      css/core/exposed-filters.css: {}
-      css/core/field.css: {}
-      css/core/file.css: {}
-      css/core/form.css: {}
-      css/core/icons.css: {}
-      css/core/image-widget.css: {}
-      css/core/indented.css: {}
-      css/core/inline-form.css: {}
-      css/core/item-list.css: {}
-      css/core/link.css: {}
-      css/core/links.css: {}
-      css/core/menu.css: {}
-      css/core/messages.css: {}
-      css/core/more-link.css: {}
-      css/core/node.css: {}
-      css/core/pager.css: {}
-      css/core/progress.css: {}
-      css/core/search-results.css: {}
-      css/core/site-branding.css: {}
-      css/core/tabledrag.css: {}
-      css/core/tableselect.css: {}
-      css/core/tablesort.css: {}
-      css/core/tabs.css: {}
-      css/core/textarea.css: {}
-      css/core/ui-dialog.css: {}
-      css/core/user.css: {}
+      css/system/action-links.css: {}
+      css/system/blocks.css: {}
+      css/system/breadcrumb.css: {}
+      css/system/buttons.css: {}
+      css/system/container-inline.css: {}
+      css/system/details.css: {}
+      css/system/dialog.css: {}
+      css/system/dropbutton.css: {}
+      css/system/exposed-filters.css: {}
+      css/system/field.css: {}
+      css/system/file.css: {}
+      css/system/form.css: {}
+      css/system/icons.css: {}
+      css/system/image-widget.css: {}
+      css/system/indented.css: {}
+      css/system/inline-form.css: {}
+      css/system/item-list.css: {}
+      css/system/link.css: {}
+      css/system/links.css: {}
+      css/system/menu.css: {}
+      css/system/messages.css: {}
+      css/system/more-link.css: {}
+      css/system/node.css: {}
+      css/system/pager.css: {}
+      css/system/progress.css: {}
+      css/system/search-results.css: {}
+      css/system/site-branding.css: {}
+      css/system/tabledrag.css: {}
+      css/system/tableselect.css: {}
+      css/system/tablesort.css: {}
+      css/system/tabs.css: {}
+      css/system/textarea.css: {}
+      css/system/ui-dialog.css: {}
+      css/system/user.css: {}
 
 # Framework Partials (FP).
 framework-partial-styles:
@@ -204,3 +204,88 @@ admin-styles:
   css:
     theme:
       css/admin/block-demo.css: {}
+
+# Color Utility Libraries. Each is loaded conditionally via theme settings.
+util-amber:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-amber.css: {}
+
+util-blue-gray:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-blue-gray.css: {}
+
+util-brown:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-brown.css: {}
+
+util-cyan:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-cyan.css: {}
+
+util-deep-purple:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-deep-purple.css: {}
+
+util-green:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-green.css: {}
+
+util-indigo:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-indigo.css: {}
+
+util-lime:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-lime.css: {}
+
+util-orange:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-orange.css: {}
+
+util-pink:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-pink.css: {}
+
+util-purple:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-purple.css: {}
+
+util-red:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-red.css: {}
+
+util-teal:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-teal.css: {}
+
+util-yellow:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-utility-yellow.css: {}

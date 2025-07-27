@@ -29,6 +29,12 @@ function groundwork_preprocess_html(array &$variables): void {
     $variables['html_attributes']['data-theme'] = $color_scheme;
   }
 
+  // Attach color utilities based on theme settings.
+  $enabled_utilities = array_filter($config->get('gw_color_utilities') ?? []);
+  foreach ($enabled_utilities as $utility) {
+    $variables['#attached']['library'][] = "groundwork/util-{$utility}";
+  }
+
   // Add a class for the block demo page for specific styling.
   $route = \Drupal::routeMatch()->getRouteName();
   if ($route === 'block.admin_demo') {

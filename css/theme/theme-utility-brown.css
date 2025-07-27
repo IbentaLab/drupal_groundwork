@@ -16,92 +16,96 @@
 
 /* ==========================================================================
     Brown Tokens
-    ========================================================================== */
+    These variables are defined here and become globally available only when
+    this file is loaded by the theme setting.
+   ========================================================================== */
 :root {
-  --brown-light5: hsl(from var(--brown) h s calc(l + 57%)); /* #fef4f2 */
-  --brown-light4: hsl(from var(--brown) h s calc(l + 48%)); /* #fcecdf */
-  --brown-light3: hsl(from var(--brown) h s calc(l + 36%)); /* #f8bca0 */
-  --brown-light2: hsl(from var(--brown) h s calc(l + 24%)); /* #f49971 */
-  --brown-light1: hsl(from var(--brown) h s calc(l + 12%)); /* #f07641 */
-  --brown-dark1:  hsl(from var(--brown) h s calc(l - 4%));  /* #b25305 */
-  --brown-dark2:  hsl(from var(--brown) h s calc(l - 8%));  /* #9e4905 */
-  --brown-dark3:  hsl(from var(--brown) h s calc(l - 11%)); /* #8a4004 */
-  --brown-dark4:  hsl(from var(--brown) h s calc(l - 17%)); /* #6c3203 */
-  --brown-dark5:  hsl(from var(--brown) h s calc(l - 21%)); /* #582903 */
+  --brown-light5: #EFEBE9;
+  --brown-light4: #D7CCC8;
+  --brown-light3: #BCAAA4;
+  --brown-light2: #A1887F;
+  --brown-light1: #8D6E63;
+  --brown-dark1: #6D4C41;
+  --brown-dark2: #5D4037;
+  --brown-dark3: #4E342E;
+  --brown-dark4: #3E2723;
+  --brown-dark5: #2D1C19;
 }
 
 /* ==========================================================================
    Brown Utilities
+   These classes are theme-proof and WCAG-compliant.
    ========================================================================== */
 .brown:not(.block),
 .brown.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown) !important;
 }
 
 .brown-inverted:not(.block),
 .brown-inverted.block .block-style-target {
   color: var(--brown) !important;
-  background-color: var(--color-text-light) !important;
+  background-color: var(--white) !important;
 }
 
 .brown--light5:not(.block),
 .brown--light5.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--brown-light5) !important;
 }
 
 .brown--light4:not(.block),
 .brown--light4.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--brown-light4) !important;
 }
 
 .brown--light3:not(.block),
 .brown--light3.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--brown-light3) !important;
 }
 
 .brown--light2:not(.block),
 .brown--light2.block .block-style-target {
-  color: var(--color-text) !important;
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
   background-color: var(--brown-light2) !important;
 }
 
 .brown--light1:not(.block),
 .brown--light1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown-light1) !important;
 }
 
 .brown--dark1:not(.block),
 .brown--dark1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown-dark1) !important;
 }
 
 .brown--dark2:not(.block),
 .brown--dark2.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown-dark2) !important;
 }
 
 .brown--dark3:not(.block),
 .brown--dark3.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown-dark3) !important;
 }
 
 .brown--dark4:not(.block),
 .brown--dark4.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown-dark4) !important;
 }
 
 .brown--dark5:not(.block),
 .brown--dark5.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown-dark5) !important;
 }
 
@@ -117,7 +121,7 @@
 
 .brown-hover:not(.block):hover,
 .brown-hover.block .block-style-target:hover {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--brown) !important;
 }
 

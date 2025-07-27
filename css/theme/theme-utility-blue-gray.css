@@ -1,0 +1,136 @@
+/* ==========================================================================
+   BLUE GRAY COLOR UTILITIES
+   This file extends the Blue Gray base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .blue-gray, .blue-gray-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "blue-gray" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Blue-gray Tokens
+    These variables are defined here and become globally available only when
+    this file is loaded by the theme setting.
+   ========================================================================== */
+:root {
+  --blue-gray-light5: #ECEFF1;
+  --blue-gray-light4: #CFD8DC;
+  --blue-gray-light3: #B0BEC5;
+  --blue-gray-light2: #90A4AE;
+  --blue-gray-light1: #78909C;
+  --blue-gray-dark1: #546E7A;
+  --blue-gray-dark2: #455A64;
+  --blue-gray-dark3: #37474F;
+  --blue-gray-dark4: #263238;
+  --blue-gray-dark5: #1B2428;
+}
+
+/* ==========================================================================
+   Blue-gray Utilities
+   These classes are theme-proof and WCAG-compliant.
+   ========================================================================== */
+.blue-gray:not(.block),
+.blue-gray.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray) !important;
+}
+
+.blue-gray-inverted:not(.block),
+.blue-gray-inverted.block .block-style-target {
+  color: var(--blue-gray) !important;
+  background-color: var(--white) !important;
+}
+
+.blue-gray--light5:not(.block),
+.blue-gray--light5.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--blue-gray-light5) !important;
+}
+
+.blue-gray--light4:not(.block),
+.blue-gray--light4.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--blue-gray-light4) !important;
+}
+
+.blue-gray--light3:not(.block),
+.blue-gray--light3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--blue-gray-light3) !important;
+}
+
+.blue-gray--light2:not(.block),
+.blue-gray--light2.block .block-style-target {
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
+  background-color: var(--blue-gray-light2) !important;
+}
+
+.blue-gray--light1:not(.block),
+.blue-gray--light1.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray-light1) !important;
+}
+
+.blue-gray--dark1:not(.block),
+.blue-gray--dark1.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray-dark1) !important;
+}
+
+.blue-gray--dark2:not(.block),
+.blue-gray--dark2.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray-dark2) !important;
+}
+
+.blue-gray--dark3:not(.block),
+.blue-gray--dark3.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray-dark3) !important;
+}
+
+.blue-gray--dark4:not(.block),
+.blue-gray--dark4.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray-dark4) !important;
+}
+
+.blue-gray--dark5:not(.block),
+.blue-gray--dark5.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray-dark5) !important;
+}
+
+.blue-gray-text:not(.block),
+.blue-gray-text.block .block-style-target {
+  color: var(--blue-gray) !important;
+}
+
+.blue-gray-border:not(.block),
+.blue-gray-border.block .block-style-target {
+  border-color: var(--blue-gray) !important;
+}
+
+.blue-gray-hover:not(.block):hover,
+.blue-gray-hover.block .block-style-target:hover {
+  color: var(--text-on-dark) !important;
+  background-color: var(--blue-gray) !important;
+}
+
+.blue-gray-hover-text:not(.block):hover,
+.blue-gray-hover-text.block .block-style-target:hover {
+  color: var(--blue-gray) !important;
+}
+
+.blue-gray-hover-border:not(.block):hover,
+.blue-gray-hover-border.block .block-style-target:hover {
+  border-color: var(--blue-gray) !important;
+}

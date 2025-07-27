@@ -1,0 +1,132 @@
+/* ==========================================================================
+   DEEP PURPLE COLOR UTILITIES
+   This file extends the deep-purple base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .deep-purple, .deep-purple-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Deep Purple" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Deep-purple Tokens
+   ========================================================================== */
+:root {
+  --deep-purple-light5: #EDE7F6;
+  --deep-purple-light4: #D1C4E9;
+  --deep-purple-light3: #B39DDB;
+  --deep-purple-light2: #9575CD;
+  --deep-purple-light1: #7E57C2;
+  --deep-purple-dark1: #5E35B1;
+  --deep-purple-dark2: #512DA8;
+  --deep-purple-dark3: #4527A0;
+  --deep-purple-dark4: #311B92;
+  --deep-purple-dark5: #25146D;
+}
+
+/* ==========================================================================
+   Deep-purple Utilities
+   ========================================================================== */
+.deep-purple:not(.block),
+.deep-purple.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple) !important;
+}
+
+.deep-purple-inverted:not(.block),
+.deep-purple-inverted.block .block-style-target {
+  color: var(--deep-purple) !important;
+  background-color: var(--white) !important;
+}
+
+.deep-purple--light5:not(.block),
+.deep-purple--light5.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--deep-purple-light5) !important;
+}
+
+.deep-purple--light4:not(.block),
+.deep-purple--light4.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--deep-purple-light4) !important;
+}
+
+.deep-purple--light3:not(.block),
+.deep-purple--light3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--deep-purple-light3) !important;
+}
+
+.deep-purple--light2:not(.block),
+.deep-purple--light2.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple-light2) !important;
+}
+
+.deep-purple--light1:not(.block),
+.deep-purple--light1.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple-light1) !important;
+}
+
+.deep-purple--dark1:not(.block),
+.deep-purple--dark1.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple-dark1) !important;
+}
+
+.deep-purple--dark2:not(.block),
+.deep-purple--dark2.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple-dark2) !important;
+}
+
+.deep-purple--dark3:not(.block),
+.deep-purple--dark3.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple-dark3) !important;
+}
+
+.deep-purple--dark4:not(.block),
+.deep-purple--dark4.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple-dark4) !important;
+}
+
+.deep-purple--dark5:not(.block),
+.deep-purple--dark5.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple-dark5) !important;
+}
+
+.deep-purple-text:not(.block),
+.deep-purple-text.block .block-style-target {
+  color: var(--deep-purple) !important;
+}
+
+.deep-purple-border:not(.block),
+.deep-purple-border.block .block-style-target {
+  border-color: var(--deep-purple) !important;
+}
+
+.deep-purple-hover:not(.block):hover,
+.deep-purple-hover.block .block-style-target:hover {
+  color: var(--text-on-dark) !important;
+  background-color: var(--deep-purple) !important;
+}
+
+.deep-purple-hover-text:not(.block):hover,
+.deep-purple-hover-text.block .block-style-target:hover {
+  color: var(--deep-purple) !important;
+}
+
+.deep-purple-hover-border:not(.block):hover,
+.deep-purple-hover-border.block .block-style-target:hover {
+  border-color: var(--deep-purple) !important;
+}

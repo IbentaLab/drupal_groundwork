@@ -1,0 +1,135 @@
+/* ==========================================================================
+   AMBER COLOR UTILITIES
+   This file extends the Amber base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+   Atomic: Apply classes like .amber, .amber-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Amber" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Amber Tokens
+    These variables are defined here and become globally available only when
+    this file is loaded by the theme setting.
+   ========================================================================== */
+:root {
+  --amber-light5: #FFF8E1;
+  --amber-light4: #FFECB3;
+  --amber-light3: #FFE082;
+  --amber-light2: #FFD54F;
+  --amber-light1: #FFCA28;
+  --amber-dark1: #FFB300;
+  --amber-dark2: #FFA000;
+  --amber-dark3: #FF8F00;
+  --amber-dark4: #FF6F00;
+  --amber-dark5: #C45500;
+}
+
+/* ==========================================================================
+   Amber Utilities
+   These classes are theme-proof and WCAG-compliant.
+   ========================================================================== */
+.amber:not(.block),
+.amber.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber) !important;
+}
+
+.amber-inverted:not(.block),
+.amber-inverted.block .block-style-target {
+  color: var(--amber) !important;
+  background-color: var(--white) !important;
+}
+
+.amber--light5:not(.block),
+.amber--light5.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-light5) !important;
+}
+
+.amber--light4:not(.block),
+.amber--light4.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-light4) !important;
+}
+
+.amber--light3:not(.block),
+.amber--light3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-light3) !important;
+}
+
+.amber--light2:not(.block),
+.amber--light2.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-light2) !important;
+}
+
+.amber--light1:not(.block),
+.amber--light1.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-light1) !important;
+}
+
+.amber--dark1:not(.block),
+.amber--dark1.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-dark1) !important;
+}
+
+.amber--dark2:not(.block),
+.amber--dark2.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-dark2) !important;
+}
+
+.amber--dark3:not(.block),
+.amber--dark3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber-dark3) !important;
+}
+
+.amber--dark4:not(.block),
+.amber--dark4.block .block-style-target {
+  /* This shade requires pure black text to meet WCAG AA contrast */
+  color: var(--black) !important;
+  background-color: var(--amber-dark4) !important;
+}
+
+.amber--dark5:not(.block),
+.amber--dark5.block .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--amber-dark5) !important;
+}
+
+.amber-text:not(.block),
+.amber-text.block .block-style-target {
+  color: var(--amber) !important;
+}
+
+.amber-border:not(.block),
+.amber-border.block .block-style-target {
+  border-color: var(--amber) !important;
+}
+
+.amber-hover:not(.block):hover,
+.amber-hover.block .block-style-target:hover {
+  color: var(--text-on-light) !important;
+  background-color: var(--amber) !important;
+}
+
+.amber-hover-text:not(.block):hover,
+.amber-hover-text.block .block-style-target:hover {
+  color: var(--amber) !important;
+}
+
+.amber-hover-border:not(.block):hover,
+.amber-hover-border.block .block-style-target:hover {
+  border-color: var(--amber) !important;
+}

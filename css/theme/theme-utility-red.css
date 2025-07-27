@@ -16,18 +16,18 @@
 
 /* ==========================================================================
     Red Tokens
-    ========================================================================== */
+   ========================================================================== */
 :root {
-  --red-light5: hsl(from var(--red) h s calc(l + 57%)); /* #fef3f2 */
-  --red-light4: hsl(from var(--red) h s calc(l + 48%)); /* #fcd3d0 */
-  --red-light3: hsl(from var(--red) h s calc(l + 36%)); /* #f8a6a0 */
-  --red-light2: hsl(from var(--red) h s calc(l + 24%)); /* #f47a71 */
-  --red-light1: hsl(from var(--red) h s calc(l + 12%)); /* #f04d41 */
-  --red-dark1:  hsl(from var(--red) h s calc(l - 4%));  /* #b21905 */
-  --red-dark2:  hsl(from var(--red) h s calc(l - 8%));  /* #9e1605 */
-  --red-dark3:  hsl(from var(--red) h s calc(l - 11%)); /* #8a1304 */
-  --red-dark4:  hsl(from var(--red) h s calc(l - 17%)); /* #6c0f03 */
-  --red-dark5:  hsl(from var(--red) h s calc(l - 21%)); /* #580d03 */
+  --red-light5: #FFEBEE;
+  --red-light4: #FFCDD2;
+  --red-light3: #EF9A9A;
+  --red-light2: #E57373;
+  --red-light1: #EF5350;
+  --red-dark1: #E53935;
+  --red-dark2: #D32F2F;
+  --red-dark3: #C62828;
+  --red-dark4: #B71C1C;
+  --red-dark5: #8C1515;
 }
 
 /* ==========================================================================
@@ -35,73 +35,77 @@
    ========================================================================== */
 .red:not(.block),
 .red.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
   background-color: var(--red) !important;
 }
 
 .red-inverted:not(.block),
 .red-inverted.block .block-style-target {
   color: var(--red) !important;
-  background-color: var(--color-text-light) !important;
+  background-color: var(--white) !important;
 }
 
 .red--light5:not(.block),
 .red--light5.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--red-light5) !important;
 }
 
 .red--light4:not(.block),
 .red--light4.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--red-light4) !important;
 }
 
 .red--light3:not(.block),
 .red--light3.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--red-light3) !important;
 }
 
 .red--light2:not(.block),
 .red--light2.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
   background-color: var(--red-light2) !important;
 }
 
 .red--light1:not(.block),
 .red--light1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
   background-color: var(--red-light1) !important;
 }
 
 .red--dark1:not(.block),
 .red--dark1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure white text for WCAG AA compliance */
+  color: var(--white) !important;
   background-color: var(--red-dark1) !important;
 }
 
 .red--dark2:not(.block),
 .red--dark2.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--red-dark2) !important;
 }
 
 .red--dark3:not(.block),
 .red--dark3.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--red-dark3) !important;
 }
 
 .red--dark4:not(.block),
 .red--dark4.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--red-dark4) !important;
 }
 
 .red--dark5:not(.block),
 .red--dark5.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--red-dark5) !important;
 }
 
@@ -117,7 +121,7 @@
 
 .red-hover:not(.block):hover,
 .red-hover.block .block-style-target:hover {
-  color: var(--color-text-light) !important;
+  color: var(--black) !important;
   background-color: var(--red) !important;
 }
 

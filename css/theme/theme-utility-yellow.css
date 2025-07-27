@@ -1,0 +1,134 @@
+/* ==========================================================================
+   YELLOW COLOR UTILITIES
+   This file extends the Yellow base color in tokens.css with different shades and provides utility classes for applying them.
+
+   USAGE:
+
+   Atomic: Apply classes like .yellow, .yellow-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+
+   ACTIVATION:
+   To use these styles, you must first enable the "Yellow" color option in the
+   Groundwork theme settings page.
+   ========================================================================== */
+
+/* ==========================================================================
+    Yellow Tokens
+   ========================================================================== */
+:root {
+  --yellow-light5: #FFFDE7;
+  --yellow-light4: #FFF9C4;
+  --yellow-light3: #FFF59D;
+  --yellow-light2: #FFF176;
+  --yellow-light1: #FFEE58;
+  --yellow-dark1: #FDD835;
+  --yellow-dark2: #FBC02D;
+  --yellow-dark3: #F9A825;
+  --yellow-dark4: #F57F17;
+  --yellow-dark5: #C16412;
+}
+
+/* ==========================================================================
+   Yellow Utilities
+   ========================================================================== */
+.yellow:not(.block),
+.yellow.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow) !important;
+}
+
+.yellow-inverted:not(.block),
+.yellow-inverted.block .block-style-target {
+  color: var(--yellow) !important;
+  background-color: var(--white) !important;
+}
+
+.yellow--light5:not(.block),
+.yellow--light5.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-light5) !important;
+}
+
+.yellow--light4:not(.block),
+.yellow--light4.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-light4) !important;
+}
+
+.yellow--light3:not(.block),
+.yellow--light3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-light3) !important;
+}
+
+.yellow--light2:not(.block),
+.yellow--light2.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-light2) !important;
+}
+
+.yellow--light1:not(.block),
+.yellow--light1.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-light1) !important;
+}
+
+.yellow--dark1:not(.block),
+.yellow--dark1.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-dark1) !important;
+}
+
+.yellow--dark2:not(.block),
+.yellow--dark2.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-dark2) !important;
+}
+
+.yellow--dark3:not(.block),
+.yellow--dark3.block .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow-dark3) !important;
+}
+
+.yellow--dark4:not(.block),
+.yellow--dark4.block .block-style-target {
+  /* WARNING: This color has low contrast and is not suitable for text backgrounds. */
+  color: var(--black) !important;
+  background-color: var(--yellow-dark4) !important;
+}
+
+.yellow--dark5:not(.block),
+.yellow--dark5.block .block-style-target {
+  /* This shade requires pure white text for WCAG AA compliance */
+  color: var(--white) !important;
+  background-color: var(--yellow-dark5) !important;
+}
+
+.yellow-text:not(.block),
+.yellow-text.block .block-style-target {
+  color: var(--yellow) !important;
+}
+
+.yellow-border:not(.block),
+.yellow-border.block .block-style-target {
+  border-color: var(--yellow) !important;
+}
+
+.yellow-hover:not(.block):hover,
+.yellow-hover.block .block-style-target:hover {
+  color: var(--text-on-light) !important;
+  background-color: var(--yellow) !important;
+}
+
+.yellow-hover-text:not(.block):hover,
+.yellow-hover-text.block .block-style-target:hover {
+  color: var(--yellow) !important;
+}
+
+.yellow-hover-border:not(.block):hover,
+.yellow-hover-border.block .block-style-target:hover {
+  border-color: var(--yellow) !important;
+}

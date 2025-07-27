@@ -16,18 +16,18 @@
 
 /* ==========================================================================
     Orange Tokens
-    ========================================================================== */
+   ========================================================================== */
 :root {
-  --orange-light5: hsl(from var(--orange) h s calc(l + 47%)); /* #fff7f0 */
-  --orange-light4: hsl(from var(--orange) h s calc(l + 38%)); /* #ffe9d1 */
-  --orange-light3: hsl(from var(--orange) h s calc(l + 27%)); /* #ffd6a3 */
-  --orange-light2: hsl(from var(--orange) h s calc(l + 18%)); /* #ffc375 */
-  --orange-light1: hsl(from var(--orange) h s calc(l + 11%)); /* #ffb047 */
-  --orange-dark1:  hsl(from var(--orange) h s calc(l - 4%));  /* #eb8300 */
-  --orange-dark2:  hsl(from var(--orange) h s calc(l - 7%));  /* #d67600 */
-  --orange-dark3:  hsl(from var(--orange) h s calc(l - 10%)); /* #c26900 */
-  --orange-dark4:  hsl(from var(--orange) h s calc(l - 13%)); /* #aa5d00 */
-  --orange-dark5:  hsl(from var(--orange) h s calc(l - 16%)); /* #934f00 */
+  --orange-light5: #FFF3E0;
+  --orange-light4: #FFE0B2;
+  --orange-light3: #FFCC80;
+  --orange-light2: #FFB74D;
+  --orange-light1: #FFA726;
+  --orange-dark1: #FB8C00;
+  --orange-dark2: #F57C00;
+  --orange-dark3: #EF6C00;
+  --orange-dark4: #E65100;
+  --orange-dark5: #B03F00;
 }
 
 /* ==========================================================================
@@ -35,73 +35,75 @@
    ========================================================================== */
 .orange:not(.block),
 .orange.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure black text for WCAG AA compliance */
+  color: var(--black) !important;
   background-color: var(--orange) !important;
 }
 
 .orange-inverted:not(.block),
 .orange-inverted.block .block-style-target {
   color: var(--orange) !important;
-  background-color: var(--color-text-light) !important;
+  background-color: var(--white) !important;
 }
 
 .orange--light5:not(.block),
 .orange--light5.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--orange-light5) !important;
 }
 
 .orange--light4:not(.block),
 .orange--light4.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--orange-light4) !important;
 }
 
 .orange--light3:not(.block),
 .orange--light3.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--orange-light3) !important;
 }
 
 .orange--light2:not(.block),
 .orange--light2.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--orange-light2) !important;
 }
 
 .orange--light1:not(.block),
 .orange--light1.block .block-style-target {
-  color: var(--color-text) !important;
+  color: var(--text-on-light) !important;
   background-color: var(--orange-light1) !important;
 }
 
 .orange--dark1:not(.block),
 .orange--dark1.block .block-style-target {
-  color: var(--color-text-light) !important;
+  /* This shade requires pure black text and is only AA compliant for large text (18pt+) */
+  color: var(--black) !important;
   background-color: var(--orange-dark1) !important;
 }
 
 .orange--dark2:not(.block),
 .orange--dark2.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--orange-dark2) !important;
 }
 
 .orange--dark3:not(.block),
 .orange--dark3.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--orange-dark3) !important;
 }
 
 .orange--dark4:not(.block),
 .orange--dark4.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--orange-dark4) !important;
 }
 
 .orange--dark5:not(.block),
 .orange--dark5.block .block-style-target {
-  color: var(--color-text-light) !important;
+  color: var(--text-on-dark) !important;
   background-color: var(--orange-dark5) !important;
 }
 
@@ -117,7 +119,7 @@
 
 .orange-hover:not(.block):hover,
 .orange-hover.block .block-style-target:hover {
-  color: var(--color-text-light) !important;
+  color: var(--black) !important;
   background-color: var(--orange) !important;
 }
 
