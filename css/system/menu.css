@@ -3,62 +3,77 @@
    ==========================================================================
    Groundwork's base styling for the .menu output in Drupal.
    Uses Groundwork tokens and utility philosophy.
+   Supports light/dark themes and follows design system spacing, color, and type.
    ========================================================================== */
 
 ul.menu {
-  margin-left: var(--space-2, 1.6rem); /* LTR */
+  margin-left: var(--space-2); /* LTR */
   padding: 0;
   list-style: none outside;
   text-align: left; /* LTR */
 }
+
 [dir="rtl"] ul.menu {
-  margin-right: var(--space-2, 1.6rem);
+  margin-right: var(--space-2);
   margin-left: 0;
   text-align: right;
 }
-.menu-item--expanded {
-  list-style-type: circle;
-  list-style-image: url(../../../images/icons/menu-expanded.png);
-}
-.menu-item--collapsed {
-  list-style-type: disc;
-  list-style-image: url(../../../images/icons/menu-collapsed.png); /* LTR */
-}
-[dir="rtl"] .menu-item--collapsed {
-  list-style-image: url(../../../images/icons/menu-collapsed-rtl.png);
-}
+
 .menu-item {
   margin: 0;
   padding-top: 0.2em;
-}
-
-ul.menu a.is-active {
-  color: #000;
-}
-
-ul.menu a.is-active {
-  color: var(--color-link, var(--blue));
-  font-weight: bold;
-}
-
-.region-header ul.menu a.is-active {
-  color: var(--color-brand-contrast);
-  text-decoration: underline;
-  text-decoration-color: var(--color-brand-contrast);
-  text-decoration-thickness: 2px;
-  text-underline-offset:  50%;
-  transition: text-decoration 0.2s ease;
-}
-
-ul.menu--level-0 li:hover {
-  background: var(--nav-hover);
-}
-
-li.menu-item {
   list-style: none;
 }
 
+/* Default state for menu links */
+ul.menu a {
+  color: var(--color-link);
+  font-weight: normal;
+}
+
+/* Active link state */
+ul.menu a.is-active {
+  color: var(--color-link-hover);
+  font-weight: bold;
+}
+
+/* Special styling for menus inside the header region */
+.region-header ul.menu a {
+  color: var(--nav-text); /* Uses high-contrast text color for nav */
+}
+
+.region-header ul.menu a.is-active {
+  color: var(--nav-text);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: var(--nav-text);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+/* Hover/Focus states for header menu items */
+.region-header .menu--level-0 > .menu-item:hover,
+.region-header .menu--level-0 > .menu-item:focus-within {
+  background-color: var(--nav-hover);
+}
+
+/* General sub-menu styling */
 ul.menu--level-1,
 ul.menu--level-2 {
   margin-bottom: 0;
+}
+
+/* Legacy list-style images for collapsed/expanded indicators */
+.menu-item--expanded {
+  list-style-type: circle;
+  list-style-image: url(../../images/icons/menu-expanded.png);
+}
+
+.menu-item--collapsed {
+  list-style-type: disc;
+  list-style-image: url(../../images/icons/menu-collapsed.png); /* LTR */
+}
+
+[dir="rtl"] .menu-item--collapsed {
+  list-style-image: url(../../images/icons/menu-collapsed-rtl.png);
 }

@@ -3,8 +3,6 @@
 # Core library for essential JS and CSS tokens.
 global-styles:
   version: VERSION
-  js:
-    js/menu-toggle.js: {}
   css:
     theme:
       css/theme/tokens.css: { weight: -40 }
@@ -62,6 +60,7 @@ component-styles:
       css/system/menu.css: {}
       css/system/messages.css: {}
       css/system/more-link.css: {}
+      css/system/navigation.css: {}
       css/system/node.css: {}
       css/system/pager.css: {}
       css/system/progress.css: {}
@@ -89,7 +88,6 @@ hybrid-styles:
     component:
       css/hybrid-style-components/header-layouts.css: {}
       css/hybrid-style-components/layout-flex-row.css: {}
-      css/hybrid-style-components/menu-horizontal.css: {}
 
 # Block Style Components (BSC).
 block-styles:
@@ -116,7 +114,7 @@ block-styles:
       css/block-style-components/sizing.css: {}
       css/block-style-components/svg.css: {}
       css/block-style-components/transforms.css: {}
-      css/block-style-components/transitions: {}
+      css/block-style-components/transitions.css: {}
       css/block-style-components/typography.css: {}
       css/block-style-components/user-select.css: {}
       css/block-style-components/well.css: {}

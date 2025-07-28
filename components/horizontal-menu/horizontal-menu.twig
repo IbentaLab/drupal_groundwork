@@ -1,0 +1,28 @@
+{#
+  Renders both the mobile (accordion) and desktop (dropdown) navigation.
+  CSS media queries will control which one is visible.
+#}
+<div class="horizontal-menu-wrapper">
+  {# Mobile Navigation: Hamburger + Accordion #}
+  <div class="horizontal-menu__mobile">
+    {# Hamburger toggle button #}
+    <button class="horizontal-menu__toggle" aria-expanded="false" aria-controls="horizontal-menu-accordion">
+      <span class="horizontal-menu__toggle-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="visually-hidden">Toggle navigation</span>
+    </button>
+
+    {# Mobile accordion menu (initially hidden) #}
+    <div id="horizontal-menu-accordion" class="horizontal-menu__accordion" hidden>
+      {% include 'groundwork:nav-accordion' with { items: items } %}
+    </div>
+  </div>
+
+  {# Desktop Navigation: Dropdown #}
+  <div class="horizontal-menu__desktop">
+    {% include 'groundwork:dropdown' with { items: items } %}
+  </div>
+</div>

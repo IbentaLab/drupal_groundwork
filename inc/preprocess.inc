@@ -182,19 +182,51 @@ function groundwork_preprocess_node(array &$variables): void {
 function groundwork_preprocess_block(array &$variables): void {
   $config = \Drupal::config('groundwork.settings');
   $plugin_id = $variables['plugin_id'] ?? '';
+  $content = $variables['content'] ?? [];
 
-  // Add horizontal menu classes and pass a flag to the menu template.
-  if (str_starts_with($plugin_id, 'system_menu_block:')) {
+  // Get the primary theme hook, handling cases where it's an array of suggestions.
+  $theme_hook = $content['#theme'] ?? NULL;
+  if (is_array($theme_hook)) {
+    $theme_hook = reset($theme_hook);
+  }
+
+  // Only proceed if this is a menu block with items.
+  if (is_string($theme_hook) && str_starts_with($theme_hook, 'menu') && !empty($content['#items'])) {
+
+    // --- Theme Settings Logic ---
+    // Check if theme settings should make this menu horizontal by default.
     $menu_name = str_replace('system_menu_block:', '', $plugin_id);
     $is_horizontal_main = ($config->get('gw_menu_main_horizontal') ?? TRUE) && $menu_name === 'main';
     $is_horizontal_secondary = ($config->get('gw_menu_secondary_horizontal') ?? FALSE) && $menu_name === 'secondary';
 
     if ($is_horizontal_main || $is_horizontal_secondary) {
-      $variables['attributes']['class'][] = 'menu--horizontal';
-      $variables['content']['#is_horizontal'] = TRUE;
-      if ($is_horizontal_main && ($config->get('gw_menu_main_transparent') ?? FALSE)) {
-        $variables['attributes']['class'][] = 'menu--transparent';
-      }
+      $variables['attributes']['class'][] = 'horizontal-menu';
+    }
+    if ($is_horizontal_main && ($config->get('gw_menu_main_transparent') ?? FALSE)) {
+      $variables['attributes']['class'][] = 'menu--transparent';
+    }
+
+    // --- SDC Transformation Logic ---
+    // Now, check if the .horizontal-menu class exists on the block, either from
+    // theme settings or the Block UI.
+    $attributes = $variables['attributes']['class'] ?? [];
+    if (in_array('horizontal-menu', $attributes)) {
+      // Transform the menu items into the structure our SDC expects.
+      $sdc_items = _groundwork_build_sdc_menu_items($content['#items']);
+
+      // Replace the original render array with one that calls our SDC.
+      $variables['content'] = [
+        '#type' => 'component',
+        '#component' => 'groundwork:horizontal-menu',
+        '#props' => [
+          'items' => $sdc_items,
+        ],
+      ];
+
+      // Debug: Log that we've replaced the content
+      \Drupal::logger('groundwork')->notice('Replaced menu content with SDC. Items count: @count', [
+        '@count' => count($sdc_items)
+      ]);
     }
   }
 
@@ -212,17 +244,33 @@ function groundwork_preprocess_block(array &$variables): void {
 }
 
 /**
- * Implements hook_preprocess_menu().
- */
-function groundwork_preprocess_menu(array &$variables): void {
-  if (isset($variables['#is_horizontal'])) {
-    $variables['is_horizontal'] = $variables['#is_horizontal'];
-  }
-}
-
-/**
  * Example: Custom preprocess function for a custom template.
  */
 function groundwork_preprocess_my_custom_template(array &$variables): void {
   // Custom logic for my-custom-template.html.twig.
+}
+
+/**
+ * Helper function to recursively transform a Drupal menu array into an SDC-compatible array.
+ */
+function _groundwork_build_sdc_menu_items(array $menu_items): array {
+  $sdc_items = [];
+
+  foreach ($menu_items as $item) {
+    // Skip items that don't have the required data
+    if (empty($item['title']) || empty($item['url'])) {
+      continue;
+    }
+
+    $sdc_item = [
+      'title' => (string) $item['title'],
+      'url' => $item['url']->toString(),
+      'is_active' => $item['in_active_trail'] ?? FALSE,
+      'children' => !empty($item['below']) ? _groundwork_build_sdc_menu_items($item['below']) : [],
+    ];
+
+    $sdc_items[] = $sdc_item;
+  }
+
+  return $sdc_items;
 }

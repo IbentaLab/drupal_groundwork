@@ -1,0 +1,10 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json
+name: Horizontal Menu
+description: 'A responsive menu that shows as a dropdown on desktop and accordion on mobile'
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: Menu Items
+      description: 'Array of menu items with title, url, and children'

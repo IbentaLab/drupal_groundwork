@@ -1,0 +1,29 @@
+/**
+ * @file
+ * Contains modifier styles for component-based navigation, like the transparent menu.
+ */
+
+/*
+ * When the .menu--transparent class is applied to a menu block,
+ * make the top-level desktop dropdown transparent and inherit colors.
+ */
+.menu--transparent .horizontal-menu__desktop .dropdown--level-0 {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/*
+ * Ensure the top-level links inherit their text color from the parent header region.
+ */
+.menu--transparent .horizontal-menu__desktop .dropdown--level-0 > .dropdown-item > a {
+  color: inherit;
+}
+
+/*
+ * Provide a theme-aware hover/focus state that works on any background.
+ */
+.menu--transparent .horizontal-menu__desktop .dropdown--level-0 > .dropdown-item:hover > a,
+.menu--transparent .horizontal-menu__desktop .dropdown--level-0 > .dropdown-item > a:focus {
+  /* --color-surface-contrast is a subtle gray that works in both light and dark themes. */
+  background-color: var(--color-surface-contrast);
+}

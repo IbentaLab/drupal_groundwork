@@ -170,14 +170,14 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#type' => 'checkbox',
     '#title' => \Drupal::translation()->translate('Display Main menu as a horizontal, responsive menu'),
     '#default_value' => $config->get('gw_menu_main_horizontal') ?? 1,
-    '#description' => \Drupal::translation()->translate('When checked, the main menu will be styled as a horizontal bar with dropdowns on desktop, and a collapsible accordion on mobile. Best used in the Header or Primary Menu regions.'),
+    '#description' => \Drupal::translation()->translate('When checked, this setting adds the "horizontal-menu" class to the Main Menu block, which renders it using the responsive Horizontal Menu component. This can be overridden in the Block Layout UI.'),
   ];
 
   $form['gw_navigation']['gw_menu_secondary_horizontal'] = [
     '#type' => 'checkbox',
     '#title' => \Drupal::translation()->translate('Display Secondary menu as a horizontal, responsive menu'),
     '#default_value' => $config->get('gw_menu_secondary_horizontal') ?? 0,
-    '#description' => \Drupal::translation()->translate('When checked, the secondary menu will be styled as a horizontal bar.'),
+    '#description' => \Drupal::translation()->translate('When checked, this setting adds the "horizontal-menu" class to the Secondary Menu block. This can be overridden in the Block Layout UI.'),
   ];
 
   $form['gw_navigation']['gw_menu_main_transparent'] = [

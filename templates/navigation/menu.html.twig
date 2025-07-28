@@ -24,21 +24,16 @@
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/3.x/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0, is_horizontal, menu_name) }}
+{{ menus.menu_links(items, attributes, 0) }}
 
-{% macro menu_links(items, attributes, menu_level, is_horizontal, menu_name) %}
+{% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-    {% if menu_level == 0 and is_horizontal %}
-      {# The main menu UL. ID is set here to be controlled by the hamburger button. #}
-      <ul{{ attributes.addClass('menu', 'menu--level-' ~ menu_level).setAttribute('id', 'menu-' ~ menu_name|clean_id) }}>
-    {% elseif menu_level == 0 %}
-       <ul{{ attributes.addClass('menu', 'menu--level-' ~ menu_level) }}>
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass('menu', 'menu--level-' ~ menu_level) }}>
     {% else %}
-      {# Sub-menu UL. The ID is passed from the parent button's aria-controls. #}
-      <ul{{ attributes }}>
+      <ul{{ attributes.addClass('menu', 'menu--level-' ~ menu_level) }}>
     {% endif %}
-
     {% for item in items %}
       {%
         set classes = [
@@ -50,20 +45,8 @@
       %}
       <li{{ item.attributes.addClass(classes) }}>
         {{ link(item.title, item.url) }}
-
-        {# If this menu item has children, and it's a horizontal menu, create a toggle button. #}
-        {% if is_horizontal and item.below %}
-          {% set submenu_id = 'submenu-' ~ menu_name|clean_id ~ '-' ~ menu_level ~ '-' ~ loop.index %}
-          <button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="{{ submenu_id }}">
-            <span class="visually-hidden">{{ 'Toggle submenu for ' ~ item.title }}</span>
-            <span class="submenu-toggle__icon" aria-hidden="true"></span>
-          </button>
-          {# Create a new attributes object for the sub-menu's <ul> to set its ID. #}
-          {% set submenu_attributes = create_attribute({ 'id': submenu_id, 'class': ['menu', 'menu--level-' ~ (menu_level + 1)] }) %}
-          {{ menus.menu_links(item.below, submenu_attributes, menu_level + 1, is_horizontal, menu_name) }}
-        {% elseif item.below %}
-            {# Default recursive call for non-horizontal menus #}
-            {{ menus.menu_links(item.below, create_attribute({ 'class': ['menu', 'menu--level-' ~ (menu_level + 1)] }), menu_level + 1, is_horizontal, menu_name) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
       </li>
     {% endfor %}
