@@ -1,17 +1,23 @@
-<ul class="dropdown dropdown--level-0">
+<ul class="dropdown dropdown--level-0" role="menubar">
   {% for item in items %}
-    <li class="dropdown-item{% if item.children %} dropdown-item--expanded{% endif %}">
-      <a href="{{ item.url|default('#') }}">{{ item.title }}</a>
-      {% if item.children %}
-        <ul class="dropdown dropdown--level-1">
+    {% set has_children = item.children is not empty %}
+    <li class="dropdown-item{% if has_children %} dropdown-item--expanded{% endif %}" role="none">
+      <a href="{{ item.url|default('#') }}" role="menuitem" aria-haspopup="{{ has_children ? 'true' : 'false' }}">
+        {{ item.title }}
+      </a>
+      {% if has_children %}
+        <ul class="dropdown dropdown--level-1" role="menu">
           {% for child in item.children %}
-            <li class="dropdown-item{% if child.children %} dropdown-item--expanded{% endif %}">
-              <a href="{{ child.url|default('#') }}">{{ child.title }}</a>
-              {% if child.children %}
-                <ul class="dropdown dropdown--level-2">
+            {% set has_grandchildren = child.children is not empty %}
+            <li class="dropdown-item{% if has_grandchildren %} dropdown-item--expanded{% endif %}" role="none">
+              <a href="{{ child.url|default('#') }}" role="menuitem" aria-haspopup="{{ has_grandchildren ? 'true' : 'false' }}">
+                {{ child.title }}
+              </a>
+              {% if has_grandchildren %}
+                <ul class="dropdown dropdown--level-2" role="menu">
                   {% for grandchild in child.children %}
-                    <li class="dropdown-item">
-                      <a href="{{ grandchild.url|default('#') }}">{{ grandchild.title }}</a>
+                    <li class="dropdown-item" role="none">
+                      <a href="{{ grandchild.url|default('#') }}" role="menuitem">{{ grandchild.title }}</a>
                     </li>
                   {% endfor %}
                 </ul>

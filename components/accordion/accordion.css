@@ -1,3 +1,4 @@
+/* accordion.css */
 .accordion {
   margin: 0;
   padding: 0;
@@ -14,8 +15,8 @@
 
 .accordion__trigger {
   width: 100%;
-  padding: var(--space-1) var(--space-2);
-  font-size: 1.1rem;
+  padding: var(--space-2);
+  font-size: var(--ms-md);
   color: var(--accordion-text);
   background: none;
   border: none;
@@ -28,6 +29,14 @@
   align-items: center;
   gap: 0.7em;
 }
+
+/* ADDED: Explicit focus style for WCAG compliance */
+.accordion__trigger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  box-shadow: var(--shadow-focus);
+}
+
 .accordion__trigger[aria-expanded="true"] {
   background: var(--dropdown-hover-bg);
   font-weight: bold;

@@ -1,27 +1,55 @@
-<ul class="nav-accordion nav-accordion--level-0">
-  {% for item in items %}
-    <li class="nav-accordion__item{% if item.children %} nav-accordion__item--expandable{% endif %}">
-      <button
-        type="button"
-        class="nav-accordion__trigger"
-        aria-expanded="false"
-        {% if item.children %}aria-controls="nav-accordion-panel-{{ loop.index0 }}"{% endif %}
-      >
-        {{ item.title }}
-      </button>
-      {% if item.children %}
-        <ul
-          class="nav-accordion nav-accordion--level-1"
-          id="nav-accordion-panel-{{ loop.index0 }}"
-          hidden
-        >
-          {% for child in item.children %}
-            <li class="nav-accordion__item">
-              <a href="{{ child.url|default('#') }}">{{ child.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
+{#
+/**
+ * @file
+ * Creates a multi-level navigation accordion from a menu-like data array.
+ *
+ * @props
+ * - items (array): An array of menu item objects, each with optional 'title',
+ * 'url', and 'children' properties.
+ */
+#}
+{% import _self as nav_accordion %}
+
+{# Initial call to the recursive macro to start rendering at level 0 #}
+{{ nav_accordion.render_links(items, 0) }}
+
+{% macro render_links(items, level) %}
+  {% import _self as nav_accordion %}
+
+  {# Only render if there are items AND the current level is less than 3. #}
+  {% if items and level < 3 %}
+    <ul class="nav-accordion nav-accordion--level-{{ level }}">
+      {% for item in items %}
+        <li class="nav-accordion__item{% if item.children %} nav-accordion__item--has-children{% endif %}">
+          <div class="nav-accordion__item-content">
+            {# Render the link. Assumes item.url is a URL object or string. #}
+            <a href="{{ item.url|default('#') }}" class="nav-accordion__link">{{ item.title }}</a>
+
+            {# If there are child items, add the toggle button. #}
+            {% if item.children %}
+              <button
+                type="button"
+                class="nav-accordion__toggle-btn"
+                aria-expanded="false"
+                aria-controls="submenu-{{ item.title|clean_id }}-{{ level }}"
+                aria-label="Toggle submenu for {{ item.title }}"
+              >
+              </button>
+            {% endif %}
+          </div>
+
+          {# RECURSIVE CALL: Render the next level of the menu. #}
+          {% if item.children %}
+            <div
+              class="nav-accordion__panel"
+              id="submenu-{{ item.title|clean_id }}-{{ level }}"
+              hidden
+            >
+              {{ nav_accordion.render_links(item.children, level + 1) }}
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

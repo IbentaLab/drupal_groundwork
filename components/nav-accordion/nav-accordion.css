@@ -1,5 +1,6 @@
-.nav-accordion--level-0,
-.nav-accordion--level-1 {
+/* nav-accordion.css */
+.nav-accordion,
+.nav-accordion ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -14,54 +15,68 @@
   position: relative;
 }
 
-.nav-accordion__trigger {
-  width: 100%;
-  padding: var(--space-1) var(--space-2);
-  color: var(--accordion-text);
-  background: none;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  font-size: 1rem;
-  outline: none;
-  border-bottom: 1px solid var(--accordion-border);
+.nav-accordion__item-content {
   display: flex;
-  align-items: center;
-  gap: 0.7em;
-}
-.nav-accordion__trigger[aria-expanded="true"] {
-  background: var(--dropdown-hover-bg);
-  font-weight: bold;
+  align-items: stretch; /* Make link and button full height */
+  justify-content: space-between;
 }
 
-.nav-accordion__trigger::after {
-  content: "▼";
-  font-size: 0.9em;
-  color: var(--accordion-icon-color);
-  margin-left: auto;
-  transition: transform 0.2s;
+.nav-accordion__link {
+  flex-grow: 1;
+  padding: var(--space-2);
+  color: var(--accordion-text);
+  text-decoration: none;
+  display: block;
+  font-size: var(--ms-md); /* Using font size token */
 }
-.nav-accordion__trigger[aria-expanded="true"]::after {
+.nav-accordion__link:hover,
+.nav-accordion__link:focus {
+  background: var(--dropdown-hover-bg);
+  outline: none;
+}
+
+.nav-accordion__toggle-btn {
+  flex-shrink: 0;
+  /* Add margin to visually separate the button from the edge and the link */
+  margin: var(--space-0);
+  padding: var(--space-0) var(--space-2);
+  background: var(--color-surface-contrast); /* Use a theme-aware, subtle background */
+  border: 1px solid var(--color-border); /* Use the theme-aware border color */
+  border-radius: var(--radius-sm); /* Add rounded corners */
+  cursor: pointer;
+  color: var(--accordion-icon-color);
+  outline: none;
+  transition: background-color var(--duration-base), filter var(--duration-base);
+}
+
+/* Add a hover state to make it feel more interactive */
+.nav-accordion__toggle-btn:hover {
+  filter: brightness(95%); /* Subtly darkens the button on hover in both themes */
+}
+
+.nav-accordion__toggle-btn::after {
+  content: "▼";
+  display: block;
+  font-size: 0.9em;
+  transition: transform 0.2s ease-in-out;
+}
+.nav-accordion__toggle-btn[aria-expanded="true"]::after {
   transform: rotate(-180deg);
 }
+.nav-accordion__toggle-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+  box-shadow: var(--shadow-focus);
+}
 
-.nav-accordion[hidden] {
+.nav-accordion__panel[hidden] {
   display: none !important;
 }
 
-.nav-accordion--level-1 .nav-accordion__item {
-  border-bottom: none;
+/* Styling for nested levels */
+.nav-accordion--level-1 .nav-accordion__link {
+  padding-left: calc(var(--space-2) * 2);
 }
-
-.nav-accordion--level-1 a {
-  display: block;
-  padding: var(--space-1) var(--space-2);
-  color: var(--accordion-text);
-  text-decoration: none;
-  border-radius: 0.3rem;
-  transition: background 0.12s;
-}
-.nav-accordion--level-1 a:hover,
-.nav-accordion--level-1 a:focus {
-  background: var(--dropdown-hover-bg);
+.nav-accordion--level-2 .nav-accordion__link {
+  padding-left: calc(var(--space-2) * 3);
 }

@@ -7,15 +7,23 @@ props:
   properties:
     items:
       type: array
-      title: Menu items
+      title: Menu Items
+      description: An array of menu items, patterned after Drupal's menu link structure.
       items:
         type: object
         required: [title]
         properties:
           title:
             type: string
+            title: Title
+            description: The link title.
           url:
-            type: string
+            type: object
+            title: URL
+            description: A Drupal URL object.
           children:
             type: array
-            items: {}
+            title: Children
+            description: A nested array of menu item objects.
+            items:
+              $ref: '#/properties/items/items' # This makes it recursive
