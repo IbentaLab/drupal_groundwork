@@ -1,0 +1,17 @@
+<div{{ attributes.addClass('card-with-ribbon') }}>
+  {% if title %}
+    <h2 class="card-title">{{ title }}</h2>
+  {% endif %}
+
+  {% if children %}
+    <div class="card-body">
+      {{ children|raw }}
+    </div>
+  {% endif %}
+
+  {% if ribbon.label %}
+    <div class="ribbon {{ ribbon.variant }}">
+      {{ ribbon.label }}
+    </div>
+  {% endif %}
+</div>

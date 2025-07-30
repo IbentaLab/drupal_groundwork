@@ -9,14 +9,14 @@
 
     // Get the current position in the viewport
     const headerRect = headerRegion.getBoundingClientRect();
-    
+
     // Return the bottom position relative to viewport (for fixed positioning)
     return headerRect.bottom;
   }
 
   function positionAccordion(accordion) {
     if (!accordion) return;
-    
+
     if (accordion.closest('.region-header')) {
       const headerBottom = calculateHeaderBottom();
       // Set position relative to viewport (for fixed positioning)

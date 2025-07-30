@@ -1,15 +1,15 @@
 (() => {
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.accordion__trigger').forEach((btn) => {
-      const panelId = btn.getAttribute('aria-controls');
-      if (!panelId) return;
-      const panel = document.getElementById(panelId);
-      if (!panel) return;
+    const triggers = document.querySelectorAll('.accordion__trigger');
 
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        panel.hidden = expanded;
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+        const targetId = trigger.getAttribute('aria-controls');
+        const target = document.getElementById(targetId);
+
+        trigger.setAttribute('aria-expanded', String(!expanded));
+        target.hidden = expanded;
       });
     });
   });

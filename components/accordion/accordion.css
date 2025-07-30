@@ -15,7 +15,7 @@
 
 .accordion__trigger {
   width: 100%;
-  padding: var(--space-2);
+  padding: var(--space-md);
   font-size: var(--ms-md);
   color: var(--accordion-text);
   background: none;
@@ -54,7 +54,7 @@
 }
 
 .accordion__panel {
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-sm) var(--space-md);
   background: var(--accordion-bg);
   color: var(--accordion-text);
   border-bottom: 1px solid var(--accordion-border);

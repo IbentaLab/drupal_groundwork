@@ -1,0 +1,35 @@
+name: Call to Action
+description: A reusable block to prompt users to take an action.
+status: stable
+group: Content
+
+props:
+  type: object
+  required:
+    - title
+    - button_label
+    - button_url
+  properties:
+    title:
+      type: string
+      title: Title
+    body:
+      type: string
+      title: Body
+      description: Optional descriptive text under the title.
+    button_label:
+      type: string
+      title: Button Label
+    button_url:
+      type: string
+      format: uri
+      title: Button URL
+    background_image:
+      type: string
+      title: Background image URL
+      description: Applied as inline CSS background-image
+
+slots:
+  body_html:
+    title: Rich body (optional)
+    description: Optional HTML body if you don’t want to use plain `body` prop

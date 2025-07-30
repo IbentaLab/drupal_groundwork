@@ -4,16 +4,16 @@
       <button
         class="accordion__trigger"
         aria-expanded="false"
-        aria-controls="content-accordion-panel-{{ loop.index0 }}"
-        id="content-accordion-trigger-{{ loop.index0 }}">
+        aria-controls="accordion-{{ unique_id }}-panel-{{ loop.index0 }}"
+        id="accordion-{{ unique_id }}-trigger-{{ loop.index0 }}">
         {{ item.title }}
       </button>
     </h3>
     <div
-      id="content-accordion-panel-{{ loop.index0 }}"
+      id="accordion-{{ unique_id }}-panel-{{ loop.index0 }}"
       class="accordion__panel"
       role="region"
-      aria-labelledby="content-accordion-trigger-{{ loop.index0 }}"
+      aria-labelledby="accordion-{{ unique_id }}-trigger-{{ loop.index0 }}"
       hidden>
       {{ item.content|raw }}
     </div>

@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: Card with Ribbon
+status: stable
+description: >
+  A reusable card component with an optional corner ribbon. Renders block title and content from Drupal.
+group: Content
+
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+    ribbon:
+      type: object
+      title: Ribbon
+      properties:
+        label:
+          type: string
+          title: Ribbon Label
+        variant:
+          type: string
+          title: Ribbon Variant
+
+slots:
+  children:
+    title: Card Body
+    description: Main content area below the title.
+
+libraryOverrides:
+  dependencies:
+    - core/drupal
+
+

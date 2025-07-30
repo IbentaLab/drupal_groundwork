@@ -12,7 +12,7 @@
 
 .dropdown--level-0 > .dropdown-item > a {
   display: block;
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-sm) var(--space-md);
   color: inherit;
   background-color: transparent;
   text-decoration: none;
@@ -28,7 +28,7 @@
 .dropdown-item--expanded > a::after {
   content: '▼';
   font-size: 0.7em;
-  margin-left: var(--space-0);
+  margin-left: var(--space-xs);
   display: inline-block;
   transform: scaleY(0.8);
 }
@@ -48,7 +48,7 @@
   transform: translateY(10px);
   transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
   z-index: 100;
-  padding: var(--space-0) 0;
+  padding: var(--space-xs) 0;
   word-break: break-word;
 }
 
@@ -84,7 +84,7 @@
 .dropdown--level-1 a,
 .dropdown--level-2 a {
   color: var(--dropdown-text);
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-sm) var(--space-md);
   display: block;
   text-decoration: none;
   transition: background-color 0.2s;
@@ -100,8 +100,8 @@
 .dropdown--level-1 .dropdown-item--expanded > a::after {
   content: '►';
   float: right;
-  margin-left: var(--space-0);
-  margin-right: var(--space-0);
+  margin-left: var(--space-xs);
+  margin-right: var(--space-xs);
 }
 
 /* Pointer events */

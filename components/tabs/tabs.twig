@@ -1,0 +1,25 @@
+<div class="gw-tabs" data-tab-group="tabs-{{ unique_id }}">
+  <div role="tablist" class="gw-tabs__list">
+    {% for tab in tabs %}
+      <button
+        class="gw-tabs__trigger{% if loop.index0 == default_tab %} is-active{% endif %}"
+        id="tab-{{ unique_id }}-trigger-{{ loop.index0 }}"
+        data-tab-trigger="{{ loop.index0 }}"
+        aria-controls="tab-{{ unique_id }}-panel-{{ loop.index0 }}"
+        {% if loop.index0 == default_tab %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+        role="tab">
+        {{ tab.label }}
+      </button>
+    {% endfor %}
+  </div>
+
+  {% for tab in tabs %}
+    <div
+      id="tab-{{ unique_id }}-panel-{{ loop.index0 }}"
+      class="gw-tabs__panel{% if loop.index0 != default_tab %} is-hidden{% endif %}"
+      role="tabpanel"
+      aria-labelledby="tab-{{ unique_id }}-trigger-{{ loop.index0 }}">
+      {{ tab.content|raw }}
+    </div>
+  {% endfor %}
+</div>

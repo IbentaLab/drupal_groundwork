@@ -1,0 +1,18 @@
+<section{{ attributes.addClass(['cta']) }}
+  {% if background_image %}
+    style="background-image: url('{{ background_image }}'); background-size: cover; background-position: center;"
+  {% endif %}>
+  <div class="cta__inner">
+    <h2 class="cta__title">{{ title }}</h2>
+
+    {% if body %}
+      <p class="cta__body">{{ body }}</p>
+    {% elseif body_html is defined %}
+      <div class="cta__body">{{ body_html }}</div>
+    {% endif %}
+
+    <a href="{{ button_url }}" class="cta__button">
+      {{ button_label }}
+    </a>
+  </div>
+</section>
