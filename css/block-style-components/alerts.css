@@ -1,74 +1,65 @@
-/* ==========================================================================
-   Alert Component – For Contextual Feedback Messages
-   These are pre-styled BSCs for displaying messages like success or warnings.
-   ========================================================================== */
-
-/* --- Base Alert Style --- */
-/*
-  This base class is meant to be combined with a contextual color class
-  below (e.g., .alert.alert-success).
-*/
+/**
+ * @category 🎨 Colors
+ * @description Provides styles for contextual alert messages with padding, borders, and background colors.
+ * @order 0
+ */
 
 /**
- * @component
  * @name .alert
- * @description Base styling for alert components. Provides padding and rounding.
+ * @description Base styling for alert components. Provides padding, rounding, and a left border.
  * @blockStyleComponent true
  */
 .alert:not(.block),
-.alert.block .block-style-target {
-  padding: var(--space-2, 1.6rem);
+.alert.block.grid-cell .block-style-target {
+  padding: var(--space-md, 1.6rem);
   border-radius: var(--radius-sm, 0.4rem);
   border-left-width: 8px;
   border-style: solid;
 }
 
-
-/* --- Contextual Alert Colors --- */
-
 /**
- * @component
  * @name .alert-info
- * @description An alert for informational messages (uses primary color).
+ * @description An alert for informational messages (uses primary color). Use together with the base `alert` class for padding, border, and layout.
+ * @blockStyleComponent true
  */
 .alert-info:not(.block),
-.alert-info.block .block-style-target {
+.alert-info.block.grid-cell .block-style-target {
   background-color: hsl(from var(--color-primary, #067cc6) h s 95%);
   border-color: var(--color-primary, #067cc6);
   color: hsl(from var(--color-primary, #067cc6) h s 20%);
 }
 
 /**
- * @component
  * @name .alert-success
- * @description An alert for success messages.
+ * @description An alert for success messages. Use together with the base `alert` class for padding, border, and layout.
+ * @blockStyleComponent true
  */
 .alert-success:not(.block),
-.alert-success.block .block-style-target {
+.alert-success.block.grid-cell .block-style-target {
   background-color: hsl(from var(--color-success, #40ba44) h s 95%);
   border-color: var(--color-success, #40ba44);
   color: hsl(from var(--color-success, #40ba44) h s 20%);
 }
 
 /**
- * @component
  * @name .alert-warning
- * @description An alert for warning messages.
+ * @description An alert for warning messages. Use together with the base `alert` class for padding, border, and layout.
+ * @blockStyleComponent true
  */
 .alert-warning:not(.block),
-.alert-warning.block .block-style-target {
+.alert-warning.block.grid-cell .block-style-target {
   background-color: hsl(from var(--color-warning, #ff8c00) h s 95%);
   border-color: var(--color-warning, #ff8c00);
   color: hsl(from var(--color-warning, #ff8c00) h s 20%);
 }
 
 /**
- * @component
  * @name .alert-danger
- * @description An alert for error or danger messages.
+ * @description An alert for error or danger messages. Use together with the base `alert` class for padding, border, and layout.
+ * @blockStyleComponent true
  */
 .alert-danger:not(.block),
-.alert-danger.block .block-style-target {
+.alert-danger.block.grid-cell .block-style-target {
   background-color: hsl(from var(--color-danger, #c61c06) h s 95%);
   border-color: var(--color-danger, #c61c06);
   color: hsl(from var(--color-danger, #c61c06) h s 20%);

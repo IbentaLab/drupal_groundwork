@@ -1,0 +1,504 @@
+/* ===================================================================
+   BUTTON COMPONENT
+   Modern, accessible button with multiple variants and states.
+   Built with a highly maintainable CSS variable system.
+   =================================================================== */
+
+.button {
+  /* --- Component Variables --- */
+  /* These are the defaults, representing the primary button. */
+  /* Variants will override these as needed. */
+  --btn-bg: var(--color-primary);
+  --btn-text: var(--white);
+  --btn-border-color: transparent;
+  --btn-bg-hover: var(--color-primary-dark);
+  --btn-text-hover: var(--white);
+  --btn-border-color-hover: transparent;
+  --btn-focus-color: rgba(from var(--color-primary) r g b / 0.5);
+  --btn-glow-color: var(--color-primary);
+  --btn-gradient-start: var(--color-primary);
+  --btn-gradient-end: var(--color-primary-dark);
+
+  /* --- Base Styles --- */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  /* --- Typography --- */
+  font-family: var(--font-family);
+  font-size: var(--ms-md);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--letter-spacing-wide);
+  text-decoration: none;
+  text-transform: none;
+  white-space: nowrap;
+
+  /* --- Spacing --- */
+  --padding-y: 0.75em; /* Vertical padding relative to font-size */
+  --padding-x: 1.5em;  /* Horizontal padding relative to font-size */
+  padding: var(--padding-y) var(--padding-x);
+
+  /* --- Visuals --- */
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 2px solid var(--btn-border-color);
+  border-radius: var(--radius-sm);
+
+  /* --- Interaction --- */
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-base);
+}
+
+/* ===================================================================
+   INTERACTION STATES (Generic)
+   =================================================================== */
+
+/* --- Hover State --- */
+/* Generic hover effects for all buttons (transform, shadow, etc.) */
+.button:hover:not(:disabled) {
+  color: var(--btn-text-hover, var(--btn-text));
+  border-color: var(--btn-border-color-hover, var(--btn-border-color));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Specific background hover for NON-gradient buttons */
+.button:not(.button--gradient):hover:not(:disabled) {
+  background-color: var(--btn-bg-hover);
+}
+
+/* --- Active State --- */
+.button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* --- Focus State --- */
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--btn-focus-color);
+}
+
+/* --- Disabled State --- */
+.button:disabled {
+  cursor: not-allowed;
+  background-color: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* ===================================================================
+   BUTTON VARIANTS (Color & Style)
+   =================================================================== */
+
+/* --- Filled Variants --- */
+.button--secondary:not(.button--ghost) {
+  --btn-bg: var(--color-secondary);
+  --btn-bg-hover: var(--color-secondary-dark);
+  --btn-focus-color: rgba(from var(--color-secondary) r g b / 0.5);
+  --btn-glow-color: var(--color-secondary);
+  --btn-gradient-start: var(--color-secondary);
+  --btn-gradient-end: var(--color-secondary-dark);
+}
+
+.button--info:not(.button--ghost) {
+  --btn-bg: var(--color-info);
+  --btn-bg-hover: var(--color-info-dark);
+  --btn-focus-color: rgba(from var(--color-info) r g b / 0.5);
+  --btn-glow-color: var(--color-info);
+  --btn-gradient-start: var(--color-info);
+  --btn-gradient-end: var(--color-info-dark);
+}
+
+.button--notice:not(.button--ghost) {
+  --btn-bg: var(--color-notice);
+  --btn-bg-hover: var(--color-notice-dark);
+  --btn-focus-color: rgba(from var(--color-notice) r g b / 0.5);
+  --btn-glow-color: var(--color-notice);
+  --btn-gradient-start: var(--color-notice);
+  --btn-gradient-end: var(--color-notice-dark);
+}
+
+.button--success:not(.button--ghost) {
+  --btn-bg: var(--color-success);
+  --btn-bg-hover: var(--color-success-dark);
+  --btn-focus-color: rgba(from var(--color-success) r g b / 0.5);
+  --btn-glow-color: var(--color-success);
+  --btn-gradient-start: var(--color-success);
+  --btn-gradient-end: var(--color-success-dark);
+}
+
+.button--danger:not(.button--ghost) {
+  --btn-bg: var(--color-danger);
+  --btn-bg-hover: var(--color-danger-dark);
+  --btn-focus-color: rgba(from var(--color-danger) r g b / 0.5);
+  --btn-glow-color: var(--color-danger);
+  --btn-gradient-start: var(--color-danger);
+  --btn-gradient-end: var(--color-danger-dark);
+}
+
+.button--warning:not(.button--ghost) {
+  --btn-bg: var(--color-warning);
+  --btn-bg-hover: var(--color-warning-dark);
+  --btn-focus-color: rgba(from var(--color-warning) r g b / 0.5);
+  --btn-glow-color: var(--color-warning);
+  --btn-gradient-start: var(--color-warning);
+  --btn-gradient-end: var(--color-warning-dark);
+}
+
+.button--muted:not(.button--ghost) {
+  --btn-bg: var(--color-muted);
+  --btn-bg-hover: var(--color-muted-dark);
+  --btn-focus-color: rgba(from var(--color-muted) r g b / 0.5);
+  --btn-glow-color: var(--color-muted);
+  --btn-gradient-start: var(--color-muted);
+  --btn-gradient-end: var(--color-muted-dark);
+}
+
+/* --- Ghost Variants --- */
+.button--ghost {
+  --btn-bg: transparent;
+  --btn-text: var(--color-primary);
+  --btn-border-color: var(--color-primary);
+  --btn-bg-hover: var(--color-primary);
+  --btn-text-hover: var(--white);
+  --btn-border-color-hover: var(--color-primary);
+}
+
+.button--ghost.button--secondary {
+  --btn-text: var(--color-secondary);
+  --btn-border-color: var(--color-secondary);
+  --btn-bg-hover: var(--color-secondary);
+  --btn-border-color-hover: var(--color-secondary);
+}
+
+.button--ghost.button--info {
+  --btn-text: var(--color-info);
+  --btn-border-color: var(--color-info);
+  --btn-bg-hover: var(--color-info);
+  --btn-border-color-hover: var(--color-info);
+}
+
+.button--ghost.button--notice {
+  --btn-text: var(--color-notice);
+  --btn-border-color: var(--color-notice);
+  --btn-bg-hover: var(--color-notice);
+  --btn-border-color-hover: var(--color-notice);
+}
+
+.button--ghost.button--success {
+  --btn-text: var(--color-success);
+  --btn-border-color: var(--color-success);
+  --btn-bg-hover: var(--color-success);
+  --btn-border-color-hover: var(--color-success);
+}
+
+.button--ghost.button--danger {
+  --btn-text: var(--color-danger);
+  --btn-border-color: var(--color-danger);
+  --btn-bg-hover: var(--color-danger);
+  --btn-border-color-hover: var(--color-danger);
+}
+
+.button--ghost.button--warning {
+  --btn-text: var(--color-warning);
+  --btn-border-color: var(--color-warning);
+  --btn-bg-hover: var(--color-warning);
+  --btn-border-color-hover: var(--color-warning);
+}
+
+.button--ghost.button--muted {
+  --btn-text: var(--color-muted);
+  --btn-border-color: var(--color-muted);
+  --btn-bg-hover: var(--color-muted);
+  --btn-border-color-hover: var(--color-muted);
+}
+
+/* --- Outline Variant --- */
+.button--outline {
+  --btn-bg: transparent;
+  --btn-text: var(--color-text);
+  --btn-border-color: var(--color-border);
+  --btn-bg-hover: var(--color-surface-hover);
+  --btn-border-color-hover: var(--color-border);
+  --btn-focus-color: rgba(from var(--color-text) r g b / 0.25);
+}
+
+/* --- Light Variants --- */
+.button--primary-light {
+  --btn-bg: var(--color-primary-light);
+  --btn-text: var(--color-primary-dark);
+  --btn-bg-hover: var(--color-primary);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-primary) r g b / 0.5);
+  --btn-glow-color: var(--color-primary);
+  --btn-gradient-start: var(--color-primary-light);
+  --btn-gradient-end: var(--color-primary);
+  border-color: transparent;
+}
+
+.button--secondary-light {
+  --btn-bg: var(--color-secondary-light);
+  --btn-text: var(--color-secondary-dark);
+  --btn-bg-hover: var(--color-secondary);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-secondary) r g b / 0.5);
+  --btn-glow-color: var(--color-secondary);
+  --btn-gradient-start: var(--color-secondary-light);
+  --btn-gradient-end: var(--color-secondary);
+  border-color: transparent;
+}
+
+.button--info-light {
+  --btn-bg: var(--color-info-light);
+  --btn-text: var(--color-info-dark);
+  --btn-bg-hover: var(--color-info);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-info) r g b / 0.5);
+  --btn-glow-color: var(--color-info);
+  --btn-gradient-start: var(--color-info-light);
+  --btn-gradient-end: var(--color-info);
+  border-color: transparent;
+}
+
+.button--notice-light {
+  --btn-bg: var(--color-notice-light);
+  --btn-text: var(--color-notice-dark);
+  --btn-bg-hover: var(--color-notice);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-notice) r g b / 0.5);
+  --btn-glow-color: var(--color-notice);
+  --btn-gradient-start: var(--color-notice-light);
+  --btn-gradient-end: var(--color-notice);
+  border-color: transparent;
+}
+
+.button--success-light {
+  --btn-bg: var(--color-success-light);
+  --btn-text: var(--color-success-dark);
+  --btn-bg-hover: var(--color-success);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-success) r g b / 0.5);
+  --btn-glow-color: var(--color-success);
+  --btn-gradient-start: var(--color-success-light);
+  --btn-gradient-end: var(--color-success);
+  border-color: transparent;
+}
+
+.button--danger-light {
+  --btn-bg: var(--color-danger-light);
+  --btn-text: var(--color-danger-dark);
+  --btn-bg-hover: var(--color-danger);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-danger) r g b / 0.5);
+  --btn-glow-color: var(--color-danger);
+  --btn-gradient-start: var(--color-danger-light);
+  --btn-gradient-end: var(--color-danger);
+  border-color: transparent;
+}
+
+.button--warning-light {
+  --btn-bg: var(--color-warning-light);
+  --btn-text: var(--color-warning-dark);
+  --btn-bg-hover: var(--color-warning);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-warning) r g b / 0.5);
+  --btn-glow-color: var(--color-warning);
+  --btn-gradient-start: var(--color-warning-light);
+  --btn-gradient-end: var(--color-warning);
+  border-color: transparent;
+}
+
+.button--muted-light {
+  --btn-bg: var(--color-muted-light);
+  --btn-text: var(--color-muted-dark);
+  --btn-bg-hover: var(--color-muted);
+  --btn-text-hover: var(--white);
+  --btn-focus-color: rgba(from var(--color-muted) r g b / 0.5);
+  --btn-glow-color: var(--color-muted);
+  --btn-gradient-start: var(--color-muted-light);
+  --btn-gradient-end: var(--color-muted);
+  border-color: transparent;
+}
+
+/* ===================================================================
+   BUTTON SIZES
+   =================================================================== */
+
+.button--xs {
+  font-size: var(--ms-xs);
+}
+
+.button--sm {
+  font-size: var(--ms-sm);
+}
+
+.button--lg {
+  font-size: var(--ms-lg);
+  border-radius: var(--radius-md);
+}
+
+.button--xl {
+  font-size: var(--ms-xl);
+  border-radius: var(--radius-lg);
+}
+
+.button--xxl {
+  font-size: var(--ms-xxl);
+  border-radius: var(--radius-lg);
+  --padding-y: 1em;
+  --padding-x: 1em;
+}
+
+/* ===================================================================
+   BUTTON MODIFIERS
+   =================================================================== */
+
+.button--block {
+  width: 100%;
+}
+
+.button--pill {
+  border-radius: var(--radius-full);
+}
+
+.button--icon {
+  padding: var(--space-sm);
+  aspect-ratio: 1;
+}
+
+.button--icon.button--sm {
+  padding: var(--space-xs);
+}
+
+.button--icon.button--lg {
+  padding: var(--space-md);
+}
+
+/* ===================================================================
+   MODERN EFFECTS
+   =================================================================== */
+
+/* --- Ripple Effect --- */
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding-top: 100%; /* Creates a circle with a responsive radius */
+  border-radius: 50%;
+  background-color: currentColor; /* Uses the button's text color for the ripple */
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  pointer-events: none;
+  z-index: 0; /* Places ripple behind the text */
+}
+
+/* Ensure button text and icons are on top of the ripple */
+.button > * {
+    position: relative;
+    z-index: 1;
+}
+
+.button:active::before {
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0.30;
+}
+
+/* --- Gradient Effect --- */
+.button--gradient {
+  background: linear-gradient(135deg, var(--btn-gradient-start), var(--btn-gradient-end));
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.button--gradient:hover:not(:disabled) {
+  animation-duration: 1.5s;
+}
+
+/* --- Glow Effect --- */
+/* Note: This will override the default lift shadow on hover */
+.button--glow {
+  box-shadow: 0 0 20px rgba(from var(--btn-glow-color) r g b / 0.3);
+}
+
+.button--glow:hover:not(:disabled) {
+  box-shadow: 0 0 30px rgba(from var(--btn-glow-color) r g b / 0.5);
+}
+
+/* ===================================================================
+   BUTTON GROUP
+   =================================================================== */
+
+.button-group {
+  display: inline-flex;
+  gap: -1px; /* Overlap borders */
+}
+
+.button-group .button {
+  border-radius: 0;
+}
+
+.button-group .button:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+.button-group .button:last-child {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.button-group .button:hover {
+  z-index: 1;
+}
+
+/* ===================================================================
+   LOADING STATE
+   =================================================================== */
+
+/* We hide the button's direct children (text, icons) instead of setting color to transparent.
+   This allows the ::after pseudo-element to correctly inherit the original text color. */
+.button--loading > * {
+  visibility: hidden;
+}
+
+.button--loading {
+  pointer-events: none;
+}
+
+/* The spinner correctly uses the button's text color (e.g., white) */
+.button--loading::after {
+  content: '';
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  border: 0.15em solid currentColor;
+  border-top-color: transparent;
+  border-radius: var(--radius-full);
+  animation: button-spin 0.6s linear infinite;
+}
+
+/* Keyframes for the spinning animation */
+@keyframes button-spin {
+  to { transform: rotate(360deg); }
+}

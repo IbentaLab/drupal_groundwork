@@ -6,11 +6,6 @@ global-styles:
   css:
     theme:
       css/theme/tokens.css: { weight: -40 }
-
-# Base HTML element styling.
-base-styles:
-  version: VERSION
-  css:
     base:
       css/base/root.css: { weight: -20 }
       css/base/sections.css: {}
@@ -21,27 +16,13 @@ base-styles:
       css/base/form-controls.css: {}
       css/base/interactive.css: {}
       css/base/edits.css: {}
-
-# Page layout and region styling.
-layout-styles:
-  version: VERSION
-  css:
-    layout:
-      css/layout/page.css: {}
-      css/layout/regions.css: {}
-      css/layout/grid.css: {}
-      css/layout/grid-cell-utilities.css: {}
-
-# Core and framework component overrides.
-component-styles:
-  version: VERSION
-  css:
     component:
-      # Foundational Core Overrides (from Starterkit)
+      # Foundational Core Overrides
       css/system/action-links.css: {}
       css/system/blocks.css: {}
       css/system/breadcrumb.css: {}
       css/system/buttons.css: {}
+      css/partials/buttons.css: {}
       css/system/container-inline.css: {}
       css/system/details.css: {}
       css/system/dialog.css: {}
@@ -50,6 +31,7 @@ component-styles:
       css/system/field.css: {}
       css/system/file.css: {}
       css/system/form.css: {}
+      css/layout/grid-layout.css: {}
       css/system/icons.css: {}
       css/system/image-widget.css: {}
       css/system/indented.css: {}
@@ -64,6 +46,7 @@ component-styles:
       css/system/node.css: {}
       css/system/pager.css: {}
       css/system/progress.css: {}
+      css/system/regions.css: {}
       css/system/search-results.css: {}
       css/system/site-branding.css: {}
       css/system/tabledrag.css: {}
@@ -74,12 +57,21 @@ component-styles:
       css/system/ui-dialog.css: {}
       css/system/user.css: {}
 
-# Framework Partials (FP).
-framework-partial-styles:
+# Page layout and region styling.
+layout-styles:
+  version: VERSION
+  css:
+    layout:
+      css/layout/page.css: {}
+      css/layout/regions.css: {}
+      css/layout/grid-system.css: {}
+
+# Icons
+gwicon-icons:
   version: VERSION
   css:
     theme:
-      framework-partials/gwicons/gwicons.css: {}
+      icons/gwicons/gwicons.css: {}
 
 # Hybrid Style Components (HSC).
 hybrid-styles:
@@ -94,32 +86,49 @@ block-styles:
   version: VERSION
   css:
     component:
-      css/block-style-components/alerts.css: {}
-      css/block-style-components/blockquote.css: {}
-      css/block-style-components/border.css: {}
-      css/block-style-components/card.css: {}
-      css/block-style-components/cursor.css: {}
-      css/block-style-components/d.grid.css: {}
+      # Layout and Structure
+      css/block-style-components/block-layout-grid.css: {}
       css/block-style-components/display.css: {}
-      css/block-style-components/filters.css: {}
+      css/block-style-components/css-grid.css: {}
       css/block-style-components/flexbox.css: {}
       css/block-style-components/gap.css: {}
-      css/block-style-components/hover.css: {}
-      css/block-style-components/lists.css: {}
       css/block-style-components/margin.css: {}
-      css/block-style-components/overflow.css: {}
       css/block-style-components/padding.css: {}
-      css/block-style-components/rounded.css: {}
-      css/block-style-components/shadow.css: {}
       css/block-style-components/sizing.css: {}
+
+      # Typography and Text Styling
+      css/block-style-components/font-family.css: {}
+      css/block-style-components/font-size.css: {}
+      css/block-style-components/font-weight-and-style.css: {}
+      css/block-style-components/letter-spacing.css: {}
+      css/block-style-components/text-alignment.css: {}
+      css/block-style-components/text-decoration.css: {}
+      css/block-style-components/lists.css: {}
+
+      # Color and Visual Styling
+      css/block-style-components/color-blue.css: {}
+      css/block-style-components/color-gray.css: {}
+      css/block-style-components/shadow.css: {}
+      css/block-style-components/border.css: {}
+      css/block-style-components/rounded.css: {}
+
+      # Interactive and Hover Effects
+      css/block-style-components/hover.css: {}
+      css/block-style-components/cursor.css: {}
+      css/block-style-components/user-select.css: {}
+
+      # Structural and Content Styling
+      css/block-style-components/alerts.css: {}
+      css/block-style-components/blockquote.css: {}
+      css/block-style-components/card.css: {}
       css/block-style-components/svg.css: {}
+      css/block-style-components/well.css: {}
+
+      # Utility and Miscellaneous
+      css/block-style-components/filters.css: {}
+      css/block-style-components/overflow.css: {}
       css/block-style-components/transforms.css: {}
       css/block-style-components/transitions.css: {}
-      css/block-style-components/typography.css: {}
-      css/block-style-components/user-select.css: {}
-      css/block-style-components/well.css: {}
-      css/block-style-components/theme-blue.css: {}
-      css/block-style-components/theme-gray.css: {}
 
 # The following are Drupal UI element libraries, kept separate for targeted overrides.
 dialog:

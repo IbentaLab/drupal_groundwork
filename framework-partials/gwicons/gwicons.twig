@@ -1,4 +1,0 @@
-{% set attributes = attributes.addClass('gw-icon', 'gw-icon--' ~ name) %}
-<svg {{ attributes }} {% if label %}role="img" aria-label="{{ label }}"{% else %}aria-hidden="true"{% endif %}>
-  <use href="#gw-{{ name }}" />
-</svg>

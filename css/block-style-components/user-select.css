@@ -1,41 +1,42 @@
-/* ==========================================================================
-   User Select Utilities – Text Selection Control
-   These are BSCs for controlling whether text can be highlighted by the user.
-   ========================================================================== */
+/**
+ * @category 🔤 Typography
+ * @description Provides utilities for controlling text selection behavior, including none, text, and all.
+ * @order 0
+ */
 
 /**
- * @utility
  * @name .select-none
- * @description Prevents text within the element from being selected.
+ * @description Prevents the user from selecting the text content.
  * @blockStyleComponent true
  */
 .select-none:not(.block),
-.select-none.block .block-style-target {
+.select-none.block.grid-cell .block-style-target {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10+ */
   user-select: none;
 }
 
 /**
- * @utility
  * @name .select-text
- * @description Allows text to be selected (default browser behavior).
+ * @description Allows the user to select the text content.
+ * @blockStyleComponent true
  */
 .select-text:not(.block),
-.select-text.block .block-style-target {
+.select-text.block.grid-cell .block-style-target {
   -webkit-user-select: text;
   -ms-user-select: text;
   user-select: text;
 }
 
 /**
- * @utility
  * @name .select-all
- * @description A single click by the user will select all the text in the element.
+ * @description Makes all text within the element selectable when clicked.
+ * @blockStyleComponent true
  */
 .select-all:not(.block),
-.select-all.block .block-style-target {
+.select-all.block.grid-cell .block-style-target {
   -webkit-user-select: all;
   -ms-user-select: all;
   user-select: all;
 }
+

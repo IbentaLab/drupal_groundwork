@@ -1,35 +1,35 @@
-/* ==========================================================================
-   Overflow Utilities – Manages Content Clipping
-   These are BSCs for controlling behavior when content exceeds its container.
-   ========================================================================== */
+/**
+ * @category 🔲 Layout
+ * @description Defines utilities for controlling overflow behavior, including hidden, scroll, and auto.
+ * @order 0
+ */
 
 /**
- * @utility
  * @name .overflow-hidden
  * @description Clips and hides content that overflows.
  * @blockStyleComponent true
  */
 .overflow-hidden:not(.block),
-.overflow-hidden.block .block-style-target {
+.overflow-hidden.block.grid-cell .block-style-target {
   overflow: hidden;
 }
 
 /**
- * @utility
  * @name .overflow-auto
  * @description Adds scrollbars only when content overflows.
+ * @blockStyleComponent true
  */
 .overflow-auto:not(.block),
-.overflow-auto.block .block-style-target {
+.overflow-auto.block.grid-cell .block-style-target {
   overflow: auto;
 }
 
 /**
- * @utility
  * @name .overflow-x-auto
  * @description Adds horizontal scrollbars only when needed.
+ * @blockStyleComponent true
  */
 .overflow-x-auto:not(.block),
-.overflow-x-auto.block .block-style-target {
+.overflow-x-auto.block.grid-cell .block-style-target {
   overflow-x: auto;
 }

@@ -1,0 +1,35 @@
+/**
+ * @category 🔤 Typography
+ * @description Provides utilities for applying font families, including sans-serif, serif, and monospace stacks.
+ * @order -6
+ */
+
+/**
+ * @name .font-sans
+ * @description Applies the sans-serif font stack.
+ * @blockStyleComponent true
+ */
+.font-sans:not(.block),
+.font-sans.block.grid-cell .block-style-target {
+  font-family: var(--font-family-sans, "Ubuntu", "Segoe UI", sans-serif);
+}
+
+/**
+ * @name .font-serif
+ * @description Applies the serif font stack.
+ * @blockStyleComponent true
+ */
+.font-serif:not(.block),
+.font-serif.block.grid-cell .block-style-target {
+  font-family: var(--font-family-serif, Georgia, serif);
+}
+
+/**
+ * @name .font-mono
+ * @description Applies the monospace font stack.
+ * @blockStyleComponent true
+ */
+.font-mono:not(.block),
+.font-mono.block.grid-cell .block-style-target {
+  font-family: var(--font-family-mono, "Lucida Console", monospace);
+}

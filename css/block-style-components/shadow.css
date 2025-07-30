@@ -1,55 +1,56 @@
-/* ==========================================================================
-   Shadow Utilities – A Token-Driven System for Depth & Emphasis
-   These are BSCs that apply box shadows using design tokens.
-   ========================================================================== */
+/**
+ * @category 🧱 Box & Borders
+ * @description Defines shadow utilities for adding depth and elevation to block elements.
+ * @order 0
+ */
+
 
 /**
- * @utility
  * @name .shadow-sm
  * @description Applies a small, subtle shadow (var(--shadow-sm)).
  * @blockStyleComponent true
  */
 .shadow-sm:not(.block),
-.shadow-sm.block .block-style-target {
+.shadow-sm.block.grid-cell .block-style-target {
   box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.05));
 }
 
 /**
- * @utility
  * @name .shadow
  * @description Applies a standard-sized shadow (var(--shadow-md)).
+ * @blockStyleComponent true
  */
 .shadow:not(.block),
-.shadow.block .block-style-target {
+.shadow.block.grid-cell .block-style-target {
   box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.10));
 }
 
 /**
- * @utility
  * @name .shadow-lg
  * @description Applies a large, prominent shadow (var(--shadow-lg)).
+ * @blockStyleComponent true
  */
 .shadow-lg:not(.block),
-.shadow-lg.block .block-style-target {
+.shadow-lg.block.grid-cell .block-style-target {
   box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.12));
 }
 
 /**
- * @utility
  * @name .shadow-inner
  * @description Applies an inner shadow to create an inset effect.
+ * @blockStyleComponent true
  */
 .shadow-inner:not(.block),
-.shadow-inner.block .block-style-target {
+.shadow-inner.block.grid-cell .block-style-target {
   box-shadow: var(--shadow-inner, inset 0 1px 2px rgba(0, 0, 0, 0.06));
 }
 
 /**
- * @utility
  * @name .shadow-none
  * @description Removes all box-shadow from the block.
+ * @blockStyleComponent true
  */
 .shadow-none:not(.block),
-.shadow-none.block .block-style-target {
+.shadow-none.block.grid-cell .block-style-target {
   box-shadow: none;
 }

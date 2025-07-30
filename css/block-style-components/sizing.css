@@ -1,115 +1,106 @@
-/* ==========================================================================
-   Sizing Utilities – Explicit Width & Height Control
-   These are BSCs for setting explicit dimensions on blocks and elements.
-   Values are derived from the design tokens in tokens.css.
-   ========================================================================== */
-
-/* --- Width Utilities --- */
+/**
+ * @category 🔲 Layout
+ * @description Provides utilities for controlling width, height, and sizing of block elements.
+ * @order 0
+ */
 
 /**
- * @utility
  * @name .w-full
  * @description Sets width to 100%.
  * @blockStyleComponent true
  */
 .w-full:not(.block),
-.w-full.block .block-style-target {
+.w-full.block.grid-cell .block-style-target {
   width: 100%;
 }
 
 /**
- * @utility
  * @name .w-screen
  * @description Sets width to 100% of the viewport width.
+ * @blockStyleComponent true
  */
 .w-screen:not(.block),
-.w-screen.block .block-style-target {
+.w-screen.block.grid-cell .block-style-target {
   width: 100vw;
 }
 
 /**
- * @utility
  * @name .w-auto
  * @description Sets width to auto.
+ * @blockStyleComponent true
  */
 .w-auto:not(.block),
-.w-auto.block .block-style-target {
+.w-auto.block.grid-cell .block-style-target {
   width: auto;
 }
 
-
-/* --- Height Utilities --- */
-
 /**
- * @utility
  * @name .h-full
  * @description Sets height to 100% of the parent container.
+ * @blockStyleComponent true
  */
 .h-full:not(.block),
-.h-full.block .block-style-target {
+.h-full.block.grid-cell .block-style-target {
   height: 100%;
 }
 
 /**
- * @utility
  * @name .h-screen
  * @description Sets height to 100% of the viewport height.
+ * @blockStyleComponent true
  */
 .h-screen:not(.block),
-.h-screen.block .block-style-target {
+.h-screen.block.grid-cell .block-style-target {
   height: 100vh;
 }
 
 /**
- * @utility
  * @name .h-auto
  * @description Sets height to auto.
+ * @blockStyleComponent true
  */
 .h-auto:not(.block),
-.h-auto.block .block-style-target {
+.h-auto.block.grid-cell .block-style-target {
   height: auto;
 }
 
-
-/* --- Max-Width Utilities --- */
-/* For constraining content to a readable line length. */
-
 /**
- * @utility
  * @name .max-w-md
  * @description Sets max-width to the medium container size (var(--container-width-md)).
+ * @blockStyleComponent true
  */
 .max-w-md:not(.block),
-.max-w-md.block .block-style-target {
+.max-w-md.block.grid-cell .block-style-target {
   max-width: var(--container-width-md, 960px);
 }
 
 /**
- * @utility
  * @name .max-w-lg
  * @description Sets max-width to the large container size (var(--container-width-lg)).
+ * @blockStyleComponent true
  */
 .max-w-lg:not(.block),
-.max-w-lg.block .block-style-target {
+.max-w-lg.block.grid-cell .block-style-target {
   max-width: var(--container-width-lg, 1140px);
 }
 
 /**
- * @utility
  * @name .max-w-xl
  * @description Sets max-width to the extra-large container size (var(--container-width-xl)).
+ * @blockStyleComponent true
  */
 .max-w-xl:not(.block),
-.max-w-xl.block .block-style-target {
+.max-w-xl.block.grid-cell .block-style-target {
   max-width: var(--container-width-xl, 1320px);
 }
 
 /**
- * @utility
  * @name .max-w-full
  * @description Sets max-width to 100%.
+ * @blockStyleComponent true
  */
 .max-w-full:not(.block),
-.max-w-full.block .block-style-target {
+.max-w-full.block.grid-cell .block-style-target {
   max-width: 100%;
 }
+

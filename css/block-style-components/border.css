@@ -1,132 +1,95 @@
-/* ==========================================================================
-   Border Utilities – A Composable System for Edges
-   These are BSCs for adding borders. Combine width, style, and color
-   utilities for full control. (e.g., .border-b-4 .border-dashed .blue-border)
-   ========================================================================== */
-
-/* --- Default Border Application --- */
-/* These classes apply a 1px solid border in the specified direction. */
+/**
+ * @category 🧱 Box & Borders
+ * @description Provides utilities for applying borders with customizable widths, styles, and colors.
+ * @order 0
+ */
 
 /**
- * @utility
  * @name .border
  * @description Applies a 1px solid border to all sides using the theme's default border color.
  * @blockStyleComponent true
  */
 .border:not(.block),
-.border.block .block-style-target {
+.border.block.grid-cell .block-style-target {
   border: 1px solid var(--color-border, rgba(0, 0, 0, 0.12));
 }
 
 /**
- * @utility
  * @name .border-t
  * @description Adds a 1px top border.
+ * @blockStyleComponent true
  */
 .border-t:not(.block),
-.border-t.block .block-style-target {
+.border-t.block.grid-cell .block-style-target {
   border-top: 1px solid var(--color-border, rgba(0, 0, 0, 0.12));
 }
 
 /**
- * @utility
  * @name .border-b
  * @description Adds a 1px bottom border.
+ * @blockStyleComponent true
  */
 .border-b:not(.block),
-.border-b.block .block-style-target {
+.border-b.block.grid-cell .block-style-target {
   border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.12));
 }
 
 /**
- * @utility
  * @name .border-l
  * @description Adds a 1px left border.
+ * @blockStyleComponent true
  */
 .border-l:not(.block),
-.border-l.block .block-style-target {
+.border-l.block.grid-cell .block-style-target {
   border-left: 1px solid var(--color-border, rgba(0, 0, 0, 0.12));
 }
 
 /**
- * @utility
  * @name .border-r
  * @description Adds a 1px right border.
+ * @blockStyleComponent true
  */
 .border-r:not(.block),
-.border-r.block .block-style-target {
+.border-r.block.grid-cell .block-style-target {
   border-right: 1px solid var(--color-border, rgba(0, 0, 0, 0.12));
 }
 
-
-/* --- Border Width --- */
-/* These classes ONLY control the width of the border. */
-
-.border-0 { border-width: 0; }
-.border-2 { border-width: 2px; }
-.border-4 { border-width: 4px; }
-.border-8 { border-width: 8px; }
-
-.border-t-0 { border-top-width: 0; }
-.border-t-2 { border-top-width: 2px; }
-.border-t-4 { border-top-width: 4px; }
-.border-t-8 { border-top-width: 8px; }
-
-.border-b-0 { border-bottom-width: 0; }
-.border-b-2 { border-bottom-width: 2px; }
-.border-b-4 { border-bottom-width: 4px; }
-.border-b-8 { border-bottom-width: 8px; }
-
-.border-l-0 { border-left-width: 0; }
-.border-l-2 { border-left-width: 2px; }
-.border-l-4 { border-left-width: 4px; }
-.border-l-8 { border-left-width: 8px; }
-
-.border-r-0 { border-right-width: 0; }
-.border-r-2 { border-right-width: 2px; }
-.border-r-4 { border-right-width: 4px; }
-.border-r-8 { border-right-width: 8px; }
-
-
-/* --- Border Style --- */
-/* These classes ONLY control the style of the border. */
-
 /**
- * @utility
  * @name .border-solid
  * @description Sets the border style to solid.
+ * @blockStyleComponent true
  */
 .border-solid:not(.block),
-.border-solid.block .block-style-target {
+.border-solid.block.grid-cell .block-style-target {
   border-style: solid;
 }
 
 /**
- * @utility
  * @name .border-dashed
  * @description Sets the border style to dashed.
+ * @blockStyleComponent true
  */
 .border-dashed:not(.block),
-.border-dashed.block .block-style-target {
+.border-dashed.block.grid-cell .block-style-target {
   border-style: dashed;
 }
 
 /**
- * @utility
  * @name .border-dotted
  * @description Sets the border style to dotted.
+ * @blockStyleComponent true
  */
 .border-dotted:not(.block),
-.border-dotted.block .block-style-target {
+.border-dotted.block.grid-cell .block-style-target {
   border-style: dotted;
 }
 
 /**
- * @utility
  * @name .border-none
  * @description Removes all borders.
+ * @blockStyleComponent true
  */
 .border-none:not(.block),
-.border-none.block .block-style-target {
+.border-none.block.grid-cell .block-style-target {
   border: none;
 }

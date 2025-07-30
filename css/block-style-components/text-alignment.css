@@ -1,0 +1,45 @@
+/**
+ * @category 🔤 Typography
+ * @description Defines text alignment utilities for left, center, right, and justified text.
+ * @order -3
+ */
+
+/**
+ * @name .text-left
+ * @description Aligns text to the left.
+ * @blockStyleComponent true
+ */
+.text-left:not(.block),
+.text-left.block.grid-cell .block-style-target {
+  text-align: left;
+}
+
+/**
+ * @name .text-center
+ * @description Centers the text horizontally.
+ * @blockStyleComponent true
+ */
+.text-center:not(.block),
+.text-center.block.grid-cell .block-style-target {
+  text-align: center;
+}
+
+/**
+ * @name .text-right
+ * @description Aligns text to the right.
+ * @blockStyleComponent true
+ */
+.text-right:not(.block),
+.text-right.block.grid-cell .block-style-target {
+  text-align: right;
+}
+
+/**
+ * @name .text-justify
+ * @description Justifies the text so that it aligns evenly along both edges.
+ * @blockStyleComponent true
+ */
+.text-justify:not(.block),
+.text-justify.block.grid-cell .block-style-target {
+  text-align: justify;
+}

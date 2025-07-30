@@ -32,42 +32,149 @@
 :where(h1, h2, h3, h4, h5, h6) {
   font-family: var(--heading-font-family, var(--font-family));
   font-weight: 600;
-  line-height: 1.25;
-  margin-block: 0 var(--space-2, 1.6rem);
+  line-height: var(--line-height-heading, 1.25);
+  margin-block: var(--space-xl, 3.2rem) var(--space-md, 1.6rem);
   color: var(--color-fg);
+  text-wrap: balance; /* Better line breaks for headings */
 }
 
-/* Size ladder */
-:where(h1) { font-size: var(--ms-xxxl, 4.736rem); } /* ≈ 47 px */
-:where(h2) { font-size: var(--ms-xxl,  3.553rem); } /* ≈ 36 px */
-:where(h3) { font-size: var(--ms-xl,   2.665rem); } /* ≈ 27 px */
-:where(h4) { font-size: var(--ms-lg,   1.999rem); } /* ≈ 20 px */
-:where(h5) { font-size: var(--ms-md,   1.5rem); }   /* ≈ 15 px */
-:where(h6) { font-size: var(--ms-md,   1.5rem); }   /* same as h5 */
+/* MOBILE-FIRST: Start with mobile styles as default */
+:where(h1) {
+  font-size: clamp(var(--ms-xl, 2.665rem), 8vw, var(--ms-xxl, 3.553rem)); /* Mobile: ~27-36px */
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: var(--letter-spacing-tight, -0.01em);
+  margin-block: 0 var(--space-md, 1.6rem);
+}
 
-/* Decorative rules for the smallest headings */
+:where(h2) {
+  font-size: clamp(var(--ms-lg, 1.999rem), 6vw, var(--ms-xl, 2.665rem)); /* Mobile: ~20-27px */
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: var(--letter-spacing-tight, -0.005em);
+  margin-block: var(--space-lg, 2.4rem) var(--space-sm, 0.8rem);
+}
+
+:where(h3) {
+  font-size: clamp(var(--ms-md, 1.5rem), 5vw, var(--ms-lg, 1.999rem)); /* Mobile: ~15-20px */
+  font-weight: 600;
+  line-height: 1.25;
+  margin-block: var(--space-md, 1.6rem) var(--space-sm, 0.8rem);
+}
+
+:where(h4) {
+  font-size: var(--ms-md, 1.5rem); /* Same as body text: ~15px */
+  font-weight: 700; /* Heavier weight to distinguish from body */
+  line-height: 1.3;
+  margin-block: var(--space-md, 1.6rem) var(--space-sm, 0.8rem);
+  border-left: 0.3rem solid var(--color-primary);
+  padding-left: var(--space-sm, 0.8rem);
+}
+
 :where(h5) {
+  font-size: var(--ms-md, 1.5rem); /* Same as body text: ~15px */
+  font-weight: 650;
+  line-height: 1.4;
+  margin-block: var(--space-sm, 0.8rem) var(--space-xs, 0.4rem);
   border-bottom: 0.1rem solid currentColor;
   padding-bottom: 0.2rem;
 }
 
 :where(h6) {
+  font-size: var(--ms-md, 1.5rem); /* Same as body text: ~15px */
+  font-weight: 700;
+  line-height: 1.4;
+  margin-block: var(--space-sm, 0.8rem) var(--space-xs, 0.4rem);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide, 0.05em);
   border-bottom: 0.1rem dotted currentColor;
   padding-bottom: 0.2rem;
 }
 
-/* Narrow screens: reduce h1–h3 a notch */
-@media (max-width: var(--breakpoint-small-screen, 768px)) {
-  :where(h1) { font-size: var(--ms-xxl, 3.553rem); }  /* 36 px */
-  :where(h2) { font-size: var(--ms-xl,  2.665rem); }  /* 27 px */
-  :where(h3) { font-size: var(--ms-lg,  1.999rem); }  /* 20 px */
+/* TABLET: Enhance for medium screens */
+@media (min-width: 768px) {
+  :where(h1) {
+    font-size: var(--ms-xxxl, 4.736rem); /* Tablet: ~47px */
+    line-height: 1.1;
+    letter-spacing: var(--letter-spacing-tight, -0.02em);
+    margin-block: 0 var(--space-lg, 2.4rem);
+  }
+
+  :where(h2) {
+    font-size: var(--ms-xxl, 3.553rem); /* Tablet: ~36px */
+    line-height: 1.15;
+    margin-block: var(--space-xl, 3.2rem) var(--space-md, 1.6rem);
+  }
+
+  :where(h3) {
+    font-size: var(--ms-xl, 2.665rem); /* Tablet: ~27px */
+    line-height: 1.2;
+    margin-block: var(--space-lg, 2.4rem) var(--space-sm, 0.8rem);
+  }
+
+  :where(h4) {
+    font-size: var(--ms-md, 1.5rem); /* Same as body: ~15px */
+    margin-block: var(--space-md, 1.6rem) var(--space-sm, 0.8rem);
+  }
+
+  :where(h5) {
+    font-size: var(--ms-md, 1.5rem); /* Same as body: ~15px */
+    margin-block: var(--space-md, 1.6rem) var(--space-xs, 0.4rem);
+  }
+
+  :where(h6) {
+    font-size: var(--ms-md, 1.5rem); /* Same as body: ~15px */
+    margin-block: var(--space-md, 1.6rem) var(--space-xs, 0.4rem);
+  }
 }
 
-/* Large desktops: give h1 & h2 more presence */
-@media (min-width: var(--breakpoint-large-screen, 1200px)) {
-  :where(h1) { font-size: calc(var(--ms-xxxl, 4.736rem) * var(--scale-type, 1.333)); }
-  :where(h2) { font-size: calc(var(--ms-xxl,  3.553rem) * var(--scale-type, 1.333)); }
-  :where(h3) { font-size: calc(var(--ms-xl,   2.665rem) * var(--scale-type, 1.333)); }
-  /* h4–h6 stay the same; bump only the display heads */
+/* DESKTOP: Further enhance for large screens */
+@media (min-width: 1200px) {
+  :where(h1) {
+    font-size: calc(var(--ms-xxxl, 4.736rem) * var(--scale-type, 1.333)); /* Desktop: ~63px */
+    line-height: 1.05;
+    margin-block: 0 var(--space-xl, 3.2rem);
+  }
+  :where(h2) {
+    font-size: calc(var(--ms-xxl, 3.553rem) * var(--scale-type, 1.333)); /* Desktop: ~47px */
+    line-height: 1.1;
+    margin-block: var(--space-xxl, 4rem) var(--space-md, 1.6rem);
+  }
+  :where(h3) {
+    font-size: calc(var(--ms-xl, 2.665rem) * var(--scale-type, 1.333)); /* Desktop: ~36px */
+    line-height: 1.15;
+    margin-block: var(--space-xl, 3.2rem) var(--space-sm, 0.8rem);
+  }
+
+  :where(h4) {
+    font-size: var(--ms-lg, 1.999rem); /* Desktop: ~20px */
+    margin-block: var(--space-md, 1.6rem) var(--space-sm, 0.8rem);
+  }
+}
+
+/* Optional: Add subtle animations for better UX */
+@media (prefers-reduced-motion: no-preference) {
+  :where(h1, h2, h3, h4, h5, h6) {
+    transition: color var(--transition-base, 250ms ease);
+  }
+}
+
+/* Improved focus styles for accessibility */
+:where(h1, h2, h3, h4, h5, h6):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0.2rem;
+  border-radius: var(--radius-xs, 0.2rem);
+}
+
+/* Better spacing when headings follow each other */
+:where(h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6) {
+  margin-block-start: var(--space-sm, 0.8rem);
+}
+
+/* Optional: Add a subtle text shadow for better readability on backgrounds */
+@media (min-width: 992px) {
+  :where(h1, h2) {
+    text-shadow: 0 1px 2px rgba(from var(--black) r g b / 0.1);
+  }
 }
 

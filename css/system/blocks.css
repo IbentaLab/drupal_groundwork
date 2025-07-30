@@ -6,19 +6,19 @@
    Supports light/dark themes and follows design system spacing, color, and type.
    ========================================================================== */
 
-   /* 🧱 Base block padding */
+/* 🧱 Base block padding */
 .block {
-  padding: var(--space-1, 0.8rem); /* 0.8rem = 8px */
+  padding: 0;
 }
 
 /* 🔧 Utility override: remove padding completely */
 .block.without-padding {
-  padding: 0 !important;
+  padding: 0;
 }
 
 /* 🔧 Utility override: enforce default padding */
 .block.with-padding {
-  padding: var(--space-1) !important;
+  padding: var(--space-sm, 0.8rem);
 }
 
 /* 🌗 Theming Support */

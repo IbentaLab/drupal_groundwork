@@ -1,0 +1,203 @@
+/**
+ * @category 🎨 Colors
+ * @description Provides utilities for applying accessible gray shades to text, backgrounds, and borders.
+ * @order -1
+ */
+
+/* ==========================================================================
+   GRAY COLOR UTILITIES
+   This file provides utility classes for applying different shades of gray.
+   Each class defines its own high-contrast text color.
+
+   USAGE:
+
+   Atomic: Apply classes like .gray, .gray-text, etc., directly to any
+   HTML element.
+   Block-level: Apply the same classes to a Drupal block to style the blocks
+   content through the "Block Styles" UI.
+   ========================================================================== */
+
+
+/**
+ * @name .gray
+ * @description Applies gray background with black text color.
+ * @blockStyleComponent true
+ */
+.gray:not(.block),
+.gray.block.grid-cell .block-style-target {
+  color: var(--black) !important;
+  background-color: var(--gray) !important;
+}
+
+/**
+ * @name .gray-inverted
+ * @description Applies white background with gray text color.
+ * @blockStyleComponent true
+ */
+.gray-inverted:not(.block),
+.gray-inverted.block.grid-cell .block-style-target {
+  color: var(--gray) !important;
+  background-color: var(--white) !important;
+}
+
+/**
+ * @name .gray--light5
+ * @description Applies the lightest gray background (#fafafa) with accessible text color.
+ * @blockStyleComponent true
+ */
+.gray--light5:not(.block),
+.gray--light5.block.grid-cell .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--gray-light5) !important;
+}
+
+/**
+ * @name .gray--light4
+ * @description Applies a very light gray background (#f5f5f5) with accessible text color.
+ * @blockStyleComponent true
+ */
+.gray--light4:not(.block),
+.gray--light4.block.grid-cell .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--gray-light4) !important;
+}
+
+/**
+ * @name .gray--light3
+ * @description Applies a lighter gray background (#eeeeee) with accessible text color.
+ * @blockStyleComponent true
+ */
+.gray--light3:not(.block),
+.gray--light3.block.grid-cell .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--gray-light3) !important;
+}
+
+/**
+ * @name .gray--light2
+ * @description Applies a pale gray background (#e0e0e0) with accessible text color.
+ * @blockStyleComponent true
+ */
+.gray--light2:not(.block),
+.gray--light2.block.grid-cell .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--gray-light2) !important;
+}
+
+/**
+ * @name .gray--light1
+ * @description Applies a soft gray background (#bdbdbd) with accessible text color.
+ * @blockStyleComponent true
+ */
+.gray--light1:not(.block),
+.gray--light1.block.grid-cell .block-style-target {
+  color: var(--text-on-light) !important;
+  background-color: var(--gray-light1) !important;
+}
+
+
+/**
+ * @name .gray--dark1
+ * @description Applies a dark gray background (#757575) with accessible text color for dark backgrounds.
+ * @blockStyleComponent true
+ */
+.gray--dark1:not(.block),
+.gray--dark1.block.grid-cell .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--gray-dark1) !important;
+}
+
+/**
+ * @name .gray--dark2
+ * @description Applies a darker gray background (#616161) with accessible text color for dark backgrounds.
+ * @blockStyleComponent true
+ */
+.gray--dark2:not(.block),
+.gray--dark2.block.grid-cell .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--gray-dark2) !important;
+}
+
+/**
+ * @name .gray--dark3
+ * @description Applies a very dark gray background (#424242) with accessible text color for dark backgrounds.
+ * @blockStyleComponent true
+ */
+.gray--dark3:not(.block),
+.gray--dark3.block.grid-cell .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--gray-dark3) !important;
+}
+
+/**
+ * @name .gray--dark4
+ * @description Applies a deeper dark gray background (#212121) with accessible text color for dark backgrounds.
+ * @blockStyleComponent true
+ */
+.gray--dark4:not(.block),
+.gray--dark4.block.grid-cell .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--gray-dark4) !important;
+}
+
+/**
+ * @name .gray--dark5
+ * @description Applies the darkest gray background (#111111) with accessible text color for dark backgrounds.
+ * @blockStyleComponent true
+ */
+.gray--dark5:not(.block),
+.gray--dark5.block.grid-cell .block-style-target {
+  color: var(--text-on-dark) !important;
+  background-color: var(--gray-dark5) !important;
+}
+
+/**
+ * @name .gray-text
+ * @description Applies gray text color.
+ * @blockStyleComponent true
+ */
+.gray-text:not(.block),
+.gray-text.block.grid-cell .block-style-target {
+  color: var(--gray) !important;
+}
+
+/**
+ * @name .gray-border
+ * @description Applies gray border color.
+ * @blockStyleComponent true
+ */
+.gray-border:not(.block),
+.gray-border.block.grid-cell .block-style-target {
+  border-color: var(--gray) !important;
+}
+
+/**
+ * @name .gray-hover
+ * @description Applies gray background on hover with black text color.
+ * @blockStyleComponent true
+ */
+.gray-hover:not(.block):hover,
+.gray-hover.block.grid-cell .block-style-target:hover {
+  color: var(--black) !important;
+  background-color: var(--gray) !important;
+}
+
+/**
+ * @name .gray-hover-text
+ * @description Applies gray text color on hover.
+ * @blockStyleComponent true
+ */
+.gray-hover-text:not(.block):hover,
+.gray-hover-text.block.grid-cell .block-style-target:hover {
+  color: var(--gray) !important;
+}
+
+/**
+ * @name .gray-hover-border
+ * @description Applies gray border color on hover.
+ * @blockStyleComponent true
+ */
+.gray-hover-border:not(.block):hover,
+.gray-hover-border.block.grid-cell .block-style-target:hover {
+  border-color: var(--gray) !important;
+}

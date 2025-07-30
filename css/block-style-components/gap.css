@@ -1,91 +1,90 @@
-/* ==========================================================================
-   Gap Utilities – Spacing for Grid & Flex Containers
-   These are BSCs for adding space between items in a layout container.
-   Values are derived from the design tokens in tokens.css.
-   ========================================================================== */
+/**
+ * @category 📐 Spacing
+ * @description Provides spacing between flex (.d-flex) or grid (.d-grid) items using CSS gap utilities for horizontal and vertical alignment of block's content. Applies to the block’s content area (.field--name-body).
+ * @order 0
+ */
 
-/*
+ /*
   NOTE: These utilities are effective only on elements that are
   grid or flex containers (e.g., a region, or a block with .d-grid/.d-flex).
 */
 
 /**
- * @utility
- * @name .gap-1
- * @description Adds a small gap (var(--space-0), default 0.4rem) between items.
- */
-.gap-1:not(.block),
-.gap-1.block .block-style-target {
-  gap: var(--space-0, 0.4rem);
-}
-
-/**
- * @utility
- * @name .gap-2
- * @description Adds a small-medium gap (var(--space-1), default 0.8rem) between items.
- */
-.gap-2:not(.block),
-.gap-2.block .block-style-target {
-  gap: var(--space-1, 0.8rem);
-}
-
-/**
- * @utility
- * @name .gap-3
- * @description Adds a medium gap (var(--space-2), default 1.6rem) between items.
- */
-.gap-3:not(.block),
-.gap-3.block .block-style-target {
-  gap: var(--space-2, 1.6rem);
-}
-
-/**
- * @utility
- * @name .gap-4
- * @description Adds a medium-large gap (var(--space-3), default 2.4rem) between items.
+ * @name .gap-xs
+ * @description Adds an extra-small gap (var(--space-xs), default 0.4rem) between items.
  * @blockStyleComponent true
  */
-.gap-4:not(.block),
-.gap-4.block .block-style-target {
-  gap: var(--space-3, 2.4rem);
+.gap-xs:not(.block),
+.gap-xs.block.grid-cell .block-style-target .field--name-body {
+  gap: var(--space-xs, 0.4rem);
 }
 
 /**
- * @utility
- * @name .gap-5
- * @description Adds a large gap (var(--space-4), default 3.2rem) between items.
+ * @name .gap-sm
+ * @description Adds a small gap (var(--space-sm), default 0.8rem) between items.
+ * @blockStyleComponent true
  */
-.gap-5:not(.block),
-.gap-5.block .block-style-target {
-  gap: var(--space-4, 3.2rem);
+.gap-sm:not(.block),
+.gap-sm.block.grid-cell .block-style-target .field--name-body {
+  gap: var(--space-sm, 0.8rem);
 }
 
 /**
- * @utility
- * @name .gap-6
- * @description Adds an extra-large gap (var(--space-5), default 4.0rem) between items.
+ * @name .gap-md
+ * @description Adds a medium gap (var(--space-md), default 1.6rem) between items.
+ * @blockStyleComponent true
  */
-.gap-6:not(.block),
-.gap-6.block .block-style-target {
-  gap: var(--space-5, 4.0rem);
+.gap-md:not(.block),
+.gap-md.block.grid-cell .block-style-target .field--name-body {
+  gap: var(--space-md, 1.6rem);
 }
 
 /**
- * @utility
- * @name .gap-x-3
- * @description Adds a medium gap (var(--space-2), default 1.6rem) on the horizontal axis only.
+ * @name .gap-lg
+ * @description Adds a large gap (var(--space-lg), default 2.4rem) between items.
+ * @blockStyleComponent true
  */
-.gap-x-3:not(.block),
-.gap-x-3.block .block-style-target {
-  column-gap: var(--space-2, 1.6rem);
+.gap-lg:not(.block),
+.gap-lg.block.grid-cell .block-style-target .field--name-body {
+  gap: var(--space-lg, 2.4rem);
 }
 
 /**
- * @utility
- * @name .gap-y-3
- * @description Adds a medium gap (var(--space-2), default 1.6rem) on the vertical axis only.
+ * @name .gap-xl
+ * @description Adds an extra-large gap (var(--space-xl), default 3.2rem) between items.
+ * @blockStyleComponent true
  */
-.gap-y-3:not(.block),
-.gap-y-3.block .block-style-target {
-  row-gap: var(--space-2, 1.6rem);
+.gap-xl:not(.block),
+.gap-xl.block.grid-cell .block-style-target .field--name-body {
+  gap: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .gap-xxl
+ * @description Adds a double extra-large gap (var(--space-xxl), default 4.0rem) between items.
+ * @blockStyleComponent true
+ */
+.gap-xxl:not(.block),
+.gap-xxl.block.grid-cell .block-style-target .field--name-body {
+  gap: var(--space-xxl, 4.0rem);
+}
+
+/**
+ * @name .gap-x-md
+ * @description Adds a medium gap (var(--space-md), default 1.6rem) on the horizontal axis only.
+ * @blockStyleComponent true
+ */
+.gap-x-md:not(.block),
+.gap-x-md.block.grid-cell .block-style-target .field--name-body {
+  column-gap: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .gap-y-md
+ * @description Adds a medium gap (var(--space-md), default 1.6rem) on the vertical axis only.
+ * @blockStyleComponent true
+ */
+.gap-y-md:not(.block),
+.gap-y-md.block.grid-cell .block-style-target .field--name-body {
+  row-gap: var(--space-md, 1.6rem);
 }

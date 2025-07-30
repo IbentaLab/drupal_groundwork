@@ -5,11 +5,13 @@
 :where(del) { text-decoration: line-through; }
 
 :where(ins) {
-  background: var(--color-success, #d4f7d7);
-  text-decoration: none;
+  background: #A5D6A7;
+  color: var(--text-on-light, rgba(0, 0, 0, 0.87));
+  text-decoration: underline;
+
 }
 
 :where(mark) {
-  background: var(--color-warning, #fff3cd);
-  color: var(--color-fg, #000);
+  background: #FFF59D;
+  color: var(--text-on-light, rgba(0, 0, 0, 0.87));
 }

@@ -1,76 +1,351 @@
-/* ==========================================================================
-   SVG Styling Utilities – For Inline SVGs
-   Contains dual-purpose utilities for styling single SVGs or all SVGs
-   within a block.
+/**
+ * @category 🎨 Colors
+ * @description Provides utilities for styling SVG elements, including fill, stroke, and size adjustments.
+ * @order 0
+ */
+
+ /* ==========================================================================
+   SVG Color Utilities – A Composable System for Styling SVGs
+   These BSCs control the fill and stroke colors of inline SVG elements.
+   Values are derived from the design tokens in tokens.css.
    ========================================================================== */
 
-/* --- Dynamic Color (currentColor) --- */
-/*
-  These classes can be applied directly to a single <svg> element (atomic use)
-  or to a block to style ALL SVGs within it (BSC use).
-*/
-
 /**
- * @utility
  * @name .svg-fill-current
- * @description Sets the fill color of an SVG (or all SVGs in a block) to the current text color.
+ * @description Sets the SVG fill color to the current text color.
  * @blockStyleComponent true
  */
-.svg-fill-current:not(.block),
-.svg-fill-current.block .block-style-target svg {
+.svg-fill-current:not(.block) svg,
+.svg-fill-current.block.grid-cell .block-style-target svg {
   fill: currentColor;
 }
 
 /**
- * @utility
  * @name .svg-stroke-current
- * @description Sets the stroke color of an SVG (or all SVGs in a block) to the current text color.
+ * @description Sets the SVG stroke color to the current text color.
+ * @blockStyleComponent true
  */
-.svg-stroke-current:not(.block),
-.svg-stroke-current.block .block-style-target svg {
+.svg-stroke-current:not(.block) svg,
+.svg-stroke-current.block.grid-cell .block-style-target svg {
   stroke: currentColor;
 }
 
+/**
+ * @name .svg-fill-blue
+ * @description Applies the blue color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-blue:not(.block) svg,
+.svg-fill-blue.block.grid-cell .block-style-target svg {
+  fill: var(--blue, #2196f3);
+}
 
-/* --- Static Color BSCs --- */
-/* Apply to a single SVG for atomic use, or to a block for BSC use. */
+/**
+ * @name .svg-stroke-blue
+ * @description Applies the blue color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-blue:not(.block) svg,
+.svg-stroke-blue.block.grid-cell .block-style-target svg {
+  stroke: var(--blue, #2196f3);
+}
 
-/* Blue */
-.svg-fill-blue:not(.block), .svg-fill-blue.block .block-style-target svg { fill: var(--blue, #067cc6); }
-.svg-stroke-blue:not(.block), .svg-stroke-blue.block .block-style-target svg { stroke: var(--blue, #067cc6); }
+/**
+ * @name .svg-fill-indigo
+ * @description Applies the indigo color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-indigo:not(.block) svg,
+.svg-fill-indigo.block.grid-cell .block-style-target svg {
+  fill: var(--indigo, #3f51b5);
+}
 
-/* Red */
-.svg-fill-red:not(.block), .svg-fill-red.block .block-style-target svg { fill: var(--red, #c61c06); }
-.svg-stroke-red:not(.block), .svg-stroke-red.block .block-style-target svg { stroke: var(--red, #c61c06); }
+/**
+ * @name .svg-stroke-indigo
+ * @description Applies the indigo color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-indigo:not(.block) svg,
+.svg-stroke-indigo.block.grid-cell .block-style-target svg {
+  stroke: var(--indigo, #3f51b5);
+}
 
-/* Green */
-.svg-fill-green:not(.block), .svg-fill-green.block .block-style-target svg { fill: var(--green, #40ba44); }
-.svg-stroke-green:not(.block), .svg-stroke-green.block .block-style-target svg { stroke: var(--green, #40ba44); }
+/**
+ * @name .svg-fill-deep-purple
+ * @description Applies the deep purple color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-deep-purple:not(.block) svg,
+.svg-fill-deep-purple.block.grid-cell .block-style-target svg {
+  fill: var(--deep-purple, #673ab7);
+}
 
-/* Orange */
-.svg-fill-orange:not(.block), .svg-fill-orange.block .block-style-target svg { fill: var(--orange, #ff8c00); }
-.svg-stroke-orange:not(.block), .svg-stroke-orange.block .block-style-target svg { stroke: var(--orange, #ff8c00); }
+/**
+ * @name .svg-stroke-deep-purple
+ * @description Applies the deep purple color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-deep-purple:not(.block) svg,
+.svg-stroke-deep-purple.block.grid-cell .block-style-target svg {
+  stroke: var(--deep-purple, #673ab7);
+}
 
-/* Purple */
-.svg-fill-purple:not(.block), .svg-fill-purple.block .block-style-target svg { fill: var(--purple, #8906c6); }
-.svg-stroke-purple:not(.block), .svg-stroke-purple.block .block-style-target svg { stroke: var(--purple, #8906c6); }
+/**
+ * @name .svg-fill-purple
+ * @description Applies the purple color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-purple:not(.block) svg,
+.svg-fill-purple.block.grid-cell .block-style-target svg {
+  fill: var(--purple, #9c27b0);
+}
 
-/* Pink */
-.svg-fill-pink:not(.block), .svg-fill-pink.block .block-style-target svg { fill: var(--pink, #c60666); }
-.svg-stroke-pink:not(.block), .svg-stroke-pink.block .block-style-target svg { stroke: var(--pink, #c60666); }
+/**
+ * @name .svg-stroke-purple
+ * @description Applies the purple color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-purple:not(.block) svg,
+.svg-stroke-purple.block.grid-cell .block-style-target svg {
+  stroke: var(--purple, #9c27b0);
+}
 
-/* Gold */
-.svg-fill-gold:not(.block), .svg-fill-gold.block .block-style-target svg { fill: var(--gold, #c69c06); }
-.svg-stroke-gold:not(.block), .svg-stroke-gold.block .block-style-target svg { stroke: var(--gold, #c69c06); }
+/**
+ * @name .svg-fill-pink
+ * @description Applies the pink color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-pink:not(.block) svg,
+.svg-fill-pink.block.grid-cell .block-style-target svg {
+  fill: var(--pink, #e91e63);
+}
 
-/* Brown */
-.svg-fill-brown:not(.block), .svg-fill-brown.block .block-style-target svg { fill: var(--brown, #c65c06); }
-.svg-stroke-brown:not(.block), .svg-stroke-brown.block .block-style-target svg { stroke: var(--brown, #c65c06); }
+/**
+ * @name .svg-stroke-pink
+ * @description Applies the pink color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-pink:not(.block) svg,
+.svg-stroke-pink.block.grid-cell .block-style-target svg {
+  stroke: var(--pink, #e91e63);
+}
 
-/* Grey */
-.svg-fill-grey:not(.block), .svg-fill-grey.block .block-style-target svg { fill: var(--grey, #808080); }
-.svg-stroke-grey:not(.block), .svg-stroke-grey.block .block-style-target svg { stroke: var(--grey, #808080); }
+/**
+ * @name .svg-fill-red
+ * @description Applies the red color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-red:not(.block) svg,
+.svg-fill-red.block.grid-cell .block-style-target svg {
+  fill: var(--red, #f44336);
+}
 
-/* Teal */
-.svg-fill-teal:not(.block), .svg-fill-teal.block .block-style-target svg { fill: var(--teal, #009688); }
-.svg-stroke-teal:not(.block), .svg-stroke-teal.block .block-style-target svg { stroke: var(--teal, #009688); }
+/**
+ * @name .svg-stroke-red
+ * @description Applies the red color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-red:not(.block) svg,
+.svg-stroke-red.block.grid-cell .block-style-target svg {
+  stroke: var(--red, #f44336);
+}
+
+/**
+ * @name .svg-fill-orange
+ * @description Applies the orange color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-orange:not(.block) svg,
+.svg-fill-orange.block.grid-cell .block-style-target svg {
+  fill: var(--orange, #ff9800);
+}
+
+/**
+ * @name .svg-stroke-orange
+ * @description Applies the orange color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-orange:not(.block) svg,
+.svg-stroke-orange.block.grid-cell .block-style-target svg {
+  stroke: var(--orange, #ff9800);
+}
+
+/**
+ * @name .svg-fill-amber
+ * @description Applies the amber color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-amber:not(.block) svg,
+.svg-fill-amber.block.grid-cell .block-style-target svg {
+  fill: var(--amber, #ffc107);
+}
+
+/**
+ * @name .svg-stroke-amber
+ * @description Applies the amber color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-amber:not(.block) svg,
+.svg-stroke-amber.block.grid-cell .block-style-target svg {
+  stroke: var(--amber, #ffc107);
+}
+
+/**
+ * @name .svg-fill-yellow
+ * @description Applies the yellow color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-yellow:not(.block) svg,
+.svg-fill-yellow.block.grid-cell .block-style-target svg {
+  fill: var(--yellow, #ffeb3b);
+}
+
+/**
+ * @name .svg-stroke-yellow
+ * @description Applies the yellow color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-yellow:not(.block) svg,
+.svg-stroke-yellow.block.grid-cell .block-style-target svg {
+  stroke: var(--yellow, #ffeb3b);
+}
+
+/**
+ * @name .svg-fill-lime
+ * @description Applies the lime color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-lime:not(.block) svg,
+.svg-fill-lime.block.grid-cell .block-style-target svg {
+  fill: var(--lime, #cddc39);
+}
+
+ /**
+  * @name .svg-stroke-lime
+  * @description Applies the lime color as the SVG stroke.
+  * @blockStyleComponent true
+  */
+.svg-stroke-lime:not(.block) svg,
+.svg-stroke-lime.block.grid-cell .block-style-target svg {
+  stroke: var(--lime, #cddc39);
+}
+
+/**
+ * @name .svg-fill-green
+ * @description Applies the green color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-green:not(.block) svg,
+.svg-fill-green.block.grid-cell .block-style-target svg {
+  fill: var(--green, #4caf50);
+}
+
+/**
+ * @name .svg-stroke-green
+ * @description Applies the green color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-green:not(.block) svg,
+.svg-stroke-green.block.grid-cell .block-style-target svg {
+  stroke: var(--green, #4caf50);
+}
+
+/**
+ * @name .svg-fill-teal
+ * @description Applies the teal color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-teal:not(.block) svg,
+.svg-fill-teal.block.grid-cell .block-style-target svg {
+  fill: var(--teal, #009688);
+}
+
+/**
+ * @name .svg-stroke-teal
+ * @description Applies the teal color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-teal:not(.block) svg,
+.svg-stroke-teal.block.grid-cell .block-style-target svg {
+  stroke: var(--teal, #009688);
+}
+
+/**
+ * @name .svg-fill-cyan
+ * @description Applies the cyan color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-cyan:not(.block) svg,
+.svg-fill-cyan.block.grid-cell .block-style-target svg {
+  fill: var(--cyan, #00bcd4);
+}
+
+/**
+ * @name .svg-stroke-cyan
+ * @description Applies the cyan color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-cyan:not(.block) svg,
+.svg-stroke-cyan.block.grid-cell .block-style-target svg {
+  stroke: var(--cyan, #00bcd4);
+}
+
+/**
+ * @name .svg-fill-brown
+ * @description Applies the brown color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-brown:not(.block) svg,
+.svg-fill-brown.block.grid-cell .block-style-target svg {
+  fill: var(--brown, #795548);
+}
+
+/**
+ * @name .svg-stroke-brown
+ * @description Applies the brown color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-brown:not(.block) svg,
+.svg-stroke-brown.block.grid-cell .block-style-target svg {
+  stroke: var(--brown, #795548);
+}
+
+/**
+ * @name .svg-fill-blue-gray
+ * @description Applies the blue-gray color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-blue-gray:not(.block) svg,
+.svg-fill-blue-gray.block.grid-cell .block-style-target svg {
+  fill: var(--blue-gray, #607d8b);
+}
+
+/**
+ * @name .svg-stroke-blue-gray
+ * @description Applies the blue-gray color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-blue-gray:not(.block) svg,
+.svg-stroke-blue-gray.block.grid-cell .block-style-target svg {
+  stroke: var(--blue-gray, #607d8b);
+}
+
+/**
+ * @name .svg-fill-gray
+ * @description Applies the gray color as the SVG fill.
+ * @blockStyleComponent true
+ */
+.svg-fill-gray:not(.block) svg,
+.svg-fill-gray.block.grid-cell .block-style-target svg {
+  fill: var(--gray, #9e9e9e);
+}
+
+/**
+ * @name .svg-stroke-gray
+ * @description Applies the gray color as the SVG stroke.
+ * @blockStyleComponent true
+ */
+.svg-stroke-gray:not(.block) svg,
+.svg-stroke-gray.block.grid-cell .block-style-target svg {
+  stroke: var(--gray, #9e9e9e);
+}

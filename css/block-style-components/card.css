@@ -1,86 +1,290 @@
-/* ==========================================================================
-   Block Style Component: Card
-   Applies elevation and radius to create visual container styles.
-   ========================================================================== */
-
 /**
- * @component
- * @name card
- * @category block-style-component
- * @description Elevation and surface styling for blocks with optional variants.
- * @blockStyleComponent true
+ * @category 🧱 Box & Borders
+ * @description Provides styles for card components, including elevation levels, padding, color variants, and hover effects.
+ * @order 1
+ *
+ * Note: Color and elevation modifiers (e.g., .card--blue, .card--1) are designed to be used alongside the base .card class.
  */
 
-/* Base radius for all card levels */
+/**
+ * @name .card
+ * @description Foundational card class. Applies base padding, background, border, and default elevation. Required by all .card--* modifiers.
+ * @blockStyleComponent true
+ */
 .card:not(.block),
-.card--1:not(.block),
-.card--2:not(.block),
-.card--3:not(.block),
-.card.block .block-style-target,
-.card--1.block .block-style-target,
-.card--2.block .block-style-target,
-.card--3.block .block-style-target {
-  border-radius: 0.4rem;
-}
-
-/* Default card */
-.card:not(.block),
-.card.block .block-style-target {
-  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.16),
-              0 0.2rem 1rem rgba(0, 0, 0, 0.12);
-  background-color: #fff;
+.card.block.grid-cell .block-style-target {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-surface);
   border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 0.4rem;
+  padding: var(--space-md, 1.6rem);
 }
 
-/* Elevation levels */
-.card--1:not(.block),
-.card--1.block .block-style-target {
-  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.2),
-              0 0.6rem 2rem rgba(0, 0, 0, 0.19);
+/**
+ * @name .card--inverse
+ * @description Dark background with light text. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--inverse:not(.block),
+.card--inverse.block.grid-cell .block-style-target {
+  background-color: #222;
+  color: var(--text-on-dark);
+  border: none;
 }
 
-.card--2:not(.block),
-.card--2.block .block-style-target {
-  box-shadow: 0 1.6rem 2.4rem rgba(0, 0, 0, 0.22),
-              0 2.5rem 5.5rem rgba(0, 0, 0, 0.21);
+/**
+ * @name .card--primary
+ * @description Primary theme-colored card with accessible text. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--primary:not(.block),
+.card--primary.block.grid-cell .block-style-target {
+  background-color: var(--color-primary);
+  color: var(--text-on-dark);
+  border: none;
 }
 
-.card--3:not(.block),
-.card--3.block .block-style-target {
-  box-shadow: 0 2.4rem 2.4rem rgba(0, 0, 0, 0.2),
-              0 4rem 7.7rem rgba(0, 0, 0, 0.22);
-}
-
-/* ---------------------------------------
-   🔁 Card Variants
----------------------------------------- */
-
-/* Hover elevation (on hover only) */
-.card--hover:not(.block):hover,
-.card--hover.block .block-style-target:hover {
-  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.25),
-              0 0.6rem 2rem rgba(0, 0, 0, 0.2);
-}
-
-/* Outline: transparent background, subtle border */
+/**
+ * @name .card--outline
+ * @description Transparent background with subtle border. Requires .card.
+ * @blockStyleComponent true
+ */
 .card--outline:not(.block),
-.card--outline.block .block-style-target {
+.card--outline.block.grid-cell .block-style-target {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-/* Inverse: dark surface with light text (pair with .text-light) */
-.card--inverse:not(.block),
-.card--inverse.block .block-style-target {
-  background-color: #222;
-  color: #fff;
+/* --- Theme Color Variants --- */
+
+/**
+ * @name .card--blue
+ * @description Blue background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--blue:not(.block),
+.card--blue.block.grid-cell .block-style-target {
+  background-color: var(--blue);
+  color: var(--text-on-dark);
   border: none;
 }
 
-/* Primary color card (pulls from color-blue) */
-.card--primary:not(.block),
-.card--primary.block .block-style-target {
-  background-color: var(--color-primary);
-  color: #fff;
+/**
+ * @name .card--indigo
+ * @description Indigo background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--indigo:not(.block),
+.card--indigo.block.grid-cell .block-style-target {
+  background-color: var(--indigo);
+  color: var(--text-on-dark);
   border: none;
+}
+
+/**
+ * @name .card--deep-purple
+ * @description Deep purple background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--deep-purple:not(.block),
+.card--deep-purple.block.grid-cell .block-style-target {
+  background-color: var(--deep-purple);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--purple
+ * @description Purple background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--purple:not(.block),
+.card--purple.block.grid-cell .block-style-target {
+  background-color: var(--purple);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--pink
+ * @description Pink background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--pink:not(.block),
+.card--pink.block.grid-cell .block-style-target {
+  background-color: var(--pink);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--red
+ * @description Red background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--red:not(.block),
+.card--red.block.grid-cell .block-style-target {
+  background-color: var(--red);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--orange
+ * @description Orange background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--orange:not(.block),
+.card--orange.block.grid-cell .block-style-target {
+  background-color: var(--orange);
+  color: var(--text-on-light);
+  border: none;
+}
+
+/**
+ * @name .card--amber
+ * @description Amber background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--amber:not(.block),
+.card--amber.block.grid-cell .block-style-target {
+  background-color: var(--amber);
+  color: var(--text-on-light);
+  border: none;
+}
+
+/**
+ * @name .card--yellow
+ * @description Yellow background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--yellow:not(.block),
+.card--yellow.block.grid-cell .block-style-target {
+  background-color: var(--yellow);
+  color: var(--text-on-light);
+  border: none;
+}
+
+/**
+ * @name .card--lime
+ * @description Lime background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--lime:not(.block),
+.card--lime.block.grid-cell .block-style-target {
+  background-color: var(--lime);
+  color: var(--text-on-light);
+  border: none;
+}
+
+/**
+ * @name .card--green
+ * @description Green background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--green:not(.block),
+.card--green.block.grid-cell .block-style-target {
+  background-color: var(--green);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--teal
+ * @description Teal background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--teal:not(.block),
+.card--teal.block.grid-cell .block-style-target {
+  background-color: var(--teal);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--cyan
+ * @description Cyan background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--cyan:not(.block),
+.card--cyan.block.grid-cell .block-style-target {
+  background-color: var(--cyan);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--brown
+ * @description Brown background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--brown:not(.block),
+.card--brown.block.grid-cell .block-style-target {
+  background-color: var(--brown);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--blue-gray
+ * @description Blue-gray background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--blue-gray:not(.block),
+.card--blue-gray.block.grid-cell .block-style-target {
+  background-color: var(--blue-gray);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--gray
+ * @description Gray background card. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--gray:not(.block),
+.card--gray.block.grid-cell .block-style-target {
+  background-color: var(--gray);
+  color: var(--text-on-dark);
+  border: none;
+}
+
+/**
+ * @name .card--1
+ * @description Applies low elevation. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--1:not(.block),
+.card--1.block.grid-cell .block-style-target {
+  box-shadow: var(--box-shadow-1);
+}
+
+/**
+ * @name .card--2
+ * @description Applies medium elevation. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--2:not(.block),
+.card--2.block.grid-cell .block-style-target {
+  box-shadow: var(--box-shadow-2);
+}
+
+/**
+ * @name .card--3
+ * @description Applies high elevation. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--3:not(.block),
+.card--3.block.grid-cell .block-style-target {
+  box-shadow: var(--box-shadow-3);
+}
+
+/**
+ * @name .card--hover
+ * @description Applies hover elevation. Requires .card.
+ * @blockStyleComponent true
+ */
+.card--hover:not(.block):hover,
+.card--hover.block.grid-cell .block-style-target:hover {
+  box-shadow: var(--box-shadow-3);
 }

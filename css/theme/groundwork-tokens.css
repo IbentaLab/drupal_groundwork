@@ -1,22 +1,3 @@
-/* ===================================================================
-   DESIGN TOKENS
-   -------------------------------------------------------------------
-   This file is the single source of truth for the design system's
-   foundational styles. It defines the core visual language,
-   including colors, typography, spacing, and theming.
-
-   CONTENTS:
-   1.  Core & Brand Colors
-   2.  Typography
-   3.  Spacing & Sizing
-   4.  Layout & Breakpoints
-   5.  Borders & Radii
-   6.  Effects & Shadows
-   7.  Transitions & Animations
-   8.  Semantic & Component Theming (Defaults to Light Theme)
-   9.  Theme Overrides (Dark Mode)
-   =================================================================== */
-
 :root {
   /* ===================================================================
      1. CORE & BRAND COLORS
@@ -136,13 +117,9 @@
   --gw-icon-size: 2.4rem; /* Specific size for icons */
 
   /* ===================================================================
-     4. LAYOUT & BREAKPOINTS
-     - Responsive breakpoints, container widths, and z-index scale.
+     4. LAYOUT
+     - Container widths, and z-index scale.
      =================================================================== */
-  /* --- Breakpoints --- */
-  --breakpoint-small-screen: 768px;
-  --breakpoint-medium-screen: 992px;
-  --breakpoint-large-screen: 1200px;
 
   /* --- Grid --- */
   --grid-gutter: var(--space-sm);
@@ -173,18 +150,6 @@
   --radius-full: 9999px; /* For pills and circles */
 
   /* ===================================================================
-     6. EFFECTS & SHADOWS
-     - Box shadows for depth and focus indicators.
-     =================================================================== */
-  --shadow-sm: 0 1px 2px rgba(from var(--black) r g b / 0.05);
-  --shadow-md: 0 4px 8px rgba(from var(--black) r g b / 0.1);
-  --shadow-lg: 0 8px 16px rgba(from var(--black) r g b / 0.12);
-  --shadow-inner: inset 0 1px 2px rgba(from var(--black) r g b / 0.06);
-
-  /* Linked to primary color for brand consistency */
-  --shadow-focus: 0 0 0 3px rgba(from var(--color-primary) r g b / 0.5);
-
-  /* ===================================================================
      7. TRANSITIONS & ANIMATIONS
      - Durations and timing functions for motion.
      =================================================================== */
@@ -194,12 +159,12 @@
   --timing-function-ease: cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: var(--duration-base) var(--timing-function-ease);
 
+
   /* ===================================================================
-     8. SEMANTIC & COMPONENT THEMING (Defaults to Light Theme)
-     - These variables change with the active color theme.
+     8. SEMANTIC & COMPONENT THEMING (Theme Agnostic)
      =================================================================== */
 
-  /* --- Base Text Colors (Theme Agnostic) --- */
+  /* --- Base Text Colors --- */
   --text-on-dark: rgba(from var(--white) r g b / 0.87); /* High-emphasis white text */
   --text-on-light: rgba(from var(--black) r g b / 0.87); /* High-emphasis black text */
 
@@ -213,53 +178,54 @@
   --color-warning: var(--orange);
   --color-muted: var(--gray);
 
+  /* --- Light Semantic Colors --- */
+  --color-primary-light: color-mix(in oklab, var(--color-primary) 75%, white 25%);
+  --color-secondary-light: color-mix(in oklab, var(--color-secondary) 75%, white 25%);
+  --color-info-light: #ba68c8; /* based on --purple-light2 */
+  --color-notice-light: #64b5f6; /* based on --blue-light2 */
+  --color-success-light: #81c784; /* based on --green-light2 */
+  --color-danger-light: #ef9a9a; /* based on --red-light2 */
+  --color-warning-light: #ffb74d; /* based on --orange-light2 */
+  --color-muted-light: #bdbdbd; /* based on --gray-light2 */
+
   /* --- Dark Semantic Colors --- */
-  --color-primary-dark: color-mix(in oklab, var(--color-primary) 70%, black 30%);
-  --color-secondary-dark: color-mix(in oklab, var(--color-secondary) 70%, black 30%);
+  --color-primary-dark: color-mix(in oklab, var(--color-primary) 75%, black 25%);
+  --color-secondary-dark: color-mix(in oklab, var(--color-secondary) 75%, black 25%);
   --color-info-dark: #7b1fa2; /* based on --purple-dark2 */
   --color-notice-dark: #1976d2; /* based on --blue-dark2 */
   --color-success-dark: #388e3c; /* based on --green-dark2 */
-  --color-danger-dark: #d32f2f; /* based on --red-dark2 */
-  --color-warning-dark: #f57c00; /* based on --orange-dark2 */
+  --color-danger-dark: #d32f2f; /* based on --red-dark2. Must use white text */
+  --color-warning-dark: #f57c00; /* based on --orange-dark2 Must use white text */
   --color-muted-dark: #616161; /* based on --gray-dark2 */
 
-  /* --- Light Theme --- */
-  --color-bg: var(--white);
-  --color-fg: var(--text-on-light);
-  --color-surface: var(--white);
-  --color-surface-contrast: var(--gray-light4);
-  --color-border: rgba(from var(--black) r g b / 0.12);
-  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
-  --box-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --box-shadow-2: 0 8px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --box-shadow-3: 0 16px 24px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.08);
-  --color-link: var(--color-primary);
-  --color-link-hover: var(--color-primary-dark);
-  --color-text: var(--color-fg);
-  /* The old --color-text-light is now aliased to the more semantic --text-on-dark */
-  --color-text-light: var(--text-on-dark);
+  /* Linked to primary color for brand consistency */
+  --shadow-focus: 0 0 0 3px rgba(from var(--color-primary) r g b / 0.5);
 
-  /* --- Disabled States --- */
-  --color-disabled-bg: var(--gray-light4);
-  --color-disabled-fg: var(--gray);
+  /* Disabled states are inverted. */
+  --color-disabled-bg: rgba(from var(--color-surface) r g b / 0.24);
+  --color-disabled-text: rgba(from var(--color-surface) r g b / 0.64);
 
-  /* --- Navigation Colors --- */
-  --nav-bg: var(--color-primary);
-  --nav-hover: var(--color-primary-dark);
-  --nav-active: rgba(from var(--white) r g b / 0.15); /* A subtle overlay */
-  --nav-text: var(--white);
-  --nav-shadow: 0 2px 4px rgba(from var(--black) r g b / 0.15);
+  /* ===================================================================
+   8. LIGHT THEME
+   - Applies by default, the light theme based on OS preference or an explicit
+     `data-theme="light"` attribute.
+   =================================================================== */
 
-  /* --- Dropdown Colors (Consistent across themes) --- */
-  --dropdown-bg: var(--color-surface);
-  --dropdown-hover-bg: var(--color-surface-contrast);
-  --dropdown-text: var(--color-text);
+  --color-bg: #ffffff; /* A standard, white for light theme */
+  --color-text: rgba(from var(--black) r g b / 0.87); /* High-emphasis black text */
+  --color-surface-dark: #c4c4c4; /* Darker surface color */
+  --color-surface: #d8d8d8; /* Surfaces are slightly elevated */
+  --color-surface-light: #ebebeb; /* Lightest surface color for contrast */
+  --color-surface-hover:  #b0b0b0; /* For hovers on surfaces */
+  --color-border: rgba(from var(--black) r g b / 0.12); /* Dark, subtle borders */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 24px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.12);
 
-  /* --- Accordion Colors --- */
-  --accordion-bg: transparent; /* Accordion items sit on the main background */
-  --accordion-text: var(--color-text);
-  --accordion-border: var(--color-border);
-  --accordion-icon-color: currentColor;
+  /* Accessible link color is crucial for readability.*/
+  --color-link: var(--color-notice-dark);
+  --color-link-hover: var(--color-success-dark);
 }
 
 /* ===================================================================
@@ -271,40 +237,38 @@
 /* --- Dark Theme (OS Preference) --- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    /* These are the core theme variables we need to override. */
     --color-bg: #121212; /* A standard, deep gray for dark mode */
-    --color-fg: var(--text-on-dark); /* High-emphasis white text */
-    --color-surface: var(--gray-dark4); /* Surfaces are slightly elevated (lighter) */
-    --color-surface-contrast: var(--gray-dark3); /* For hovers on surfaces */
+    --color-text: rgba(from var(--white) r g b / 0.87); /* High-emphasis white text */
+    --color-surface-dark: #1e1e1e; /* Darker surface color */
+    --color-surface: #232323; /* Surfaces are slightly elevated */
+    --color-surface-light: #2c2c2c; /* Lightest surface color for contrast */
+    --color-surface-hover: #272727; /* For hovers on surfaces */
     --color-border: rgba(from var(--white) r g b / 0.12); /* Light, subtle borders */
-    --box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
-  --box-shadow-1: 0 1px 2px rgba(255, 255, 255, 0.1);
-  --box-shadow-2: 0 8px 12px rgba(255, 255, 255, 0.12), 0 2px 4px rgba(255, 255, 255, 0.08);
-  --box-shadow-3: 0 16px 24px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(255, 255, 255, 0.12);
+    --shadow-xs: 0 1px 2px rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
+    --shadow-md: 0 8px 12px rgba(255, 255, 255, 0.12), 0 2px 4px rgba(255, 255, 255, 0.08);
+    --shadow-lg: 0 16px 24px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(255, 255, 255, 0.12);
 
     /* A lighter, accessible link color is crucial for readability.*/
-    --color-link: var(--blue-light2);
-    --color-link-hover: var(--blue-light1);
-
-    /* Disabled states are inverted, using semi-transparent white. */
-    --color-disabled-bg: rgba(from var(--white) r g b / 0.12);
-    --color-disabled-fg: rgba(from var(--white) r g b / 0.38);
+    --color-link: var(--color-notice-light);
+    --color-link-hover: var(--color-success-light);
   }
 }
 
-/* --- Dark Theme (Explicit Override) --- */
-[data-theme="dark"] {
-  --color-bg: #121212;
-  --color-fg: var(--text-on-dark);
-  --color-surface: var(--gray-dark4);
-  --color-surface-contrast: var(--gray-dark3);
-  --color-border: rgba(from var(--white) r g b / 0.12);
-  --box-shadow-dark: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
-  --box-shadow-1: 0 1px 2px rgba(255, 255, 255, 0.1);
-  --box-shadow-2: 0 8px 12px rgba(255, 255, 255, 0.12), 0 2px 4px rgba(255, 255, 255, 0.08);
-  --box-shadow-3: 0 16px 24px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(255, 255, 255, 0.12);
-  --color-link: var(--blue-light2);
-  --color-link-hover: var(--blue-light1);
-  --color-disabled-bg: rgba(from var(--white) r g b / 0.12);
-  --color-disabled-fg: rgba(from var(--white) r g b / 0.38);
+:root([data-theme="dark"]) {
+  --color-bg: #121212; /* A standard, deep gray for dark mode */
+  --color-text: rgba(from var(--white) r g b / 0.87); /* High-emphasis white text */
+  --color-surface-dark: #1e1e1e; /* Darker surface color */
+  --color-surface: #232323; /* Surfaces are slightly elevated */
+  --color-surface-light: #2c2c2c; /* Lightest surface color for contrast */
+  --color-surface-hover: #272727; /* For hovers on surfaces */
+  --color-border: rgba(from var(--white) r g b / 0.12); /* Light, subtle borders */
+  --shadow-xs: 0 1px 2px rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
+  --shadow-md: 0 8px 12px rgba(255, 255, 255, 0.12), 0 2px 4px rgba(255, 255, 255, 0.08);
+  --shadow-lg: 0 16px 24px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(255, 255, 255, 0.12);
+
+  /* A lighter, accessible link color is crucial for readability.*/
+    --color-link: var(--color-notice-light);
+    --color-link-hover: var(--color-success-light);
 }

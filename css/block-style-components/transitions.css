@@ -1,37 +1,37 @@
-/* ==========================================================================
-   Transition Utilities – Smooth Animation of State Changes
-   These are BSCs for making property changes (like hover) animate smoothly.
-   ========================================================================== */
+/**
+ * @category ✨ Effects
+ * @description Provides utilities for applying smooth transitions during state changes.
+ * @order 0
+ */
 
 /**
- * @utility
  * @name .transition-all
  * @description Applies a transition to all animatable properties.
  * @blockStyleComponent true
  */
 .transition-all:not(.block),
-.transition-all.block .block-style-target {
+.transition-all.block.grid-cell .block-style-target {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
 
 /**
- * @utility
  * @name .duration-500
  * @description Sets a transition duration of 500ms.
+ * @blockStyleComponent true
  */
 .duration-500:not(.block),
-.duration-500.block .block-style-target {
+.duration-500.block.grid-cell .block-style-target {
   transition-duration: 500ms;
 }
 
 /**
- * @utility
  * @name .ease-in-out
  * @description Applies a standard ease-in-out timing function.
+ * @blockStyleComponent true
  */
 .ease-in-out:not(.block),
-.ease-in-out.block .block-style-target {
+.ease-in-out.block.grid-cell .block-style-target {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

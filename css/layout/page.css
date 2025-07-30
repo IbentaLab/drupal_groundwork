@@ -27,6 +27,8 @@ main.layout-main {
    display: flex;
    flex-direction: row;
    flex: 1;
+   gap: calc(var(--grid-gutter) * 2);
+
  }
  #sidebar-first,
  #sidebar-second {
@@ -45,14 +47,16 @@ main.layout-main {
 }
 
 @media only screen and (min-width: 993px) {
-  .layout-container {
+  main .layout-container {
     width: 992px;
+    gap: calc(var(--grid-gutter) * 3);
   }
 }
 
 @media only screen and (min-width: 1201px) {
-  .layout-container {
+  main .layout-container {
     width: 1200px;
+    gap: calc(var(--grid-gutter) * 4);
   }
 }
 
@@ -64,10 +68,10 @@ main.layout-main {
 .site-footer__legal {
   box-sizing: border-box;
   width: 100%;
-  padding: var(--space-1) var(--space-2);
+  padding: var(--space-sm) var(--space-md);
 
   /* These colors are static and won't change with the theme */
-  background-color: var(--grey);
+  background-color: var(--gray);
   color: var(--color-text-light);
 
   font-size: var(--ms-sm);

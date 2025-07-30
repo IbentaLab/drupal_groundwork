@@ -1,0 +1,71 @@
+/**
+ * @category 🔤 Typography
+ * @description Provides utilities for adjusting letter spacing to improve text readability and aesthetics.
+ * @order -1
+ */
+
+/**
+ * @name .tracking-tight
+ * @description Applies tight letter spacing.
+ * @blockStyleComponent true
+ */
+.tracking-tight:not(.block),
+.tracking-tight.block.grid-cell .block-style-target {
+  letter-spacing: var(--letter-spacing-tight, -0.05em);
+}
+
+/**
+ * @name .tracking-normal
+ * @description Applies normal letter spacing.
+ * @blockStyleComponent true
+ */
+.tracking-normal:not(.block),
+.tracking-normal.block.grid-cell .block-style-target {
+  letter-spacing: var(--letter-spacing-normal, 0);
+}
+
+/**
+ * @name .tracking-wide
+ * @description Applies wide letter spacing.
+ * @blockStyleComponent true
+ */
+.tracking-wide:not(.block),
+.tracking-wide.block.grid-cell .block-style-target {
+  letter-spacing: var(--letter-spacing-wide, 0.05em);
+}
+
+/* --- White Space & Word Breaking --- */
+
+/**
+ * @name .whitespace-nowrap
+ * @description Prevents text from wrapping to the next line.
+ * @blockStyleComponent true
+ */
+.whitespace-nowrap:not(.block),
+.whitespace-nowrap.block.grid-cell .block-style-target {
+  white-space: nowrap;
+}
+
+/**
+ * @name .text-truncate
+ * @description Truncates overflowing text with an ellipsis.
+ * @blockStyleComponent true
+ */
+.text-truncate:not(.block),
+.text-truncate.block.grid-cell .block-style-target {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * @name .text-break
+ * @description Breaks long words and adds hyphens if needed.
+ * @blockStyleComponent true
+ */
+.text-break:not(.block),
+.text-break.block.grid-cell .block-style-target {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}

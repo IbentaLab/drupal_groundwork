@@ -1,66 +1,65 @@
-/* ==========================================================================
-   Hover Utilities – Transitions and Interactive Effects
-   These are BSCs intended for Block Styles UI and interactive design.
-   NOTE: For best results, combine with a transition utility (e.g., .transition-all).
-   ========================================================================== */
+/**
+ * @category ✨ Effects
+ * @description Provides hover-specific utilities for styling elements during user interaction.
+ * @order 0
+ */
 
 /**
- * @utility
  * @name .hover-shadow
  * @description Applies a soft shadow on hover for depth.
  * @blockStyleComponent true
  */
 .hover-shadow:not(.block):hover,
-.hover-shadow.block .block-style-target:hover {
+.hover-shadow.block.grid-cell .block-style-target:hover {
   box-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.10));
 }
 
 /**
- * @utility
  * @name .hover-opacity
  * @description Lowers opacity to 80% on hover.
+ * @blockStyleComponent true
  */
 .hover-opacity:not(.block):hover,
-.hover-opacity.block .block-style-target:hover {
+.hover-opacity.block.grid-cell .block-style-target:hover {
   opacity: 0.8;
 }
 
 /**
- * @utility
  * @name .hover-raise
  * @description Lifts the block up 4px on hover (subtle motion).
+ * @blockStyleComponent true
  */
 .hover-raise:not(.block):hover,
-.hover-raise.block .block-style-target:hover {
+.hover-raise.block.grid-cell .block-style-target:hover {
   transform: translateY(-4px);
 }
 
 /**
- * @utility
  * @name .hover-scale
  * @description Slightly enlarges the block on hover (3% scale).
+ * @blockStyleComponent true
  */
 .hover-scale:not(.block):hover,
-.hover-scale.block .block-style-target:hover {
+.hover-scale.block.grid-cell .block-style-target:hover {
   transform: scale(1.03);
 }
 
 /**
- * @utility
  * @name .hover-bg-light
  * @description Applies a light contrasting background color on hover.
+ * @blockStyleComponent true
  */
 .hover-bg-light:not(.block):hover,
-.hover-bg-light.block .block-style-target:hover {
+.hover-bg-light.block.grid-cell .block-style-target:hover {
   background-color: var(--color-surface-contrast, #f4f4f4);
 }
 
 /**
- * @utility
  * @name .hover-none
  * @description Removes all styles on hover (hard reset).
+ * @blockStyleComponent true
  */
 .hover-none:not(.block):hover,
-.hover-none.block .block-style-target:hover {
+.hover-none.block.grid-cell .block-style-target:hover {
   all: unset;
 }

@@ -1,0 +1,562 @@
+/**
+ * @category 🔲 Layout
+ * @description Provides utilities for creating block-level grid layouts, including responsive column configurations.
+ * @order -10
+ */
+
+/*
+  RESPONSIVE COLUMN WIDTHS
+  -------------------------
+  The following classes define flex-basis widths based on media queries:
+  • Small screen:     .is-X--sm       (≤780px)
+  • Medium screen:    .is-X          (≥992px)
+  • Large screen:     .is-X--lg       (≥1200px)
+
+  Semantic Aliases (Readable Shortcuts):
+  • .is-half          = .is-6        (50%)
+  • .is-quarter       = .is-3        (25%)
+  • .is-third         = .is-4        (33.333%)
+
+  These aliases improve clarity and readability in markup while mapping directly
+  to their numeric column equivalents. All variants support responsive suffixes:
+  • .is-half--sm, .is-quarter--lg, etc.
+*/
+
+/* ─── Column Widths: Small (≤768px) ───────────────────────────────── */
+@media (max-width: 768px) {
+
+  /**
+   * @name .is-1--sm
+   * @description Creates a 1/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-1--sm,
+  .grid--with-gutter > .grid-cell.is-1--sm {
+    flex-basis: 8.33333%;
+  }
+
+  /**
+   * @name .is-2--sm
+   * @description Creates a 2/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-2--sm,
+  .grid--with-gutter > .grid-cell.is-2--sm {
+    flex-basis: 16.66667%;
+  }
+
+  /**
+   * @name .is-3--sm
+   * @description Creates a 3/12 column layout on mobile. (25% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-3--sm,
+  .grid > .grid-cell.is-quarter--sm,
+  .grid--with-gutter > .grid-cell.is-3--sm,
+  .grid--with-gutter > .grid-cell.is-quarter--sm {
+    flex-basis: 25%;
+  }
+
+  /**
+   * @name .is-4--sm
+   * @description Creates a 4/12 column layout on mobile. (33.333% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-4--sm,
+  .grid > .grid-cell.is-third--sm,
+  .grid--with-gutter > .grid-cell.is-4--sm,
+  .grid--with-gutter > .grid-cell.is-third--sm {
+    flex-basis: 33.33333%;
+  }
+
+  /**
+   * @name .is-5--sm
+   * @description Creates a 5/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-5--sm,
+  .grid--with-gutter > .grid-cell.is-5--sm {
+    flex-basis: 41.66667%;
+  }
+
+  /**
+   * @name .is-6--sm
+   * @description Creates a 6/12 column layout on mobile. (50% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-6--sm,
+  .grid > .grid-cell.is-half--sm,
+  .grid--with-gutter > .grid-cell.is-6--sm,
+  .grid--with-gutter > .grid-cell.is-half--sm {
+    flex-basis: 50%;
+  }
+
+  /**
+   * @name .is-7--sm
+   * @description Creates a 7/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-7--sm,
+  .grid--with-gutter > .grid-cell.is-7--sm {
+    flex-basis: 58.33333%;
+  }
+
+  /**
+   * @name .is-8--sm
+   * @description Creates an 8/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-8--sm,
+  .grid--with-gutter > .grid-cell.is-8--sm {
+    flex-basis: 66.66667%;
+  }
+
+  /**
+   * @name .is-9--sm
+   * @description Creates a 9/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-9--sm,
+  .grid--with-gutter > .grid-cell.is-9--sm {
+    flex-basis: 75%;
+  }
+
+  /**
+   * @name .is-10--sm
+   * @description Creates a 10/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-10--sm,
+  .grid--with-gutter > .grid-cell.is-10--sm {
+    flex-basis: 83.33333%;
+  }
+
+  /**
+   * @name .is-11--sm
+   * @description Creates an 11/12 column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-11--sm,
+  .grid--with-gutter > .grid-cell.is-11--sm {
+    flex-basis: 91.66667%;
+  }
+
+  /**
+   * @name .is-12--sm
+   * @description Creates a full-width column layout on mobile.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-12--sm,
+  .grid--with-gutter > .grid-cell.is-12--sm {
+    flex-basis: 100%;
+  }
+}
+
+/* ─── Column Widths: Medium (≥992px) ───────────────────────────── */
+@media (min-width: 992px) {
+
+  /**
+   * @name .is-1--md
+   * @description Creates a 1/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-1--md,
+  .grid--with-gutter > .grid-cell.is-1--md {
+    flex-basis: 8.33333%;
+  }
+
+  /**
+   * @name .is-2--md
+   * @description Creates a 2/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-2--md,
+  .grid--with-gutter > .grid-cell.is-2--md {
+    flex-basis: 16.66667%;
+  }
+
+  /**
+   * @name .is-3--md
+   * @description Creates a 3/12 column layout on medium screens. (25% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-3--md,
+  .grid > .grid-cell.is-quarter--md,
+  .grid--with-gutter > .grid-cell.is-3--md,
+  .grid--with-gutter > .grid-cell.is-quarter--md {
+    flex-basis: 25%;
+  }
+
+  /**
+   * @name .is-4--md
+   * @description Creates a 4/12 column layout on medium screens. (33.333% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-4--md,
+  .grid > .grid-cell.is-third--md,
+  .grid--with-gutter > .grid-cell.is-4--md,
+  .grid--with-gutter > .grid-cell.is-third--md {
+    flex-basis: 33.33333%;
+  }
+
+  /**
+   * @name .is-5--md
+   * @description Creates a 5/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-5--md,
+  .grid--with-gutter > .grid-cell.is-5--md {
+    flex-basis: 41.66667%;
+  }
+
+  /**
+   * @name .is-6--md
+   * @description Creates a 6/12 column layout on medium screens. (50% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-6--md,
+  .grid > .grid-cell.is-half--md,
+  .grid--with-gutter > .grid-cell.is-6--md,
+  .grid--with-gutter > .grid-cell.is-half--md {
+    flex-basis: 50%;
+  }
+
+  /**
+   * @name .is-7--md
+   * @description Creates a 7/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-7--md,
+  .grid--with-gutter > .grid-cell.is-7--md {
+    flex-basis: 58.33333%;
+  }
+
+  /**
+   * @name .is-8--md
+   * @description Creates an 8/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-8--md,
+  .grid--with-gutter > .grid-cell.is-8--md {
+    flex-basis: 66.66667%;
+  }
+
+  /**
+   * @name .is-9--md
+   * @description Creates a 9/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-9--md,
+  .grid--with-gutter > .grid-cell.is-9--md {
+    flex-basis: 75%;
+  }
+
+  /**
+   * @name .is-10--md
+   * @description Creates a 10/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-10--md,
+  .grid--with-gutter > .grid-cell.is-10--md {
+    flex-basis: 83.33333%;
+  }
+
+  /**
+   * @name .is-11--md
+   * @description Creates an 11/12 column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-11--md,
+  .grid--with-gutter > .grid-cell.is-11--md {
+    flex-basis: 91.66667%;
+  }
+
+  /**
+   * @name .is-12--md
+   * @description Creates a full-width column layout on medium screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-12--md,
+  .grid--with-gutter > .grid-cell.is-12--md {
+    flex-basis: 100%;
+  }
+}
+
+/* ─── Column Widths: Large (≥1200px) ──────────────────────────── */
+@media (min-width: 1200px) {
+
+  /**
+   * @name .is-1--lg
+   * @description Creates a 1/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-1--lg,
+  .grid--with-gutter > .grid-cell.is-1--lg {
+    flex-basis: 8.33333%;
+  }
+
+  /**
+   * @name .is-2--lg
+   * @description Creates a 2/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-2--lg,
+  .grid--with-gutter > .grid-cell.is-2--lg {
+    flex-basis: 16.66667%;
+  }
+
+  /**
+   * @name .is-3--lg
+   * @description Creates a 3/12 column layout on wide screens. (25% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-3--lg,
+  .grid > .grid-cell.is-quarter--lg,
+  .grid--with-gutter > .grid-cell.is-3--lg,
+  .grid--with-gutter > .grid-cell.is-quarter--lg {
+    flex-basis: 25%;
+  }
+
+  /**
+   * @name .is-4--lg
+   * @description Creates a 4/12 column layout on wide screens. (33.333% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-4--lg,
+  .grid > .grid-cell.is-third--lg,
+  .grid--with-gutter > .grid-cell.is-4--lg,
+  .grid--with-gutter > .grid-cell.is-third--lg {
+    flex-basis: 33.33333%;
+  }
+
+  /**
+   * @name .is-5--lg
+   * @description Creates a 5/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-5--lg,
+  .grid--with-gutter > .grid-cell.is-5--lg {
+    flex-basis: 41.66667%;
+  }
+
+  /**
+   * @name .is-6--lg
+   * @description Creates a 6/12 column layout on wide screens. (50% width)
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-6--lg,
+  .grid > .grid-cell.is-half--lg,
+  .grid--with-gutter > .grid-cell.is-6--lg,
+  .grid--with-gutter > .grid-cell.is-half--lg {
+    flex-basis: 50%;
+  }
+
+  /**
+   * @name .is-7--lg
+   * @description Creates a 7/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-7--lg,
+  .grid--with-gutter > .grid-cell.is-7--lg {
+    flex-basis: 58.33333%;
+  }
+
+  /**
+   * @name .is-8--lg
+   * @description Creates an 8/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-8--lg,
+  .grid--with-gutter > .grid-cell.is-8--lg {
+    flex-basis: 66.66667%;
+  }
+
+  /**
+   * @name .is-9--lg
+   * @description Creates a 9/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-9--lg,
+  .grid--with-gutter > .grid-cell.is-9--lg {
+    flex-basis: 75%;
+  }
+
+  /**
+   * @name .is-10--lg
+   * @description Creates a 10/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-10--lg,
+  .grid--with-gutter > .grid-cell.is-10--lg {
+    flex-basis: 83.33333%;
+  }
+
+  /**
+   * @name .is-11--lg
+   * @description Creates an 11/12 column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-11--lg,
+  .grid--with-gutter > .grid-cell.is-11--lg {
+    flex-basis: 91.66667%;
+  }
+
+  /**
+   * @name .is-12--lg
+   * @description Creates a full-width column layout on wide screens.
+   * @blockStyleComponent true
+   */
+  .grid > .grid-cell.is-12--lg,
+  .grid--with-gutter > .grid-cell.is-12--lg {
+    flex-basis: 100%;
+  }
+}
+
+/* ─── Auto Layout Utilities ─────────────────────────────── */
+
+/* @name .col-auto
+ * @description Sets the column to auto width, allowing it to shrink or grow as needed.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.col-auto,
+.grid--with-gutter > .grid-cell.col-auto {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+/* @name .col-fill
+ * @description Sets the column to fill available space, allowing it to grow and shrink.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.col-fill,
+.grid--with-gutter > .grid-cell.col-fill {
+  flex: 1 1 auto;
+}
+
+/**
+   * @name .col-grow
+   * @description Sets the column to grow and fill available space.
+   * @blockStyleComponent true
+   */
+.grid > .grid-cell.col-grow,
+.grid--with-gutter > .grid-cell.col-grow {
+  flex-grow: 1;
+}
+
+/* @name .col-shrink
+ * @description Sets the column to shrink to fit its content.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.col-shrink,
+.grid--with-gutter > .grid-cell.col-shrink {
+  flex-shrink: 1;
+}
+
+/* ─── Offset Utilities ───────────────────────────────────── */
+
+/**
+   * @name .is-offset-1
+   * @description Offsets the column by 1/12 of the grid width.
+   * @blockStyleComponent true
+   */
+.grid > .grid-cell.is-offset-1,
+.grid--with-gutter > .grid-cell.is-offset-1 {
+  margin-left: 8.33333%;
+}
+
+/**
+ * @name .is-offset-2
+ * @description Offsets the column by 2/12 of the grid width.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.is-offset-2,
+.grid--with-gutter > .grid-cell.is-offset-2 {
+  margin-left: 16.66667%;
+}
+
+/* Add more offsets as needed */
+
+/* ─── Ordering Utilities ─────────────────────────────────── */
+
+/**
+   * @name .order-1
+   * @description Sets the order of the column to 1.
+   * @blockStyleComponent true
+   */
+.grid > .grid-cell.order-1,
+.grid--with-gutter > .grid-cell.order-1 {
+  order: 1;
+}
+
+/**
+   * @name .order-2
+   * @description Sets the order of the column to 2.
+   * @blockStyleComponent true
+   */
+.grid > .grid-cell.order-2,
+.grid--with-gutter > .grid-cell.order-2 {
+  order: 2;
+}
+
+/**
+   * @name .order-first
+   * @description Sets the order of the column to -1, making it appear first.
+   * @blockStyleComponent true
+   */
+.grid > .grid-cell.order-first,
+.grid--with-gutter > .grid-cell.order-first {
+  order: -1;
+}
+
+/**
+ * @name .order-last
+ * @description Sets the order of the column to 9999, making it appear last.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.order-last,
+.grid--with-gutter > .grid-cell.order-last {
+  order: 9999;
+}
+
+/* ─── Vertical Alignment Utilities ───────────────────────── */
+
+/**
+ * @name .align-top
+ * @description Aligns the column content to the top.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.align-top,
+.grid--with-gutter > .grid-cell.align-top {
+  align-self: flex-start;
+}
+
+/**
+ * @name .align-middle
+ * @description Aligns the column content to the middle.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.align-middle,
+.grid--with-gutter > .grid-cell.align-middle {
+  align-self: center;
+}
+
+/**
+ * @name .align-bottom
+ * @description Aligns the column content to the bottom.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.align-bottom,
+.grid--with-gutter > .grid-cell.align-bottom {
+  align-self: flex-end;
+}
+
+/**
+ * @name .align-stretch
+ * @description Stretches the column content to fill the height of the grid.
+ * @blockStyleComponent true
+ */
+.grid > .grid-cell.align-stretch,
+.grid--with-gutter > .grid-cell.align-stretch {
+  align-self: stretch;
+}

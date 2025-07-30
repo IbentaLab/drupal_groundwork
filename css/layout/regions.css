@@ -4,6 +4,10 @@
    Regions Layout - Groundwork Theme
    ========================================================================== */
 
+   .region {
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+   }
 /**
  * @file
  * Defines layout-specific styles for blocks and other elements within Drupal regions.
@@ -19,7 +23,6 @@
 /* regions.css – region (header/footer/sidebar) layout */
 
 .region-header {
-  background: var(--nav-bg, var(--color-brand));
   position: relative;
   width: 100%;
   z-index: 10;

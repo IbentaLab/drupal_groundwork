@@ -1,103 +1,234 @@
-/* ==========================================================================
-   Border Radius Utilities – A Composable System for Rounded Corners
-   These are BSCs for controlling the border-radius of a block or element.
-   Values are derived from the design tokens in tokens.css.
-   ========================================================================== */
-
-/* --- Default Rounded Scale --- */
-/* Applies the specified radius to all four corners. */
-
 /**
- * @utility
- * @name .rounded-1
- * @description Applies a small radius (var(--radius-xs), default 0.2rem).
+ * @category 🧱 Box & Borders
+ * @description Provides utilities for applying rounded corners, including full, circle, and directional rounding.
  */
-.rounded-1:not(.block), .rounded-1.block .block-style-target { border-radius: var(--radius-xs, 0.2rem); }
 
 /**
- * @utility
- * @name .rounded-2
- * @description Applies a medium radius (var(--radius-sm), default 0.4rem).
+ * @name .rounded-xs
+ * @description Applies extra small rounded corners to all sides.
  * @blockStyleComponent true
  */
-.rounded-2:not(.block), .rounded-2.block .block-style-target { border-radius: var(--radius-sm, 0.4rem); }
+.rounded-xs:not(.block),
+.rounded-xs.block.grid-cell .block-style-target {
+  border-radius: var(--radius-xs, 0.2rem);
+}
 
 /**
- * @utility
- * @name .rounded-3
- * @description Applies a large radius (var(--radius-md), default 0.8rem).
+ * @name .rounded-sm
+ * @description Applies small rounded corners to all sides.
+ * @blockStyleComponent true
  */
-.rounded-3:not(.block), .rounded-3.block .block-style-target { border-radius: var(--radius-md, 0.8rem); }
+.rounded-sm:not(.block),
+.rounded-sm.block.grid-cell .block-style-target {
+  border-radius: var(--radius-sm, 0.4rem);
+}
 
 /**
- * @utility
- * @name .rounded-4
- * @description Applies an extra-large radius (var(--radius-lg), default 1.2rem).
+ * @name .rounded-md
+ * @description Applies medium rounded corners to all sides.
+ * @blockStyleComponent true
  */
-.rounded-4:not(.block), .rounded-4.block .block-style-target { border-radius: var(--radius-lg, 1.2rem); }
+.rounded-md:not(.block),
+.rounded-md.block.grid-cell .block-style-target {
+  border-radius: var(--radius-md, 0.8rem);
+}
 
 /**
- * @utility
- * @name .rounded-5
- * @description Applies the largest radius (var(--radius-xl), default 1.6rem).
+ * @name .rounded-lg
+ * @description Applies large rounded corners to all sides.
+ * @blockStyleComponent true
  */
-.rounded-5:not(.block), .rounded-5.block .block-style-target { border-radius: var(--radius-xl, 1.6rem); }
+.rounded-lg:not(.block),
+.rounded-lg.block.grid-cell .block-style-target {
+  border-radius: var(--radius-lg, 1.2rem);
+}
 
 /**
- * @utility
+ * @name .rounded-xl
+ * @description Applies extra large rounded corners to all sides.
+ * @blockStyleComponent true
+ */
+.rounded-xl:not(.block),
+.rounded-xl.block.grid-cell .block-style-target {
+  border-radius: var(--radius-xl, 1.6rem);
+}
+
+/**
  * @name .rounded-full
- * @description Applies a very large radius to create a "pill" shape.
+ * @description Applies fully rounded corners to create pill shapes.
+ * @blockStyleComponent true
  */
-.rounded-full:not(.block), .rounded-full.block .block-style-target { border-radius: var(--radius-full, 9999px); }
+.rounded-full:not(.block),
+.rounded-full.block.grid-cell .block-style-target {
+  border-radius: var(--radius-full, 9999px);
+}
 
 /**
- * @utility
  * @name .rounded-circle
- * @description Applies a 50% radius to create a circle (if the element is a square).
+ * @description Applies circular rounded corners for perfect circles.
+ * @blockStyleComponent true
  */
-.rounded-circle:not(.block), .rounded-circle.block .block-style-target { border-radius: 50%; }
+.rounded-circle:not(.block),
+.rounded-circle.block.grid-cell .block-style-target {
+  border-radius: 50%;
+}
 
 /**
- * @utility
  * @name .rounded-none
- * @description Removes all border radius.
+ * @description Removes all rounded corners.
+ * @blockStyleComponent true
  */
-.rounded-none:not(.block), .rounded-none.block .block-style-target { border-radius: 0; }
+.rounded-none:not(.block),
+.rounded-none.block.grid-cell .block-style-target {
+  border-radius: 0;
+}
 
+/**
+ * @name .rounded-t-xs
+ * @description Applies extra small rounded corners to the top-left and top-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-t-xs:not(.block),
+.rounded-t-xs.block.grid-cell .block-style-target {
+  border-top-left-radius: var(--radius-xs, 0.2rem);
+  border-top-right-radius: var(--radius-xs, 0.2rem);
+}
 
-/* --- Directional Rounded Utilities --- */
-/* Applies radius to specific corners. */
+/**
+ * @name .rounded-t-sm
+ * @description Applies small rounded corners to the top-left and top-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-t-sm:not(.block),
+.rounded-t-sm.block.grid-cell .block-style-target {
+  border-top-left-radius: var(--radius-sm, 0.4rem);
+  border-top-right-radius: var(--radius-sm, 0.4rem);
+}
 
-/* Top corners */
-.rounded-t-1:not(.block), .rounded-t-1.block .block-style-target { border-top-left-radius: var(--radius-xs, 0.2rem); border-top-right-radius: var(--radius-xs, 0.2rem); }
-.rounded-t-2:not(.block), .rounded-t-2.block .block-style-target { border-top-left-radius: var(--radius-sm, 0.4rem); border-top-right-radius: var(--radius-sm, 0.4rem); }
-.rounded-t-3:not(.block), .rounded-t-3.block .block-style-target { border-top-left-radius: var(--radius-md, 0.8rem); border-top-right-radius: var(--radius-md, 0.8rem); }
-.rounded-t-4:not(.block), .rounded-t-4.block .block-style-target { border-top-left-radius: var(--radius-lg, 1.2rem); border-top-right-radius: var(--radius-lg, 1.2rem); }
-.rounded-t-5:not(.block), .rounded-t-5.block .block-style-target { border-top-left-radius: var(--radius-xl, 1.6rem); border-top-right-radius: var(--radius-xl, 1.6rem); }
+/**
+ * @name .rounded-t-md
+ * @description Applies medium rounded corners to the top-left and top-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-t-md:not(.block),
+.rounded-t-md.block.grid-cell .block-style-target {
+  border-top-left-radius: var(--radius-md, 0.8rem);
+  border-top-right-radius: var(--radius-md, 0.8rem);
+}
 
-/* Bottom corners */
-.rounded-b-1:not(.block), .rounded-b-1.block .block-style-target { border-bottom-left-radius: var(--radius-xs, 0.2rem); border-bottom-right-radius: var(--radius-xs, 0.2rem); }
-.rounded-b-2:not(.block), .rounded-b-2.block .block-style-target { border-bottom-left-radius: var(--radius-sm, 0.4rem); border-bottom-right-radius: var(--radius-sm, 0.4rem); }
-.rounded-b-3:not(.block), .rounded-b-3.block .block-style-target { border-bottom-left-radius: var(--radius-md, 0.8rem); border-bottom-right-radius: var(--radius-md, 0.8rem); }
-.rounded-b-4:not(.block), .rounded-b-4.block .block-style-target { border-bottom-left-radius: var(--radius-lg, 1.2rem); border-bottom-right-radius: var(--radius-lg, 1.2rem); }
-.rounded-b-5:not(.block), .rounded-b-5.block .block-style-target { border-bottom-left-radius: var(--radius-xl, 1.6rem); border-bottom-right-radius: var(--radius-xl, 1.6rem); }
+/**
+ * @name .rounded-t-lg
+ * @description Applies large rounded corners to the top-left and top-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-t-lg:not(.block),
+.rounded-t-lg.block.grid-cell .block-style-target {
+  border-top-left-radius: var(--radius-lg, 1.2rem);
+  border-top-right-radius: var(--radius-lg, 1.2rem);
+}
 
-/* Left corners */
-.rounded-l-1:not(.block), .rounded-l-1.block .block-style-target { border-top-left-radius: var(--radius-xs, 0.2rem); border-bottom-left-radius: var(--radius-xs, 0.2rem); }
-.rounded-l-2:not(.block), .rounded-l-2.block .block-style-target { border-top-left-radius: var(--radius-sm, 0.4rem); border-bottom-left-radius: var(--radius-sm, 0.4rem); }
-.rounded-l-3:not(.block), .rounded-l-3.block .block-style-target { border-top-left-radius: var(--radius-md, 0.8rem); border-bottom-left-radius: var(--radius-md, 0.8rem); }
-.rounded-l-4:not(.block), .rounded-l-4.block .block-style-target { border-top-left-radius: var(--radius-lg, 1.2rem); border-bottom-left-radius: var(--radius-lg, 1.2rem); }
-.rounded-l-5:not(.block), .rounded-l-5.block .block-style-target { border-top-left-radius: var(--radius-xl, 1.6rem); border-bottom-left-radius: var(--radius-xl, 1.6rem); }
+/**
+ * @name .rounded-t-xl
+ * @description Applies extra large rounded corners to the top-left and top-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-t-xl:not(.block),
+.rounded-t-xl.block.grid-cell .block-style-target {
+  border-top-left-radius: var(--radius-xl, 1.6rem);
+  border-top-right-radius: var(--radius-xl, 1.6rem);
+}
 
-/* Right corners */
-.rounded-r-1:not(.block), .rounded-r-1.block .block-style-target { border-top-right-radius: var(--radius-xs, 0.2rem); border-bottom-right-radius: var(--radius-xs, 0.2rem); }
-.rounded-r-2:not(.block), .rounded-r-2.block .block-style-target { border-top-right-radius: var(--radius-sm, 0.4rem); border-bottom-right-radius: var(--radius-sm, 0.4rem); }
-.rounded-r-3:not(.block), .rounded-r-3.block .block-style-target { border-top-right-radius: var(--radius-md, 0.8rem); border-bottom-right-radius: var(--radius-md, 0.8rem); }
-.rounded-r-4:not(.block), .rounded-r-4.block .block-style-target { border-top-right-radius: var(--radius-lg, 1.2rem); border-bottom-right-radius: var(--radius-lg, 1.2rem); }
-.rounded-r-5:not(.block), .rounded-r-5.block .block-style-target { border-top-right-radius: var(--radius-xl, 1.6rem); border-bottom-right-radius: var(--radius-xl, 1.6rem); }
+/**
+ * @name .rounded-b-xs
+ * @description Applies extra small rounded corners to the bottom-left and bottom-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-b-xs:not(.block),
+.rounded-b-xs.block.grid-cell .block-style-target {
+  border-bottom-left-radius: var(--radius-xs, 0.2rem);
+  border-bottom-right-radius: var(--radius-xs, 0.2rem);
+}
 
-/* Individual corners */
-.rounded-tl-3:not(.block), .rounded-tl-3.block .block-style-target { border-top-left-radius: var(--radius-md, 0.8rem); }
-.rounded-tr-3:not(.block), .rounded-tr-3.block .block-style-target { border-top-right-radius: var(--radius-md, 0.8rem); }
-.rounded-bl-3:not(.block), .rounded-bl-3.block .block-style-target { border-bottom-left-radius: var(--radius-md, 0.8rem); }
-.rounded-br-3:not(.block), .rounded-br-3.block .block-style-target { border-bottom-right-radius: var(--radius-md, 0.8rem); }
+/**
+ * @name .rounded-b-sm
+ * @description Applies small rounded corners to the bottom-left and bottom-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-b-sm:not(.block),
+.rounded-b-sm.block.grid-cell .block-style-target {
+  border-bottom-left-radius: var(--radius-sm, 0.4rem);
+  border-bottom-right-radius: var(--radius-sm, 0.4rem);
+}
+
+/**
+ * @name .rounded-b-md
+ * @description Applies medium rounded corners to the bottom-left and bottom-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-b-md:not(.block),
+.rounded-b-md.block.grid-cell .block-style-target {
+  border-bottom-left-radius: var(--radius-md, 0.8rem);
+  border-bottom-right-radius: var(--radius-md, 0.8rem);
+}
+
+/**
+ * @name .rounded-b-lg
+ * @description Applies large rounded corners to the bottom-left and bottom-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-b-lg:not(.block),
+.rounded-b-lg.block.grid-cell .block-style-target {
+  border-bottom-left-radius: var(--radius-lg, 1.2rem);
+  border-bottom-right-radius: var(--radius-lg, 1.2rem);
+}
+
+/**
+ * @name .rounded-b-xl
+ * @description Applies extra large rounded corners to the bottom-left and bottom-right sides.
+ * @blockStyleComponent true
+ */
+.rounded-b-xl:not(.block),
+.rounded-b-xl.block.grid-cell .block-style-target {
+  border-bottom-left-radius: var(--radius-xl, 1.6rem);
+  border-bottom-right-radius: var(--radius-xl, 1.6rem);
+}
+
+/**
+ * @name .rounded-tl-md
+ * @description Applies medium rounded corners to the top-left side.
+ * @blockStyleComponent true
+ */
+.rounded-tl-md:not(.block),
+.rounded-tl-md.block.grid-cell .block-style-target {
+  border-top-left-radius: var(--radius-md, 0.8rem);
+}
+
+/**
+ * @name .rounded-tr-md
+ * @description Applies medium rounded corners to the top-right side.
+ * @blockStyleComponent true
+ */
+.rounded-tr-md:not(.block),
+.rounded-tr-md.block.grid-cell .block-style-target {
+  border-top-right-radius: var(--radius-md, 0.8rem);
+}
+
+/**
+ * @name .rounded-bl-md
+ * @description Applies medium rounded corners to the bottom-left side.
+ * @blockStyleComponent true
+ */
+.rounded-bl-md:not(.block),
+.rounded-bl-md.block.grid-cell .block-style-target {
+  border-bottom-left-radius: var(--radius-md, 0.8rem);
+}
+
+/**
+ * @name .rounded-br-md
+ * @description Applies medium rounded corners to the bottom-right side.
+ * @blockStyleComponent true
+ */
+.rounded-br-md:not(.block),
+.rounded-br-md.block.grid-cell .block-style-target {
+  border-bottom-right-radius: var(--radius-md, 0.8rem);
+}

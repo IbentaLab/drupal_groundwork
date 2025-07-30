@@ -1,144 +1,125 @@
-/* ==========================================================================
-   Flexbox Utilities – Alignment & Flow for Flex Containers
-   These are BSCs for controlling the layout of items inside a flex container.
-   ========================================================================== */
-
-/*
-  IMPORTANT: These utilities are effective only on an element that is a
-  flex container. First, apply the .d-flex class from display.css to a
-  block or element before using these classes.
-*/
-
-/* --- Flex Direction --- */
+/**
+ * @category 🔲 Layout
+ * @description Provides flexbox utilities for controlling direction, alignment, justification, and wrapping of block content. Applies to the block’s content container (.field--name-body).
+ * @order -1
+ */
 
 /**
- * @utility
- * @name .flex-row
+ * @name .d-flex
+ * @description Renders the block's content area as a block-level flex container.
+ * @blockStyleComponent true
+ */
+.d-flex:not(.block),
+.d-flex.block.grid-cell .block-style-target .field--name-body {
+  display: flex;
+}
+
+/**
+ * @name .d-flex-row
  * @description Positions flex items horizontally in a row (default).
  * @blockStyleComponent true
  */
-.flex-row:not(.block),
-.flex-row.block .block-style-target {
+.d-flex-row:not(.block),
+.d-flex-row.block.grid-cell .block-style-target .field--name-body {
   flex-direction: row;
 }
 
 /**
- * @utility
- * @name .flex-col
+ * @name .d-flex-col
  * @description Stacks flex items vertically in a column.
+ * @blockStyleComponent true
  */
-.flex-col:not(.block),
-.flex-col.block .block-style-target {
+.d-flex-col:not(.block),
+.d-flex-col.block.grid-cell .block-style-target .field--name-body {
   flex-direction: column;
 }
 
-.flex-row-reverse:not(.block),
-.flex-row-reverse.block .block-style-target {
-  flex-direction: row-reverse;
-}
-
-.flex-col-reverse:not(.block),
-.flex-col-reverse.block .block-style-target {
-  flex-direction: column-reverse;
-}
-
-
-/* --- Align Items --- */
-/* Controls how items are aligned on the cross-axis. */
-
 /**
- * @utility
- * @name .items-start
+ * @name .d-flex-items-start
  * @description Aligns items to the start of the cross-axis.
+ * @blockStyleComponent true
  */
-.items-start:not(.block),
-.items-start.block .block-style-target {
+.d-flex-items-start:not(.block),
+.d-flex-items-start.block.grid-cell .block-style-target .field--name-body {
   align-items: flex-start;
 }
 
 /**
- * @utility
- * @name .items-center
+ * @name .d-flex-items-center
  * @description Aligns items to the center of the cross-axis.
+ * @blockStyleComponent true
  */
-.items-center:not(.block),
-.items-center.block .block-style-target {
+.d-flex-items-center:not(.block),
+.d-flex-items-center.block.grid-cell .block-style-target .field--name-body {
   align-items: center;
 }
 
 /**
- * @utility
- * @name .items-end
+ * @name .d-flex-items-end
  * @description Aligns items to the end of the cross-axis.
+ * @blockStyleComponent true
  */
-.items-end:not(.block),
-.items-end.block .block-style-target {
+.d-flex-items-end:not(.block),
+.d-flex-items-end.block.grid-cell .block-style-target .field--name-body {
   align-items: flex-end;
 }
 
-
-/* --- Justify Content --- */
-/* Controls how items are aligned on the main-axis. */
-
 /**
- * @utility
- * @name .justify-start
+ * @name .d-flex-justify-start
  * @description Justifies items to the start of the main-axis.
+ * @blockStyleComponent true
  */
-.justify-start:not(.block),
-.justify-start.block .block-style-target {
+.d-flex-justify-start:not(.block),
+.d-flex-justify-start.block.grid-cell .block-style-target .field--name-body {
   justify-content: flex-start;
 }
 
 /**
- * @utility
- * @name .justify-center
+ * @name .d-flex-justify-center
  * @description Justifies items to the center of the main-axis.
+ * @blockStyleComponent true
  */
-.justify-center:not(.block),
-.justify-center.block .block-style-target {
+.d-flex-justify-center:not(.block),
+.d-flex-justify-center.block.grid-cell .block-style-target .field--name-body {
   justify-content: center;
 }
 
 /**
- * @utility
- * @name .justify-end
+ * @name .d-flex-justify-end
  * @description Justifies items to the end of the main-axis.
+ * @blockStyleComponent true
  */
-.justify-end:not(.block),
-.justify-end.block .block-style-target {
+.d-flex-justify-end:not(.block),
+.d-flex-justify-end.block.grid-cell .block-style-target .field--name-body {
   justify-content: flex-end;
 }
 
 /**
- * @utility
- * @name .justify-between
+ * @name .d-flex-justify-between
  * @description Distributes items evenly; first item is at the start, last at the end.
+ * @blockStyleComponent true
  */
-.justify-between:not(.block),
-.justify-between.block .block-style-target {
+.d-flex-justify-between:not(.block),
+.d-flex-justify-between.block.grid-cell .block-style-target .field--name-body {
   justify-content: space-between;
 }
 
-
-/* --- Flex Wrap --- */
-
 /**
- * @utility
- * @name .flex-wrap
+ * @name .d-flex-wrap
  * @description Allows flex items to wrap onto multiple lines.
+ * @blockStyleComponent true
  */
-.flex-wrap:not(.block),
-.flex-wrap.block .block-style-target {
+.d-flex-wrap:not(.block),
+.d-flex-wrap.block.grid-cell .block-style-target .field--name-body {
   flex-wrap: wrap;
 }
 
 /**
- * @utility
- * @name .flex-nowrap
+ * @name .d-flex-nowrap
  * @description Prevents flex items from wrapping (default).
+ * @blockStyleComponent true
  */
-.flex-nowrap:not(.block),
-.flex-nowrap.block .block-style-target {
+.d-flex-nowrap:not(.block),
+.d-flex-nowrap.block.grid-cell .block-style-target .field--name-body {
   flex-wrap: nowrap;
 }

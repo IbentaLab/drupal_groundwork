@@ -1,0 +1,115 @@
+/**
+ * @category 🔤 Typography
+ * @description Provides utilities for controlling text decoration, such as underline, line-through, and none.
+ * @order -2
+ */
+
+/**
+ * @name .underline
+ * @description Applies an underline to the text.
+ * @blockStyleComponent true
+ */
+.underline:not(.block),
+.underline.block.grid-cell .block-style-target {
+  text-decoration-line: underline;
+}
+
+/**
+ * @name .line-through
+ * @description Applies a line-through (strikethrough) to the text.
+ * @blockStyleComponent true
+ */
+.line-through:not(.block),
+.line-through.block.grid-cell .block-style-target {
+  text-decoration-line: line-through;
+}
+
+/**
+ * @name .no-underline
+ * @description Removes any underline from the text.
+ * @blockStyleComponent true
+ */
+.no-underline:not(.block),
+.no-underline.block.grid-cell .block-style-target {
+  text-decoration-line: none;
+}
+
+/**
+ * @name .uppercase
+ * @description Transforms text to uppercase.
+ * @blockStyleComponent true
+ */
+.uppercase:not(.block),
+.uppercase.block.grid-cell .block-style-target {
+  text-transform: uppercase;
+}
+
+/**
+ * @name .lowercase
+ * @description Transforms text to lowercase.
+ * @blockStyleComponent true
+ */
+.lowercase:not(.block),
+.lowercase.block.grid-cell .block-style-target {
+  text-transform: lowercase;
+}
+
+/**
+ * @name .capitalize
+ * @description Capitalizes the first letter of each word.
+ * @blockStyleComponent true
+ */
+.capitalize:not(.block),
+.capitalize.block.grid-cell .block-style-target {
+  text-transform: capitalize;
+}
+
+/**
+ * @name .normal-case
+ * @description Resets any text-transform to normal case.
+ * @blockStyleComponent true
+ */
+.normal-case:not(.block),
+.normal-case.block.grid-cell .block-style-target {
+  text-transform: none;
+}
+
+/**
+ * @name .leading-none
+ * @description Sets line height to 1 (no extra spacing).
+ * @blockStyleComponent true
+ */
+.leading-none:not(.block),
+.leading-none.block.grid-cell .block-style-target {
+  line-height: 1;
+}
+
+/**
+ * @name .leading-tight
+ * @description Sets line height to 1.25.
+ * @blockStyleComponent true
+ */
+.leading-tight:not(.block),
+.leading-tight.block.grid-cell .block-style-target {
+  line-height: 1.25;
+}
+
+/**
+ * @name .leading-normal
+ * @description Sets line height to a base value (default: 1.5).
+ * @blockStyleComponent true
+ */
+.leading-normal:not(.block),
+.leading-normal.block.grid-cell .block-style-target {
+  line-height: var(--line-height-base, 1.5);
+}
+
+/**
+ * @name .leading-loose
+ * @description Sets line height to 1.75.
+ * @blockStyleComponent true
+ */
+.leading-loose:not(.block),
+.leading-loose.block.grid-cell .block-style-target {
+  line-height: 1.75;
+}

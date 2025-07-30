@@ -1,35 +1,35 @@
-/* ==========================================================================
-   Transform Utilities – Static 2D Transformations
-   These are BSCs that visually manipulate elements without affecting layout flow.
-   ========================================================================== */
+/**
+ * @category ✨ Effects
+ * @description Provides utilities for scaling, rotating, and transforming elements using 2D transforms.
+ * @order 0
+ */
 
 /**
- * @utility
  * @name .scale-105
  * @description Scales the element up to 105%.
  * @blockStyleComponent true
  */
 .scale-105:not(.block),
-.scale-105.block .block-style-target {
+.scale-105.block.grid-cell .block-style-target {
   transform: scale(1.05);
 }
 
 /**
- * @utility
  * @name .rotate-12
  * @description Rotates the element 12 degrees clockwise.
+ * @blockStyleComponent true
  */
 .rotate-12:not(.block),
-.rotate-12.block .block-style-target {
+.rotate-12.block.grid-cell .block-style-target {
   transform: rotate(12deg);
 }
 
 /**
- * @utility
  * @name .-rotate-12
  * @description Rotates the element 12 degrees counter-clockwise.
+ * @blockStyleComponent true
  */
 .-rotate-12:not(.block),
-.-rotate-12.block .block-style-target {
+.-rotate-12.block.grid-cell .block-style-target {
   transform: rotate(-12deg);
 }

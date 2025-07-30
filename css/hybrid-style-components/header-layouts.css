@@ -48,7 +48,7 @@
 
 /* Add some space below the branding block for visual separation */
 .header--brand-center .block-system-branding-block {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-md);
 }
 
 /* 3. Stacked
@@ -65,7 +65,7 @@
 /* Ensure the content within each stacked block is centered */
 .header--brand-stacked .grid-cell {
   text-align: center;
-  margin-bottom: var(--space-2); /* Add spacing between stacked blocks */
+  margin-bottom: var(--space-md); /* Add spacing between stacked blocks */
 }
 
 .header--brand-stacked .grid-cell:last-child {

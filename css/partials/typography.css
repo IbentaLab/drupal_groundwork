@@ -1,0 +1,40 @@
+ /* --- Vertical Alignment (Atomic Only) --- */
+/* Note: These are atomic-only because vertical-align does not apply to block containers. */
+
+.align-baseline {
+  vertical-align: baseline;
+}
+.align-top {
+  vertical-align: top;
+}
+.align-middle {
+  vertical-align: middle;
+}
+.align-bottom {
+  vertical-align: bottom;
+}
+.align-text-top {
+  vertical-align: text-top;
+}
+.align-text-bottom {
+  vertical-align: text-bottom;
+}
+
+
+/* --- Accessibility --- */
+
+/**
+ * @name .sr-only
+ * @description Hides an element visually while keeping it accessible to screen readers
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

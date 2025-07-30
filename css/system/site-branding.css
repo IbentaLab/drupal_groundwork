@@ -1,7 +1,7 @@
 .site-branding .block-style-target {
   display: flex;
   align-items: center;
-  gap: var(--space-1, 0.8rem);
+  gap: var(--space-sm, 0.8rem);
 }
 .site-branding__logo img {
   display: block;
@@ -23,4 +23,5 @@
   color: var(--color-brand-contrast, #fff);
   text-decoration: none;
   font-weight: inherit;
+  white-space: nowrap;
 }

@@ -51,10 +51,7 @@ libraries:
   # Core and Foundational Libraries (loaded in order)
   - core/normalize
   - groundwork/global-styles         # Core JS, CSS tokens
-  - groundwork/base-styles           # Base HTML element styling
   - groundwork/layout-styles         # Page layout and regions
-  - groundwork/component-styles      # Drupal core component overrides
-  - groundwork/framework-partial-styles # Framework Partials (FPs)
   - groundwork/hybrid-styles         # Hybrid Style Components (HSCs)
   - groundwork/block-styles          # Block Style Components (BSCs) - MUST BE LAST
   - groundwork/messages              # Drupal status messages
@@ -72,5 +69,3 @@ libraries-extend:
     - groundwork/progress
   core/drupal.tablesort:
     - groundwork/drupal.tablesort
-
-generator: 'starterkit_theme:11.2.2'

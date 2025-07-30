@@ -1,64 +1,517 @@
-/* ==========================================================================
-   Padding Utilities – A Composable System for Internal Spacing
-   These are BSCs for controlling the padding inside a block or element.
-   Values are derived from the design tokens in tokens.css.
-   ========================================================================== */
+/**
+ * @category 📐 Spacing
+ * @description Defines padding utilities for controlling inner spacing of block content.
+ * @order 0
+ */
 
-/* --- Padding Scale (0-6) --- */
-/* Example: .p-3 applies padding on all sides. .pt-2 applies padding-top. */
 
-.p-0:not(.block), .p-0.block .block-style-target { padding: 0; }
-.pt-0:not(.block), .pt-0.block .block-style-target { padding-top: 0; }
-.pr-0:not(.block), .pr-0.block .block-style-target { padding-right: 0; }
-.pb-0:not(.block), .pb-0.block .block-style-target { padding-bottom: 0; }
-.pl-0:not(.block), .pl-0.block .block-style-target { padding-left: 0; }
-.px-0:not(.block), .px-0.block .block-style-target { padding-left: 0; padding-right: 0; }
-.py-0:not(.block), .py-0.block .block-style-target { padding-top: 0; padding-bottom: 0; }
+/**
+ * @name .p-0
+ * @description Removes all padding from the element.
+ * @blockStyleComponent true
+ */
+.p-0:not(.block),
+.p-0.block.grid-cell .block-style-target {
+  padding: 0;
+}
 
-.p-1:not(.block), .p-1.block .block-style-target { padding: var(--space-0, 0.4rem); }
-.pt-1:not(.block), .pt-1.block .block-style-target { padding-top: var(--space-0, 0.4rem); }
-.pr-1:not(.block), .pr-1.block .block-style-target { padding-right: var(--space-0, 0.4rem); }
-.pb-1:not(.block), .pb-1.block .block-style-target { padding-bottom: var(--space-0, 0.4rem); }
-.pl-1:not(.block), .pl-1.block .block-style-target { padding-left: var(--space-0, 0.4rem); }
-.px-1:not(.block), .px-1.block .block-style-target { padding-left: var(--space-0, 0.4rem); padding-right: var(--space-0, 0.4rem); }
-.py-1:not(.block), .py-1.block .block-style-target { padding-top: var(--space-0, 0.4rem); padding-bottom: var(--space-0, 0.4rem); }
+/**
+ * @name .pt-0
+ * @description Removes top padding from the element.
+ * @blockStyleComponent true
+ */
+.pt-0:not(.block),
+.pt-0.block.grid-cell .block-style-target {
+  padding-top: 0;
+}
 
-.p-2:not(.block), .p-2.block .block-style-target { padding: var(--space-1, 0.8rem); }
-.pt-2:not(.block), .pt-2.block .block-style-target { padding-top: var(--space-1, 0.8rem); }
-.pr-2:not(.block), .pr-2.block .block-style-target { padding-right: var(--space-1, 0.8rem); }
-.pb-2:not(.block), .pb-2.block .block-style-target { padding-bottom: var(--space-1, 0.8rem); }
-.pl-2:not(.block), .pl-2.block .block-style-target { padding-left: var(--space-1, 0.8rem); }
-.px-2:not(.block), .px-2.block .block-style-target { padding-left: var(--space-1, 0.8rem); padding-right: var(--space-1, 0.8rem); }
-.py-2:not(.block), .py-2.block .block-style-target { padding-top: var(--space-1, 0.8rem); padding-bottom: var(--space-1, 0.8rem); }
+/**
+ * @name .pr-0
+ * @description Removes right padding from the element.
+ * @blockStyleComponent true
+ */
+.pr-0:not(.block),
+.pr-0.block.grid-cell .block-style-target {
+  padding-right: 0;
+}
 
-.p-3:not(.block), .p-3.block .block-style-target { padding: var(--space-2, 1.6rem); }
-.pt-3:not(.block), .pt-3.block .block-style-target { padding-top: var(--space-2, 1.6rem); }
-.pr-3:not(.block), .pr-3.block .block-style-target { padding-right: var(--space-2, 1.6rem); }
-.pb-3:not(.block), .pb-3.block .block-style-target { padding-bottom: var(--space-2, 1.6rem); }
-.pl-3:not(.block), .pl-3.block .block-style-target { padding-left: var(--space-2, 1.6rem); }
-.px-3:not(.block), .px-3.block .block-style-target { padding-left: var(--space-2, 1.6rem); padding-right: var(--space-2, 1.6rem); }
-.py-3:not(.block), .py-3.block .block-style-target { padding-top: var(--space-2, 1.6rem); padding-bottom: var(--space-2, 1.6rem); }
+/**
+ * @name .pb-0
+ * @description Removes bottom padding from the element.
+ * @blockStyleComponent true
+ */
+.pb-0:not(.block),
+.pb-0.block.grid-cell .block-style-target {
+  padding-bottom: 0;
+}
 
-.p-4:not(.block), .p-4.block .block-style-target { padding: var(--space-3, 2.4rem); }
-.pt-4:not(.block), .pt-4.block .block-style-target { padding-top: var(--space-3, 2.4rem); }
-.pr-4:not(.block), .pr-4.block .block-style-target { padding-right: var(--space-3, 2.4rem); }
-.pb-4:not(.block), .pb-4.block .block-style-target { padding-bottom: var(--space-3, 2.4rem); }
-.pl-4:not(.block), .pl-4.block .block-style-target { padding-left: var(--space-3, 2.4rem); }
-.px-4:not(.block), .px-4.block .block-style-target { padding-left: var(--space-3, 2.4rem); padding-right: var(--space-3, 2.4rem); }
-.py-4:not(.block), .py-4.block .block-style-target { padding-top: var(--space-3, 2.4rem); padding-bottom: var(--space-3, 2.4rem); }
+/**
+ * @name .pl-0
+ * @description Removes left padding from the element.
+ * @blockStyleComponent true
+ */
+.pl-0:not(.block),
+.pl-0.block.grid-cell .block-style-target {
+  padding-left: 0;
+}
 
-.p-5:not(.block), .p-5.block .block-style-target { padding: var(--space-4, 3.2rem); }
-.pt-5:not(.block), .pt-5.block .block-style-target { padding-top: var(--space-4, 3.2rem); }
-.pr-5:not(.block), .pr-5.block .block-style-target { padding-right: var(--space-4, 3.2rem); }
-.pb-5:not(.block), .pb-5.block .block-style-target { padding-bottom: var(--space-4, 3.2rem); }
-.pl-5:not(.block), .pl-5.block .block-style-target { padding-left: var(--space-4, 3.2rem); }
-.px-5:not(.block), .px-5.block .block-style-target { padding-left: var(--space-4, 3.2rem); padding-right: var(--space-4, 3.2rem); }
-.py-5:not(.block), .py-5.block .block-style-target { padding-top: var(--space-4, 3.2rem); padding-bottom: var(--space-4, 3.2rem); }
+/**
+ * @name .px-0
+ * @description Removes horizontal padding (left and right) from the element.
+ * @blockStyleComponent true
+ */
+.px-0:not(.block),
+.px-0.block.grid-cell .block-style-target {
+  padding-left: 0;
+  padding-right: 0;
+}
 
-.p-6:not(.block), .p-6.block .block-style-target { padding: var(--space-5, 4.0rem); }
-.pt-6:not(.block), .pt-6.block .block-style-target { padding-top: var(--space-5, 4.0rem); }
-.pr-6:not(.block), .pr-6.block .block-style-target { padding-right: var(--space-5, 4.0rem); }
-.pb-6:not(.block), .pb-6.block .block-style-target { padding-bottom: var(--space-5, 4.0rem); }
-.pl-6:not(.block), .pl-6.block .block-style-target { padding-left: var(--space-5, 4.0rem); }
-.px-6:not(.block), .px-6.block .block-style-target { padding-left: var(--space-5, 4.0rem); padding-right: var(--space-5, 4.0rem); }
-.py-6:not(.block), .py-6.block .block-style-target { padding-top: var(--space-5, 4.0rem); padding-bottom: var(--space-5, 4.0rem); }
+/**
+ * @name .py-0
+ * @description Removes vertical padding (top and bottom) from the element.
+ * @blockStyleComponent true
+ */
+.py-0:not(.block),
+.py-0.block.grid-cell .block-style-target {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+/**
+ * @name .p-xs
+ * @description Applies small padding on all sides using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.p-xs:not(.block),
+.p-xs.block.grid-cell .block-style-target {
+  padding: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .pt-xs
+ * @description Applies small top padding using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pt-xs:not(.block),
+.pt-xs.block.grid-cell .block-style-target {
+  padding-top: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .pr-xs
+ * @description Applies small right padding using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pr-xs:not(.block),
+.pr-xs.block.grid-cell .block-style-target {
+  padding-right: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .pb-xs
+ * @description Applies small bottom padding using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pb-xs:not(.block),
+.pb-xs.block.grid-cell .block-style-target {
+  padding-bottom: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .pl-xs
+ * @description Applies small left padding using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pl-xs:not(.block),
+.pl-xs.block.grid-cell .block-style-target {
+  padding-left: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .px-xs
+ * @description Applies small horizontal padding (left and right) using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.px-xs:not(.block),
+.px-xs.block.grid-cell .block-style-target {
+  padding-left: var(--space-xs, 0.4rem);
+  padding-right: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .py-xs
+ * @description Applies small vertical padding (top and bottom) using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.py-xs:not(.block),
+.py-xs.block.grid-cell .block-style-target {
+  padding-top: var(--space-xs, 0.4rem);
+  padding-bottom: var(--space-xs, 0.4rem);
+}
+
+
+/**
+ * @name .p-sm
+ * @description Applies moderate padding on all sides using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.p-sm:not(.block),
+.p-sm.block.grid-cell .block-style-target {
+  padding: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .pt-sm
+ * @description Applies moderate top padding using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pt-sm:not(.block),
+.pt-sm.block.grid-cell .block-style-target {
+  padding-top: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .pr-sm
+ * @description Applies moderate right padding using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pr-sm:not(.block),
+.pr-sm.block.grid-cell .block-style-target {
+  padding-right: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .pb-sm
+ * @description Applies moderate bottom padding using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pb-sm:not(.block),
+.pb-sm.block.grid-cell .block-style-target {
+  padding-bottom: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .pl-sm
+ * @description Applies moderate left padding using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pl-sm:not(.block),
+.pl-sm.block.grid-cell .block-style-target {
+  padding-left: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .px-sm
+ * @description Applies moderate horizontal padding (left and right) using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.px-sm:not(.block),
+.px-sm.block.grid-cell .block-style-target {
+  padding-left: var(--space-sm, 0.8rem);
+  padding-right: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .py-sm
+ * @description Applies moderate vertical padding (top and bottom) using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.py-sm:not(.block),
+.py-sm.block.grid-cell .block-style-target {
+  padding-top: var(--space-sm, 0.8rem);
+  padding-bottom: var(--space-sm, 0.8rem);
+}
+
+
+/**
+ * @name .p-md
+ * @description Applies medium padding on all sides using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.p-md:not(.block),
+.p-md.block.grid-cell .block-style-target {
+  padding: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .pt-md
+ * @description Applies medium top padding using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pt-md:not(.block),
+.pt-md.block.grid-cell .block-style-target {
+  padding-top: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .pr-md
+ * @description Applies medium right padding using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pr-md:not(.block),
+.pr-md.block.grid-cell .block-style-target {
+  padding-right: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .pb-md
+ * @description Applies medium bottom padding using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pb-md:not(.block),
+.pb-md.block.grid-cell .block-style-target {
+  padding-bottom: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .pl-md
+ * @description Applies medium left padding using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pl-md:not(.block),
+.pl-md.block.grid-cell .block-style-target {
+  padding-left: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .px-md
+ * @description Applies medium horizontal padding (left and right) using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.px-md:not(.block),
+.px-md.block.grid-cell .block-style-target {
+  padding-left: var(--space-md, 1.6rem);
+  padding-right: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .py-md
+ * @description Applies medium vertical padding (top and bottom) using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.py-md:not(.block),
+.py-md.block.grid-cell .block-style-target {
+  padding-top: var(--space-md, 1.6rem);
+  padding-bottom: var(--space-md, 1.6rem);
+}
+
+
+/**
+ * @name .p-lg
+ * @description Applies large padding on all sides using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.p-lg:not(.block),
+.p-lg.block.grid-cell .block-style-target {
+  padding: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .pt-lg
+ * @description Applies large top padding using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pt-lg:not(.block),
+.pt-lg.block.grid-cell .block-style-target {
+  padding-top: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .pr-lg
+ * @description Applies large right padding using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pr-lg:not(.block),
+.pr-lg.block.grid-cell .block-style-target {
+  padding-right: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .pb-lg
+ * @description Applies large bottom padding using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pb-lg:not(.block),
+.pb-lg.block.grid-cell .block-style-target {
+  padding-bottom: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .pl-lg
+ * @description Applies large left padding using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pl-lg:not(.block),
+.pl-lg.block.grid-cell .block-style-target {
+  padding-left: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .px-lg
+ * @description Applies large horizontal padding (left and right) using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.px-lg:not(.block),
+.px-lg.block.grid-cell .block-style-target {
+  padding-left: var(--space-lg, 2.4rem);
+  padding-right: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .py-lg
+ * @description Applies large vertical padding (top and bottom) using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.py-lg:not(.block),
+.py-lg.block.grid-cell .block-style-target {
+  padding-top: var(--space-lg, 2.4rem);
+  padding-bottom: var(--space-lg, 2.4rem);
+}
+
+
+/**
+ * @name .p-xl
+ * @description Applies extra-large padding on all sides using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.p-xl:not(.block),
+.p-xl.block.grid-cell .block-style-target {
+  padding: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .pt-xl
+ * @description Applies extra-large top padding using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pt-xl:not(.block),
+.pt-xl.block.grid-cell .block-style-target {
+  padding-top: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .pr-xl
+ * @description Applies extra-large right padding using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pr-xl:not(.block),
+.pr-xl.block.grid-cell .block-style-target {
+  padding-right: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .pb-xl
+ * @description Applies extra-large bottom padding using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pb-xl:not(.block),
+.pb-xl.block.grid-cell .block-style-target {
+  padding-bottom: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .pl-xl
+ * @description Applies extra-large left padding using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pl-xl:not(.block),
+.pl-xl.block.grid-cell .block-style-target {
+  padding-left: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .px-xl
+ * @description Applies extra-large horizontal padding (left and right) using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.px-xl:not(.block),
+.px-xl.block.grid-cell .block-style-target {
+  padding-left: var(--space-xl, 3.2rem);
+  padding-right: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .py-xl
+ * @description Applies extra-large vertical padding (top and bottom) using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.py-xl:not(.block),
+.py-xl.block.grid-cell .block-style-target {
+  padding-top: var(--space-xl, 3.2rem);
+  padding-bottom: var(--space-xl, 3.2rem);
+}
+
+
+/**
+ * @name .p-xxl
+ * @description Applies extra-extra-large padding on all sides using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.p-xxl:not(.block),
+.p-xxl.block.grid-cell .block-style-target {
+  padding: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .pt-xxl
+ * @description Applies extra-extra-large top padding using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pt-xxl:not(.block),
+.pt-xxl.block.grid-cell .block-style-target {
+  padding-top: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .pr-xxl
+ * @description Applies extra-extra-large right padding using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pr-xxl:not(.block),
+.pr-xxl.block.grid-cell .block-style-target {
+  padding-right: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .pb-xxl
+ * @description Applies extra-extra-large bottom padding using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pb-xxl:not(.block),
+.pb-xxl.block.grid-cell .block-style-target {
+  padding-bottom: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .pl-xxl
+ * @description Applies extra-extra-large left padding using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.pl-xxl:not(.block),
+.pl-xxl.block.grid-cell .block-style-target {
+  padding-left: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .px-xxl
+ * @description Applies extra-extra-large horizontal padding (left and right) using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.px-xxl:not(.block),
+.px-xxl.block.grid-cell .block-style-target {
+  padding-left: var(--space-xxl, 4rem);
+  padding-right: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .py-xxl
+ * @description Applies extra-extra-large vertical padding (top and bottom) using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.py-xxl:not(.block),
+.py-xxl.block.grid-cell .block-style-target {
+  padding-top: var(--space-xxl, 4rem);
+  padding-bottom: var(--space-xxl, 4rem);
+}
+

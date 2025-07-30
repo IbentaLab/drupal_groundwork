@@ -11,12 +11,12 @@
   outline: none;
 }
 :where(summary::-webkit-details-marker) { display: none; }
-:where(details[open] > summary) { margin-block-end: var(--space-1, .8rem); }
+:where(details[open] > summary) { margin-block-end: var(--space-sm, .8rem); }
 
 /* dialog */
 :where(dialog) {
   border: none;
-  padding: var(--space-3, 2.4rem) var(--space-4, 3.2rem);
+  padding: var(--space-lg, 2.4rem) var(--space-xl, 3.2rem);
   border-radius: .5rem;
   background: var(--color-surface, #fff);
   color: var(--color-fg, #000);

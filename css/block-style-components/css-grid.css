@@ -1,0 +1,195 @@
+/**
+ * @category 🔲 Layout
+ * @description Defines comprehensive CSS Grid utilities for columns, rows, alignment, and auto-flow behavior. Applies to the block’s content container (`.field--name-body`).
+ * @order -2
+ */
+
+/**
+ * @name .d-grid
+ * @description Renders the block’s content container as a CSS Grid.
+ * @blockStyleComponent true
+ */
+.d-grid:not(.block),
+.d-grid.block.grid-cell .block-style-target .field--name-body {
+  display: grid;
+}
+
+/**
+ * @name .d-grid-cols-2
+ * @description Creates a grid with 2 equal-width columns.
+ * @blockStyleComponent true
+ */
+.d-grid-cols-2:not(.block),
+.d-grid-cols-2.block.grid-cell .block-style-target .field--name-body {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-cols-3
+ * @description Creates a grid with 3 equal-width columns.
+ * @blockStyleComponent true
+ */
+.d-grid-cols-3:not(.block),
+.d-grid-cols-3.block.grid-cell .block-style-target .field--name-body {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-cols-4
+ * @description Creates a grid with 4 equal-width columns.
+ * @blockStyleComponent true
+ */
+.d-grid-cols-4:not(.block),
+.d-grid-cols-4.block.grid-cell .block-style-target .field--name-body {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-cols-6
+ * @description Creates a grid with 6 equal-width columns.
+ * @blockStyleComponent true
+ */
+.d-grid-cols-6:not(.block),
+.d-grid-cols-6.block.grid-cell .block-style-target .field--name-body {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-cols-12
+ * @description Creates a grid with 12 equal-width columns.
+ * @blockStyleComponent true
+ */
+.d-grid-cols-12:not(.block),
+.d-grid-cols-12.block.grid-cell .block-style-target .field--name-body {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-rows-2
+ * @description Defines 2 equal-height rows in the grid.
+ * @blockStyleComponent true
+ */
+.d-grid-rows-2:not(.block),
+.d-grid-rows-2.block.grid-cell .block-style-target .field--name-body {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-rows-3
+ * @description Defines 3 equal-height rows in the grid.
+ * @blockStyleComponent true
+ */
+.d-grid-rows-3:not(.block),
+.d-grid-rows-3.block.grid-cell .block-style-target .field--name-body {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-rows-4
+ * @description Defines 4 equal-height rows in the grid.
+ * @blockStyleComponent true
+ */
+.d-grid-rows-4:not(.block),
+.d-grid-rows-4.block.grid-cell .block-style-target .field--name-body {
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+/**
+ * @name .d-grid-flow-row
+ * @description Positions grid items by filling rows first (default).
+ * @blockStyleComponent true
+ */
+.d-grid-flow-row:not(.block),
+.d-grid-flow-row.block.grid-cell .block-style-target .field--name-body {
+  grid-auto-flow: row;
+}
+
+/**
+ * @name .d-grid-flow-col
+ * @description Positions grid items by filling columns first.
+ * @blockStyleComponent true
+ */
+.d-grid-flow-col:not(.block),
+.d-grid-flow-col.block.grid-cell .block-style-target .field--name-body {
+  grid-auto-flow: column;
+}
+
+/**
+ * @name .d-grid-justify-start
+ * @description Justifies grid content to the start of the main axis.
+ * @blockStyleComponent true
+ */
+.d-grid-justify-start:not(.block),
+.d-grid-justify-start.block.grid-cell .block-style-target .field--name-body {
+  justify-content: start;
+}
+
+/**
+ * @name .d-grid-justify-center
+ * @description Justifies grid content to the center of the main axis.
+ * @blockStyleComponent true
+ */
+.d-grid-justify-center:not(.block),
+.d-grid-justify-center.block.grid-cell .block-style-target .field--name-body {
+  justify-content: center;
+}
+
+/**
+ * @name .d-grid-justify-end
+ * @description Justifies grid content to the end of the main axis.
+ * @blockStyleComponent true
+ */
+.d-grid-justify-end:not(.block),
+.d-grid-justify-end.block.grid-cell .block-style-target .field--name-body {
+  justify-content: end;
+}
+
+/**
+ * @name .d-grid-justify-between
+ * @description Distributes content evenly with space between items.
+ * @blockStyleComponent true
+ */
+.d-grid-justify-between:not(.block),
+.d-grid-justify-between.block.grid-cell .block-style-target .field--name-body {
+  justify-content: space-between;
+}
+
+/**
+ * @name .d-grid-align-start
+ * @description Aligns grid items to the start of the cross axis.
+ * @blockStyleComponent true
+ */
+.d-grid-align-start:not(.block),
+.d-grid-align-start.block.grid-cell .block-style-target .field--name-body {
+  align-items: start;
+}
+
+/**
+ * @name .d-grid-align-center
+ * @description Aligns grid items to the center of the cross axis.
+ * @blockStyleComponent true
+ */
+.d-grid-align-center:not(.block),
+.d-grid-align-center.block.grid-cell .block-style-target .field--name-body {
+  align-items: center;
+}
+
+/**
+ * @name .d-grid-align-end
+ * @description Aligns grid items to the end of the cross axis.
+ * @blockStyleComponent true
+ */
+.d-grid-align-end:not(.block),
+.d-grid-align-end.block.grid-cell .block-style-target .field--name-body {
+  align-items: end;
+}
+
+/**
+ * @name .d-grid-align-stretch
+ * @description Stretches grid items to fill the container along the cross axis.
+ * @blockStyleComponent true
+ */
+.d-grid-align-stretch:not(.block),
+.d-grid-align-stretch.block.grid-cell .block-style-target .field--name-body {
+  align-items: stretch;
+}

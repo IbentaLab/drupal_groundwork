@@ -1,0 +1,95 @@
+/**
+ * @category 🔤 Typography
+ * @description Provides utilities for controlling font weight and style, including bold, italic, and normal text.
+ * @order -4
+ */
+
+/**
+ * @name .font-thin
+ * @description Applies an ultra-thin font weight (100).
+ * @blockStyleComponent true
+ */
+.font-thin:not(.block),
+.font-thin.block.grid-cell .block-style-target {
+  font-weight: 100;
+}
+
+/**
+ * @name .font-light
+ * @description Applies a light font weight (300).
+ * @blockStyleComponent true
+ */
+.font-light:not(.block),
+.font-light.block.grid-cell .block-style-target {
+  font-weight: 300;
+}
+
+/**
+ * @name .font-normal
+ * @description Applies a normal font weight (400).
+ * @blockStyleComponent true
+ */
+.font-normal:not(.block),
+.font-normal.block.grid-cell .block-style-target {
+  font-weight: 400;
+}
+
+/**
+ * @name .font-medium
+ * @description Applies a medium font weight (500).
+ * @blockStyleComponent true
+ */
+.font-medium:not(.block),
+.font-medium.block.grid-cell .block-style-target {
+  font-weight: 500;
+}
+
+/**
+ * @name .font-semibold
+ * @description Applies a semi-bold font weight (600).
+ * @blockStyleComponent true
+ */
+.font-semibold:not(.block),
+.font-semibold.block.grid-cell .block-style-target {
+  font-weight: 600;
+}
+
+/**
+ * @name .font-bold
+ * @description Applies a bold font weight (700).
+ * @blockStyleComponent true
+ */
+.font-bold:not(.block),
+.font-bold.block.grid-cell .block-style-target {
+  font-weight: 700;
+}
+
+/**
+ * @name .font-black
+ * @description Applies the heaviest font weight (900).
+ * @blockStyleComponent true
+ */
+.font-black:not(.block),
+.font-black.block.grid-cell .block-style-target {
+  font-weight: 900;
+}
+
+/**
+ * @name .italic
+ * @description Applies italic font styling.
+ * @blockStyleComponent true
+ */
+.italic:not(.block),
+.italic.block.grid-cell .block-style-target {
+  font-style: italic;
+}
+
+/**
+ * @name .not-italic
+ * @description Resets italic styling to normal.
+ * @blockStyleComponent true
+ */
+.not-italic:not(.block),
+.not-italic.block.grid-cell .block-style-target {
+  font-style: normal;
+}

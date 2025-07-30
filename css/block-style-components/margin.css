@@ -1,129 +1,963 @@
-/* ==========================================================================
-   Margin Utilities – A Composable System for External Spacing
-   These are BSCs for controlling the margin around a block or element.
-   Values are derived from the design tokens in tokens.css.
-   ========================================================================== */
+/**
+ * @category 📐 Spacing
+ * @description Provides margin utilities for spacing control, including positive, negative, and auto margins.
+ * @order 0
+ */
 
-/* --- Margin Scale (0-6) --- */
-/* Example: .m-3 applies margin on all sides. .mt-2 applies margin-top. */
-
-.m-0:not(.block), .m-0.block .block-style-target { margin: 0; }
-.mt-0:not(.block), .mt-0.block .block-style-target { margin-top: 0; }
-.mr-0:not(.block), .mr-0.block .block-style-target { margin-right: 0; }
-.mb-0:not(.block), .mb-0.block .block-style-target { margin-bottom: 0; }
-.ml-0:not(.block), .ml-0.block .block-style-target { margin-left: 0; }
-.mx-0:not(.block), .mx-0.block .block-style-target { margin-left: 0; margin-right: 0; }
-.my-0:not(.block), .my-0.block .block-style-target { margin-top: 0; margin-bottom: 0; }
-
-.m-1:not(.block), .m-1.block .block-style-target { margin: var(--space-0, 0.4rem); }
-.mt-1:not(.block), .mt-1.block .block-style-target { margin-top: var(--space-0, 0.4rem); }
-.mr-1:not(.block), .mr-1.block .block-style-target { margin-right: var(--space-0, 0.4rem); }
-.mb-1:not(.block), .mb-1.block .block-style-target { margin-bottom: var(--space-0, 0.4rem); }
-.ml-1:not(.block), .ml-1.block .block-style-target { margin-left: var(--space-0, 0.4rem); }
-.mx-1:not(.block), .mx-1.block .block-style-target { margin-left: var(--space-0, 0.4rem); margin-right: var(--space-0, 0.4rem); }
-.my-1:not(.block), .my-1.block .block-style-target { margin-top: var(--space-0, 0.4rem); margin-bottom: var(--space-0, 0.4rem); }
-
-.m-2:not(.block), .m-2.block .block-style-target { margin: var(--space-1, 0.8rem); }
-.mt-2:not(.block), .mt-2.block .block-style-target { margin-top: var(--space-1, 0.8rem); }
-.mr-2:not(.block), .mr-2.block .block-style-target { margin-right: var(--space-1, 0.8rem); }
-.mb-2:not(.block), .mb-2.block .block-style-target { margin-bottom: var(--space-1, 0.8rem); }
-.ml-2:not(.block), .ml-2.block .block-style-target { margin-left: var(--space-1, 0.8rem); }
-.mx-2:not(.block), .mx-2.block .block-style-target { margin-left: var(--space-1, 0.8rem); margin-right: var(--space-1, 0.8rem); }
-.my-2:not(.block), .my-2.block .block-style-target { margin-top: var(--space-1, 0.8rem); margin-bottom: var(--space-1, 0.8rem); }
-
-.m-3:not(.block), .m-3.block .block-style-target { margin: var(--space-2, 1.6rem); }
-.mt-3:not(.block), .mt-3.block .block-style-target { margin-top: var(--space-2, 1.6rem); }
-.mr-3:not(.block), .mr-3.block .block-style-target { margin-right: var(--space-2, 1.6rem); }
-.mb-3:not(.block), .mb-3.block .block-style-target { margin-bottom: var(--space-2, 1.6rem); }
-.ml-3:not(.block), .ml-3.block .block-style-target { margin-left: var(--space-2, 1.6rem); }
-.mx-3:not(.block), .mx-3.block .block-style-target { margin-left: var(--space-2, 1.6rem); margin-right: var(--space-2, 1.6rem); }
-.my-3:not(.block), .my-3.block .block-style-target { margin-top: var(--space-2, 1.6rem); margin-bottom: var(--space-2, 1.6rem); }
-
-.m-4:not(.block), .m-4.block .block-style-target { margin: var(--space-3, 2.4rem); }
-.mt-4:not(.block), .mt-4.block .block-style-target { margin-top: var(--space-3, 2.4rem); }
-.mr-4:not(.block), .mr-4.block .block-style-target { margin-right: var(--space-3, 2.4rem); }
-.mb-4:not(.block), .mb-4.block .block-style-target { margin-bottom: var(--space-3, 2.4rem); }
-.ml-4:not(.block), .ml-4.block .block-style-target { margin-left: var(--space-3, 2.4rem); }
-.mx-4:not(.block), .mx-4.block .block-style-target { margin-left: var(--space-3, 2.4rem); margin-right: var(--space-3, 2.4rem); }
-.my-4:not(.block), .my-4.block .block-style-target { margin-top: var(--space-3, 2.4rem); margin-bottom: var(--space-3, 2.4rem); }
-
-.m-5:not(.block), .m-5.block .block-style-target { margin: var(--space-4, 3.2rem); }
-.mt-5:not(.block), .mt-5.block .block-style-target { margin-top: var(--space-4, 3.2rem); }
-.mr-5:not(.block), .mr-5.block .block-style-target { margin-right: var(--space-4, 3.2rem); }
-.mb-5:not(.block), .mb-5.block .block-style-target { margin-bottom: var(--space-4, 3.2rem); }
-.ml-5:not(.block), .ml-5.block .block-style-target { margin-left: var(--space-4, 3.2rem); }
-.mx-5:not(.block), .mx-5.block .block-style-target { margin-left: var(--space-4, 3.2rem); margin-right: var(--space-4, 3.2rem); }
-.my-5:not(.block), .my-5.block .block-style-target { margin-top: var(--space-4, 3.2rem); margin-bottom: var(--space-4, 3.2rem); }
-
-.m-6:not(.block), .m-6.block .block-style-target { margin: var(--space-5, 4.0rem); }
-.mt-6:not(.block), .mt-6.block .block-style-target { margin-top: var(--space-5, 4.0rem); }
-.mr-6:not(.block), .mr-6.block .block-style-target { margin-right: var(--space-5, 4.0rem); }
-.mb-6:not(.block), .mb-6.block .block-style-target { margin-bottom: var(--space-5, 4.0rem); }
-.ml-6:not(.block), .ml-6.block .block-style-target { margin-left: var(--space-5, 4.0rem); }
-.mx-6:not(.block), .mx-6.block .block-style-target { margin-left: var(--space-5, 4.0rem); margin-right: var(--space-5, 4.0rem); }
-.my-6:not(.block), .my-6.block .block-style-target { margin-top: var(--space-5, 4.0rem); margin-bottom: var(--space-5, 4.0rem); }
-
-/* --- Auto Margin --- */
 
 /**
- * @utility
+ * @name .m-0
+ * @description Removes margin on all four sides of the element.
+ * @blockStyleComponent true
+ */
+.m-0:not(.block),
+.m-0.block.grid-cell .block-style-target {
+  margin: 0;
+}
+
+/**
+ * @name .mt-0
+ * @description Removes top margin from the element.
+ * @blockStyleComponent true
+ */
+.mt-0:not(.block),
+.mt-0.block.grid-cell .block-style-target {
+  margin-top: 0;
+}
+
+/**
+ * @name .mr-0
+ * @description Removes right margin from the element.
+ * @blockStyleComponent true
+ */
+.mr-0:not(.block),
+.mr-0.block.grid-cell .block-style-target {
+  margin-right: 0;
+}
+
+/**
+ * @name .mb-0
+ * @description Removes bottom margin from the element.
+ * @blockStyleComponent true
+ */
+.mb-0:not(.block),
+.mb-0.block.grid-cell .block-style-target {
+  margin-bottom: 0;
+}
+
+/**
+ * @name .ml-0
+ * @description Removes left margin from the element.
+ * @blockStyleComponent true
+ */
+.ml-0:not(.block),
+.ml-0.block.grid-cell .block-style-target {
+  margin-left: 0;
+}
+
+/**
+ * @name .mx-0
+ * @description Removes left and right margins (horizontal spacing) from the element.
+ * @blockStyleComponent true
+ */
+.mx-0:not(.block),
+.mx-0.block.grid-cell .block-style-target {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/**
+ * @name .my-0
+ * @description Removes top and bottom margins (vertical spacing) from the element.
+ * @blockStyleComponent true
+ */
+.my-0:not(.block),
+.my-0.block.grid-cell .block-style-target {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+/**
+ * @name .m-xs
+ * @description Applies small margin on all sides using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.m-xs:not(.block),
+.m-xs.block.grid-cell .block-style-target {
+  margin: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .mt-xs
+ * @description Applies small top margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mt-xs:not(.block),
+.mt-xs.block.grid-cell .block-style-target {
+  margin-top: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .mr-xs
+ * @description Applies small right margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mr-xs:not(.block),
+.mr-xs.block.grid-cell .block-style-target {
+  margin-right: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .mb-xs
+ * @description Applies small bottom margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mb-xs:not(.block),
+.mb-xs.block.grid-cell .block-style-target {
+  margin-bottom: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .ml-xs
+ * @description Applies small left margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.ml-xs:not(.block),
+.ml-xs.block.grid-cell .block-style-target {
+  margin-left: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .mx-xs
+ * @description Applies small horizontal margins (left and right) using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mx-xs:not(.block),
+.mx-xs.block.grid-cell .block-style-target {
+  margin-left: var(--space-xs, 0.4rem);
+  margin-right: var(--space-xs, 0.4rem);
+}
+
+/**
+ * @name .my-xs
+ * @description Applies small vertical margins (top and bottom) using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.my-xs:not(.block),
+.my-xs.block.grid-cell .block-style-target {
+  margin-top: var(--space-xs, 0.4rem);
+  margin-bottom: var(--space-xs, 0.4rem);
+}
+
+
+/**
+ * @name .m-sm
+ * @description Applies moderate margin on all sides using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.m-sm:not(.block),
+.m-sm.block.grid-cell .block-style-target {
+  margin: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .mt-sm
+ * @description Applies moderate top margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mt-sm:not(.block),
+.mt-sm.block.grid-cell .block-style-target {
+  margin-top: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .mr-sm
+ * @description Applies moderate right margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mr-sm:not(.block),
+.mr-sm.block.grid-cell .block-style-target {
+  margin-right: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .mb-sm
+ * @description Applies moderate bottom margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mb-sm:not(.block),
+.mb-sm.block.grid-cell .block-style-target {
+  margin-bottom: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .ml-sm
+ * @description Applies moderate left margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.ml-sm:not(.block),
+.ml-sm.block.grid-cell .block-style-target {
+  margin-left: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .mx-sm
+ * @description Applies moderate horizontal margins (left and right) using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mx-sm:not(.block),
+.mx-sm.block.grid-cell .block-style-target {
+  margin-left: var(--space-sm, 0.8rem);
+  margin-right: var(--space-sm, 0.8rem);
+}
+
+/**
+ * @name .my-sm
+ * @description Applies moderate vertical margins (top and bottom) using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.my-sm:not(.block),
+.my-sm.block.grid-cell .block-style-target {
+  margin-top: var(--space-sm, 0.8rem);
+  margin-bottom: var(--space-sm, 0.8rem);
+}
+
+
+/**
+ * @name .m-md
+ * @description Applies medium margin on all sides using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.m-md:not(.block),
+.m-md.block.grid-cell .block-style-target {
+  margin: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .mt-md
+ * @description Applies medium top margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mt-md:not(.block),
+.mt-md.block.grid-cell .block-style-target {
+  margin-top: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .mr-md
+ * @description Applies medium right margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mr-md:not(.block),
+.mr-md.block.grid-cell .block-style-target {
+  margin-right: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .mb-md
+ * @description Applies medium bottom margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mb-md:not(.block),
+.mb-md.block.grid-cell .block-style-target {
+  margin-bottom: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .ml-md
+ * @description Applies medium left margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.ml-md:not(.block),
+.ml-md.block.grid-cell .block-style-target {
+  margin-left: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .mx-md
+ * @description Applies medium horizontal margins (left and right) using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mx-md:not(.block),
+.mx-md.block.grid-cell .block-style-target {
+  margin-left: var(--space-md, 1.6rem);
+  margin-right: var(--space-md, 1.6rem);
+}
+
+/**
+ * @name .my-md
+ * @description Applies medium vertical margins (top and bottom) using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.my-md:not(.block),
+.my-md.block.grid-cell .block-style-target {
+  margin-top: var(--space-md, 1.6rem);
+  margin-bottom: var(--space-md, 1.6rem);
+}
+
+
+/**
+ * @name .m-lg
+ * @description Applies large margin on all sides using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.m-lg:not(.block),
+.m-lg.block.grid-cell .block-style-target {
+  margin: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .mt-lg
+ * @description Applies large top margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mt-lg:not(.block),
+.mt-lg.block.grid-cell .block-style-target {
+  margin-top: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .mr-lg
+ * @description Applies large right margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mr-lg:not(.block),
+.mr-lg.block.grid-cell .block-style-target {
+  margin-right: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .mb-lg
+ * @description Applies large bottom margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mb-lg:not(.block),
+.mb-lg.block.grid-cell .block-style-target {
+  margin-bottom: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .ml-lg
+ * @description Applies large left margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.ml-lg:not(.block),
+.ml-lg.block.grid-cell .block-style-target {
+  margin-left: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .mx-lg
+ * @description Applies large horizontal margins (left and right) using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mx-lg:not(.block),
+.mx-lg.block.grid-cell .block-style-target {
+  margin-left: var(--space-lg, 2.4rem);
+  margin-right: var(--space-lg, 2.4rem);
+}
+
+/**
+ * @name .my-lg
+ * @description Applies large vertical margins (top and bottom) using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.my-lg:not(.block),
+.my-lg.block.grid-cell .block-style-target {
+  margin-top: var(--space-lg, 2.4rem);
+  margin-bottom: var(--space-lg, 2.4rem);
+}
+
+
+/**
+ * @name .m-xl
+ * @description Applies extra-large margin on all sides using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.m-xl:not(.block),
+.m-xl.block.grid-cell .block-style-target {
+  margin: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .mt-xl
+ * @description Applies extra-large top margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mt-xl:not(.block),
+.mt-xl.block.grid-cell .block-style-target {
+  margin-top: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .mr-xl
+ * @description Applies extra-large right margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mr-xl:not(.block),
+.mr-xl.block.grid-cell .block-style-target {
+  margin-right: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .mb-xl
+ * @description Applies extra-large bottom margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mb-xl:not(.block),
+.mb-xl.block.grid-cell .block-style-target {
+  margin-bottom: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .ml-xl
+ * @description Applies extra-large left margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.ml-xl:not(.block),
+.ml-xl.block.grid-cell .block-style-target {
+  margin-left: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .mx-xl
+ * @description Applies extra-large horizontal margins (left and right) using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mx-xl:not(.block),
+.mx-xl.block.grid-cell .block-style-target {
+  margin-left: var(--space-xl, 3.2rem);
+  margin-right: var(--space-xl, 3.2rem);
+}
+
+/**
+ * @name .my-xl
+ * @description Applies extra-large vertical margins (top and bottom) using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.my-xl:not(.block),
+.my-xl.block.grid-cell .block-style-target {
+  margin-top: var(--space-xl, 3.2rem);
+  margin-bottom: var(--space-xl, 3.2rem);
+}
+
+
+/**
+ * @name .m-xxl
+ * @description Applies extra-extra-large margin on all sides using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.m-xxl:not(.block),
+.m-xxl.block.grid-cell .block-style-target {
+  margin: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .mt-xxl
+ * @description Applies extra-extra-large top margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mt-xxl:not(.block),
+.mt-xxl.block.grid-cell .block-style-target {
+  margin-top: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .mr-xxl
+ * @description Applies extra-extra-large right margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mr-xxl:not(.block),
+.mr-xxl.block.grid-cell .block-style-target {
+  margin-right: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .mb-xxl
+ * @description Applies extra-extra-large bottom margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mb-xxl:not(.block),
+.mb-xxl.block.grid-cell .block-style-target {
+  margin-bottom: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .ml-xxl
+ * @description Applies extra-extra-large left margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.ml-xxl:not(.block),
+.ml-xxl.block.grid-cell .block-style-target {
+  margin-left: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .mx-xxl
+ * @description Applies extra-extra-large horizontal margins (left and right) using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.mx-xxl:not(.block),
+.mx-xxl.block.grid-cell .block-style-target {
+  margin-left: var(--space-xxl, 4rem);
+  margin-right: var(--space-xxl, 4rem);
+}
+
+/**
+ * @name .my-xxl
+ * @description Applies extra-extra-large vertical margins (top and bottom) using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.my-xxl:not(.block),
+.my-xxl.block.grid-cell .block-style-target {
+  margin-top: var(--space-xxl, 4rem);
+  margin-bottom: var(--space-xxl, 4rem);
+}
+
+/**
  * @name .mx-auto
  * @description Horizontally centers a block-level element by setting left and right margins to auto.
  * @blockStyleComponent true
  */
 .mx-auto:not(.block),
-.mx-auto.block .block-style-target {
+.mx-auto.block.grid-cell .block-style-target {
   margin-left: auto;
   margin-right: auto;
 }
 
+
 /* --- Negative Margins --- */
 /* Useful for overlapping elements and advanced layouts. */
 
-.-m-1:not(.block), .-m-1.block .block-style-target { margin: calc(var(--space-0, 0.4rem) * -1); }
-.-mt-1:not(.block), .-mt-1.block .block-style-target { margin-top: calc(var(--space-0, 0.4rem) * -1); }
-.-mr-1:not(.block), .-mr-1.block .block-style-target { margin-right: calc(var(--space-0, 0.4rem) * -1); }
-.-mb-1:not(.block), .-mb-1.block .block-style-target { margin-bottom: calc(var(--space-0, 0.4rem) * -1); }
-.-ml-1:not(.block), .-ml-1.block .block-style-target { margin-left: calc(var(--space-0, 0.4rem) * -1); }
-.-mx-1:not(.block), .-mx-1.block .block-style-target { margin-left: calc(var(--space-0, 0.4rem) * -1); margin-right: calc(var(--space-0, 0.4rem) * -1); }
-.-my-1:not(.block), .-my-1.block .block-style-target { margin-top: calc(var(--space-0, 0.4rem) * -1); margin-bottom: calc(var(--space-0, 0.4rem) * -1); }
+/**
+ * @name m-xs
+ * @description Applies negative small margin on all sides using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-m-xs:not(.block),
+.-m-xs.block.grid-cell .block-style-target {
+  margin: calc(var(--space-xs, 0.4rem) * -1);
+}
 
-.-m-2:not(.block), .-m-2.block .block-style-target { margin: calc(var(--space-1, 0.8rem) * -1); }
-.-mt-2:not(.block), .-mt-2.block .block-style-target { margin-top: calc(var(--space-1, 0.8rem) * -1); }
-.-mr-2:not(.block), .-mr-2.block .block-style-target { margin-right: calc(var(--space-1, 0.8rem) * -1); }
-.-mb-2:not(.block), .-mb-2.block .block-style-target { margin-bottom: calc(var(--space-1, 0.8rem) * -1); }
-.-ml-2:not(.block), .-ml-2.block .block-style-target { margin-left: calc(var(--space-1, 0.8rem) * -1); }
-.-mx-2:not(.block), .-mx-2.block .block-style-target { margin-left: calc(var(--space-1, 0.8rem) * -1); margin-right: calc(var(--space-1, 0.8rem) * -1); }
-.-my-2:not(.block), .-my-2.block .block-style-target { margin-top: calc(var(--space-1, 0.8rem) * -1); margin-bottom: calc(var(--space-1, 0.8rem) * -1); }
+/**
+ * @name mt-xs
+ * @description Applies negative small top margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mt-xs:not(.block),
+.-mt-xs.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-xs, 0.4rem) * -1);
+}
 
-.-m-3:not(.block), .-m-3.block .block-style-target { margin: calc(var(--space-2, 1.6rem) * -1); }
-.-mt-3:not(.block), .-mt-3.block .block-style-target { margin-top: calc(var(--space-2, 1.6rem) * -1); }
-.-mr-3:not(.block), .-mr-3.block .block-style-target { margin-right: calc(var(--space-2, 1.6rem) * -1); }
-.-mb-3:not(.block), .-mb-3.block .block-style-target { margin-bottom: calc(var(--space-2, 1.6rem) * -1); }
-.-ml-3:not(.block), .-ml-3.block .block-style-target { margin-left: calc(var(--space-2, 1.6rem) * -1); }
-.-mx-3:not(.block), .-mx-3.block .block-style-target { margin-left: calc(var(--space-2, 1.6rem) * -1); margin-right: calc(var(--space-2, 1.6rem) * -1); }
-.-my-3:not(.block), .-my-3.block .block-style-target { margin-top: calc(var(--space-2, 1.6rem) * -1); margin-bottom: calc(var(--space-2, 1.6rem) * -1); }
+/**
+ * @name mr-xs
+ * @description Applies negative small right margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mr-xs:not(.block),
+.-mr-xs.block.grid-cell .block-style-target {
+  margin-right: calc(var(--space-xs, 0.4rem) * -1);
+}
 
-.-m-4:not(.block), .-m-4.block .block-style-target { margin: calc(var(--space-3, 2.4rem) * -1); }
-.-mt-4:not(.block), .-mt-4.block .block-style-target { margin-top: calc(var(--space-3, 2.4rem) * -1); }
-.-mr-4:not(.block), .-mr-4.block .block-style-target { margin-right: calc(var(--space-3, 2.4rem) * -1); }
-.-mb-4:not(.block), .-mb-4.block .block-style-target { margin-bottom: calc(var(--space-3, 2.4rem) * -1); }
-.-ml-4:not(.block), .-ml-4.block .block-style-target { margin-left: calc(var(--space-3, 2.4rem) * -1); }
-.-mx-4:not(.block), .-mx-4.block .block-style-target { margin-left: calc(var(--space-3, 2.4rem) * -1); margin-right: calc(var(--space-3, 2.4rem) * -1); }
-.-my-4:not(.block), .-my-4.block .block-style-target { margin-top: calc(var(--space-3, 2.4rem) * -1); margin-bottom: calc(var(--space-3, 2.4rem) * -1); }
+/**
+ * @name mb-xs
+ * @description Applies negative small bottom margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mb-xs:not(.block),
+.-mb-xs.block.grid-cell .block-style-target {
+  margin-bottom: calc(var(--space-xs, 0.4rem) * -1);
+}
 
-.-m-5:not(.block), .-m-5.block .block-style-target { margin: calc(var(--space-4, 3.2rem) * -1); }
-.-mt-5:not(.block), .-mt-5.block .block-style-target { margin-top: calc(var(--space-4, 3.2rem) * -1); }
-.-mr-5:not(.block), .-mr-5.block .block-style-target { margin-right: calc(var(--space-4, 3.2rem) * -1); }
-.-mb-5:not(.block), .-mb-5.block .block-style-target { margin-bottom: calc(var(--space-4, 3.2rem) * -1); }
-.-ml-5:not(.block), .-ml-5.block .block-style-target { margin-left: calc(var(--space-4, 3.2rem) * -1); }
-.-mx-5:not(.block), .-mx-5.block .block-style-target { margin-left: calc(var(--space-4, 3.2rem) * -1); margin-right: calc(var(--space-4, 3.2rem) * -1); }
-.-my-5:not(.block), .-my-5.block .block-style-target { margin-top: calc(var(--space-4, 3.2rem) * -1); margin-bottom: calc(var(--space-4, 3.2rem) * -1); }
+/**
+ * @name ml-xs
+ * @description Applies negative small left margin using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-ml-xs:not(.block),
+.-ml-xs.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-xs, 0.4rem) * -1);
+}
 
-.-m-6:not(.block), .-m-6.block .block-style-target { margin: calc(var(--space-5, 4.0rem) * -1); }
-.-mt-6:not(.block), .-mt-6.block .block-style-target { margin-top: calc(var(--space-5, 4.0rem) * -1); }
-.-mr-6:not(.block), .-mr-6.block .block-style-target { margin-right: calc(var(--space-5, 4.0rem) * -1); }
-.-mb-6:not(.block), .-mb-6.block .block-style-target { margin-bottom: calc(var(--space-5, 4.0rem) * -1); }
-.-ml-6:not(.block), .-ml-6.block .block-style-target { margin-left: calc(var(--space-5, 4.0rem) * -1); }
-.-mx-6:not(.block), .-mx-6.block .block-style-target { margin-left: calc(var(--space-5, 4.0rem) * -1); margin-right: calc(var(--space-5, 4.0rem) * -1); }
-.-my-6:not(.block), .-my-6.block .block-style-target { margin-top: calc(var(--space-5, 4.0rem) * -1); margin-bottom: calc(var(--space-5, 4.0rem) * -1); }
+/**
+ * @name mx-xs
+ * @description Applies negative small horizontal margins (left and right) using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mx-xs:not(.block),
+.-mx-xs.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-xs, 0.4rem) * -1);
+  margin-right: calc(var(--space-xs, 0.4rem) * -1);
+}
+
+/**
+ * @name my-xs
+ * @description Applies negative small vertical margins (top and bottom) using the first step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-my-xs:not(.block),
+.-my-xs.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-xs, 0.4rem) * -1);
+  margin-bottom: calc(var(--space-xs, 0.4rem) * -1);
+}
+
+
+/**
+ * @name m-sm
+ * @description Applies negative moderate margin on all sides using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-m-sm:not(.block),
+.-m-sm.block.grid-cell .block-style-target {
+  margin: calc(var(--space-sm, 0.8rem) * -1);
+}
+
+/**
+ * @name mt-sm
+ * @description Applies negative moderate top margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mt-sm:not(.block),
+.-mt-sm.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-sm, 0.8rem) * -1);
+}
+
+/**
+ * @name mr-sm
+ * @description Applies negative moderate right margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mr-sm:not(.block),
+.-mr-sm.block.grid-cell .block-style-target {
+  margin-right: calc(var(--space-sm, 0.8rem) * -1);
+}
+
+/**
+ * @name mb-sm
+ * @description Applies negative moderate bottom margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mb-sm:not(.block),
+.-mb-sm.block.grid-cell .block-style-target {
+  margin-bottom: calc(var(--space-sm, 0.8rem) * -1);
+}
+
+/**
+ * @name ml-sm
+ * @description Applies negative moderate left margin using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-ml-sm:not(.block),
+.-ml-sm.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-sm, 0.8rem) * -1);
+}
+
+/**
+ * @name mx-sm
+ * @description Applies negative moderate horizontal margins (left and right) using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mx-sm:not(.block),
+.-mx-sm.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-sm, 0.8rem) * -1);
+  margin-right: calc(var(--space-sm, 0.8rem) * -1);
+}
+
+/**
+ * @name my-sm
+ * @description Applies negative moderate vertical margins (top and bottom) using the second step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-my-sm:not(.block),
+.-my-sm.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-sm, 0.8rem) * -1);
+  margin-bottom: calc(var(--space-sm, 0.8rem) * -1);
+}
+
+
+.-m-md:not(.block),
+.-m-md.block.grid-cell .block-style-target {
+  margin: calc(var(--space-md, 1.6rem) * -1);
+}
+/**
+ * @name mt-md
+ * @description Applies negative medium top margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mt-md:not(.block),
+.-mt-md.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-md, 1.6rem) * -1);
+}
+
+/**
+ * @name mr-md
+ * @description Applies negative medium right margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mr-md:not(.block),
+.-mr-md.block.grid-cell .block-style-target {
+  margin-right: calc(var(--space-md, 1.6rem) * -1);
+}
+
+/**
+ * @name mb-md
+ * @description Applies negative medium bottom margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mb-md:not(.block),
+.-mb-md.block.grid-cell .block-style-target {
+  margin-bottom: calc(var(--space-md, 1.6rem) * -1);
+}
+
+/**
+ * @name ml-md
+ * @description Applies negative medium left margin using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-ml-md:not(.block),
+.-ml-md.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-md, 1.6rem) * -1);
+}
+
+/**
+ * @name mx-md
+ * @description Applies negative medium horizontal margins (left and right) using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mx-md:not(.block),
+.-mx-md.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-md, 1.6rem) * -1);
+  margin-right: calc(var(--space-md, 1.6rem) * -1);
+}
+
+/**
+ * @name my-md
+ * @description Applies negative medium vertical margins (top and bottom) using the third step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-my-md:not(.block),
+.-my-md.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-md, 1.6rem) * -1);
+  margin-bottom: calc(var(--space-md, 1.6rem) * -1);
+}
+
+
+/**
+ * @name m-lg
+ * @description Applies negative large margin on all sides using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-m-lg:not(.block),
+.-m-lg.block.grid-cell .block-style-target {
+  margin: calc(var(--space-lg, 2.4rem) * -1);
+}
+
+/**
+ * @name mt-lg
+ * @description Applies negative large top margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mt-lg:not(.block),
+.-mt-lg.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-lg, 2.4rem) * -1);
+}
+
+/**
+ * @name mr-lg
+ * @description Applies negative large right margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mr-lg:not(.block),
+.-mr-lg.block.grid-cell .block-style-target {
+  margin-right: calc(var(--space-lg, 2.4rem) * -1);
+}
+
+/**
+ * @name mb-lg
+ * @description Applies negative large bottom margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mb-lg:not(.block),
+.-mb-lg.block.grid-cell .block-style-target {
+  margin-bottom: calc(var(--space-lg, 2.4rem) * -1);
+}
+
+/**
+ * @name ml-lg
+ * @description Applies negative large left margin using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-ml-lg:not(.block),
+.-ml-lg.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-lg, 2.4rem) * -1);
+}
+
+/**
+ * @name mx-lg
+ * @description Applies negative large horizontal margins (left and right) using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mx-lg:not(.block),
+.-mx-lg.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-lg, 2.4rem) * -1);
+  margin-right: calc(var(--space-lg, 2.4rem) * -1);
+}
+
+/**
+ * @name my-lg
+ * @description Applies negative large vertical margins (top and bottom) using the fourth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-my-lg:not(.block),
+.-my-lg.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-lg, 2.4rem) * -1);
+  margin-bottom: calc(var(--space-lg, 2.4rem) * -1);
+}
+
+
+/**
+ * @name m-xl
+ * @description Applies negative extra-large margin on all sides using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-m-xl:not(.block),
+.-m-xl.block.grid-cell .block-style-target {
+  margin: calc(var(--space-xl, 3.2rem) * -1);
+}
+
+/**
+ * @name mt-xl
+ * @description Applies negative extra-large top margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mt-xl:not(.block),
+.-mt-xl.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-xl, 3.2rem) * -1);
+}
+
+/**
+ * @name mr-xl
+ * @description Applies negative extra-large right margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mr-xl:not(.block),
+.-mr-xl.block.grid-cell .block-style-target {
+  margin-right: calc(var(--space-xl, 3.2rem) * -1);
+}
+
+/**
+ * @name mb-xl
+ * @description Applies negative extra-large bottom margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mb-xl:not(.block),
+.-mb-xl.block.grid-cell .block-style-target {
+  margin-bottom: calc(var(--space-xl, 3.2rem) * -1);
+}
+
+/**
+ * @name ml-xl
+ * @description Applies negative extra-large left margin using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-ml-xl:not(.block),
+.-ml-xl.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-xl, 3.2rem) * -1);
+}
+
+/**
+ * @name mx-xl
+ * @description Applies negative extra-large horizontal margins (left and right) using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mx-xl:not(.block),
+.-mx-xl.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-xl, 3.2rem) * -1);
+  margin-right: calc(var(--space-xl, 3.2rem) * -1);
+}
+
+/**
+ * @name my-xl
+ * @description Applies negative extra-large vertical margins (top and bottom) using the fifth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-my-xl:not(.block),
+.-my-xl.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-xl, 3.2rem) * -1);
+  margin-bottom: calc(var(--space-xl, 3.2rem) * -1);
+}
+
+
+/**
+ * @name m-xxl
+ * @description Applies negative extra-extra-large margin on all sides using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-m-xxl:not(.block),
+.-m-xxl.block.grid-cell .block-style-target {
+  margin: calc(var(--space-xxl, 4rem) * -1);
+}
+
+/**
+ * @name mt-xxl
+ * @description Applies negative extra-extra-large top margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mt-xxl:not(.block),
+.-mt-xxl.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-xxl, 4rem) * -1);
+}
+
+/**
+ * @name mr-xxl
+ * @description Applies negative extra-extra-large right margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mr-xxl:not(.block),
+.-mr-xxl.block.grid-cell .block-style-target {
+  margin-right: calc(var(--space-xxl, 4rem) * -1);
+}
+
+/**
+ * @name mb-xxl
+ * @description Applies negative extra-extra-large bottom margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mb-xxl:not(.block),
+.-mb-xxl.block.grid-cell .block-style-target {
+  margin-bottom: calc(var(--space-xxl, 4rem) * -1);
+}
+
+/**
+ * @name ml-xxl
+ * @description Applies negative extra-extra-large left margin using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-ml-xxl:not(.block),
+.-ml-xxl.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-xxl, 4rem) * -1);
+}
+
+/**
+ * @name mx-xxl
+ * @description Applies negative extra-extra-large horizontal margins (left and right) using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-mx-xxl:not(.block),
+.-mx-xxl.block.grid-cell .block-style-target {
+  margin-left: calc(var(--space-xxl, 4rem) * -1);
+  margin-right: calc(var(--space-xxl, 4rem) * -1);
+}
+
+/**
+ * @name my-xxl
+ * @description Applies negative extra-extra-large vertical margins (top and bottom) using the sixth step in the spacing scale.
+ * @blockStyleComponent true
+ */
+.-my-xxl:not(.block),
+.-my-xxl.block.grid-cell .block-style-target {
+  margin-top: calc(var(--space-xxl, 4rem) * -1);
+  margin-bottom: calc(var(--space-xxl, 4rem) * -1);
+}
+

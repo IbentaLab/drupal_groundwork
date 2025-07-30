@@ -1,0 +1,75 @@
+/**
+ * @category 🔤 Typography
+ * @description Provides font sizes with a modular scale for visual harmony and clear typographic hierarchy.
+ * @order -5
+ */
+
+/**
+ * @name .text-xs
+ * @description Extra small text (var(--ms-xs)).
+ * @blockStyleComponent true
+ */
+.text-xs:not(.block),
+.text-xs.block.grid-cell .block-style-target {
+  font-size: var(--ms-xs, 0.844rem);
+}
+
+/**
+ * @name .text-sm
+ * @description Small text (var(--ms-sm)).
+ * @blockStyleComponent true
+ */
+.text-sm:not(.block),
+.text-sm.block.grid-cell .block-style-target {
+  font-size: var(--ms-sm, 1.125rem);
+}
+
+/**
+ * @name .text-md
+ * @description Medium / base text size (var(--ms-md)).
+ * @blockStyleComponent true
+ */
+.text-md:not(.block),
+.text-md.block.grid-cell .block-style-target {
+  font-size: var(--ms-md, 1.5rem);
+}
+
+/**
+ * @name .text-lg
+ * @description Large text (var(--ms-lg)).
+ * @blockStyleComponent true
+ */
+.text-lg:not(.block),
+.text-lg.block.grid-cell .block-style-target {
+  font-size: var(--ms-lg, 2rem);
+}
+
+/**
+ * @name .text-xl
+ * @description Extra-large text (var(--ms-xl)).
+ * @blockStyleComponent true
+ */
+.text-xl:not(.block),
+.text-xl.block.grid-cell .block-style-target {
+  font-size: var(--ms-xl, 2.667rem);
+}
+
+/**
+ * @name .text-xxl
+ * @description 2x extra-large text (var(--ms-xxl)).
+ * @blockStyleComponent true
+ */
+.text-xxl:not(.block),
+.text-xxl.block.grid-cell .block-style-target {
+  font-size: var(--ms-xxl, 3.556rem);
+}
+
+/**
+ * @name .text-xxxl
+ * @description 3x extra-large text (var(--ms-xxxl)).
+ * @blockStyleComponent true
+ */
+.text-xxxl:not(.block),
+.text-xxxl.block.grid-cell .block-style-target {
+  font-size: var(--ms-xxxl, 4.741rem);
+}
