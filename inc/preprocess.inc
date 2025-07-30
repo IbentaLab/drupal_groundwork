@@ -150,6 +150,51 @@ function groundwork_preprocess_page(array &$variables): void {
  * Implements hook_preprocess_region().
  */
 function groundwork_preprocess_region(array &$variables): void {
+  $config = \Drupal::config('groundwork.settings');
+  $region = $variables['elements']['#region'];
+
+  // A list of regions that have background settings.
+  $regions_with_backgrounds = [
+    'billboard', 'header', 'hero', 'supplement', 'extra', 'rider', 'footer',
+  ];
+
+  if (in_array($region, $regions_with_backgrounds)) {
+    // Stop if "Use default" is checked for this region.
+    if ($config->get('gw_background_' . $region . '_use_default')) {
+      return;
+    }
+
+    // 1. Set Background Color Class
+    $color = $config->get('gw_background_' . $region . '_color');
+    if ($color) {
+      $variables['attributes']['class'][] = 'bg--' . $color;
+    }
+
+    // 2. Set Background Image Style
+    $background_image_url = '';
+    $upload_fids = $config->get('gw_background_' . $region . '_upload');
+    $path = $config->get('gw_background_' . $region . '_path');
+
+    if (!empty($upload_fids[0])) {
+      // Priority 1: Use the uploaded file.
+      $file = \Drupal\file\Entity\File::load($upload_fids[0]);
+      if ($file) {
+        $background_image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+      }
+    }
+    elseif (!empty($path)) {
+      // Priority 2: Use the path field.
+      // We use file_url_generator to handle paths like 'public://' correctly.
+      $background_image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($path);
+    }
+
+    if ($background_image_url) {
+      // Add the inline style to the region's attributes.
+      $variables['attributes']['style'][] = "background-image: url('" . $background_image_url . "');";
+    }
+  }
+
+  // ------ Header Layout -----
   if ($variables['region'] === 'header') {
     $header_layout = \Drupal::config('groundwork.settings')->get('gw_header_layout') ?? 'header--brand-left';
     $variables['attributes']['class'][] = $header_layout;
