@@ -81,7 +81,7 @@ Groundwork is built around a powerful, layered frontend architecture:
 | **BSC**– Block Style Components      | `css/block-style-components/`  | A comprehensive library of utility classes for styling blocks and content.     |
 | **SDC**– Single Directory Components | `components/`                  | Fully reusable, self-contained UI components with their own Twig, CSS, and JS. |
 | **HSC**– Hybrid Style Components     | `css/hybrid-style-components/` | Pre-composed layout patterns for common block structures.                      |
-| **FP**– Framework Partials           | `framework-partials/`          | Small, reusable UI fragments (like icons) used across templates.               |
+| **FP**– Framework Partials           | `partials/`                    | Small, reusable UI fragments (like icons) used across templates.               |
 
 ## 🧮 The Dual Grid System
 

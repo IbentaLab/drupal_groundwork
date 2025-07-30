@@ -1,72 +1,71 @@
-# Alert Component
 
-The Alert component is a pre-styled Block Style Component (BSC) used for displaying contextual feedback messages to the user, such as success confirmations, warnings, or error notifications.
+# Alert Utilities
 
-## Core Concept
+Groundwork includes a flexible set of contextual alert styles using the `.alert` base class and accompanying color-coded variants for different message types.
 
-Alerts are designed to be applied to a block to transform its entire content area into a styled message. The system works by combining a base `.alert` class (which provides the padding, border, and shape) with a contextual color class (like `.alert-success`) that provides the specific colors for that message type.
+As with other Groundwork utilities, you can apply alert styles via the **Groundwork Block Styles UI** — no code needed — or use them atomically in your own markup. The Groundwork Block Styles module is included with the meta module Groundwork Helpers.
 
-## Tutorial for All Users
+## Overview
 
-This guide shows you how to turn any block into an alert message.
+| Class              | Description                   |
+| ------------------ | ----------------------------- |
+| `.alert`         | Base styling for all alerts   |
+| `.alert-info`    | Informational messages        |
+| `.alert-success` | Success confirmation messages |
+| `.alert-warning` | Warnings or cautions          |
+| `.alert-danger`  | Errors or critical alerts     |
 
-### Recommended Method: Using the Block Styles UI
+> 💡  **Note** : Color variants should be combined with the `.alert` base class.
 
-The easiest way to create an alert is with the **Block Styles UI** module, which is part of the **Groundwork Helpers** meta module.
+---
 
-#### Step 1: Place a Block
+## Base Alert
 
-Place a "Basic block" or any other block with text content into a region.
-
-#### Step 2: Apply Alert Classes
-
-Click "Configure" on the block and navigate to the **Styles** tab. This opens the interactive UI.
-
-To create a "Success" message, you need to combine the base class and a color class. Select both:
-
-* **`.alert`**
-* **`.alert-success`**
-
-The block will now be rendered as a green success message, complete with a colored left border, a light green background, and dark green text.
-
-### Alternative Method: Manual Entry
-
-If you do not have the `Block Styles UI` module installed, you can apply classes manually.
-
-* **For Site Builders:** Install a contributed module that allows adding classes to blocks. In the configuration form, you would type both classes directly into the text field (e.g., `alert alert-success`).
-* **For Themers:** Add classes programmatically in your theme's `.theme` file using a preprocess hook.
-
-**Example: `mytheme.theme` file**
-
-```
-/**
- * Implements hook_preprocess_block().
- */
-function mytheme_preprocess_block(&$variables) {
-  // Apply alert styling to a specific block.
-  if ($variables['plugin_id'] == 'my_status_message_block') {
-    $variables['attributes']['class'][] = 'alert';
-    $variables['attributes']['class'][] = 'alert-warning';
-  }
-}
-
+```html
+<div class="alert">
+  <p>This is a generic alert box.</p>
+</div>
 ```
 
-## Class Reference
+This sets up the padding, border-radius, and left border appearance. To style the alert fully, use a contextual modifier like `.alert-info`.
 
-### Base Class (Required)
+---
 
-| **Class**      | **Description**                                                       |
-| -------------------- | --------------------------------------------------------------------------- |
-| **`.alert`** | **Required.**Applies the base padding, border, and shape for the component. |
+## Contextual Variants
 
-### Contextual Color Classes
+Each variant adds color-specific background, border, and text styling:
 
-Combine one of these with the base `.alert` class.
+```html
+<div class="alert alert-info">
+  <p>This is an informational message.</p>
+</div>
+```
 
-| **Class**              | **Description**                                                |
-| ---------------------------- | -------------------------------------------------------------------- |
-| **`.alert-info`**    | For general, informational messages (styled with the primary color). |
-| **`.alert-success`** | For confirming that an action was successful.                        |
-| **`.alert-warning`** | For indicating something that needs attention.                       |
-| **`.alert-danger`**  | For communicating an error or a destructive action.                  |
+### Available Variants
+
+* `.alert-info`: Informational messages (uses primary theme color)
+* `.alert-success`: Success messages (e.g., form submission)
+* `.alert-warning`: Warnings or potential issues
+* `.alert-danger`: Critical errors or failures
+
+Each variant uses `hsl(from ...)` syntax to derive accessible colors with soft backgrounds and readable text.
+
+---
+
+## Accessibility Notes
+
+* Text color is tuned for contrast against each background.
+* Alerts use large left borders and ample padding to aid visual scanning.
+* Background hues are softened with high lightness for readability.
+
+---
+
+## Summary
+
+Alert utilities offer:
+
+* Clear, color-coded messaging for user feedback
+* Full support in the **Groundwork Block Styles UI** or atomic usage
+* Accessible contrast by default
+
+Easily drop in alerts for success, errors, or general information using the `.alert` base and appropriate modifier class.

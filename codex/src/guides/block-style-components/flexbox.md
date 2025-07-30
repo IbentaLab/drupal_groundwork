@@ -1,94 +1,126 @@
+
 # Flexbox Utilities
 
-Flexbox utilities are a powerful set of tools for controlling the alignment, direction, and flow of content  **inside a flex container** . These utilities are the essential companions to the `.d-flex` class.
+Groundwork’s `flexbox.css` provides a set of utility classes for creating flexible, responsive layouts using the **CSS Flexbox** model.
 
-## Core Concept: The Flex Container
+Flexbox helps you **align, distribute, and reorder items** inside a container — all without writing custom CSS. It's perfect for common layout tasks like:
 
-To use any of the utilities in this file, you must first turn a block's content area into a flex container. You do this by applying the **`.d-flex`** class (from `display.css`) to the block.
+* Stacking elements vertically
+* Aligning content side-by-side
+* Centering things in both directions
 
-Once `.d-flex` is applied, the direct children inside the block's content become "flex items," and you can use the classes below to control how they are arranged.
+In Groundwork, Flexbox utilities apply to the block’s **content container** (`.field--name-body`) when used via the **Groundwork Block Styles UI** — but you can also use them **atomically** in your own markup.
 
-## Tutorial for All Users
+---
 
-This guide shows you how to align content within a block using Flexbox.
+## ✅ What Is Flexbox?
 
-### Recommended Method: Using the Block Styles UI
+Flexbox (short for  *Flexible Box Layout* ) is a CSS layout system designed to make it easier to:
 
-The easiest way to apply flexbox styles is with the **Block Styles UI** module, which is part of the **Groundwork Helpers** meta module.
+* Lay out items in **rows or columns**
+* **Control spacing** between items
+* **Align** items along horizontal or vertical axes
+* Handle **responsive behavior** automatically
 
-#### Step 1: Place a Block and Add Content
+Groundwork makes Flexbox beginner-friendly with clear utility classes you can apply through the Block Styles UI or directly in your HTML.
 
-Place a block and add at least two distinct elements inside it, such as an image and a paragraph of text.
+---
 
-#### Step 2: Enable Flexbox and Apply Alignment
+## 🧱 Understanding Flexbox Axes
 
-Click "Configure" on the block and navigate to the **Styles** tab. This opens the interactive UI.
+Flexbox works on two axes:
 
-Let's align the image and text side-by-side and center them vertically.
+* The **main axis** — defined by the direction you choose (`row` or `column`)
+* The **cross axis** — perpendicular to the main axis
 
-1. First, select **`.d-flex`** to enable the flex container. By default, this will place the image and text in a row.
-2. Next, select **`.items-center`** to vertically align them.
-3. You might also want to add a gap between them. Select a class like **`.gap-3`** from the `gap.css` utilities.
+| `flex-direction` | Main Axis     | Cross Axis    |
+| ------------------ | ------------- | ------------- |
+| `row`(default)   | left → right | top ↕ bottom |
+| `column`         | top ↓ bottom | left ↔ right |
 
-### Alternative Method: Manual Entry
+This is important because:
 
-If you do not have the `Block Styles UI` module installed, you can apply classes manually.
+* `justify-content` aligns items on the **main axis**
+* `align-items` aligns items on the **cross axis**
 
-* **For Site Builders:** Install a contributed module that allows adding classes to blocks. In the configuration form, you would type the classes directly into the text field (e.g., `d-flex items-center gap-3`).
-* **For Themers:** Add classes programmatically in your theme's `.theme` file using a preprocess hook.
+---
 
-**Example: `mytheme.theme` file**
+## 🧱 Utility Class Overview
 
+You can apply these classes via the  **Block Styles UI** , or directly in your HTML with atomic classes:
+
+| Class                       | Description                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| `.d-flex`                 | Turns the block content into a Flexbox container                               |
+| `.d-flex-row`             | Aligns items horizontally (default direction)                                  |
+| `.d-flex-col`             | Aligns items vertically (great for stacking content)                           |
+| `.d-flex-items-start`     | Aligns items to the top or left (cross-axis)                                   |
+| `.d-flex-items-center`    | Aligns items in the center vertically or horizontally (depending on direction) |
+| `.d-flex-items-end`       | Aligns items to the bottom or right (cross-axis)                               |
+| `.d-flex-justify-start`   | Pushes items to the start of the container (main axis)                         |
+| `.d-flex-justify-center`  | Centers items along the main axis                                              |
+| `.d-flex-justify-end`     | Pushes items to the end of the container (main axis)                           |
+| `.d-flex-justify-between` | Distributes items with space between them                                      |
+| `.d-flex-wrap`            | Allows items to wrap to multiple lines if there’s not enough space            |
+| `.d-flex-nowrap`          | Prevents wrapping (default behavior in most browsers)                          |
+
+---
+
+## 💡 When to Use Flexbox
+
+Use Flexbox when you want to:
+
+* Stack things vertically or horizontally with ease
+* Build  **centered hero sections** ,  **icon+text layouts** , or **button groups**
+* Control layout without writing custom CSS
+* Quickly respond to different screen sizes
+
+For layout patterns with **rows and columns** of content, see the [Grid Utilities](css-grid.md) instead.
+
+---
+
+## 💻 Usage Example
+
+Here’s how to vertically stack and center content inside a block:
+
+```html
+<div class="block d-flex d-flex-col d-flex-items-center d-flex-justify-center">
+  <h2 class="title">Welcome</h2>
+  <p class="subtitle">We're glad you're here</p>
+</div>
 ```
-/**
- * Implements hook_preprocess_block().
- */
-function mytheme_preprocess_block(&$variables) {
-  // Vertically align content for a specific block.
-  if ($variables['plugin_id'] == 'my_image_and_text_block') {
-    $variables['attributes']['class'][] = 'd-flex';
-    $variables['attributes']['class'][] = 'items-center';
-    $variables['attributes']['class'][] = 'gap-3';
-  }
-}
 
+And here’s a horizontal layout with space between items:
+
+```html
+<div class="block d-flex d-flex-row d-flex-justify-between d-flex-items-center">
+  <span class="label">Name:</span>
+  <input type="text" class="input" />
+</div>
 ```
 
-## Class Reference
+---
 
-### Flex Direction (BSCs)
+## 🔒 Accessibility & Best Practices
 
-| **Class**                 | **Description**                         |
-| ------------------------------- | --------------------------------------------- |
-| **`.flex-row`**         | Arranges items horizontally (default).        |
-| **`.flex-col`**         | Stacks items vertically.                      |
-| **`.flex-row-reverse`** | Arranges items horizontally in reverse order. |
-| **`.flex-col-reverse`** | Stacks items vertically in reverse order.     |
+* All Groundwork utilities work **without build tools** and use clean, readable class names.
+* Layouts adapt based on writing direction (LTR/RTL) and follow **WCAG and ARIA** best practices when used properly.
+* Avoid relying solely on alignment for meaning — use semantic HTML and landmarks.
 
-### Align Items (BSCs)
+---
 
-Controls vertical alignment if `flex-direction` is `row`, or horizontal alignment if `flex-direction` is `col`.
+## 📦 Related Utilities
 
-| **Class**             | **Description**       |
-| --------------------------- | --------------------------- |
-| **`.items-start`**  | Aligns items to the start.  |
-| **`.items-center`** | Aligns items to the center. |
-| **`.items-end`**    | Aligns items to the end.    |
+* [Gap Utilities](gap.md) — Add spacing between flex or grid items
+* [Grid Utilities](css-grid.md) — For column-based layouts
 
-### Justify Content (BSCs)
+---
 
-Controls horizontal alignment if `flex-direction` is `row`, or vertical alignment if `flex-direction` is `col`.
+## 🎓 Want to Learn More?
 
-| **Class**                | **Description**                    |
-| ------------------------------ | ---------------------------------------- |
-| **`.justify-start`**   | Justifies items to the start.            |
-| **`.justify-center`**  | Justifies items to the center.           |
-| **`.justify-end`**     | Justifies items to the end.              |
-| **`.justify-between`** | Distributes items evenly along the axis. |
+* [CSS Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [MDN Flexbox Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_Concepts_of_Flexbox)
 
-### Flex Wrap (BSCs)
+---
 
-| **Class**            | **Description**                                              |
-| -------------------------- | ------------------------------------------------------------------ |
-| **`.flex-wrap`**   | Allows items to wrap onto multiple lines if they run out of space. |
-| **`.flex-nowrap`** | Forces all items to stay on a single line (default).               |
+With just a few classes, Groundwork's Flexbox utilities help you build clean, responsive layouts — even if you're just getting started.

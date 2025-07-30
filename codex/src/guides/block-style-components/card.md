@@ -1,75 +1,94 @@
-# Codex: Card Component
 
-The Card component is one of the most versatile Block Style Components (BSCs) in the Groundwork framework. It is used to group related content into a container that has a distinct background, padding, and elevation (shadow), making it stand out from the page.
+# Card Utilities
 
-## Core Concept
+Groundwork provides flexible, accessible card components using the `.card` base class and a rich set of optional modifiers. Cards are commonly used for grouping related content with visual emphasis, consistent padding, and optional elevation.
 
-Cards are self-contained modules of content. By applying a `.card` class to a block, you can instantly transform it into a visually distinct unit. You can then combine this with other BSCs, like padding or color utilities, to create a wide variety of designs.
+Like other Groundwork layout utilities, card styles can be applied using the **Groundwork lock Styles UI** — no code required. You can also apply them **atomically** in your own markup.
 
-## Tutorial for All Users
+## Overview
 
-This guide shows you how to turn any block into a card.
+| Class                    | Description                                    |
+| ------------------------ | ---------------------------------------------- |
+| `.card`                | Base card styling with padding and shadow      |
+| `.card--*`             | Visual variants (e.g.,`--primary`,`--red`) |
+| `.card--1`/`2`/`3` | Elevation levels (low to high)                 |
+| `.card--hover`         | Adds elevation on hover                        |
 
-### Recommended Method: Using the Block Styles UI
+> 💡  **Note** : All `.card--*` modifiers must be used together with the `.card` base class.
 
-The easiest way to apply card styles is with the **Block Styles UI** module, which is part of the **Groundwork Helpers** meta module.
+---
 
-#### Step 1: Place a Block
+## Base Card
 
-Place any block with content into a region.
-
-#### Step 2: Apply Card and Padding Styles
-
-Click "Configure" on the block and navigate to the **Styles** tab. This opens the interactive UI.
-
-* To apply the default card style, select the **`.card`** class.
-* Cards almost always need internal spacing. It is highly recommended to also select a padding utility, such as **`.p--lg`** or  **`.p--xl`** .
-
-You can experiment with different card variants, like `.card--1` for more shadow or `.card--outline` for a more subtle look.
-
-### Alternative Method: Manual Entry
-
-If you do not have the `Block Styles UI` module installed, you can apply classes manually.
-
-* **For Site Builders:** Install a contributed module that allows adding classes to blocks. In the configuration form, you would type the classes directly into the text field (e.g., `card p--lg`).
-* **For Themers:** Add classes programmatically in your theme's `.theme` file using a preprocess hook.
-
-**Example: `mytheme.theme` file**
-
-```
-/**
- * Implements hook_preprocess_block().
- */
-function mytheme_preprocess_block(&$variables) {
-  // Apply card styling to a specific block.
-  if ($variables['plugin_id'] == 'my_promo_block') {
-    $variables['attributes']['class'][] = 'card';
-    $variables['attributes']['class'][] = 'p--xl';
-  }
-}
-
+```html
+<div class="card">
+  <p>This is a standard card.</p>
+</div>
 ```
 
-## Class Reference
+Provides default padding, subtle shadow, and a white background.
 
-### Card Base & Elevation
+---
 
-Apply one of these classes to a block to give it a card-like appearance.
+## Color Variants
 
-| **Class**     | **Description**                                      |
-| ------------------- | ---------------------------------------------------------- |
-| **`.card`** | The default card style with subtle elevation.              |
-| `.card--1`        | Applies a medium-level shadow for more emphasis.           |
-| `.card--2`        | Applies a strong shadow for a floating effect.             |
-| `.card--3`        | Applies the maximum shadow for modals or primary callouts. |
+```html
+<div class="card card--blue">
+  <p>This card has a blue background.</p>
+</div>
+```
 
-### Card Variants
+Supported color modifiers:
 
-These variants can be combined with a base card class or used on their own.
+* `.card--primary`
+* `.card--inverse`
+* `.card--outline`
+* `.card--blue`, `.card--indigo`, `.card--deep-purple`, `.card--purple`
+* `.card--pink`, `.card--red`, `.card--orange`, `.card--amber`, `.card--yellow`, `.card--lime`
+* `.card--green`, `.card--teal`, `.card--cyan`, `.card--brown`, `.card--blue-gray`, `.card--gray`
 
-| **Class**              | **Description**                                         |
-| ---------------------------- | ------------------------------------------------------------- |
-| **`.card--hover`**   | Adds an elevation effect that appears only on hover.          |
-| **`.card--outline`** | A transparent card with a simple border.                      |
-| **`.card--inverse`** | A dark card surface. Best paired with `.text-light`.        |
-| **`.card--primary`** | A card with the site's primary brand color as the background. |
+Most color variants remove the border for a cleaner look.
+
+---
+
+## Elevation
+
+Use elevation modifiers to increase depth:
+
+```html
+<div class="card card--2">
+  <p>This card has medium elevation.</p>
+</div>
+```
+
+* `.card--1`: low elevation
+* `.card--2`: medium elevation
+* `.card--3`: high elevation
+
+You can also add `.card--hover` to elevate the card on hover:
+
+```html
+<div class="card card--hover">
+  <p>This card lifts on hover.</p>
+</div>
+```
+
+---
+
+## Accessibility Notes
+
+* Text colors use `--text-on-dark` or `--text-on-light` for WCAG contrast compliance.
+* Use `.card--outline` for transparent or minimal designs.
+
+---
+
+## Summary
+
+Groundwork cards offer:
+
+* A clean, modern UI foundation
+* Optional color and elevation variants
+* Reusable, atomic class combinations
+* Accessible color contrast by default
+
+Customize cards by combining base `.card` with any number of supported modifiers.

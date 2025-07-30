@@ -1,61 +1,47 @@
+
 # Cursor Utilities
 
-Cursor utilities provide important visual feedback to users by changing the mouse cursor's appearance when it hovers over an element. This helps communicate the interactivity of different parts of your site.
+Groundwork provides cursor utilities to indicate different user interaction states. These classes can be applied through the **Groundwork Block Styles** module (included in the Groundwork Helpers meta module) — or used atomically in any element.
 
-## Core Concept
+## Overview
 
-The primary use for cursor utilities is to signal that an entire block or component is interactive. For example, a card that links to a news article should have a "pointer" cursor to indicate that the whole area is clickable, not just the title.
+| Class                   | Description                                                  |
+| ----------------------- | ------------------------------------------------------------ |
+| `.cursor-pointer`     | Shows a pointer (hand), indicating an interactive element    |
+| `.cursor-not-allowed` | Shows a no-entry icon, indicating the action is blocked      |
+| `.cursor-wait`        | Shows a spinner or hourglass, indicating background activity |
+| `.cursor-default`     | Shows the default arrow cursor                               |
 
-## Tutorial for All Users
+---
 
-This guide shows you how to change the cursor on a block.
+## Example
 
-### Recommended Method: Using the Block Styles UI
-
-The easiest way to apply cursor styles is with the **Block Styles UI** module, which is part of the **Groundwork Helpers** meta module.
-
-#### Step 1: Place a Block
-
-Place any block in a region. This is most effective on blocks that are wrapped in a link or have custom JavaScript click events.
-
-#### Step 2: Apply a Cursor Class
-
-Click "Configure" on the block and navigate to the **Styles** tab. This opens the interactive UI.
-
-* To indicate that the block is clickable, select the **`.cursor-pointer`** class.
-* If the block represents a disabled action, you could select  **`.cursor-not-allowed`** .
-
-### Alternative Method: Manual Entry
-
-If you do not have the `Block Styles UI` module installed, you can apply classes manually.
-
-* **For Site Builders:** Install a contributed module that allows adding classes to blocks. In the configuration form, you would type the class directly into the text field (e.g., `cursor-pointer`).
-* **For Themers:** Add classes programmatically in your theme's `.theme` file using a preprocess hook.
-
-**Example: `mytheme.theme` file**
-
-```
-/**
- * Implements hook_preprocess_block().
- */
-function mytheme_preprocess_block(&$variables) {
-  // Apply a pointer cursor to a specific block.
-  if ($variables['plugin_id'] == 'my_clickable_promo') {
-    $variables['attributes']['class'][] = 'cursor-pointer';
-  }
-}
-
+```html
+<div class="cursor-pointer">
+  Click me
+</div>
 ```
 
-## Class Reference
+---
 
-### Cursor Classes (BSCs)
+## Design Notes
 
-Apply one of these classes to a block to change its cursor on hover.
+* Cursor classes only affect the cursor’s appearance
+* These utilities are helpful for buttons, links, disabled elements, or loading states
 
-| **Class**                   | **Description**                                          |
-| --------------------------------- | -------------------------------------------------------------- |
-| **`.cursor-pointer`**     | Shows a pointer (hand), indicating a clickable link or button. |
-| **`.cursor-not-allowed`** | Shows a disabled symbol, indicating an action is unavailable.  |
-| **`.cursor-wait`**        | Shows a waiting symbol, indicating a process is running.       |
-| **`.cursor-default`**     | Reverts to the standard system pointer.                        |
+---
+
+## Accessibility Notes
+
+* Cursor styles reinforce user expectations
+* Use in combination with `aria-disabled`, `aria-busy`, or proper HTML semantics
+
+---
+
+## Summary
+
+Cursor utilities enhance interactivity and affordance without adding complexity. Use them via the **Groundwork Block Styles** module or directly in markup to:
+
+* Signal clickable or disabled elements
+* Indicate loading states
+* Restore default cursor appearance

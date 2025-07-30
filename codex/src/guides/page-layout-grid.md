@@ -1,10 +1,9 @@
-
 # The Page Layout Grid
 
 The Groundwork framework includes two distinct grid systems designed for different purposes. Understanding the difference is key to building powerful and maintainable layouts.
 
 1. **Page Layout Grid (`.grid` & `.grid-cell`):** This is the primary **Flexbox-based** system used to arrange **blocks** within a page's  **regions** . It controls the main structure of your site.
-2. **Content Layout Grid (`.d-grid`):** This is an optional, more powerful CSS Grid system you can apply to a single block to arrange the content *inside* it.
+2. **Content Layout Grid (`.d-grid`):** This is an optional, more powerful CSS Grid system you can apply to a single block to arrange the content *inside* it, or use atomically in your own markup.
 
 This tutorial focuses on the foundational  **Page Layout Grid** .
 

@@ -1,58 +1,58 @@
-# Blockquote Component
 
-The Blockquote component is a pre-styled Block Style Component (BSC) used to visually distinguish quoted text from the surrounding content. It's an essential tool for articles, testimonials, or any content that includes citations.
+# Blockquote Utility
 
-## Core Concept
+Groundwork provides a simple, accessible `.blockquote` utility class for styling quoted text with visual clarity and distinction.
 
-The Blockquote component is designed to be dual-purpose. It can be:
+As with all Groundwork utilities, the `.blockquote` class can be applied via the **Groundwork Block Styles** module — or atomically in your own markup. The Groundwork Block Styles module is part of the meta module Groundwork Helpers.
 
-1. Applied to a Drupal block to transform its entire content area into a styled quote.
-2. Applied directly to a `<blockquote>` HTML element for atomic use within Twig templates or the WYSIWYG editor.
+## Overview
 
-The style typically includes a prominent left border, a subtle background color, and italicized text to make the quote stand out.
+| Class           | Description                                    |
+| --------------- | ---------------------------------------------- |
+| `.blockquote` | Styles block-level quotes with border and tone |
 
-## Tutorial for All Users
+---
 
-This guide shows you how to create a styled blockquote.
+## Example
 
-### Recommended Method: Using the Block Styles UI (for Blocks)
-
-The easiest way to turn an entire block into a blockquote is with the **Block Styles UI** module, which is part of the **Groundwork Helpers** meta module.
-
-#### Step 1: Place a Block
-
-Place a "Basic block" or any other block with text content into a region. It's common to include a `<p>` tag for the quote and a `<footer>` tag for the citation.
-
-#### Step 2: Apply the Blockquote Class
-
-Click "Configure" on the block and navigate to the **Styles** tab. In the interactive UI, select the **`.blockquote`** class.
-
-The entire block will now be rendered as a styled quote.
-
-### Alternative Method: Manual Entry
-
-#### For Site Builders (on Blocks)
-
-If you do not have the `Block Styles UI` module installed, you can use a contributed module that allows adding classes to blocks. In the configuration form, you would type the class directly into the text field (e.g., `blockquote`).
-
-#### For Themers & Editors (Atomic Use)
-
-Themers and content editors can apply the `.blockquote` class directly to a `<blockquote>` element within a Twig template or the WYSIWYG "Source" view.
-
-**Example: In the WYSIWYG Editor**
-
-```
+```html
 <blockquote class="blockquote">
-  <p>This is the part that is quoted. It stands out from the rest of the text.</p>
-  <footer>—Author's Name</footer>
+  "We do not inherit the earth from our ancestors; we borrow it from our children."
 </blockquote>
-
 ```
 
-## Class Reference
+This adds:
 
-### Blockquote Class
+* Padding and spacing for readability
+* A thick left border for visual emphasis
+* A contrasting background tone
+* Italicized text for a traditional quote look
 
-| **Class**           | **Description**                                                                    |
-| ------------------------- | ---------------------------------------------------------------------------------------- |
-| **`.blockquote`** | Applies the standard blockquote styling with a left border, background, and italic text. |
+---
+
+## Visual Features
+
+* Uses `--color-border` for the left border (customizable)
+* Applies `--color-surface-contrast` as background
+* Rounded corners via `--radius-sm`
+* Soft, neutral styling that adapts to light/dark themes
+
+---
+
+## Accessibility Notes
+
+* The background contrast is optimized for readability
+* Borders and spacing aid content scanning
+* Does not rely solely on color for meaning
+
+---
+
+## Summary
+
+The `.blockquote` class is a foundational typographic utility ideal for:
+
+* Quoting external sources
+* Highlighting key statements
+* Styling testimonials or citations
+
+Use it through the **Groundwork Block Styles** module or directly in markup — no extra configuration required.
