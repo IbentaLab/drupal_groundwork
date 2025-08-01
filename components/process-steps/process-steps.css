@@ -63,7 +63,7 @@
 }
 
 .process-steps__item-title {
-  /* Font size is now inherited from .form-check__label */
+  /* Font size is now inherited from .form-checkbox__label */
   margin: 0;
   font-weight: bold;
   transition: all 0.2s ease;
@@ -74,12 +74,12 @@
   color: var(--color-text);
 }
 
-/* Use the existing form-check system from your design tokens */
-.process-steps .form-check {
+/* Use the existing form-checkbox system from your design tokens */
+.process-steps .form-checkbox {
   align-items: flex-start;
 }
 
-.process-steps .form-check__label {
+.process-steps .form-checkbox__label {
   line-height: var(--line-height-base);
 }
 
@@ -170,7 +170,7 @@
   }
 
   /* Ensure checkboxes are visible in print */
-  .form-check__input {
+  .form-checkbox__input {
     -webkit-appearance: checkbox;
     appearance: checkbox;
     width: 1rem !important;
@@ -179,7 +179,7 @@
     background: white !important;
   }
 
-  .form-check__input:checked {
+  .form-checkbox__input:checked {
     background: white !important;
     border: 1px solid #000 !important;
   }

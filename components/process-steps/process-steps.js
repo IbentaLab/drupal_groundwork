@@ -119,7 +119,7 @@
     }
 
     updateStepAppearance(checkbox, isChecked) {
-      // The strikethrough effect is now handled by CSS using the form-check--strikethrough class
+      // The strikethrough effect is now handled by CSS using the form-checkbox--strikethrough class
       // We just need to ensure the checkbox state is properly reflected
       // The visual styling is automatically handled by your form checkbox system
     }
@@ -165,10 +165,10 @@
                 .process-steps__item { position: relative; padding-left: 60px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #ccc; }
                 .process-steps__item:last-child { border-bottom: none; }
                 .process-steps__item::before { counter-increment: process-counter; content: counter(process-counter); position: absolute; left: 0; top: 0; font-size: 24px; font-weight: bold; color: white; background-color: #666; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-                .form-check { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
-                .form-check__input { width: 16px; height: 16px; margin: 0; }
-                .form-check__input:checked + .form-check__label { text-decoration: line-through; opacity: 0.7; }
-                .form-check__label { margin: 0; font-weight: bold; }
+                .form-checkbox { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+                .form-checkbox__input { width: 16px; height: 16px; margin: 0; }
+                .form-checkbox__input:checked + .form-checkbox__label { text-decoration: line-through; opacity: 0.7; }
+                .form-checkbox__label { margin: 0; font-weight: bold; }
                 .process-steps__item-description { margin-left: 24px; }
                 .process-steps__intro, .process-steps__outro { border: 1px solid #ccc; padding: 16px; margin: 16px 0; }
                 @media print { body { margin: 0; } }

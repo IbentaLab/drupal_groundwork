@@ -43,16 +43,16 @@
       {% for step in steps %}
         <li class="process-steps__item">
           <div class="process-steps__item-header">
-            <div class="form-check form-check--strikethrough">
+            <div class="form-checkbox form-checkbox--strikethrough">
               <input
-                class="form-check__input process-steps__checkbox"
+                class="form-checkbox__input process-steps__checkbox"
                 type="checkbox"
                 id="step-{{ component_id }}-{{ loop.index0 }}"
                 data-step-index="{{ loop.index0 }}"
                 data-component-id="{{ component_id }}"
               >
               <label
-                class="form-check__label process-steps__item-title"
+                class="form-checkbox__label process-steps__item-title"
                 for="step-{{ component_id }}-{{ loop.index0 }}"
               >
                 {{ step.title }}

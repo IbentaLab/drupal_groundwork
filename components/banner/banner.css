@@ -97,62 +97,6 @@
 }
 
 /* ===================================================================
-   BUTTON VISIBILITY IMPROVEMENTS
-   Ensure buttons are always visible regardless of background
-   =================================================================== */
-
-.banner .button {
-  /* Add subtle border for definition */
-  border: 2px solid transparent;
-  /* Add shadow for depth and visibility */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Ensure buttons have enough contrast */
-  position: relative;
-}
-
-.banner .button:hover {
-  /* Enhanced shadow on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Smart contrast for primary buttons on primary backgrounds */
-.banner.bg--blue .button--primary,
-.banner.bg--indigo .button--primary,
-.banner.bg--deep-purple .button--primary,
-.banner.bg--purple .button--primary,
-.banner.bg--pink .button--primary,
-.banner.bg--red .button--primary,
-.banner.bg--orange .button--primary,
-.banner.bg--brown .button--primary,
-.banner.bg--blue-gray .button--primary,
-.banner.bg--gray .button--primary,
-.banner.bg--green .button--primary,
-.banner.bg--teal .button--primary,
-.banner.bg--cyan .button--primary {
-  /* Use ghost style when button color might match background */
-  background-color: transparent !important;
-  color: var(--text-on-dark) !important;
-  border-color: var(--text-on-dark) !important;
-}
-
-.banner.bg--blue .button--primary:hover,
-.banner.bg--indigo .button--primary:hover,
-.banner.bg--deep-purple .button--primary:hover,
-.banner.bg--purple .button--primary:hover,
-.banner.bg--pink .button--primary:hover,
-.banner.bg--red .button--primary:hover,
-.banner.bg--orange .button--primary:hover,
-.banner.bg--brown .button--primary:hover,
-.banner.bg--blue-gray .button--primary:hover,
-.banner.bg--gray .button--primary:hover,
-.banner.bg--green .button--primary:hover,
-.banner.bg--teal .button--primary:hover,
-.banner.bg--cyan .button--primary:hover {
-  background-color: var(--text-on-dark) !important;
-  color: var(--color-primary) !important;
-}
-
-/* ===================================================================
    TYPOGRAPHY
    Uses design system tokens for consistent scaling
    =================================================================== */
@@ -189,8 +133,7 @@
 
 .banner .button {
   /* Add subtle border for definition */
-  border-width: 2px;
-  border-style: solid;
+  border: 2px solid transparent;
   /* Add shadow for depth and visibility */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   /* Ensure buttons have enough contrast */
@@ -202,42 +145,61 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Smart contrast for primary buttons on colored backgrounds */
-.banner.bg--blue .button--primary:not(.button--ghost),
-.banner.bg--indigo .button--primary:not(.button--ghost),
-.banner.bg--deep-purple .button--primary:not(.button--ghost),
-.banner.bg--purple .button--primary:not(.button--ghost),
-.banner.bg--pink .button--primary:not(.button--ghost),
-.banner.bg--red .button--primary:not(.button--ghost),
-.banner.bg--orange .button--primary:not(.button--ghost),
-.banner.bg--brown .button--primary:not(.button--ghost),
-.banner.bg--blue-gray .button--primary:not(.button--ghost),
-.banner.bg--gray .button--primary:not(.button--ghost),
-.banner.bg--green .button--primary:not(.button--ghost),
-.banner.bg--teal .button--primary:not(.button--ghost),
-.banner.bg--cyan .button--primary:not(.button--ghost) {
-  /* Convert to ghost style when button color might match background */
+/* Smart contrast for buttons and backgrounds with the same color */
+.banner.bg--blue .button--primary,
+.banner.bg--gray .button--secondary,
+.banner.bg--purple .button--info,
+.banner.bg--blue .button--notice,
+.banner.bg--green .button--success,
+.banner.bg--red .button--danger,
+.banner.bg--orange .button--warning,
+.banner.bg--gray .button--muted {
+  /* Use ghost style when button color might match background */
   background-color: transparent !important;
   color: var(--text-on-dark) !important;
   border-color: var(--text-on-dark) !important;
 }
 
-.banner.bg--blue .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--indigo .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--deep-purple .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--purple .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--pink .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--red .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--orange .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--brown .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--blue-gray .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--gray .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--green .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--teal .button--primary:not(.button--ghost):hover:not(:disabled),
-.banner.bg--cyan .button--primary:not(.button--ghost):hover:not(:disabled) {
+.banner.bg--blue .button--primary:hover {
   background-color: var(--text-on-dark) !important;
   color: var(--color-primary) !important;
 }
+
+.banner.bg--gray .button--secondary:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-secondary) !important;
+}
+
+.banner.bg--purple .button--info:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-info) !important;
+}
+
+.banner.bg--blue .button--notice:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-notice) !important;
+}
+
+.banner.bg--green .button--success:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-success) !important;
+}
+
+.banner.bg--red .button--danger:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-danger) !important;
+}
+
+.banner.bg--orange .button--warning:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-warning) !important;
+}
+
+.banner.bg--gray .button--muted:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-muted) !important;
+}
+
 
 /* ===================================================================
    ACTIONS

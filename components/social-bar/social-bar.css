@@ -1,12 +1,12 @@
 /* /components/social-bar/social-bar.css */
 .social-bar {
   width: 100%;
-  padding: 0.5rem 1rem;
-  background-color: var(--color-background-secondary, #f1f1f1); /* A fallback color */
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-surface-dark);
 }
 
 .social-bar__inner {
-  max-width: var(--layout-max-width, 1200px);
+  max-width: var(--layout-max-width);
   margin: 0 auto;
 }
 
@@ -16,7 +16,7 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: var(--space-md);
 }
 
 /* Alignment Classes */
@@ -36,7 +36,7 @@
 .social-links__link {
   color: var(--color-text);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: var(--ms-sm);
 }
 .social-links__link:hover {
   text-decoration: underline;
