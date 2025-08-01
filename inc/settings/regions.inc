@@ -25,9 +25,35 @@ $form['gw_regions']['gw_billboard']['gw_billboard_background'] = [
   '#collapsed' => TRUE,
 ];
 
+$form['gw_regions']['gw_billboard']['gw_billboard_background']['gw_background_billboard_color'] = [
+  '#type' => 'select',
+  '#title' => t('Background Color'),
+  '#description' => t("Choose a pre-defined background color for the billboard region. This is overridden if a background image is set."),
+  '#options' => [
+    '' => t('- Default -'),
+    'blue' => t('Blue'),
+    'indigo' => t('Indigo'),
+    'deep-purple' => t('Deep Purple'),
+    'purple' => t('Purple'),
+    'pink' => t('Pink'),
+    'red' => t('Red'),
+    'orange' => t('Orange'),
+    'amber' => t('Amber'),
+    'yellow' => t('Yellow'),
+    'lime' => t('Lime'),
+    'green' => t('Green'),
+    'teal' => t('Teal'),
+    'cyan' => t('Cyan'),
+    'brown' => t('Brown'),
+    'blue-gray' => t('Blue Gray'),
+    'gray' => t('Gray'),
+  ],
+  '#default_value' => $config->get('gw_background_billboard_color') ?? '',
+];
+
 $form['gw_regions']['gw_billboard']['gw_billboard_background']['gw_background_billboard_use_default'] = [
   '#type' => 'checkbox',
-  '#title' => t("Use this theme's default background"),
+  '#title' => t("Uncheck to define your custom background image"),
   '#default_value' => $config->get('gw_background_billboard_use_default') ?? 1,
 ];
 
@@ -104,7 +130,7 @@ $form['gw_regions']['gw_header']['gw_header_background']['gw_background_header_c
 
 $form['gw_regions']['gw_header']['gw_header_background']['gw_background_header_use_default'] = [
   '#type' => 'checkbox',
-  '#title' => t("Use this theme's default background"),
+  '#title' => t("Uncheck to define your custom background image"),
   '#default_value' => $config->get('gw_background_header_use_default') ?? 1,
 ];
 
@@ -136,26 +162,6 @@ $form['gw_regions']['gw_header']['gw_header_background']['gw_custom_background_w
   ],
 ];
 
-$form['gw_regions']['gw_header']['gw_header_layout'] = [
-  '#type' => 'details',
-  '#title' => \Drupal::translation()->translate('Layout'),
-  '#description' => \Drupal::translation()->translate('Configure the layout options for this region.'),
-  '#collapsible' => TRUE,
-  '#collapsed' => TRUE,
-];
-
-$form['gw_regions']['gw_header']['gw_header_layout']['gw_header_layout_options'] = [
-  '#type' => 'radios',
-  '#title' => \Drupal::translation()->translate('Header Layout'),
-  '#default_value' => $config->get('gw_header_layout') ?: 'header--brand-left',
-  '#options' => [
-    'header--brand-left' => \Drupal::translation()->translate('Brand Left (Default)'),
-    'header--brand-center' => \Drupal::translation()->translate('Brand Center'),
-    'header--brand-stacked' => \Drupal::translation()->translate('Stacked'),
-  ],
-  '#description' => \Drupal::translation()->translate('Select the layout for the site header. This applies a CSS class to the <body> tag.'),
-];
-
 // ----- Hero Settings -----
 $form['gw_regions']['gw_hero'] = [
   '#type' => 'details',
@@ -172,9 +178,35 @@ $form['gw_regions']['gw_hero']['gw_hero_background'] = [
   '#collapsed' => TRUE,
 ];
 
+$form['gw_regions']['gw_hero']['gw_hero_background']['gw_background_hero_color'] = [
+  '#type' => 'select',
+  '#title' => t('Background Color'),
+  '#description' => t("Choose a pre-defined background color for the hero region. This is overridden if a background image is set."),
+  '#options' => [
+    '' => t('- Default -'),
+    'blue' => t('Blue'),
+    'indigo' => t('Indigo'),
+    'deep-purple' => t('Deep Purple'),
+    'purple' => t('Purple'),
+    'pink' => t('Pink'),
+    'red' => t('Red'),
+    'orange' => t('Orange'),
+    'amber' => t('Amber'),
+    'yellow' => t('Yellow'),
+    'lime' => t('Lime'),
+    'green' => t('Green'),
+    'teal' => t('Teal'),
+    'cyan' => t('Cyan'),
+    'brown' => t('Brown'),
+    'blue-gray' => t('Blue Gray'),
+    'gray' => t('Gray'),
+  ],
+  '#default_value' => $config->get('gw_background_hero_color') ?? '',
+];
+
 $form['gw_regions']['gw_hero']['gw_hero_background']['gw_background_hero_use_default'] = [
   '#type' => 'checkbox',
-  '#title' => t("Use this theme's default background"),
+  '#title' => t("Uncheck to define your custom background image"),
   '#default_value' => $config->get('gw_background_hero_use_default') ?? 1,
 ];
 
@@ -286,9 +318,35 @@ $form['gw_regions']['gw_extra']['gw_extra_background'] = [
   '#collapsed' => TRUE,
 ];
 
+$form['gw_regions']['gw_extra']['gw_extra_background']['gw_background_extra_color'] = [
+  '#type' => 'select',
+  '#title' => t('Background Color'),
+  '#description' => t("Choose a pre-defined background color for the extra region. This is overridden if a background image is set."),
+  '#options' => [
+    '' => t('- Default -'),
+    'blue' => t('Blue'),
+    'indigo' => t('Indigo'),
+    'deep-purple' => t('Deep Purple'),
+    'purple' => t('Purple'),
+    'pink' => t('Pink'),
+    'red' => t('Red'),
+    'orange' => t('Orange'),
+    'amber' => t('Amber'),
+    'yellow' => t('Yellow'),
+    'lime' => t('Lime'),
+    'green' => t('Green'),
+    'teal' => t('Teal'),
+    'cyan' => t('Cyan'),
+    'brown' => t('Brown'),
+    'blue-gray' => t('Blue Gray'),
+    'gray' => t('Gray'),
+  ],
+  '#default_value' => $config->get('gw_background_extra_color') ?? '',
+];
+
 $form['gw_regions']['gw_extra']['gw_extra_background']['gw_background_extra_use_default'] = [
   '#type' => 'checkbox',
-  '#title' => t("Use this theme's default background"),
+  '#title' => t("Uncheck to define your custom background image"),
   '#default_value' => $config->get('gw_background_extra_use_default') ?? 1,
 ];
 
@@ -336,9 +394,35 @@ $form['gw_regions']['gw_supplement']['gw_supplement_background'] = [
   '#collapsed' => TRUE,
 ];
 
+$form['gw_regions']['gw_supplement']['gw_supplement_background']['gw_background_supplement_color'] = [
+  '#type' => 'select',
+  '#title' => t('Background Color'),
+  '#description' => t("Choose a pre-defined background color for the supplement region. This is overridden if a background image is set."),
+  '#options' => [
+    '' => t('- Default -'),
+    'blue' => t('Blue'),
+    'indigo' => t('Indigo'),
+    'deep-purple' => t('Deep Purple'),
+    'purple' => t('Purple'),
+    'pink' => t('Pink'),
+    'red' => t('Red'),
+    'orange' => t('Orange'),
+    'amber' => t('Amber'),
+    'yellow' => t('Yellow'),
+    'lime' => t('Lime'),
+    'green' => t('Green'),
+    'teal' => t('Teal'),
+    'cyan' => t('Cyan'),
+    'brown' => t('Brown'),
+    'blue-gray' => t('Blue Gray'),
+    'gray' => t('Gray'),
+  ],
+  '#default_value' => $config->get('gw_background_supplement_color') ?? '',
+];
+
 $form['gw_regions']['gw_supplement']['gw_supplement_background']['gw_background_supplement_use_default'] = [
   '#type' => 'checkbox',
-  '#title' => t("Use this theme's default background"),
+  '#title' => t("Uncheck to define your custom background image"),
   '#default_value' => $config->get('gw_background_supplement_use_default') ?? 1,
 ];
 
@@ -386,9 +470,35 @@ $form['gw_regions']['gw_rider']['gw_rider_background'] = [
   '#collapsed' => TRUE,
 ];
 
+$form['gw_regions']['gw_rider']['gw_rider_background']['gw_background_rider_color'] = [
+  '#type' => 'select',
+  '#title' => t('Background Color'),
+  '#description' => t("Choose a pre-defined background color for the rider region. This is overridden if a background image is set."),
+  '#options' => [
+    '' => t('- Default -'),
+    'blue' => t('Blue'),
+    'indigo' => t('Indigo'),
+    'deep-purple' => t('Deep Purple'),
+    'purple' => t('Purple'),
+    'pink' => t('Pink'),
+    'red' => t('Red'),
+    'orange' => t('Orange'),
+    'amber' => t('Amber'),
+    'yellow' => t('Yellow'),
+    'lime' => t('Lime'),
+    'green' => t('Green'),
+    'teal' => t('Teal'),
+    'cyan' => t('Cyan'),
+    'brown' => t('Brown'),
+    'blue-gray' => t('Blue Gray'),
+    'gray' => t('Gray'),
+  ],
+  '#default_value' => $config->get('gw_background_rider_color') ?? '',
+];
+
 $form['gw_regions']['gw_rider']['gw_rider_background']['gw_background_rider_use_default'] = [
   '#type' => 'checkbox',
-  '#title' => t("Use this theme's default background"),
+  '#title' => t("Uncheck to define your custom background image"),
   '#default_value' => $config->get('gw_background_rider_use_default') ?? 1,
 ];
 
@@ -437,9 +547,35 @@ $form['gw_regions']['gw_footer']['gw_footer_background'] = [
   '#collapsed' => TRUE,
 ];
 
+$form['gw_regions']['gw_footer']['gw_footer_background']['gw_background_footer_color'] = [
+  '#type' => 'select',
+  '#title' => t('Background Color'),
+  '#description' => t("Choose a pre-defined background color for the footer region. This is overridden if a background image is set."),
+  '#options' => [
+    '' => t('- Default -'),
+    'blue' => t('Blue'),
+    'indigo' => t('Indigo'),
+    'deep-purple' => t('Deep Purple'),
+    'purple' => t('Purple'),
+    'pink' => t('Pink'),
+    'red' => t('Red'),
+    'orange' => t('Orange'),
+    'amber' => t('Amber'),
+    'yellow' => t('Yellow'),
+    'lime' => t('Lime'),
+    'green' => t('Green'),
+    'teal' => t('Teal'),
+    'cyan' => t('Cyan'),
+    'brown' => t('Brown'),
+    'blue-gray' => t('Blue Gray'),
+    'gray' => t('Gray'),
+  ],
+  '#default_value' => $config->get('gw_background_footer_color') ?? '',
+];
+
 $form['gw_regions']['gw_footer']['gw_footer_background']['gw_background_footer_use_default'] = [
   '#type' => 'checkbox',
-  '#title' => t("Use this theme's default background"),
+  '#title' => t("Uncheck to define your custom background image"),
   '#default_value' => $config->get('gw_background_footer_use_default') ?? 1,
 ];
 
