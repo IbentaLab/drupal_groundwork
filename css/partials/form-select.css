@@ -1,0 +1,159 @@
+/* ===================================================================
+   FORM SELECT COMPONENT
+   Accessible, themeable select dropdowns.
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, info, notice, success, danger, warning, muted
+   📏 Size: xs, sm, md, lg, xl, xxl
+   ✳️ State: is-invalid, is-valid, is-warning, is-disabled
+   ⬜ Shape: default, rounded, square, pill
+   🧠 Type: default, multiple, native
+   🔄 Layout: compact
+*/
+
+.form-select {
+  /* --- Component Variables (Default - MD size) --- */
+  --select-arrow-size: 0.5em;
+  --select-arrow-padding: var(--space-md);
+
+  /* Leverage the base form field styles, only add select-specific properties */
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.form-select__field {
+  /* Minimal base styling - use existing form field styles where possible */
+  display: block;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+
+  /* Select-specific: dropdown arrow */
+  padding-right: calc(var(--select-arrow-padding) + var(--select-arrow-size));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239e9e9e'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-sm) center;
+  background-size: var(--select-arrow-size) var(--select-arrow-size);
+}
+
+/* Visually hide the dropdown arrow in Firefox */
+.form-select__field::-moz-focus-inner {
+  border: 0;
+}
+
+/* Hide default dropdown arrow in IE10+ */
+.form-select__field::-ms-expand {
+  display: none;
+}
+
+/* ===================================================================
+   TYPE VARIANTS
+   =================================================================== */
+
+/* Multiple select variant */
+.form-select--multiple .form-select__field {
+  background-image: none;
+  padding-right: var(--space-sm);
+}
+
+/* Native select - shows browser default styling */
+.form-select--native .form-select__field {
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  appearance: menulist;
+  background-image: none;
+  padding-right: var(--space-sm);
+}
+
+/* ===================================================================
+   COLOR VARIANTS - Only add the arrow color changes
+   =================================================================== */
+
+.form-select--primary .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232196f3'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.form-select--secondary .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239e9e9e'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.form-select--info .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23673ab7'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.form-select--notice .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232196f3'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.form-select--success .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234caf50'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.form-select--danger .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f44336'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.form-select--warning .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff9800'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.form-select--muted .form-select__field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239e9e9e'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+/* ===================================================================
+   STATE VARIANTS - Only add select-specific state styles
+   =================================================================== */
+
+/* Add validation icons alongside the arrow */
+.form-select.is-valid .form-select__field {
+  padding-right: calc(var(--space-lg) + var(--select-arrow-size));
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234caf50'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239e9e9e'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-position:
+    right calc(var(--space-lg) + var(--space-xs)) center,
+    right var(--space-sm) center;
+  background-size:
+    var(--select-arrow-size) var(--select-arrow-size),
+    var(--select-arrow-size) var(--select-arrow-size);
+}
+
+.form-select.is-invalid .form-select__field {
+  padding-right: calc(var(--space-lg) + var(--select-arrow-size));
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f44336'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239e9e9e'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-position:
+    right calc(var(--space-lg) + var(--space-xs)) center,
+    right var(--space-sm) center;
+  background-size:
+    var(--select-arrow-size) var(--select-arrow-size),
+    var(--select-arrow-size) var(--select-arrow-size);
+}
+
+.form-select.is-warning .form-select__field {
+  padding-right: calc(var(--space-lg) + var(--select-arrow-size));
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff9800'%3E%3Cpath d='M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239e9e9e'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-position:
+    right calc(var(--space-lg) + var(--space-xs)) center,
+    right var(--space-sm) center;
+  background-size:
+    var(--select-arrow-size) var(--select-arrow-size),
+    var(--select-arrow-size) var(--select-arrow-size);
+}
+
+/* ===================================================================
+   LAYOUT VARIANTS
+   =================================================================== */
+
+/* Compact select - smaller padding */
+.form-select--compact {
+  --select-arrow-padding: var(--space-sm);
+}

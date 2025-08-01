@@ -1,0 +1,190 @@
+/* ===================================================================
+   FORM NUMBER COMPONENT
+   Accessible, themeable number input with increment/decrement controls.
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, info, notice, success, danger, warning, muted
+   📏 Size: xs, sm, md, lg, xl, xxl
+   ✳️ State: is-invalid, is-valid, is-warning, is-disabled
+   ⬜ Shape: default, rounded, square, pill
+   🧠 Type: default, compact, touch-friendly, currency
+   🔄 Layout: horizontal, vertical
+*/
+
+.form-number {
+  /* --- Component Variables --- */
+  --number-control-width: 2em;
+  --number-control-color: var(--color-text);
+  --number-control-bg: var(--color-surface);
+  --number-control-hover-bg: var(--color-surface-hover);
+
+  /* --- Base Container Styles --- */
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.form-number__field {
+  /* We don't need to repeat input styles, just number-specific styling */
+  -moz-appearance: textfield;
+  text-align: center;
+}
+
+/* Hide browser increment/decrement buttons */
+.form-number__field::-webkit-outer-spin-button,
+.form-number__field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Custom increment/decrement buttons */
+.form-number__control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--number-control-width);
+  background-color: var(--number-control-bg);
+  color: var(--number-control-color);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background-color var(--duration-short);
+}
+
+.form-number__control:hover {
+  background-color: var(--number-control-hover-bg);
+}
+
+.form-number__control:active {
+  transform: translateY(1px);
+}
+
+.form-number__control--decrement {
+  border-right: none;
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.form-number__control--increment {
+  border-left: none;
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+/* Override border-radius on the field */
+.form-number__field {
+  border-radius: 0;
+}
+
+/* ===================================================================
+   COLOR VARIANTS - Only component-specific styles
+   =================================================================== */
+
+.form-number--primary .form-number__control {
+  color: var(--color-primary);
+}
+
+.form-number--secondary .form-number__control {
+  color: var(--color-secondary);
+}
+
+.form-number--info .form-number__control {
+  color: var(--color-info);
+}
+
+.form-number--notice .form-number__control {
+  color: var(--color-notice);
+}
+
+.form-number--success .form-number__control {
+  color: var(--color-success);
+}
+
+.form-number--danger .form-number__control {
+  color: var(--color-danger);
+}
+
+.form-number--warning .form-number__control {
+  color: var(--color-warning);
+}
+
+.form-number--muted .form-number__control {
+  color: var(--color-muted);
+}
+
+/* ===================================================================
+   TYPE VARIANTS
+   =================================================================== */
+
+/* Currency formatting */
+.form-number--currency {
+  position: relative;
+}
+
+.form-number--currency .form-number__field {
+  padding-left: calc(var(--space-md) + var(--space-sm));
+}
+
+.form-number--currency::before {
+  content: "$";
+  position: absolute;
+  left: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text);
+  pointer-events: none;
+}
+
+/* Compact controls */
+.form-number--compact {
+  --number-control-width: 1.5em;
+}
+
+.form-number--compact .form-number__control {
+  font-size: 0.875em;
+}
+
+/* Touch-friendly for mobile */
+.form-number--touch-friendly {
+  --number-control-width: 2.5em;
+}
+
+.form-number--touch-friendly .form-number__control {
+  min-height: 2.5em;
+}
+
+/* ===================================================================
+   LAYOUT VARIANTS
+   =================================================================== */
+
+/* Vertical layout */
+.form-number--vertical {
+  flex-direction: column;
+}
+
+.form-number--vertical .form-number__field {
+  order: 2;
+  border-radius: 0;
+  border-top: none;
+  border-bottom: none;
+}
+
+.form-number--vertical .form-number__control--increment {
+  order: 1;
+  border-bottom: none;
+  border-left: 1px solid var(--color-border);
+  border-top-left-radius: var(--radius-sm);
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-number--vertical .form-number__control--decrement {
+  order: 3;
+  border-top: none;
+  border-left: 1px solid var(--color-border);
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
