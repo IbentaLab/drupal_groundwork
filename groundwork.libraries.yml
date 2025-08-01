@@ -77,14 +77,6 @@ gwicon-icons:
     theme:
       icons/gwicons/gwicons.css: {}
 
-# Hybrid Style Components (HSC).
-hybrid-styles:
-  version: VERSION
-  css:
-    component:
-      css/hybrid-style-components/header-layouts.css: {}
-      css/hybrid-style-components/layout-flex-row.css: {}
-
 # Block Style Components (BSC).
 block-styles:
   version: VERSION

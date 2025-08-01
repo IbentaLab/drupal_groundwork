@@ -22,8 +22,8 @@
   • .is-half--sm, .is-quarter--lg, etc.
 */
 
-/* ─── Column Widths: Small (≤768px) ───────────────────────────────── */
-@media (max-width: 768px) {
+/* ─── Column Widths: Small (≤991px) ───────────────────────────────── */
+@media (max-width: 991px) {
 
   /**
    * @name .is-1--sm

@@ -13,7 +13,7 @@
  */
 .card:not(.block),
 .card.block.grid-cell .block-style-target {
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--shadow-sm);
   background-color: var(--color-surface);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 0.4rem;
@@ -27,8 +27,8 @@
  */
 .card--inverse:not(.block),
 .card--inverse.block.grid-cell .block-style-target {
-  background-color: #222;
-  color: var(--text-on-dark);
+  background-color: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
   border: none;
 }
 
@@ -52,7 +52,7 @@
 .card--outline:not(.block),
 .card--outline.block.grid-cell .block-style-target {
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-border);
 }
 
 /* --- Theme Color Variants --- */
@@ -256,7 +256,7 @@
  */
 .card--1:not(.block),
 .card--1.block.grid-cell .block-style-target {
-  box-shadow: var(--box-shadow-1);
+  box-shadow: var(--shadow-xs);
 }
 
 /**
@@ -266,7 +266,7 @@
  */
 .card--2:not(.block),
 .card--2.block.grid-cell .block-style-target {
-  box-shadow: var(--box-shadow-2);
+  box-shadow: var(--shadow-md);
 }
 
 /**
@@ -276,7 +276,7 @@
  */
 .card--3:not(.block),
 .card--3.block.grid-cell .block-style-target {
-  box-shadow: var(--box-shadow-3);
+  box-shadow: var(--shadow-lg);
 }
 
 /**
@@ -286,5 +286,5 @@
  */
 .card--hover:not(.block):hover,
 .card--hover.block.grid-cell .block-style-target:hover {
-  box-shadow: var(--box-shadow-3);
+  box-shadow: var(--shadow-lg);
 }
