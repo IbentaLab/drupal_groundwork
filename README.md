@@ -75,13 +75,12 @@ drush config-set system.theme default groundwork
 
 Groundwork is built around a powerful, layered frontend architecture:
 
-| **Type**                              | **Folder**                 | **Purpose**                                                              |
-| ------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------ |
-| **Page Layout Grid**                  | `css/layout/`                  | The primary Flexbox grid for arranging**blocks**in **regions** .   |
-| **BSC**– Block Style Components      | `css/block-style-components/`  | A comprehensive library of utility classes for styling blocks and content.     |
-| **SDC**– Single Directory Components | `components/`                  | Fully reusable, self-contained UI components with their own Twig, CSS, and JS. |
-| **HSC**– Hybrid Style Components     | `css/hybrid-style-components/` | Pre-composed layout patterns for common block structures.                      |
-| **FP**– Framework Partials           | `partials/`                    | Small, reusable UI fragments (like icons) used across templates.               |
+| **Type**                              | **Folder**                | **Purpose**                                                              |
+| ------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| **Page Layout Grid**                  | `css/layout/`                 | The primary Flexbox grid for arranging**blocks**in **regions** .   |
+| **BSC**– Block Style Components      | `css/block-style-components/` | A comprehensive library of utility classes for styling blocks and content.     |
+| **SDC**– Single Directory Components | `components/`                 | Fully reusable, self-contained UI components with their own Twig, CSS, and JS. |
+| **FP**– Framework Partials           | `css/partials/`               | Small, reusable UI fragments (like buttons) used across templates.             |
 
 ## 🧮 The Dual Grid System
 
@@ -158,18 +157,6 @@ BSCs are dual-purpose utility classes for styling blocks and content. They are t
 * 🎯 You can stack them freely — e.g. `.card .p-4 .shadow-lg .hover-raise .transition-all`
 
 📁 Located in: `css/block-style-components/`
-
-## ⚗️ Hybrid Style Components (HSC)
-
-HSCs are  **ready-made layout + style patterns** . They’re more than simple utilities but not full components. Think of them as reusable building blocks for structuring a section of your site.
-
-### Use HSCs when you need:
-
-* A **media + text** layout that works on all screen sizes
-* A **card grid** with consistent spacing and alignment
-* A **two-column hero section** or feature band
-
-📁 Located in: `css/hybrid-style-components/`
 
 ## 🧩 Single Directory Components (SDC)
 
