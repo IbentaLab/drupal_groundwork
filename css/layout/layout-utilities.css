@@ -1,0 +1,72 @@
+/**
+ * @file
+ * Layout utilities for component layouts.
+ *
+ * Provides layout-specific utilities for components including
+ * viewport heights, content wrappers, and responsive behavior.
+ */
+
+/* ===================================================================
+   VIEWPORT HEIGHT UTILITIES
+   =================================================================== */
+
+.vh-50 {
+  min-height: 50vh;
+}
+
+.vh-75 {
+  min-height: 75vh;
+}
+
+.vh-100 {
+  min-height: 100vh;
+}
+
+/* ===================================================================
+   CONTENT WRAPPER UTILITY
+   =================================================================== */
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===================================================================
+   RESPONSIVE UTILITIES
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .mobile-center {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .mobile-stack {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .mobile-full {
+    width: 100% !important;
+  }
+}
+
+/* ===================================================================
+   ASPECT RATIO UTILITIES
+   =================================================================== */
+
+.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
