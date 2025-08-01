@@ -1,0 +1,80 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+
+name: Process Steps
+status: stable
+description: 'A numbered list of steps with interactive checklist functionality, perfect for guides, recipes, or how-to instructions.'
+group: Content
+
+props:
+  type: object
+  properties:
+    unique_id:
+      type: string
+      title: Unique ID
+      description: 'Unique identifier for this component instance to enable proper state management'
+      examples:
+        - 'process-123'
+        - 'recipe-steps-456'
+    intro:
+      type: string
+      title: Introduction
+      description: 'Optional HTML content that appears before the steps'
+      examples:
+        - '<p>Follow these steps to complete the process.</p>'
+    heading:
+      type: string
+      title: Heading
+      description: 'Optional heading for the entire process'
+      examples:
+        - 'How It Works'
+        - 'Installation Steps'
+    number_color:
+      type: string
+      title: Number Color
+      description: 'Color variant for the step numbers'
+      enum:
+        - primary
+        - secondary
+        - success
+        - danger
+        - warning
+        - info
+        - muted
+      default: primary
+    steps:
+      type: array
+      title: Steps
+      description: 'Array of step objects'
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+            title: Step Title
+            description: 'The title/heading for this step'
+            examples:
+              - 'Sign Up'
+              - 'Configure Settings'
+          description:
+            type: string
+            title: Step Description
+            description: 'The detailed description for this step (HTML allowed)'
+            examples:
+              - '<p>Create your account by providing a valid email address.</p>'
+        required:
+          - title
+          - description
+      minItems: 1
+    outro:
+      type: string
+      title: Outro
+      description: 'Optional HTML content that appears after the steps'
+      examples:
+        - '<p>Questions? Contact our support team.</p>'
+  required:
+    - steps
+
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

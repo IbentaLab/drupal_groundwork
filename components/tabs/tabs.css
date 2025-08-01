@@ -1,67 +1,92 @@
-.gw-tabs {
-  padding: var(--space-lg);
-  background-color: var(--color-surface);
-  color: var(--color-text);
+/* tabs.css */
+
+.tabs {
+  font-family: var(--font-family-sans);
 }
 
-.gw-tabs__list {
+/* DESKTOP STYLES FIRST */
+.tabs__list {
   display: flex;
-  flex-wrap: wrap;
-  border-bottom: 2px solid var(--color-border);
-  margin-bottom: var(--space-md);
-  gap: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.gw-tabs__trigger {
-  appearance: none;
-  background: none;
-  border: none;
-  font-family: var(--font-family);
-  font-size: var(--ms-sm);
+.tabs__trigger {
   padding: var(--space-sm) var(--space-md);
+  font-size: var(--ms-md);
+  color: var(--color-text);
+  background-color: var(--color-surface-light);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
   cursor: pointer;
+  margin-bottom: -1px;
+  margin-right: 2px;
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  color: var(--color-text);
-  border-bottom: 2px solid transparent;
-  transition: border-color var(--transition-base), color var(--transition-base);
+  transition: background-color var(--duration-base) var(--timing-function-ease), color var(--duration-base) var(--timing-function-ease);
 }
 
-.gw-tabs__trigger:hover,
-.gw-tabs__trigger:focus {
-  color: var(--color-link-hover);
-  border-color: var(--color-link);
+.tabs__trigger:hover {
+  background-color: var(--color-surface);
 }
 
-.gw-tabs__trigger.is-active {
+.tabs__trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  z-index: 1;
+}
+
+.tabs__trigger[aria-selected="true"] {
+  background-color: var(--color-bg);
+  border-bottom-color: transparent;
   font-weight: bold;
-  color: var(--color-link);
-  border-color: var(--color-link);
 }
 
-.gw-tabs__panel {
-  display: block;
-  padding: var(--space-md) 0;
-  color: var(--color-text);
+.tabs__panels {
+  border: 1px solid var(--color-border);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) var(--radius-sm);
+  padding: var(--space-md);
+  background-color: var(--color-bg);
 }
 
-.gw-tabs__panel.is-hidden {
+/* If the first tab is active, remove the top-left radius of the panel container */
+.tabs__trigger:first-child[aria-selected="true"] ~ .tabs__panels {
+    border-top-left-radius: 0;
+}
+
+
+.tabs__panel[hidden] {
   display: none;
 }
 
+/* MOBILE STYLES */
 @media (max-width: 768px) {
-  .gw-tabs__list {
+  .tabs__list {
     flex-direction: column;
     border-bottom: none;
-    border-right: 2px solid var(--color-border);
-  }
-
-  .gw-tabs__trigger {
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
-    border-bottom: none;
-    border-right: 2px solid transparent;
   }
 
-  .gw-tabs__trigger.is-active {
-    border-right-color: var(--color-link);
+  .tabs__trigger {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tabs__trigger:first-child {
+    border-top-left-radius: var(--radius-sm);
+    border-top-right-radius: var(--radius-sm);
+  }
+
+  .tabs__trigger:last-of-type {
+     border-bottom: none;
+  }
+
+  /* Make the panel a distinct card */
+  .tabs__panels {
+    margin-top: var(--space-md);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
   }
 }

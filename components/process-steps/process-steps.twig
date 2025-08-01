@@ -1,0 +1,87 @@
+{#
+/**
+ * @file
+ * Template for Process Steps component.
+ *
+ * Available variables:
+ * - unique_id: Unique identifier for this component instance
+ * - intro: Optional introduction content (HTML)
+ * - heading: Optional heading for the process
+ * - number_color: Color variant for step numbers
+ * - steps: Array of step objects with title and description
+ * - outro: Optional outro content (HTML)
+ */
+#}
+
+{# Generate a unique component ID - simpler approach using just content and timestamp #}
+{% set steps_titles = [] %}
+{% for step in steps %}
+  {% set steps_titles = steps_titles|merge([step.title]) %}
+{% endfor %}
+{% set content_hash = (heading ~ steps_titles|join(''))|replace({' ': '', '\n': '', '\r': ''})|slice(0, 15) %}
+{% set component_id = unique_id ?: ('process-twig-' ~ "now"|date("Ums") ~ '-' ~ content_hash|length) %}
+
+{% set css_classes = [
+  'process-steps',
+  number_color ? 'process-steps--' ~ number_color : 'process-steps--primary'
+] %}
+
+<div class="{{ css_classes|join(' ') }}" data-unique-id="{{ component_id }}" id="process-steps-{{ component_id }}">
+
+  {% if intro %}
+    <div class="process-steps__intro">
+      {{ intro|raw }}
+    </div>
+  {% endif %}
+
+  {% if heading %}
+    <h2 class="process-steps__heading">{{ heading }}</h2>
+  {% endif %}
+
+  {% if steps %}
+    <ol class="process-steps__list">
+      {% for step in steps %}
+        <li class="process-steps__item">
+          <div class="process-steps__item-header">
+            <div class="form-check form-check--strikethrough">
+              <input
+                class="form-check__input process-steps__checkbox"
+                type="checkbox"
+                id="step-{{ component_id }}-{{ loop.index0 }}"
+                data-step-index="{{ loop.index0 }}"
+                data-component-id="{{ component_id }}"
+              >
+              <label
+                class="form-check__label process-steps__item-title"
+                for="step-{{ component_id }}-{{ loop.index0 }}"
+              >
+                {{ step.title }}
+              </label>
+            </div>
+          </div>
+          {% if step.description %}
+            <div class="process-steps__item-description">
+              {{ step.description|raw }}
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+
+  {% if outro %}
+    <div class="process-steps__outro">
+      {{ outro|raw }}
+    </div>
+  {% endif %}
+
+  <div class="process-steps__actions">
+    <button type="button" class="process-steps__reset-button">
+      {{ 'Start Again'|t }}
+    </button>
+    <button type="button" class="process-steps__print-button">
+      {{ 'Print Checklist'|t }}
+    </button>
+  </div>
+
+</div>

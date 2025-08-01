@@ -1,0 +1,47 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+
+name: Content Tabs
+status: stable
+description: 'An accessible and responsive tabs component for organizing content into tabbed sections.'
+group: Content
+
+props:
+  type: object
+  required:
+    - items
+  properties:
+    unique_id:
+      type: string
+      title: Unique ID
+      description: A unique ID for the tabs component to ensure ARIA attributes are unique.
+      examples:
+        - 'tabs_123'
+        - 'content-tabs-456'
+    items:
+      type: array
+      title: Tab Items
+      description: 'Array of tab objects, each containing a label and content'
+      items:
+        type: object
+        required: [label, content]
+        properties:
+          label:
+            type: string
+            title: Tab Label
+            description: 'The text displayed on the tab button'
+            examples:
+              - 'Overview'
+              - 'Features'
+              - 'Pricing'
+          content:
+            type: string
+            title: Tab content
+            description: 'The HTML content displayed when the tab is active'
+            examples:
+              - '<p>This is the overview content.</p>'
+      minItems: 1
+
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once

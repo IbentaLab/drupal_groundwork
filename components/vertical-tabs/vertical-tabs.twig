@@ -1,11 +1,10 @@
 {#
 /**
  * @file
- * Template for a Tabs component.
+ * Template for a Vertical Tabs component.
  *
- * This component uses a robust structure with a dedicated list for triggers
- * and a container for panels. It responsively adapts to mobile by stacking
- * the tab triggers vertically above the content area.
+ * This component displays tabs vertically on the left and content on the right.
+ * On mobile, it responsively stacks into an accordion-like view.
  *
  * Available variables:
  * - unique_id: A unique ID for the component.
@@ -15,11 +14,11 @@
  */
 #}
 {% if items %}
-<div class="tabs" data-drupal-nav-tabs>
-  <div class="tabs__list" role="tablist" aria-label="Content tabs">
+<div class="vertical-tabs" data-drupal-nav-tabs>
+  <div class="vertical-tabs__list" role="tablist" aria-label="Content tabs">
     {% for item in items %}
       <button
-        class="tabs__trigger"
+        class="vertical-tabs__trigger"
         role="tab"
         id="trigger-{{ unique_id }}-{{ loop.index0 }}"
         aria-controls="panel-{{ unique_id }}-{{ loop.index0 }}"
@@ -29,10 +28,10 @@
     {% endfor %}
   </div>
 
-  <div class="tabs__panels">
+  <div class="vertical-tabs__panels">
     {% for item in items %}
       <div
-        class="tabs__panel"
+        class="vertical-tabs__panel"
         role="tabpanel"
         id="panel-{{ unique_id }}-{{ loop.index0 }}"
         aria-labelledby="trigger-{{ unique_id }}-{{ loop.index0 }}"

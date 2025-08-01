@@ -50,11 +50,12 @@ regions:
 libraries:
   # Core and Foundational Libraries (loaded in order)
   - core/normalize
-  - groundwork/global-styles         # Core JS, CSS tokens
-  - groundwork/layout-styles         # Page layout and regions
-  - groundwork/hybrid-styles         # Hybrid Style Components (HSCs)
-  - groundwork/block-styles          # Block Style Components (BSCs) - MUST BE LAST
-  - groundwork/messages              # Drupal status messages
+  - groundwork/global-styles                # Core JS, CSS tokens
+  - groundwork/layout-styles                # Page layout and regions
+  - groundwork/hybrid-styles                # Hybrid Style Components (HSCs)
+  - groundwork/background-color-utilities   # Background color utilities
+  - groundwork/block-styles                 # Block Style Components (BSCs) - MUST BE LAST
+  - groundwork/messages                     # Drupal status messages
 
 libraries-extend:
   user/drupal.user:

@@ -33,37 +33,45 @@
   margin-top: var(--space-lg);
 }
 
-.hero__button {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-lg);
-  margin: 0 var(--space-sm);
-  text-decoration: none;
+.button.hero__button {
   font-weight: bold;
   color: var(--white);
 }
 
-.hero__button--info {
-  background-color: var(--color-info-dark);
+.button.hero__button--info {
+  background-color: var(--color-info);
+
+  &.hero__button:hover:not(:disabled) {
+    background-color: var(--color-info-dark);
+  }
 }
-.hero__button--notice {
-  background-color: var(--color-notice-dark);
+.button.hero__button--notice {
+  background-color: var(--color-notice);
+
+  &.hero__button:hover:not(:disabled) {
+    background-color: var(--color-notice-dark);
+  }
 }
-.hero__button--success {
-  background-color: var(--color-success-dark);
-}
-.hero__button--danger {
-  background-color: var(--color-danger-dark);
-}
-.hero__button--warning {
-  background-color: var(--color-warning-dark);
-}
-.hero__button--muted {
-  background-color: var(--color-muted-dark);
+.button.hero__button--success {
+  background-color: var(--color-success);
+
+  &.hero__button:hover:not(:disabled) {
+    background-color: var(--color-success-dark);
+  }
 }
 
-.hero__button:hover,
-.hero__button:focus {
-  opacity: 0.9;
-}
+.button.hero__button--danger {
+  background-color: var(--color-danger);
 
+  &.hero__button:hover:not(:disabled) {
+    background-color: var(--color-danger-dark);
+  }
+}
+.button.hero__button--warning {
+  background-color: var(--color-warning);
+
+  &.hero__button:hover:not(:disabled) {
+    background-color: var(--color-warning-dark);
+  }
+}
 /* WCAG-compliant: all use white text on dark bg */

@@ -1,0 +1,17 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Personalized Welcome
+props:
+  type: object
+  properties:
+    welcome_message:
+      type: string
+      title: Welcome Message
+    last_login:
+      type: string
+      title: Last Login
+      description: "A formatted string of the user's last login date."
+    generic_content:
+      type: string
+      title: Generic Content
+      description: "Content from the block's WYSIWYG editor."
+

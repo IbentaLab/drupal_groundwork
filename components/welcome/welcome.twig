@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Template for a Personalized Welcome component.
+ *
+ * Available variables:
+ * - welcome_message: The personalized H2 heading.
+ * - last_login: A formatted string of the user's last login. (Only for logged-in users)
+ * - generic_content: The general content from the block form.
+ */
+#}
+<div class="welcome-block">
+  {% if welcome_message %}
+    <h2 class="welcome-block__heading">{{ welcome_message }}</h2>
+  {% endif %}
+
+  {% if last_login %}
+    <p class="welcome-block__last-login">{{ last_login }}</p>
+  {% endif %}
+
+  {% if generic_content %}
+    <div class="welcome-block__content">
+      {{ generic_content|raw }}
+    </div>
+  {% endif %}
+</div>

@@ -22,7 +22,7 @@
 
 .dropdown--level-0 > .dropdown-item:hover > a,
 .dropdown--level-0 > .dropdown-item > a:focus {
-  background-color: var(--color-surface-contrast);
+  background-color: var(--color-surface-dark);
 }
 
 .dropdown-item--expanded > a::after {
@@ -41,7 +41,7 @@
   min-width: 200px;
   max-width: 320px;
   width: max-content;
-  background-color: var(--dropdown-bg);
+  background-color: var(--color-surface-light);
   box-shadow: var(--shadow-md);
   opacity: 0;
   visibility: hidden;
@@ -83,7 +83,7 @@
 
 .dropdown--level-1 a,
 .dropdown--level-2 a {
-  color: var(--dropdown-text);
+  color: var(--color-text);
   padding: var(--space-sm) var(--space-md);
   display: block;
   text-decoration: none;
@@ -94,7 +94,7 @@
 .dropdown--level-1 a:focus,
 .dropdown--level-2 a:hover,
 .dropdown--level-2 a:focus {
-  background-color: var(--dropdown-hover-bg);
+  background-color: var(--color-surface-hover);
 }
 
 .dropdown--level-1 .dropdown-item--expanded > a::after {

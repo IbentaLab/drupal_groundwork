@@ -1,38 +1,27 @@
 /**
  * @file
- * Tabs component behavior.
- * This script provides an accessible and responsive tabs component.
+ * Vertical Tabs component behavior.
+ * This script provides an accessible and responsive vertical tabs component.
+ * The core logic is identical to the horizontal tabs component.
  */
-(function (Drupal, once) {
-  'use strict';
-
-  class Tabs {
+(() => {
+  class VerticalTabs {
     constructor(container) {
       this.container = container;
-      this.triggers = Array.from(container.querySelectorAll('.tabs__trigger'));
-      this.panels = Array.from(container.querySelectorAll('.tabs__panel'));
-
-      // Validate we have the necessary elements
-      if (this.triggers.length === 0 || this.panels.length === 0) {
-        console.warn('Tabs component missing triggers or panels');
-        return;
-      }
+      this.triggers = Array.from(container.querySelectorAll('.vertical-tabs__trigger'));
+      this.panels = Array.from(container.querySelectorAll('.vertical-tabs__panel'));
 
       this.init();
     }
 
     init() {
       // Set initial state: activate the first tab
-      if (this.triggers[0] && this.panels[0]) {
+      if (this.triggers.length > 0) {
         this.activateTab(this.triggers[0], this.panels[0]);
-      }
-
-      // Deactivate remaining tabs
-      this.triggers.slice(1).forEach((trigger, i) => {
-        if (trigger && this.panels[i + 1]) {
+        this.triggers.slice(1).forEach((trigger, i) => {
           this.deactivateTab(trigger, this.panels[i + 1]);
-        }
-      });
+        });
+      }
 
       // Attach event listeners
       this.container.addEventListener('click', this.handleClick.bind(this));
@@ -40,36 +29,30 @@
     }
 
     handleClick(event) {
-      const clickedTrigger = event.target.closest('.tabs__trigger');
+      const clickedTrigger = event.target.closest('.vertical-tabs__trigger');
       if (!clickedTrigger || clickedTrigger.getAttribute('aria-selected') === 'true') {
         return;
       }
 
       // Deactivate all others
       this.triggers.forEach((trigger, i) => {
-        if (trigger && this.panels[i]) {
-          this.deactivateTab(trigger, this.panels[i]);
-        }
+        this.deactivateTab(trigger, this.panels[i]);
       });
 
       // Activate the clicked one
-      const panelId = clickedTrigger.getAttribute('aria-controls');
-      if (panelId) {
-        const panel = document.getElementById(panelId);
-        if (panel) {
-          this.activateTab(clickedTrigger, panel);
-        }
-      }
+      const panel = document.getElementById(clickedTrigger.getAttribute('aria-controls'));
+      this.activateTab(clickedTrigger, panel);
     }
 
     handleKeydown(event) {
-      const currentTrigger = event.target.closest('.tabs__trigger');
+      const currentTrigger = event.target.closest('.vertical-tabs__trigger');
       if (!currentTrigger) return;
 
       let nextTrigger;
       const currentIndex = this.triggers.indexOf(currentTrigger);
 
-      const keyMap = { ArrowRight: 1, ArrowLeft: -1 };
+      // Vertical navigation for vertical tabs
+      const keyMap = { ArrowDown: 1, ArrowUp: -1 };
       const direction = keyMap[event.key];
 
       if (direction) {
@@ -91,32 +74,26 @@
     }
 
     activateTab(trigger, panel) {
-      if (!trigger || !panel) return;
-
       trigger.setAttribute('aria-selected', 'true');
       trigger.setAttribute('tabindex', '0');
       panel.hidden = false;
     }
 
     deactivateTab(trigger, panel) {
-      if (!trigger || !panel) return;
-
       trigger.setAttribute('aria-selected', 'false');
       trigger.setAttribute('tabindex', '-1');
       panel.hidden = true;
     }
   }
 
-  /**
-   * Drupal behavior for tabs components.
-   */
-  Drupal.behaviors.tabs = {
-    attach: function (context, settings) {
-      // Use once() to ensure each tabs component is only initialized once
-      once('tabs', '.tabs', context).forEach(function (tabContainer) {
-        new Tabs(tabContainer);
-      });
-    }
-  };
-
-})(Drupal, once);
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabContainers = document.querySelectorAll('[data-drupal-nav-tabs]');
+    tabContainers.forEach(container => {
+      // Simple check to not re-initialize
+      if (!container.classList.contains('js-vertical-tabs-processed')) {
+        container.classList.add('js-vertical-tabs-processed');
+        new VerticalTabs(container);
+      }
+    });
+  });
+})();

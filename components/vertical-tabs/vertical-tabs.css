@@ -1,0 +1,101 @@
+/* vertical-tabs.css */
+
+.vertical-tabs {
+  font-family: var(--font-family-sans);
+}
+
+/* DESKTOP STYLES (Vertical Tabs) */
+@media (min-width: 992px) {
+  .vertical-tabs {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Adjust ratio as needed */
+    gap: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .vertical-tabs__list {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .vertical-tabs__trigger {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--ms-md);
+    color: var(--color-text);
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-right: 2px solid transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color var(--duration-base) var(--timing-function-ease), border-color var(--duration-base) var(--timing-function-ease);
+    margin-right: -1px; /* Overlap the container border */
+  }
+
+  .vertical-tabs__trigger:hover {
+    background-color: var(--color-surface-light);
+  }
+
+  .vertical-tabs__trigger:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+    z-index: 1;
+  }
+
+  .vertical-tabs__trigger[aria-selected="true"] {
+    background-color: var(--color-surface-light);
+    border-right-color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .vertical-tabs__panel[hidden] {
+    display: none;
+  }
+}
+
+
+/* MOBILE STYLES (Stacked Triggers + Card Panel) */
+@media (max-width: 991px) {
+  .vertical-tabs__list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .vertical-tabs__trigger {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--ms-md);
+    color: var(--color-text);
+    background-color: var(--color-surface-light);
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+  }
+
+  .vertical-tabs__trigger:last-of-type {
+     border-bottom: none;
+  }
+
+  .vertical-tabs__trigger[aria-selected="true"] {
+    font-weight: bold;
+    background-color: var(--color-surface);
+  }
+
+  /* This makes the content panel a distinct card */
+  .vertical-tabs__panels {
+    margin-top: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .vertical-tabs__panel[hidden] {
+    display: none;
+  }
+}

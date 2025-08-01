@@ -1,0 +1,216 @@
+/* process-steps.css */
+.process-steps {
+  /* --- Component Variables --- */
+  --number-bg-color: var(--color-primary);
+
+  font-family: var(--font-family-sans);
+}
+
+.process-steps__intro,
+.process-steps__outro {
+  margin-bottom: var(--space-lg);
+}
+
+.process-steps__heading {
+  font-size: var(--ms-xl);
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+  font-family: var(--heading-font-family);
+}
+
+.process-steps__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: process-counter;
+}
+
+.process-steps__item {
+  position: relative;
+  padding-left: 6rem;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.process-steps__item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.process-steps__item::before {
+  counter-increment: process-counter;
+  content: counter(process-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: var(--ms-xxl);
+  font-weight: bold;
+  line-height: 1;
+  color: var(--white);
+  background-color: var(--number-bg-color);
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-steps__item-header {
+  margin-bottom: var(--space-sm);
+}
+
+.process-steps__item-title {
+  /* Font size is now inherited from .form-check__label */
+  margin: 0;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.process-steps__item-description {
+  padding-left: calc(var(--check-size, 2rem) + var(--space-sm)); /* Align with the label's text */
+  color: var(--color-text);
+}
+
+/* Use the existing form-check system from your design tokens */
+.process-steps .form-check {
+  align-items: flex-start;
+}
+
+.process-steps .form-check__label {
+  line-height: var(--line-height-base);
+}
+
+/* Actions buttons */
+.process-steps__actions {
+  margin-top: var(--space-lg);
+  text-align: right;
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+}
+
+.process-steps__reset-button,
+.process-steps__print-button {
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--timing-function-ease);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.process-steps__reset-button:hover,
+.process-steps__print-button:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.process-steps__reset-button:focus,
+.process-steps__print-button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ===================================================================
+   COLOR VARIANTS
+   =================================================================== */
+.process-steps--secondary { --number-bg-color: var(--color-secondary); }
+.process-steps--success { --number-bg-color: var(--color-success); }
+.process-steps--danger { --number-bg-color: var(--color-danger); }
+.process-steps--warning { --number-bg-color: var(--color-warning); }
+.process-steps--info { --number-bg-color: var(--color-info); }
+.process-steps--muted { --number-bg-color: var(--color-muted); }
+
+/* ===================================================================
+   PRINT STYLES
+   =================================================================== */
+@media print {
+  /* Hide everything by default when printing */
+  body.is-printing * {
+    visibility: hidden;
+  }
+
+  /* Show only the component marked for printing and its children */
+  body.is-printing .print-this-component,
+  body.is-printing .print-this-component * {
+    visibility: visible;
+  }
+
+  /* Position the print component */
+  body.is-printing .print-this-component {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Hide the action buttons when printing */
+  .process-steps__actions {
+    display: none !important;
+  }
+
+  /* Ensure page breaks work well */
+  .process-steps__item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ensure the step number circle prints correctly */
+  .process-steps__item::before {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: #666 !important; /* Use a gray for better printing */
+    color: white !important;
+  }
+
+  /* Ensure checkboxes are visible in print */
+  .form-check__input {
+    -webkit-appearance: checkbox;
+    appearance: checkbox;
+    width: 1rem !important;
+    height: 1rem !important;
+    border: 1px solid #000 !important;
+    background: white !important;
+  }
+
+  .form-check__input:checked {
+    background: white !important;
+    border: 1px solid #000 !important;
+  }
+
+  /* Make sure text is readable */
+  .process-steps__heading,
+  .process-steps__item-title,
+  .process-steps__item-description,
+  .process-steps__intro,
+  .process-steps__outro {
+    color: #000 !important;
+  }
+
+  /* Remove any box-shadows for printing */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure proper spacing in print */
+  .process-steps__item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Make intro and outro stand out */
+  .process-steps__intro,
+  .process-steps__outro {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+}

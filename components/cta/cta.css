@@ -1,8 +1,8 @@
 .cta {
   padding: var(--space-xl);
   text-align: center;
-  background-color: var(--gray-dark4);
-  color: var(--text-on-dark);
+  background-color: var(--color-surface-dark);
+  color: var(--color-text);
 }
 
 .cta__title {
@@ -15,20 +15,4 @@
   font-size: var(--ms-md);
   margin-bottom: var(--space-lg);
   color: inherit;
-}
-
-.cta__button {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-lg);
-  background-color: var(--gray-dark1);
-  color: var(--white);
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color var(--transition-base), color var(--transition-base);
-}
-
-.cta__button:hover,
-.cta__button:focus {
-  background-color: var(--gray-dark2);
-  color: var(--white);
 }

@@ -2,9 +2,7 @@
 .accordion {
   margin: 0;
   padding: 0;
-  background: var(--accordion-bg);
-  color: var(--accordion-text);
-  border: 1px solid var(--accordion-border);
+  border: 1px solid var(--color-border);
   border-radius: 0.3rem;
 }
 
@@ -17,13 +15,13 @@
   width: 100%;
   padding: var(--space-md);
   font-size: var(--ms-md);
-  color: var(--accordion-text);
+  color: var(--color-text);
   background: none;
   border: none;
   text-align: left;
   cursor: pointer;
   outline: none;
-  border-bottom: 1px solid var(--accordion-border);
+  border-bottom: 1px solid var(--color-border);
   transition: background 0.15s;
   display: flex;
   align-items: center;
@@ -38,14 +36,14 @@
 }
 
 .accordion__trigger[aria-expanded="true"] {
-  background: var(--dropdown-hover-bg);
+  background: var(--color-surface);
   font-weight: bold;
 }
 
 .accordion__trigger::after {
   content: "▼";
   font-size: 0.9em;
-  color: var(--accordion-icon-color);
+  color: currentColor;
   margin-left: auto;
   transition: transform 0.2s;
 }
@@ -55,9 +53,7 @@
 
 .accordion__panel {
   padding: var(--space-sm) var(--space-md);
-  background: var(--accordion-bg);
-  color: var(--accordion-text);
-  border-bottom: 1px solid var(--accordion-border);
+  border-bottom: 1px solid var(--color-border);
 }
 .accordion__panel[hidden] {
   display: none !important;
