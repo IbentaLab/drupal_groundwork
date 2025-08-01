@@ -1,140 +1,116 @@
-# Form Input Partial (`form-input.css`)
+# Form Input Component
 
-The `form-input` partial is a flexible, accessible, and themeable UI fragment designed for text input fields. It supports a wide range of design variants to accommodate various use cases, ensuring consistency with the Groundwork design system.
+## Overview
+The Form Input component provides a standardized, accessible way to collect user text input across your application. It supports various input types, states, and visual variants.
 
----
-
-## 🎨 Features
-
-- Fully themeable (light/dark mode supported via tokens).
-- Accessibility-first: Focus styles, placeholder visibility, and disabled states built-in.
-- Highly customizable with size, color, state, shape, and layout variants.
-- Prefix and suffix support for icons or labels.
-- Additional effects like glow and elevated styles.
-
----
-
-## 🔧 Usage
-
-Include the `form-input.css` file in your project and apply the `form-input` class to your input elements. Customize further using the design variants listed below.
-
-### Basic Example
+## Basic Usage
 
 ```html
-<input type="text" class="form-input" placeholder="Enter your name">
-```
+<!-- Basic text input -->
+<div class="form-input">
+  <label class="form-input__label" for="name">Name</label>
+  <input type="text" id="name" class="form-input__field" placeholder="Enter your name">
+</div>
 
-### Advanced Example (with Variants)
+<!-- With helper text -->
+<div class="form-input">
+  <label class="form-input__label" for="email">Email address</label>
+  <input type="email" id="email" class="form-input__field" placeholder="name@example.com">
+  <div class="form-input__hint">We'll never share your email with anyone else.</div>
+</div>
 
-```html
-<div class="form-input-wrapper">
-  <span class="form-input__prefix">$</span>
-  <input type="text" class="form-input form-input--lg form-input--primary form-input--pill" placeholder="Enter amount">
-  <span class="form-input__suffix">.00</span>
+<!-- With validation state -->
+<div class="form-input is-invalid">
+  <label class="form-input__label" for="password">Password</label>
+  <input type="password" id="password" class="form-input__field">
+  <div class="form-input__hint">Password must be at least 8 characters.</div>
+</div>
+
+<!-- With prefix and suffix -->
+<div class="form-input form-input--with-prefix form-input--with-suffix">
+  <label class="form-input__label" for="price">Price</label>
+  <div class="form-input__prefix">$</div>
+  <input type="number" id="price" class="form-input__field" value="99">
+  <div class="form-input__suffix">.00</div>
+</div>
+
+<!-- With floating label -->
+<div class="form-input form-input--with-floating-label">
+  <input type="text" id="floating" class="form-input__field" placeholder=" ">
+  <label class="form-input__label" for="floating">Floating label</label>
 </div>
 ```
 
----
+## Variants
 
-## 📏 Supported Variants
+### Color Variants
+- Default - Uses primary color for focus
+- `form-input--primary` - Primary theme color
+- `form-input--secondary` - Secondary theme color
+- `form-input--info` - Information theme color
+- `form-input--notice` - Notice theme color
+- `form-input--success` - Success/confirmation theme color
+- `form-input--danger` - Error/danger theme color
+- `form-input--warning` - Warning theme color
+- `form-input--muted` - Subtle theme color
 
-### 1. **🎨 Color Variants**
+### Size Variants
+- `form-input--xs` - Extra small input
+- `form-input--sm` - Small input
+- `form-input--md` (default) - Medium input
+- `form-input--lg` - Large input
+- `form-input--xl` - Extra large input
+- `form-input--xxl` - Extra extra large input
 
-- `form-input--primary`: Primary border color.
-- `form-input--success`: Success (green) border color.
-- `form-input--danger`: Error (red) border color.
-- `form-input--warning`: Warning (yellow) border color.
-- `form-input--muted`: Muted (gray) border color.
+### Shape Variants
+- Default - Standard border radius
+- `form-input--rounded` - More rounded corners
+- `form-input--square` - No border radius
+- `form-input--pill` - Fully rounded input
 
-### 2. **📏 Size Variants**
+### State Variants
+- `is-invalid` - Error state
+- `is-valid` - Valid/success state
+- `is-warning` - Warning state
+- `is-disabled` - Disabled state
+- `is-readonly` - Read-only state
 
-- `form-input--xs`: Extra small.
-- `form-input--sm`: Small.
-- `form-input` (default): Medium.
-- `form-input--lg`: Large.
-- `form-input--xl`: Extra large.
-- `form-input--xxl`: Double extra large.
+### Type Variants
+- Default (text input)
+- `form-input--textarea` - Multi-line text input
+- `form-input--search` - Search input with search icon
+- `form-input--password` - Password input with toggle
 
-### 3. **✳️ State Variants**
+### Layout Variants
+- `form-input--with-leading-icon` - Icon at beginning of input
+- `form-input--with-trailing-icon` - Icon at end of input
+- `form-input--with-prefix` - Text/element before input
+- `form-input--with-suffix` - Text/element after input
+- `form-input--with-floating-label` - Label moves when input has content
+- `form-input--with-character-count` - Shows character counter
 
-- `is-invalid`: Highlights the input in red for errors.
-- `is-valid`: Highlights the input in green for successful validation.
-- `is-warning`: Highlights the input in yellow for warnings.
-- `is-disabled`: Applies disabled styles.
-- `is-readonly`: Styles for read-only input fields.
+## Best Practices
 
-### 4. **⬜ Shape Variants**
+1. Always use labels for form inputs
+2. Provide clear placeholder text but don't rely on it exclusively
+3. Use appropriate input types (email, tel, number, etc.)
+4. Provide validation feedback with helpful error messages
+5. Group related inputs logically
+6. Consider using floating labels for compact forms
 
-- `form-input--rounded`: Slightly rounded corners.
-- `form-input--pill`: Fully rounded corners for a pill-shaped input.
+## Accessibility Considerations
 
-### 5. **🧠 Layout Variants**
+- Ensure all inputs have associated labels
+- Use `aria-describedby` to connect inputs with help/error text
+- Don't disable paste functionality for security fields
+- Ensure error messages are announced to screen readers
+- Maintain sufficient color contrast for all states
+- Don't rely solely on color to convey state information
 
-- `form-input--inline`: Aligns the input inline with other elements.
-- `form-input--stacked`: Ensures the input field is stacked and full-width.
+## Implementation Notes
 
-### 6. **💡 Additional Variants**
-
-- `form-input--has-prefix`: Adds padding for a prefix (e.g., `$` or an icon).
-- `form-input--has-suffix`: Adds padding for a suffix (e.g., `.00` or an icon).
-- `form-input--glow`: Adds a glowing effect on focus for better visibility.
-- `form-input--elevated`: Adds a shadow to the input for elevation.
-- `form-input--transparent`: Removes the background, making the input blend with the surrounding design.
-
----
-
-## 💻 Example HTML
-
-### Rounded Input
-
-```html
-<input type="text" class="form-input form-input--rounded" placeholder="Enter your name">
-```
-
-### Pill Input
-
-```html
-<input type="text" class="form-input form-input--pill" placeholder="Search">
-```
-
-### Input with Validation States
-
-```html
-<input type="text" class="form-input is-invalid" placeholder="Invalid input">
-<input type="text" class="form-input is-valid" placeholder="Valid input">
-<input type="text" class="form-input is-warning" placeholder="Warning input">
-```
-
-### Input with Prefix and Suffix
-
-```html
-<div class="form-input-wrapper">
-  <span class="form-input__prefix">$</span>
-  <input type="text" class="form-input form-input--has-prefix" placeholder="Amount">
-  <span class="form-input__suffix">.00</span>
-</div>
-```
-
----
-
-## 🛠️ Notes for Developers
-
-1. **Tokenized Variables:** All styles use `groundwork-tokens.css` for consistent themeability.
-2. **Light/Dark Support:** Ensure your design tokens (`--color-*`) are configured for both light and dark themes.
-3. **Accessibility:** Inputs include proper focus styles and placeholder visibility for accessibility.
-
----
-
-## 🧪 Testing Checklist
-
-- [X] Light and dark theme compatibility.
-- [X] Validation states (invalid, valid, warning).
-- [X] Prefix and suffix alignment.
-- [X] Responsiveness across size variants.
-- [X] Accessibility for disabled/read-only inputs.
-
----
-
-## 📄 License
-
-This partial is part of the Groundwork framework and is licensed under the MIT License. See the [LICENSE.md](../LICENSE.md) file for more details.
+- Input heights are calculated based on font size and padding
+- Icons should be appropriately sized based on the input size
+- Character count requires JavaScript to update the count
+- Password toggle visibility requires JavaScript to change input type
+- Some variants can be combined (e.g., with-icon and rounded)

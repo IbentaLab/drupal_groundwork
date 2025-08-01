@@ -1,147 +1,103 @@
-# Form Radio Partial (`form-radio.css`)
+# Form Radio Component
 
-The `form-radio` partial is a flexible, accessible, and themeable UI fragment designed for radio button inputs. It supports a wide range of design variants and shapes to accommodate different use cases while ensuring consistency with the Groundwork design system.
+## Overview
+Radio buttons allow users to select a single option from a list of mutually exclusive choices. The Form Radio component provides an accessible, customizable implementation that works across light and dark themes.
 
----
-
-## 🎨 Features
-
-- Fully themeable (light/dark mode supported via tokens).
-- Accessibility-first: Focus styles, disabled states, and user-friendly interactions.
-- Highly customizable with size, color, state, shape, and layout variants.
-- Includes unconventional shapes like square, toggle, and capsule/pill.
-- Supports inline and stacked layouts for flexibility.
-
----
-
-## 🔧 Usage
-
-Include the `form-radio.css` file in your project and apply the `form-radio` class to your radio button elements. Customize further using the design variants listed below.
-
-### Basic Example
+## Basic Usage
 
 ```html
-<div class="form-radio">
-  <input type="radio" id="radio1" name="example" class="form-radio__input">
-  <label for="radio1" class="form-radio__label">Option 1</label>
-</div>
-```
+<!-- Basic radio buttons -->
+<label class="form-radio">
+  <input type="radio" class="form-radio__input" name="option" value="1">
+  <span class="form-radio__label">Option 1</span>
+</label>
 
-### Advanced Example (with Variants)
+<label class="form-radio">
+  <input type="radio" class="form-radio__input" name="option" value="2" checked>
+  <span class="form-radio__label">Option 2</span>
+</label>
 
-```html
-<div class="form-radio form-radio--pill form-radio--success">
-  <input type="radio" id="radio-pill1" name="category" class="form-radio__input">
-  <label for="radio-pill1" class="form-radio__label">Category 1</label>
-</div>
-```
+<!-- Colored radio -->
+<label class="form-radio form-radio--success">
+  <input type="radio" class="form-radio__input" name="color-option" value="success">
+  <span class="form-radio__label">Success Radio</span>
+</label>
 
----
+<!-- Toggle-style radio -->
+<label class="form-radio form-radio--toggle">
+  <input type="radio" class="form-radio__input" name="toggle-option" value="on">
+  <span class="form-radio__label">On</span>
+</label>
 
-## 📏 Supported Variants
-
-### 1. **🎨 Color Variants**
-
-- **`form-radio--primary`**: Primary color for the checked state.
-- **`form-radio--success`**: Success (green) for checked state.
-- **`form-radio--danger`**: Error (red) for checked state.
-- **`form-radio--warning`**: Warning (yellow) for checked state.
-- **`form-radio--muted`**: Muted (gray) for checked state.
-
-### 2. **📏 Size Variants**
-
-- **`form-radio--xs`**: Extra small.
-- **`form-radio--sm`**: Small.
-- **`form-radio` (default)**: Medium.
-- **`form-radio--lg`**: Large.
-- **`form-radio--xl`**: Extra large.
-- **`form-radio--xxl`**: Double extra large.
-
-### 3. **✳️ State Variants**
-
-- **`is-invalid`**: Highlights the radio in red for errors.
-- **`is-valid`**: Highlights the radio in green for success.
-- **`is-warning`**: Highlights the radio in yellow for warnings.
-- **`form-radio__input:disabled`**: Styles for disabled radio buttons.
-
-### 4. **⬜ Shape Variants**
-
-- **`form-radio--square`**: Square-shaped radio buttons.
-- **`form-radio--toggle`**: Toggle-style radios for switch-like functionality.
-- **`form-radio--pill`**: Capsule-shaped (pill) radio buttons for text-based options.
-
-### 5. **🧠 Layout Variants**
-
-- **`form-radio--inline`**: Displays radio buttons inline.
-- **`form-radio--stacked`**: Stacks radio buttons vertically.
-
----
-
-## 💻 Example HTML
-
-### Square Radio Button
-
-```html
-<div class="form-radio form-radio--square">
-  <input type="radio" id="radio-square1" name="example" class="form-radio__input">
-  <label for="radio-square1" class="form-radio__label">Square Option</label>
-</div>
-```
-
-### Toggle Radio Button
-
-```html
-<div class="form-radio form-radio--toggle">
-  <input type="radio" id="radio-toggle1" name="toggle-example" class="form-radio__input">
-  <label for="radio-toggle1" class="form-radio__label">Toggle Option</label>
-</div>
-```
-
-### Capsule/Pill Radio Button
-
-```html
-<div class="form-radio form-radio--pill">
-  <input type="radio" id="radio-pill1" name="pill-example" class="form-radio__input">
-  <label for="radio-pill1" class="form-radio__label">Pill Option</label>
-</div>
-```
-
-### Inline and Stacked Radio Buttons
-
-```html
-<!-- Inline -->
-<div class="form-radio form-radio--inline">
-  <input type="radio" id="radio-inline1" name="example" class="form-radio__input">
-  <label for="radio-inline1" class="form-radio__label">Option 1</label>
-
-  <input type="radio" id="radio-inline2" name="example" class="form-radio__input">
-  <label for="radio-inline2" class="form-radio__label">Option 2</label>
-</div>
-
-<!-- Stacked -->
+<!-- Radio button group -->
 <div class="form-radio form-radio--stacked">
-  <input type="radio" id="radio-stacked1" name="example" class="form-radio__input">
-  <label for="radio-stacked1" class="form-radio__label">Option 1</label>
-
-  <input type="radio" id="radio-stacked2" name="example" class="form-radio__input">
-  <label for="radio-stacked2" class="form-radio__label">Option 2</label>
+  <label class="form-radio">
+    <input type="radio" class="form-radio__input" name="stacked" value="1">
+    <span class="form-radio__label">First option</span>
+  </label>
+  <label class="form-radio">
+    <input type="radio" class="form-radio__input" name="stacked" value="2">
+    <span class="form-radio__label">Second option</span>
+  </label>
 </div>
 ```
 
----
+## Variants
 
-## 🛠️ Notes for Developers
+### Color Variants
+- Default - Uses primary color
+- `form-radio--primary` - Primary theme color
+- `form-radio--secondary` - Secondary theme color
+- `form-radio--info` - Information theme color
+- `form-radio--notice` - Notice theme color
+- `form-radio--success` - Success/confirmation theme color
+- `form-radio--danger` - Error/danger theme color
+- `form-radio--warning` - Warning theme color
+- `form-radio--muted` - Subtle theme color
 
-1. **Tokenized Variables:** All styles use `groundwork-tokens.css` for consistent themeability.
-2. **Light/Dark Support:** Ensure your design tokens (`--color-*`) are configured for both light and dark themes.
-3. **Accessibility:** Radios include proper focus styles and user-friendly interactions.
+### Size Variants
+- `form-radio--xs` - Extra small radio
+- `form-radio--sm` - Small radio
+- `form-radio--md` (default) - Medium radio
+- `form-radio--lg` - Large radio
+- `form-radio--xl` - Extra large radio
+- `form-radio--xxl` - Extra extra large radio
 
----
+### Shape Variants
+- Default (rounded) - Standard circular radio
+- `form-radio--square` - Square radio button
+- `form-radio--toggle` - Toggle switch appearance
+- `form-radio--pill` - Pill-shaped radio option
 
-## 🧪 Testing Checklist
+### State Variants
+- `is-invalid` - Error state
+- `is-valid` - Valid/success state
+- `is-warning` - Warning state
+- `is-disabled` - Disabled state (also works with the disabled attribute)
 
-- [X] Light and dark theme compatibility.
-- [X] Validation states (invalid, valid, warning).
-- [X] Square, toggle, and pill shapes render as expected.
-- [X] Responsiveness across size variants.
-- [X] Accessibility for disabled and focus states.
+### Layout Variants
+- `form-radio--inline` - Horizontal arrangement
+- `form-radio--stacked` - Vertical arrangement
+
+## Best Practices
+
+1. Always use the same `name` attribute for related radio buttons
+2. Provide clear, concise labels for each option
+3. Limit the number of radio options to a reasonable amount (use select dropdowns for long lists)
+4. Pre-select the most common option when appropriate
+5. Arrange options in a logical order (alphabetical, numerical, or by frequency of use)
+
+## Accessibility Considerations
+
+- Radio buttons are natively keyboard accessible (Tab to navigate, Space to select)
+- Always use proper `<label>` elements to associate text with radio inputs
+- Group related radio buttons with `fieldset` and `legend` for screen readers
+- Avoid using custom radio buttons that can't be navigated via keyboard
+- Ensure color is not the only way to identify the selected state
+
+## Implementation Notes
+
+- The component uses `::before` and `::after` pseudo-elements for custom styling
+- Radio buttons maintain their native accessible behavior
+- Toggle style variant transforms the radio into a switch-like appearance
+- Square style removes the standard circular appearance

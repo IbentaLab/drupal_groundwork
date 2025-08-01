@@ -1,121 +1,130 @@
 # Form Checkbox
 
-This guide shows you all the different checkbox styles available and gives you tips on when to use each one.
+Accessible, customizable checkbox input with variants.
 
-## Base Structure
+## Overview
 
-To make a custom checkbox, you need a specific HTML structure. This is usually handled by the component you are using (like the "Process Steps" component), but it's good to know how it works.
+The form-checkbox component provides styled checkbox inputs that maintain accessibility while offering visual customization options. It includes variants for different visual styles and states.
 
-```
-<div class="form-check">
-  <input class="form-check__input" type="checkbox" id="check1">
-  <label class="form-check__label" for="check1">My Checkbox</label>
+## Usage
+
+```html
+<!-- Basic checkbox -->
+<div class="form-checkbox">
+  <input class="form-checkbox__input" type="checkbox" id="checkbox1" name="checkbox1">
+  <label class="form-checkbox__label" for="checkbox1">Default checkbox</label>
 </div>
 
-```
-
-## Style Variants
-
-There are two main styles of checkbox to choose from.
-
-### Default Checkbox
-
-This is your standard square checkbox.
-
-**Best for:** Forms, "I agree to the terms" boxes, and selecting multiple options from a list.
-
-<div class="form-check">
-
-<input class="form-check__input" type="checkbox" id="check-default" checked>
-
-<label class="form-check__label" for="check-default">Default Checkbox</label>
-
+<!-- Checked state -->
+<div class="form-checkbox">
+  <input class="form-checkbox__input" type="checkbox" id="checkbox2" name="checkbox2" checked>
+  <label class="form-checkbox__label" for="checkbox2">Checked checkbox</label>
 </div>
 
-```
-<div class="form-check">...</div>
-
-```
-
-### Toggle Switch
-
-This is a modern, pill-shaped on/off switch.
-
-**Best for:** Settings or preferences, like "Enable Notifications" or "Dark Mode." It gives a clear visual indication of an active or inactive state.
-
-<div class="form-check form-check--toggle">
-
-<input class="form-check__input" type="checkbox" id="check-toggle" checked>
-
-<label class="form-check__label" for="check-toggle">Toggle Switch</label>
-
+<!-- Disabled state -->
+<div class="form-checkbox">
+  <input class="form-checkbox__input" type="checkbox" id="checkbox3" name="checkbox3" disabled>
+  <label class="form-checkbox__label" for="checkbox3">Disabled checkbox</label>
 </div>
 
-```
-<div class="form-check form-check--toggle">...</div>
-
-```
-
-## Color Variants
-
-Changing the color can help communicate the purpose of the checkbox, but use it thoughtfully.
-
-* **Success:** Great for "Mark as Complete" actions.
-* **Danger:** Could be used for an "I understand the risks" confirmation.
-* **Warning:** Useful for options that have important consequences.
-
-<div style="display: flex; flex-direction: column; gap: 1rem;">
-
-<div class="form-check"><input class="form-check__input" type="checkbox" id="c1" checked><label class="form-check__label" for="c1">Primary</label></div>
-
-<div class="form-check form-check--success"><input class="form-check__input" type="checkbox" id="c3" checked><label class="form-check__label" for="c3">Success</label></div>
-
-<div class="form-check form-check--danger"><input class="form-check__input" type="checkbox" id="c4" checked><label class="form-check__label" for="c4">Danger</label></div>
-
+<!-- Toggle variant -->
+<div class="form-checkbox form-checkbox--toggle">
+  <input class="form-checkbox__input" type="checkbox" id="toggle1" name="toggle1">
+  <label class="form-checkbox__label" for="toggle1">Toggle switch</label>
 </div>
 
-```
-<div class="form-check form-check--success">...</div>
-<div class="form-check form-check--danger">...</div>
-
-```
-
-## Size Variants
-
-You can change the checkbox size to fit its context. Larger sizes are easier to tap on mobile devices.
-
-<div style="display: flex; flex-direction: column; gap: 1rem;">
-
-<div class="form-check form-check--lg"><input class="form-check__input" type="checkbox" id="s3" checked><label class="form-check__label" for="s3">Large Checkbox</label></div>
-
-<div class="form-check"><input class="form-check__input" type="checkbox" id="s4" checked><label class="form-check__label" for="s4">Medium Checkbox (Default)</label></div>
-
-<div class="form-check form-check--sm"><input class="form-check__input" type="checkbox" id="s5" checked><label class="form-check__label" for="s5">Small Checkbox</label></div>
-
+<!-- Switch variant -->
+<div class="form-checkbox form-checkbox--switch">
+  <input class="form-checkbox__input" type="checkbox" id="switch1" name="switch1">
+  <label class="form-checkbox__label" for="switch1">Switch control</label>
 </div>
 
-```
-<div class="form-check form-check--lg">...</div>
-<div class="form-check">...</div> <!-- MD is default -->
-<div class="form-check form-check--sm">...</div>
-
-```
-
-## Strikethrough Modifier
-
-This modifier adds a line through the label text when the box is checked.
-
-**Best for:** To-do lists or step-by-step guides (like our **Process Steps** component) to give a clear visual sign of completion.
-
-<div class="form-check form-check--strikethrough">
-
-<input class="form-check__input" type="checkbox" id="check-strike" checked>
-
-<label class="form-check__label" for="check-strike">Complete this task</label>
-
+<!-- Strikethrough variant (text gets strikethrough when checked) -->
+<div class="form-checkbox form-checkbox--strikethrough">
+  <input class="form-checkbox__input" type="checkbox" id="strike1" name="strike1">
+  <label class="form-checkbox__label" for="strike1">Strikethrough when checked</label>
 </div>
 
-```
-<div class="form-check form-check--strikethrough">...</div>
+<!-- Colored variants -->
+<div class="form-checkbox form-checkbox--primary">
+  <input class="form-checkbox__input" type="checkbox" id="primary" name="primary">
+  <label class="form-checkbox__label" for="primary">Primary color</label>
+</div>
 
+<div class="form-checkbox form-checkbox--secondary">
+  <input class="form-checkbox__input" type="checkbox" id="secondary" name="secondary">
+  <label class="form-checkbox__label" for="secondary">Secondary color</label>
+</div>
+```
+
+## Component Structure
+
+The form-checkbox component uses a wrapper with input and label elements:
+
+```
+.form-checkbox
+  ├── .form-checkbox__input
+  └── .form-checkbox__label
+```
+
+## Variants
+
+### Style Variants
+
+- Default: Standard checkbox with custom styling
+- `form-checkbox--toggle`: Toggle switch style
+- `form-checkbox--switch`: Alternative switch style
+- `form-checkbox--strikethrough`: Strikes through label text when checked
+
+### Color Variants
+
+- Default: Uses primary color
+- `form-checkbox--primary`: Primary color (same as default)
+- `form-checkbox--secondary`: Secondary color
+- `form-checkbox--success`: Success color
+- `form-checkbox--danger`: Danger/error color
+- `form-checkbox--warning`: Warning color
+- `form-checkbox--info`: Info color
+- `form-checkbox--notice`: Notice color
+- `form-checkbox--muted`: Subdued/muted color
+
+## States
+
+- Unchecked: Default state
+- Checked: When the checkbox is selected
+- Disabled: When the checkbox is not interactive
+- Focus: When the checkbox receives keyboard focus
+- Indeterminate: Can be set via JavaScript for partial selection
+
+## Accessibility
+
+- Maintains native checkbox behavior for screen readers
+- Provides visible focus states
+- Preserves keyboard navigation
+- Maintains sufficient color contrast for all states
+- Uses properly associated labels
+
+## JavaScript Integration
+
+To set the indeterminate state:
+
+```js
+document.getElementById('checkbox1').indeterminate = true;
+```
+
+For the strikethrough variant, the styling is automatically applied when the checkbox is checked.
+
+## Customization
+
+The component uses CSS custom properties that can be overridden:
+
+```css
+.form-checkbox {
+  --check-size: 1.25em;
+  --check-bg: #fff;
+  --check-border-color: var(--color-border);
+  --check-border-radius: 0.25em;
+  --check-color: var(--color-primary);
+  /* Additional custom properties available */
+}
 ```

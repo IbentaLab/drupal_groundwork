@@ -1,161 +1,166 @@
 # Buttons
 
-Welcome to the button guide! This page shows you all the different button styles available and gives you tips on when to use each one.
+Modern, accessible buttons with multiple variants and states.
 
-## Base Button
+## Overview
 
-This is your standard, go-to button. It's designed to be the main action on a page.
+The button component provides a comprehensive set of styles for interactive elements. It supports multiple colors, states, and variants to suit different UI needs while maintaining accessibility and visual consistency.
 
-**Best for:** Primary actions like "Submit," "Save," or "Add to Cart."
+## Usage
 
-`<button class="button">`Primary Button`</button>`
+```html
+<!-- Default (primary) button -->
+<button class="button">Default Button</button>
 
-```
-<button class="button">Primary Button</button>
-
-```
-
-## Color Variants
-
-Changing the color of a button can help communicate its purpose to the user.
-
-### Filled Buttons
-
-These are your standard, high-impact buttons.
-
-* **Primary:** The default, for the most important action.
-* **Secondary:** For actions that are important but not the main focus.
-* **Success:** Great for confirming a positive action, like "Save Successful."
-* **Danger:** **Use with caution!** This is for actions that delete something or cannot be undone, like "Delete Account."
-* **Warning:** For actions that the user should think about before clicking.
-* **Info:** To highlight a neutral piece of information or action.
-* **Muted:** For disabled or less important actions.
-
-`<button class="button">`Primary`</button>`
-
-`<button class="button button--secondary">`Secondary`</button>`
-
-`<button class="button button--success">`Success`</button>`
-
-`<button class="button button--danger">`Danger`</button>`
-
-`<button class="button button--warning">`Warning`</button>`
-
-`<button class="button button--info">`Info`</button>`
-
-`<button class="button button--muted">`Muted`</button>`
-
-```
+<!-- Color variants -->
 <button class="button button--secondary">Secondary</button>
 <button class="button button--success">Success</button>
 <button class="button button--danger">Danger</button>
+<button class="button button--warning">Warning</button>
+<button class="button button--info">Info</button>
+<button class="button button--notice">Notice</button>
+<button class="button button--muted">Muted</button>
 
-```
-
-## Style Variants
-
-Sometimes you need a button that doesn't stand out as much.
-
-### Ghost Buttons
-
-**Best for:** Secondary actions. For example, next to a primary "Create Account" button, you might have a ghost "Learn More" button.
-
-`<button class="button button--ghost">`Primary`</button>`
-
-`<button class="button button--ghost button--secondary">`Secondary`</button>`
-
-`<button class="button button--ghost button--danger">`Danger`</button>`
-
-```
-<button class="button button--ghost">Primary</button>
-
-```
-
-### Outline Button
-
-A simple, neutral button that works well in forms and toolbars where you need an action that doesn't draw too much attention.
-
-`<button class="button button--outline">`Outline`</button>`
-
-```
+<!-- Style variants -->
+<button class="button button--ghost">Ghost</button>
 <button class="button button--outline">Outline</button>
+<button class="button button--light button--primary">Light Primary</button>
+<button class="button button--gradient">Gradient</button>
+<button class="button button--pill">Pill</button>
+<button class="button button--glow">Glow</button>
 
-```
-
-### Light Buttons
-
-**Best for:** Low-priority actions, like filters or tags in a sidebar, where a solid button would be too visually heavy.
-
-`<button class="button button--primary-light">`Primary Light`</button>`
-
-`<button class="button button--success-light">`Success Light`</button>`
-
-`<button class="button button--warning-light">`Warning Light`</button>`
-
-```
-<button class="button button--primary-light">Primary Light</button>
-
-```
-
-## Size Variants
-
-You can change the button size to fit its location. A large button might be used in a hero banner, while a small button might be used inside a table row.
-
-`<button class="button button--xxl">`XXL Button`</button>`
-
-`<button class="button button--xl">`XL Button`</button>`
-
-`<button class="button button--lg">`LG Button`</button>`
-
-`<button class="button">`MD Button (Default)`</button>`
-
-`<button class="button button--sm">`SM Button`</button>`
-
-`<button class="button button--xs">`XS Button`</button>`
-
-```
-<button class="button button--lg">LG Button</button>
-<button class="button button--sm">SM Button</button>
-
-```
-
-## Modifiers
-
-### Pill Button
-
-Use this for a more modern, rounded look.
-
-`<button class="button button--pill">`Pill Button`</button>`
-
-```
-<button class="button button--pill">Pill Button</button>
-
-```
-
-### Block Button
-
-**Best for:** Situations where you need a button to fill the entire width of its container, which is common on mobile devices to make tapping easier.
-
-`<button class="button button--block">`Block Button`</button>`
-
-```
-<button class="button button--block">Block Button</button>
-
-```
-
-### Icon Button
-
-**Best for:** Toolbars or compact spaces where a text label would be too cluttered. Make sure the icon's meaning is clear and consider adding a tooltip!
-
-`<button class="button button--icon">`
-
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
-
-</button>
-
-```
+<!-- Size variants -->
+<button class="button button--xs">Extra Small</button>
+<button class="button button--sm">Small</button>
+<button class="button">Medium (default)</button>
+<button class="button button--lg">Large</button>
+<button class="button button--xl">Extra Large</button>
+<button class="button button--xxl">XXL</button>
+<button class="button button--block">Block</button>
 <button class="button button--icon">
-  <!-- Your SVG icon goes here -->
+  <svg><!-- icon --></svg>
 </button>
 
+<!-- States -->
+<button class="button" disabled>Disabled</button>
+<button class="button button--loading">Loading</button>
+
+<!-- Button groups -->
+<div class="button-group">
+  <button class="button">Left</button>
+  <button class="button">Middle</button>
+  <button class="button">Right</button>
+</div>
+
+<!-- Layout button groups -->
+<div class="btn-group btn-group--center">
+  <button class="button">First</button>
+  <button class="button">Second</button>
+</div>
+```
+
+## Component Structure
+
+The button component uses a system of CSS custom properties to define its appearance, making it highly customizable:
+
+```css
+.button {
+  --button-bg: var(--color-primary);
+  --button-text: var(--white);
+  --button-border-color: transparent;
+  /* ...additional variables... */
+}
+```
+
+## Variants
+
+### Color Variants
+
+- `button--primary` (default)
+- `button--secondary`
+- `button--success`
+- `button--danger`
+- `button--warning`
+- `button--info`
+- `button--notice`
+- `button--muted`
+
+### Style Variants
+
+- `button--ghost`: Transparent background with colored border
+- `button--outline`: Neutral outline button
+- `button--light`: Light colored background with dark text
+- `button--gradient`: Animated gradient background
+- `button--pill`: Fully rounded corners
+- `button--glow`: Subtle glow effect around the button
+
+### Size Variants
+
+- `button--xs`: Extra small
+- `button--sm`: Small
+- `button--md`: Medium (default)
+- `button--lg`: Large
+- `button--xl`: Extra large
+- `button--xxl`: XXL size
+- `button--block`: Full width button
+- `button--icon`: Square button for icons
+
+## States
+
+- Default: Normal button state
+- `:hover`: When mouse is over the button
+- `:focus-visible`: When button receives keyboard focus
+- `:active`: When button is being pressed
+- `:disabled`: When button is disabled
+- `button--loading`: Shows a loading spinner
+
+## Button Groups
+
+### Connected Button Group
+
+The `.button-group` class creates a set of connected buttons with shared borders:
+
+```html
+<div class="button-group">
+  <button class="button">Left</button>
+  <button class="button">Middle</button>
+  <button class="button">Right</button>
+</div>
+```
+
+### Layout Button Group
+
+The `.btn-group` utility classes help arrange groups of separate buttons:
+
+```html
+<div class="btn-group btn-group--center">
+  <button class="button">First</button>
+  <button class="button">Second</button>
+</div>
+```
+
+Available modifiers:
+- Alignment: `btn-group--start`, `btn-group--center`, `btn-group--end`, `btn-group--between`, `btn-group--around`
+- Direction: `btn-group--vertical`
+- Spacing: `btn-group--sm`, `btn-group--lg`
+- Responsive: `btn-group--responsive`, `mobile-full`
+
+## Accessibility
+
+- All buttons maintain WCAG 2.1 AA contrast requirements
+- Focus states are clearly visible
+- Loading states prevent multiple submissions
+- Text remains visible during loading for screen readers
+- Disabled states are visually distinct
+
+## JavaScript Integration
+
+The ripple effect and loading state can be triggered via JavaScript:
+
+```js
+// Add loading state
+document.querySelector('.button').classList.add('button--loading');
+
+// Remove loading state
+document.querySelector('.button').classList.remove('button--loading');
 ```
