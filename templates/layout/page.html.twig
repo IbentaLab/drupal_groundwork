@@ -102,10 +102,13 @@
 
 		<div class="layout-container">
 			<div id="content" class="layout-content">
-				{{ page.preface }}
+
+      	{{ page.preface }}
 				{{ page.content }}
 				{{ page.appendix }}
-			</div>
+
+      </div>
+			{# /#content.layout-container #}
 
 			{% if page.sidebar_first %}
 				<aside id="sidebar-first" class="layout-sidebar-first" role="complementary" aria-label="First Sidebar">
@@ -145,6 +148,5 @@
 	<footer id="footer" class="layout-footer" role="contentinfo" aria-label="Footer">
 		{{ page.footer }}
 	</footer>
-
 </div>
 {# /#layout-page #}
