@@ -61,13 +61,17 @@
 .banner.bg--green,
 .banner.bg--teal,
 .banner.bg--cyan {
-  /* These backgrounds use white text - let the utility handle it */
+  h1 {
+    color: var(--text-on-dark);
+  }
 }
 
 .banner.bg--amber,
 .banner.bg--yellow,
 .banner.bg--lime {
-  /* These backgrounds use dark text - let the utility handle it */
+  h1 {
+    color: var(--text-on-light);
+  }
 }
 
 /* Only override text color for image backgrounds */
