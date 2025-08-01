@@ -1,0 +1,125 @@
+/**
+ * @category ✨ Effects
+ * @description Overlay styles for enhancing text contrast over background images.
+ * @order 0
+ */
+
+/**
+ * @name .overlay
+ * @description Absolutely positioned overlay layer with full coverage.
+ * @blockStyleComponent true
+ */
+.overlay:not(.block),
+.overlay.block.grid-cell .block-style-target {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**
+ * @name .overlay--dark
+ * @description Dark semi-transparent overlay. Enhances light text contrast.
+ * @blockStyleComponent true
+ */
+.overlay--dark:not(.block),
+.overlay--dark.block.grid-cell .block-style-target {
+  background-color: rgba(0, 0, 0, var(--overlay-opacity, 0.5));
+}
+
+/**
+ * @name .overlay--light
+ * @description Light semi-transparent overlay. Enhances dark text contrast.
+ * @blockStyleComponent true
+ */
+.overlay--light:not(.block),
+.overlay--light.block.grid-cell .block-style-target {
+  background-color: rgba(255, 255, 255, var(--overlay-opacity, 0.5));
+}
+
+/**
+ * @name .overlay--primary
+ * @description Themed primary color overlay with customizable opacity.
+ * @blockStyleComponent true
+ */
+.overlay--primary:not(.block),
+.overlay--primary.block.grid-cell .block-style-target {
+  background-color: rgba(from var(--color-primary) r g b / var(--overlay-opacity, 0.5));
+}
+
+/**
+ * @name .overlay--black
+ * @description Black overlay. Identical to --dark, but explicit.
+ * @blockStyleComponent true
+ */
+.overlay--black:not(.block),
+.overlay--black.block.grid-cell .block-style-target {
+  background-color: rgba(0, 0, 0, var(--overlay-opacity, 0.5));
+}
+
+/**
+ * @name .overlay--white
+ * @description White overlay. Identical to --light, but explicit.
+ * @blockStyleComponent true
+ */
+.overlay--white:not(.block),
+.overlay--white.block.grid-cell .block-style-target {
+  background-color: rgba(255, 255, 255, var(--overlay-opacity, 0.5));
+}
+
+/**
+ * @name .overlay-10
+ * @description 10% overlay opacity. Use with a color overlay.
+ * @blockStyleComponent true
+ */
+.overlay-10:not(.block),
+.overlay-10.block.grid-cell .block-style-target {
+  --overlay-opacity: 0.1;
+}
+
+/**
+ * @name .overlay-25
+ * @description 25% overlay opacity. Use with a color overlay.
+ * @blockStyleComponent true
+ */
+.overlay-25:not(.block),
+.overlay-25.block.grid-cell .block-style-target {
+  --overlay-opacity: 0.25;
+}
+
+/**
+ * @name .overlay-50
+ * @description 50% overlay opacity. Use with a color overlay.
+ * @blockStyleComponent true
+ */
+.overlay-50:not(.block),
+.overlay-50.block.grid-cell .block-style-target {
+  --overlay-opacity: 0.5;
+}
+
+/**
+ * @name .overlay-75
+ * @description 75% overlay opacity. Use with a color overlay.
+ * @blockStyleComponent true
+ */
+.overlay-75:not(.block),
+.overlay-75.block.grid-cell .block-style-target {
+  --overlay-opacity: 0.75;
+}
+
+/**
+ * @name .overlay-90
+ * @description 90% overlay opacity. Use with a color overlay.
+ * @blockStyleComponent true
+ */
+.overlay-90:not(.block),
+.overlay-90.block.grid-cell .block-style-target {
+  --overlay-opacity: 0.9;
+}
+
+@media (prefers-contrast: high) {
+  .overlay:not(.block),
+  .overlay.block.grid-cell .block-style-target {
+    display: none;
+  }
+}

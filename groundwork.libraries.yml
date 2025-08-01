@@ -104,6 +104,7 @@ block-styles:
       # Color and Visual Styling
       css/block-style-components/color-blue.css: {}
       css/block-style-components/color-gray.css: {}
+      css/block-style-components/overlay.css: {}
       css/block-style-components/shadow.css: {}
       css/block-style-components/border.css: {}
       css/block-style-components/rounded.css: {}

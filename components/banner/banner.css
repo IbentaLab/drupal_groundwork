@@ -1,0 +1,303 @@
+/**
+ * @file
+ * Banner component styles.
+ *
+ * Minimal component-specific styles that work with Groundwork's atomic utilities:
+ * - Uses existing .bg--* classes for color backgrounds
+ * - Uses existing .overlay--* classes for image overlays
+ * - Uses existing .vh-* classes for height variants
+ * - Uses existing .btn-group utilities for button layout
+ * - Uses existing design tokens for consistency
+ */
+
+/* ===================================================================
+   BANNER COMPONENT BASE
+   =================================================================== */
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xxl) var(--space-lg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ===================================================================
+   CONTENT WRAPPER & LAYOUT
+   =================================================================== */
+
+.banner__content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.banner--layout-left .banner__content {
+  text-align: left;
+}
+
+.banner--layout-right .banner__content {
+  text-align: right;
+}
+
+/* ===================================================================
+   TEXT CONTRAST FOR COLOR BACKGROUNDS
+   Let background color utilities handle their own text colors
+   =================================================================== */
+
+/* Don't override text colors when using .bg-- classes */
+.banner.bg--blue,
+.banner.bg--indigo,
+.banner.bg--deep-purple,
+.banner.bg--purple,
+.banner.bg--pink,
+.banner.bg--red,
+.banner.bg--orange,
+.banner.bg--brown,
+.banner.bg--blue-gray,
+.banner.bg--gray,
+.banner.bg--green,
+.banner.bg--teal,
+.banner.bg--cyan {
+  /* These backgrounds use white text - let the utility handle it */
+}
+
+.banner.bg--amber,
+.banner.bg--yellow,
+.banner.bg--lime {
+  /* These backgrounds use dark text - let the utility handle it */
+}
+
+/* Only override text color for image backgrounds */
+.banner__content--light-text {
+  color: var(--text-on-dark);
+}
+
+.banner__content--dark-text {
+  color: var(--text-on-light);
+}
+
+/* Ensure child elements inherit the correct text color */
+.banner__content--light-text .banner__title,
+.banner__content--light-text .banner__subtitle,
+.banner__content--light-text .banner__body {
+  color: inherit;
+}
+
+.banner__content--dark-text .banner__title,
+.banner__content--dark-text .banner__subtitle,
+.banner__content--dark-text .banner__body {
+  color: inherit;
+}
+
+/* ===================================================================
+   BUTTON VISIBILITY IMPROVEMENTS
+   Ensure buttons are always visible regardless of background
+   =================================================================== */
+
+.banner .button {
+  /* Add subtle border for definition */
+  border: 2px solid transparent;
+  /* Add shadow for depth and visibility */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Ensure buttons have enough contrast */
+  position: relative;
+}
+
+.banner .button:hover {
+  /* Enhanced shadow on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Smart contrast for primary buttons on primary backgrounds */
+.banner.bg--blue .button--primary,
+.banner.bg--indigo .button--primary,
+.banner.bg--deep-purple .button--primary,
+.banner.bg--purple .button--primary,
+.banner.bg--pink .button--primary,
+.banner.bg--red .button--primary,
+.banner.bg--orange .button--primary,
+.banner.bg--brown .button--primary,
+.banner.bg--blue-gray .button--primary,
+.banner.bg--gray .button--primary,
+.banner.bg--green .button--primary,
+.banner.bg--teal .button--primary,
+.banner.bg--cyan .button--primary {
+  /* Use ghost style when button color might match background */
+  background-color: transparent !important;
+  color: var(--text-on-dark) !important;
+  border-color: var(--text-on-dark) !important;
+}
+
+.banner.bg--blue .button--primary:hover,
+.banner.bg--indigo .button--primary:hover,
+.banner.bg--deep-purple .button--primary:hover,
+.banner.bg--purple .button--primary:hover,
+.banner.bg--pink .button--primary:hover,
+.banner.bg--red .button--primary:hover,
+.banner.bg--orange .button--primary:hover,
+.banner.bg--brown .button--primary:hover,
+.banner.bg--blue-gray .button--primary:hover,
+.banner.bg--gray .button--primary:hover,
+.banner.bg--green .button--primary:hover,
+.banner.bg--teal .button--primary:hover,
+.banner.bg--cyan .button--primary:hover {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-primary) !important;
+}
+
+/* ===================================================================
+   TYPOGRAPHY
+   Uses design system tokens for consistent scaling
+   =================================================================== */
+
+.banner__title {
+  font-size: var(--ms-xxxl);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.banner__subtitle {
+  font-size: var(--ms-xxl);
+  font-weight: 400;
+  margin-bottom: var(--space-md);
+  opacity: 0.9;
+}
+
+.banner__body {
+  font-size: var(--ms-lg);
+  line-height: var(--line-height-base);
+  margin-bottom: var(--space-lg);
+}
+
+.banner__body > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ===================================================================
+   BUTTON VISIBILITY IMPROVEMENTS
+   Ensure buttons are always visible regardless of background
+   =================================================================== */
+
+.banner .button {
+  /* Add subtle border for definition */
+  border-width: 2px;
+  border-style: solid;
+  /* Add shadow for depth and visibility */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Ensure buttons have enough contrast */
+  position: relative;
+}
+
+.banner .button:hover:not(:disabled) {
+  /* Enhanced shadow on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Smart contrast for primary buttons on colored backgrounds */
+.banner.bg--blue .button--primary:not(.button--ghost),
+.banner.bg--indigo .button--primary:not(.button--ghost),
+.banner.bg--deep-purple .button--primary:not(.button--ghost),
+.banner.bg--purple .button--primary:not(.button--ghost),
+.banner.bg--pink .button--primary:not(.button--ghost),
+.banner.bg--red .button--primary:not(.button--ghost),
+.banner.bg--orange .button--primary:not(.button--ghost),
+.banner.bg--brown .button--primary:not(.button--ghost),
+.banner.bg--blue-gray .button--primary:not(.button--ghost),
+.banner.bg--gray .button--primary:not(.button--ghost),
+.banner.bg--green .button--primary:not(.button--ghost),
+.banner.bg--teal .button--primary:not(.button--ghost),
+.banner.bg--cyan .button--primary:not(.button--ghost) {
+  /* Convert to ghost style when button color might match background */
+  background-color: transparent !important;
+  color: var(--text-on-dark) !important;
+  border-color: var(--text-on-dark) !important;
+}
+
+.banner.bg--blue .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--indigo .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--deep-purple .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--purple .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--pink .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--red .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--orange .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--brown .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--blue-gray .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--gray .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--green .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--teal .button--primary:not(.button--ghost):hover:not(:disabled),
+.banner.bg--cyan .button--primary:not(.button--ghost):hover:not(:disabled) {
+  background-color: var(--text-on-dark) !important;
+  color: var(--color-primary) !important;
+}
+
+/* ===================================================================
+   ACTIONS
+   =================================================================== */
+
+.banner__actions {
+  margin-top: var(--space-lg);
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+
+@media (max-width: 768px) {
+  .banner {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .banner__title {
+    font-size: var(--ms-xl);
+  }
+
+  .banner__subtitle {
+    font-size: var(--ms-md);
+  }
+
+  .banner__body {
+    font-size: var(--ms-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .banner__title {
+    font-size: var(--ms-lg);
+  }
+}
+
+/* ===================================================================
+   ACCESSIBILITY
+   =================================================================== */
+
+/* High contrast mode support - remove overlays that might hurt readability */
+@media (prefers-contrast: high) {
+  .banner .overlay {
+    display: none;
+  }
+
+  /* Ensure strong text contrast in high contrast mode */
+  .banner__content--light-text {
+    color: var(--white);
+  }
+
+  .banner__content--dark-text {
+    color: var(--black);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .banner .button--gradient {
+    animation: none;
+  }
+
+  .banner .button--glow {
+    transition: none;
+  }
+}

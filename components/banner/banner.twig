@@ -1,0 +1,102 @@
+{#
+/**
+ * @file
+ * Banner component template.
+ *
+ * Available variables:
+ * - title: Main banner title
+ * - subtitle: Optional subtitle
+ * - content: Optional body content (processed HTML)
+ * - background_color: Color background option
+ * - background_image: Image background URL
+ * - background_is_dark: Boolean for dark image backgrounds
+ * - overlay_type: Overlay color type
+ * - overlay_opacity: Overlay opacity level
+ * - layout: Content alignment (center|left|right)
+ * - height_variant: Height option (natural|50|75|100)
+ * - primary_action: Primary button configuration
+ * - secondary_action: Secondary button configuration
+ * - attributes: HTML attributes for the banner element
+ */
+#}
+
+{%
+  set banner_classes = [
+    'banner',
+    'banner--layout-' ~ layout,
+    height_variant != 'natural' ? 'vh-' ~ height_variant,
+    background_color ? 'bg--' ~ background_color,
+    'mobile-center'
+  ]
+%}
+
+{%
+  set overlay_classes = [
+    overlay_type ? 'overlay',
+    overlay_type ? 'overlay--' ~ overlay_type,
+    overlay_opacity ? 'overlay-' ~ overlay_opacity
+  ]
+%}
+
+{%
+  set content_classes = [
+    'content-wrapper',
+    'banner__content',
+    background_image and not background_color and background_is_dark ? 'banner__content--light-text',
+    background_image and not background_color and not background_is_dark ? 'banner__content--dark-text'
+  ]
+%}
+
+<section{{ attributes.addClass(banner_classes) }}
+  {% if background_image %}
+    style="background-image: url('{{ background_image }}'); background-size: cover; background-position: {{ background_position }}; background-attachment: {{ background_attachment }};"
+  {% endif %}
+>
+  {% if background_image and overlay_type %}
+    <div class="{{ overlay_classes|join(' ')|trim }}"></div>
+  {% endif %}
+
+  <div class="{{ content_classes|join(' ')|trim }}">
+    {% if title %}
+      <h1 class="banner__title">{{ title }}</h1>
+    {% endif %}
+
+    {% if subtitle %}
+      <p class="banner__subtitle">{{ subtitle }}</p>
+    {% endif %}
+
+    {% if content %}
+      <div class="banner__body">
+        {{ content|raw }}
+      </div>
+    {% endif %}
+
+    {% if primary_action.label or secondary_action.label %}
+      <div class="btn-group btn-group--center btn-group--responsive banner__actions">
+        {% if primary_action.label %}
+          {% set primary_btn_classes = [
+            'button',
+            primary_action.color ? 'button--' ~ primary_action.color,
+            primary_action.style ? 'button--' ~ primary_action.style,
+            primary_action.size ? 'button--' ~ primary_action.size
+          ] %}
+          <a href="{{ primary_action.url }}" class="{{ primary_btn_classes|join(' ')|trim }}">
+            {{ primary_action.label }}
+          </a>
+        {% endif %}
+
+        {% if secondary_action.label %}
+          {% set secondary_btn_classes = [
+            'button',
+            secondary_action.color ? 'button--' ~ secondary_action.color,
+            secondary_action.style ? 'button--' ~ secondary_action.style,
+            secondary_action.size ? 'button--' ~ secondary_action.size
+          ] %}
+          <a href="{{ secondary_action.url }}" class="{{ secondary_btn_classes|join(' ')|trim }}">
+            {{ secondary_action.label }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,216 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+
+name: Banner
+status: stable
+group: Content
+description: >
+  A flexible banner component that leverages Groundwork's atomic design system.
+  Supports color backgrounds with automatic contrast, or image backgrounds with
+  smart overlay options for optimal text readability and subtle branding.
+
+props:
+  type: object
+  required:
+    - title
+  properties:
+    # Content
+    title:
+      type: string
+      title: Title
+      description: Main headline for the banner
+    subtitle:
+      type: string
+      title: Subtitle
+      description: Optional subtitle or tagline
+    content:
+      type: string
+      title: Content
+      description: Optional body content (processed HTML)
+
+    # Background System
+    background_color:
+      type: string
+      title: Background Color
+      description: Pre-defined background color with automatic text contrast
+      enum:
+        - ''
+        - blue
+        - indigo
+        - deep-purple
+        - purple
+        - pink
+        - red
+        - orange
+        - amber
+        - yellow
+        - lime
+        - green
+        - teal
+        - cyan
+        - brown
+        - blue-gray
+        - gray
+      default: ''
+    background_image:
+      type: string
+      title: Background Image URL
+      description: URL to background image
+      format: uri
+    background_is_dark:
+      type: boolean
+      title: Background Image is Dark
+      description: Check if your background image is predominantly dark (ensures light text is used)
+      default: false
+
+    # Background Image Display Options
+    background_attachment:
+      type: string
+      title: Background Scroll Behavior
+      description: How the background image behaves during scrolling
+      enum:
+        - scroll
+        - fixed
+      default: scroll
+    background_position:
+      type: string
+      title: Background Image Position
+      description: Which part of the image to show when cropped
+      enum:
+        - top
+        - center
+        - bottom
+      default: center
+
+    # Overlay System (for background images)
+    overlay_type:
+      type: string
+      title: Overlay Type
+      description: Colored overlay to improve text contrast or add branding
+      enum:
+        - ''
+        - dark
+        - light
+        - primary
+      default: ''
+    overlay_opacity:
+      type: string
+      title: Overlay Opacity
+      description: Strength of the overlay effect
+      enum:
+        - '10'
+        - '25'
+        - '50'
+        - '75'
+        - '90'
+      default: '50'
+
+    # Layout Options
+    layout:
+      type: string
+      title: Content Layout
+      description: How to align the banner content
+      enum:
+        - center
+        - left
+        - right
+      default: center
+    height_variant:
+      type: string
+      title: Height Variant
+      description: Controls the minimum height of the banner
+      enum:
+        - natural
+        - '50'
+        - '75'
+        - '100'
+      default: natural
+
+    # Call-to-Action Buttons
+    primary_action:
+      type: object
+      title: Primary Action Button
+      description: Main call-to-action button
+      properties:
+        label:
+          type: string
+          title: Button Label
+        url:
+          type: string
+          title: Button URL
+        color:
+          type: string
+          title: Button Color
+          enum:
+            - primary
+            - secondary
+            - info
+            - notice
+            - success
+            - danger
+            - warning
+            - muted
+          default: primary
+        style:
+          type: string
+          title: Button Style
+          enum:
+            - ''
+            - ghost
+            - light
+            - gradient
+            - glow
+          default: ''
+        size:
+          type: string
+          title: Button Size
+          enum:
+            - ''
+            - sm
+            - md
+            - lg
+            - xl
+          default: ''
+    secondary_action:
+      type: object
+      title: Secondary Action Button
+      description: Optional secondary call-to-action button
+      properties:
+        label:
+          type: string
+          title: Button Label
+        url:
+          type: string
+          title: Button URL
+        color:
+          type: string
+          title: Button Color
+          enum:
+            - primary
+            - secondary
+            - info
+            - notice
+            - success
+            - danger
+            - warning
+            - muted
+          default: secondary
+        style:
+          type: string
+          title: Button Style
+          enum:
+            - ''
+            - ghost
+            - light
+            - gradient
+            - glow
+          default: ghost
+        size:
+          type: string
+          title: Button Size
+          enum:
+            - ''
+            - sm
+            - md
+            - lg
+            - xl
+          default: ''
