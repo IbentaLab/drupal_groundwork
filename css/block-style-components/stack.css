@@ -1,0 +1,70 @@
+/**
+ * @category 🔲 Layout
+ * @description Vertical stack layout. Applies consistent vertical spacing between children using CSS gap.
+ * @order 4
+ *
+ * This utility is inspired by "Every Layout's Stack" and modern CSS frameworks (Tailwind, Bootstrap).
+ * It helps create clean, consistent vertical flow — great for forms, cards, navs, etc.
+ */
+
+/**
+ * @name .stack
+ * @description Vertically stacks children with a medium gap.
+ * @blockStyleComponent true
+ */
+.stack:not(.block),
+.stack.block.grid-cell .block-style-target {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/**
+ * @name .stack--xs
+ * @description Extra-small vertical gap.
+ * @blockStyleComponent true
+ */
+.stack--xs:not(.block),
+.stack--xs.block.grid-cell .block-style-target {
+  gap: var(--space-xs);
+}
+
+/**
+ * @name .stack--sm
+ * @description Small vertical gap.
+ * @blockStyleComponent true
+ */
+.stack--sm:not(.block),
+.stack--sm.block.grid-cell .block-style-target {
+  gap: var(--space-sm);
+}
+
+/**
+ * @name .stack--lg
+ * @description Large vertical gap.
+ * @blockStyleComponent true
+ */
+.stack--lg:not(.block),
+.stack--lg.block.grid-cell .block-style-target {
+  gap: var(--space-lg);
+}
+
+/**
+ * @name .stack--xl
+ * @description Extra-large vertical gap.
+ * @blockStyleComponent true
+ */
+.stack--xl:not(.block),
+.stack--xl.block.grid-cell .block-style-target {
+  gap: var(--space-xl);
+}
+
+/**
+ * @name .stack--xxl
+ * @description Double extra-large vertical gap.
+ * @blockStyleComponent true
+ */
+.stack--xxl:not(.block),
+.stack--xxl.block.grid-cell .block-style-target {
+  gap: var(--space-xxl);
+}
