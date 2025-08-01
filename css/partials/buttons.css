@@ -1,8 +1,15 @@
 /* ===================================================================
    BUTTON COMPONENT
    Modern, accessible button with multiple variants and states.
-   Built with a highly maintainable CSS variable system.
-   =================================================================== */
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, success, danger, warning, info, notice, muted
+   ✳️ State: loading, disabled, focus, active
+   🆎 Style: filled, ghost, outline, gradient, pill, glow
+   📏 Size: xs, sm, md, lg, xl, xxl, block, icon
+*/
+
 
 .button {
   /* --- Component Variables --- */
@@ -387,6 +394,7 @@
    =================================================================== */
 
 /* --- Ripple Effect --- */
+/* The ripple is a pseudo-element that scales up and fades in on click */
 .button::before {
   content: '';
   position: absolute;
@@ -398,6 +406,7 @@
   background-color: currentColor; /* Uses the button's text color for the ripple */
   opacity: 0;
   transform: translate(-50%, -50%) scale(0);
+  /* This transition now applies to the effect animating in and out */
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   pointer-events: none;
   z-index: 0; /* Places ripple behind the text */
@@ -409,14 +418,23 @@
     z-index: 1;
 }
 
+/* The ripple becomes visible and expands on click */
 .button:active::before {
   transform: translate(-50%, -50%) scale(2);
-  opacity: 0.30;
+  opacity: 0.3; /* Increased from 0.15 for better visibility */
 }
 
+
 /* --- Gradient Effect --- */
+/* This now uses the button's existing variables to create a more prominent
+   three-stop gradient, giving it a "shiny" look. */
 .button--gradient {
-  background: linear-gradient(135deg, var(--btn-gradient-start), var(--btn-gradient-end));
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--btn-gradient-start) 80%, white 20%),
+    var(--btn-gradient-start) 50%,
+    var(--btn-gradient-end)
+  );
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
 }
@@ -425,10 +443,6 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-.button--gradient:hover:not(:disabled) {
-  animation-duration: 1.5s;
 }
 
 /* --- Glow Effect --- */
@@ -501,4 +515,74 @@
 /* Keyframes for the spinning animation */
 @keyframes button-spin {
   to { transform: rotate(360deg); }
+}
+
+/* ===================================================================
+   BUTTON GROUP UTILITIES
+   Flexible button groups for components
+   =================================================================== */
+
+.btn-group {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Alignment modifiers */
+.btn-group--start {
+  justify-content: flex-start;
+}
+
+.btn-group--center {
+  justify-content: center;
+}
+
+.btn-group--end {
+  justify-content: flex-end;
+}
+
+.btn-group--between {
+  justify-content: space-between;
+}
+
+.btn-group--around {
+  justify-content: space-around;
+}
+
+/* Direction modifiers */
+.btn-group--vertical {
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-group--vertical .button {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Size modifiers */
+.btn-group--sm {
+  gap: var(--space-sm);
+}
+
+.btn-group--lg {
+  gap: var(--space-lg);
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .mobile-full .button {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+
+  .btn-group--responsive {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .btn-group--responsive .button {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
 }

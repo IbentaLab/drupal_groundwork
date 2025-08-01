@@ -1,0 +1,238 @@
+/* ===================================================================
+   FORM RADIO BUTTON
+   Accessible, themeable, and customizable radio button component.
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, info, notice, success, danger, warning, muted
+   📏 Size: xs, sm, md, lg, xl, xxl
+   ✳️ State: is-invalid, is-valid, is-warning, is-disabled
+   ⬜ Shape: rounded (default), square, toggle, pill
+   🧠 Layout: inline, stacked
+*/
+
+.form-radio {
+  /* --- Component Variables (Defaults to MD size) --- */
+  --radio-size: var(--ms-md);
+  --radio-border: var(--color-border);
+  --radio-bg: var(--color-bg);
+  --radio-checked-bg: var(--color-primary);
+  --radio-focus-ring: rgba(from var(--color-primary-dark) r g b / 0.3);
+  --radio-disabled-bg: var(--color-disabled-bg);
+  --radio-disabled-border: var(--color-border);
+  --radio-invalid-color: var(--color-danger);
+  --radio-valid-color: var(--color-success);
+
+  /* --- Base Styles --- */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  font-size: var(--ms-md);
+}
+
+.form-radio__input {
+  appearance: none;
+  -webkit-appearance: none; /* Safari fix */
+  -moz-appearance: none; /* Firefox fix */
+  position: relative;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  border: 2px solid var(--radio-border);
+  border-radius: var(--radius-full); /* Rounded shape by default */
+  background-color: var(--radio-bg);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--duration-short), background-color var(--duration-short);
+}
+
+.form-radio__input:checked {
+  background-color: var(--radio-checked-bg);
+  border-color: var(--radio-checked-bg);
+}
+
+.form-radio__input:focus-visible {
+  box-shadow: 0 0 0 3px var(--radio-focus-ring);
+}
+
+.form-radio__input:disabled {
+  background-color: var(--radio-disabled-bg);
+  border-color: var(--radio-disabled-border);
+  cursor: not-allowed;
+}
+
+.form-radio__label {
+  margin-left: var(--space-xs);
+  cursor: pointer;
+}
+
+/* ===================================================================
+   SIZE VARIANTS
+   =================================================================== */
+
+.form-radio--xs .form-radio__input {
+  --radio-size: var(--ms-xs);
+}
+
+.form-radio--sm .form-radio__input {
+  --radio-size: var(--ms-sm);
+}
+
+/* MD is the default size */
+
+.form-radio--lg .form-radio__input {
+  --radio-size: var(--ms-lg);
+}
+
+.form-radio--xl .form-radio__input {
+  --radio-size: var(--ms-xl);
+}
+
+.form-radio--xxl .form-radio__input {
+  --radio-size: var(--ms-xxl);
+}
+
+/* ===================================================================
+   COLOR VARIANTS
+   =================================================================== */
+
+.form-radio--primary .form-radio__input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.form-radio--secondary .form-radio__input:checked {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.form-radio--info .form-radio__input:checked {
+  background-color: var(--color-info);
+  border-color: var(--color-info);
+}
+
+.form-radio--notice .form-radio__input:checked {
+  background-color: var(--color-notice);
+  border-color: var(--color-notice);
+}
+
+.form-radio--success .form-radio__input:checked {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.form-radio--danger .form-radio__input:checked {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.form-radio--warning .form-radio__input:checked {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.form-radio--muted .form-radio__input:checked {
+  background-color: var(--color-muted);
+  border-color: var(--color-muted);
+}
+
+/* ===================================================================
+   STATE VARIANTS
+   =================================================================== */
+
+.form-radio.is-invalid .form-radio__input {
+  border-color: var(--radio-invalid-color);
+  box-shadow: 0 0 0 3px rgba(from var(--radio-invalid-color) r g b / 0.3);
+}
+
+.form-radio.is-valid .form-radio__input {
+  border-color: var(--radio-valid-color);
+  box-shadow: 0 0 0 3px rgba(from var(--radio-valid-color) r g b / 0.3);
+}
+
+.form-radio.is-warning .form-radio__input {
+  border-color: var(--color-warning);
+  box-shadow: 0 0 0 3px rgba(from var(--color-warning) r g b / 0.3);
+}
+
+/* ===================================================================
+   SHAPE VARIANTS
+   =================================================================== */
+
+/* 1. Square Radio Buttons */
+.form-radio--square .form-radio__input {
+  border-radius: 0; /* Removes rounding for a square shape */
+}
+
+/* 2. Toggle-Style Radio Buttons */
+.form-radio--toggle .form-radio__input {
+  width: calc(var(--ms-md) * 2);
+  height: var(--ms-md);
+  border-radius: var(--radius-full);
+  background-color: var(--color-muted);
+  position: relative;
+  transition: background-color var(--duration-short);
+}
+
+.form-radio--toggle .form-radio__input:checked {
+  background-color: var(--color-primary);
+}
+
+.form-radio--toggle .form-radio__input::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(var(--space-xs));
+  width: calc(var(--ms-md) * 0.66);
+  height: calc(var(--ms-md) * 0.66);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-full);
+  transform: translateY(-50%);
+  transition: left var(--duration-short);
+}
+
+.form-radio--toggle .form-radio__input:checked::after {
+  left: calc(100% - var(--ms-md) * 0.75);
+}
+
+/* 3. Capsule/Pill Radio Buttons */
+.form-radio--pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--radio-border);
+  background-color: var(--radio-bg);
+  cursor: pointer;
+  transition: background-color var(--duration-short), border-color var(--duration-short);
+}
+
+.form-radio--pill .form-radio__input {
+  display: none; /* Hide the default radio input */
+}
+
+.form-radio--pill .form-radio__label {
+  display: inline-block;
+  color: var(--color-text);
+}
+
+.form-radio--pill .form-radio__input:checked + .form-radio__label {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
+
+/* ===================================================================
+   LAYOUT VARIANTS
+   =================================================================== */
+
+.form-radio--inline {
+  display: inline-flex;
+}
+
+.form-radio--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
