@@ -1,0 +1,388 @@
+/* ===================================================================
+   TOOLTIP COMPONENT
+   Contextual information displayed on hover/focus.
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, info, notice, success, danger, warning, muted
+   📏 Size: xs, sm, md, lg, xl
+   ✳️ Position: top, right, bottom, left
+   ⬜ Shape: default, rounded, square
+   🧠 Type: text, rich-content
+   🔄 Animation: fade, scale, slide
+*/
+
+.tooltip {
+  /* --- Component Variables --- */
+  --tooltip-bg: var(--color-surface-dark);
+  --tooltip-text: var(--color-text-inverse);
+  --tooltip-arrow-size: 0.5rem;
+  --tooltip-max-width: 16rem;
+  --tooltip-padding-y: var(--space-xs);
+  --tooltip-padding-x: var(--space-sm);
+  --tooltip-z-index: var(--z-index-tooltip);
+  --tooltip-shadow: var(--shadow-sm);
+  --tooltip-border-radius: var(--radius-sm);
+  --tooltip-animation-duration: var(--duration-short);
+
+  /* --- Base Styles --- */
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip__content {
+  /* Hidden by default */
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: var(--tooltip-z-index);
+  max-width: var(--tooltip-max-width);
+  padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  text-align: center;
+  border-radius: var(--tooltip-border-radius);
+  box-shadow: var(--tooltip-shadow);
+  pointer-events: none;
+  transition: opacity var(--tooltip-animation-duration),
+              transform var(--tooltip-animation-duration);
+  transform: translate(0, 0);
+}
+
+/* Arrow styling */
+.tooltip__content::after {
+  content: "";
+  position: absolute;
+  border-width: var(--tooltip-arrow-size);
+  border-style: solid;
+  border-color: transparent;
+}
+
+/* Tooltip trigger */
+.tooltip:hover .tooltip__content,
+.tooltip:focus-within .tooltip__content {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===================================================================
+   POSITION VARIANTS
+   =================================================================== */
+
+/* Top position (default) */
+.tooltip--top .tooltip__content {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-0.5rem);
+  margin-bottom: var(--tooltip-arrow-size);
+}
+
+.tooltip--top .tooltip__content::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--top:hover .tooltip__content {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Bottom position */
+.tooltip--bottom .tooltip__content {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0.5rem);
+  margin-top: var(--tooltip-arrow-size);
+}
+
+.tooltip--bottom .tooltip__content::after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--bottom:hover .tooltip__content {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Left position */
+.tooltip--left .tooltip__content {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-0.5rem);
+  margin-right: var(--tooltip-arrow-size);
+}
+
+.tooltip--left .tooltip__content::after {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--left:hover .tooltip__content {
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Right position */
+.tooltip--right .tooltip__content {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(0.5rem);
+  margin-left: var(--tooltip-arrow-size);
+}
+
+.tooltip--right .tooltip__content::after {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--right:hover .tooltip__content {
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ===================================================================
+   COLOR VARIANTS
+   =================================================================== */
+
+.tooltip--primary .tooltip__content {
+  --tooltip-bg: var(--color-primary);
+}
+
+.tooltip--primary .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--primary.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--primary.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--primary.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--secondary .tooltip__content {
+  --tooltip-bg: var(--color-secondary);
+}
+
+.tooltip--secondary .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--secondary.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--secondary.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--secondary.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--info .tooltip__content {
+  --tooltip-bg: var(--color-info);
+}
+
+.tooltip--info .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--info.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--info.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--info.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--notice .tooltip__content {
+  --tooltip-bg: var(--color-notice);
+}
+
+.tooltip--notice .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--notice.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--notice.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--notice.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--success .tooltip__content {
+  --tooltip-bg: var(--color-success);
+}
+
+.tooltip--success .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--success.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--success.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--success.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--danger .tooltip__content {
+  --tooltip-bg: var(--color-danger);
+}
+
+.tooltip--danger .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--danger.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--danger.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--danger.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--warning .tooltip__content {
+  --tooltip-bg: var(--color-warning);
+}
+
+.tooltip--warning .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--warning.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--warning.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--warning.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+.tooltip--muted .tooltip__content {
+  --tooltip-bg: var(--color-muted);
+}
+
+.tooltip--muted .tooltip__content::after {
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+}
+
+.tooltip--muted.tooltip--bottom .tooltip__content::after {
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+}
+
+.tooltip--muted.tooltip--left .tooltip__content::after {
+  border-color: transparent transparent transparent var(--tooltip-bg);
+}
+
+.tooltip--muted.tooltip--right .tooltip__content::after {
+  border-color: transparent var(--tooltip-bg) transparent transparent;
+}
+
+/* ===================================================================
+   SIZE VARIANTS
+   =================================================================== */
+
+.tooltip--xs .tooltip__content {
+  --tooltip-padding-y: calc(var(--space-xs) * 0.5);
+  --tooltip-padding-x: var(--space-xs);
+  --tooltip-max-width: 12rem;
+  font-size: var(--ms-xs);
+}
+
+.tooltip--sm .tooltip__content {
+  --tooltip-padding-y: var(--space-xs);
+  --tooltip-padding-x: var(--space-xs);
+  --tooltip-max-width: 14rem;
+  font-size: var(--ms-sm);
+}
+
+/* MD is the default */
+
+.tooltip--lg .tooltip__content {
+  --tooltip-padding-y: var(--space-sm);
+  --tooltip-padding-x: var(--space-md);
+  --tooltip-max-width: 20rem;
+  font-size: var(--ms-lg);
+}
+
+.tooltip--xl .tooltip__content {
+  --tooltip-padding-y: var(--space-md);
+  --tooltip-padding-x: var(--space-lg);
+  --tooltip-max-width: 24rem;
+  font-size: var(--ms-xl);
+}
+
+/* ===================================================================
+   SHAPE VARIANTS
+   =================================================================== */
+
+.tooltip--rounded .tooltip__content {
+  --tooltip-border-radius: var(--radius-lg);
+}
+
+.tooltip--square .tooltip__content {
+  --tooltip-border-radius: 0;
+}
+
+/* ===================================================================
+   TYPE VARIANTS
+   =================================================================== */
+
+.tooltip--rich-content .tooltip__content {
+  text-align: left;
+  white-space: normal;
+}
+
+/* ===================================================================
+   ANIMATION VARIANTS
+   =================================================================== */
+
+.tooltip--fade .tooltip__content {
+  transform: none;
+  opacity: 0;
+}
+
+.tooltip--fade:hover .tooltip__content,
+.tooltip--fade:focus-within .tooltip__content {
+  opacity: 1;
+}
+
+.tooltip--scale .tooltip__content {
+  transform: scale(0.8);
+}
+
+.tooltip--scale:hover .tooltip__content,
+.tooltip--scale:focus-within .tooltip__content {
+  transform: scale(1);
+}

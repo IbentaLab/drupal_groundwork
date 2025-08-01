@@ -6,7 +6,7 @@
    Variants supported:
    🎨 Color: primary, secondary, success, danger, warning, info, notice, muted
    ✳️ State: loading, disabled, focus, active
-   🆎 Style: filled, ghost, outline, gradient, pill, glow
+   🆎 Style: filled, ghost, outline, light, gradient, pill, glow
    📏 Size: xs, sm, md, lg, xl, xxl, block, icon
 */
 
@@ -15,16 +15,17 @@
   /* --- Component Variables --- */
   /* These are the defaults, representing the primary button. */
   /* Variants will override these as needed. */
-  --btn-bg: var(--color-primary);
-  --btn-text: var(--white);
-  --btn-border-color: transparent;
-  --btn-bg-hover: var(--color-primary-dark);
-  --btn-text-hover: var(--white);
-  --btn-border-color-hover: transparent;
-  --btn-focus-color: rgba(from var(--color-primary) r g b / 0.5);
-  --btn-glow-color: var(--color-primary);
-  --btn-gradient-start: var(--color-primary);
-  --btn-gradient-end: var(--color-primary-dark);
+  --button-bg: var(--color-primary);
+  --button-text: var(--white);
+  --button-border-color: transparent;
+  --button-bg-hover: var(--color-primary-dark);
+  --button-text-hover: var(--white);
+  --button-border-color-hover: transparent;
+  --button-focus-color: rgba(from var(--color-primary) r g b / 0.5);
+  --button-glow-color: var(--color-primary);
+  --button-gradient-start: var(--color-primary);
+  --button-gradient-end: var(--color-primary-dark);
+  --button-border-radius: 0.375em; /* Proportionate radius based on font size */
 
   /* --- Base Styles --- */
   display: inline-flex;
@@ -51,10 +52,10 @@
   padding: var(--padding-y) var(--padding-x);
 
   /* --- Visuals --- */
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
-  border: 2px solid var(--btn-border-color);
-  border-radius: var(--radius-sm);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: var(--border-width) solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
 
   /* --- Interaction --- */
   cursor: pointer;
@@ -69,15 +70,15 @@
 /* --- Hover State --- */
 /* Generic hover effects for all buttons (transform, shadow, etc.) */
 .button:hover:not(:disabled) {
-  color: var(--btn-text-hover, var(--btn-text));
-  border-color: var(--btn-border-color-hover, var(--btn-border-color));
+  color: var(--button-text-hover, var(--button-text));
+  border-color: var(--button-border-color-hover, var(--button-border-color));
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }
 
 /* Specific background hover for NON-gradient buttons */
 .button:not(.button--gradient):hover:not(:disabled) {
-  background-color: var(--btn-bg-hover);
+  background-color: var(--button-bg-hover);
 }
 
 /* --- Active State --- */
@@ -89,7 +90,7 @@
 /* --- Focus State --- */
 .button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--btn-focus-color);
+  box-shadow: 0 0 0 var(--space-xxs) var(--button-focus-color);
 }
 
 /* --- Disabled State --- */
@@ -106,233 +107,231 @@
    =================================================================== */
 
 /* --- Filled Variants --- */
-.button--secondary:not(.button--ghost) {
-  --btn-bg: var(--color-secondary);
-  --btn-bg-hover: var(--color-secondary-dark);
-  --btn-focus-color: rgba(from var(--color-secondary) r g b / 0.5);
-  --btn-glow-color: var(--color-secondary);
-  --btn-gradient-start: var(--color-secondary);
-  --btn-gradient-end: var(--color-secondary-dark);
+.button--secondary:not(.button--ghost):not(.button--light) {
+  --button-bg: var(--color-secondary);
+  --button-bg-hover: var(--color-secondary-dark);
+  --button-focus-color: rgba(from var(--color-secondary) r g b / 0.5);
+  --button-glow-color: var(--color-secondary);
+  --button-gradient-start: var(--color-secondary);
+  --button-gradient-end: var(--color-secondary-dark);
 }
 
-.button--info:not(.button--ghost) {
-  --btn-bg: var(--color-info);
-  --btn-bg-hover: var(--color-info-dark);
-  --btn-focus-color: rgba(from var(--color-info) r g b / 0.5);
-  --btn-glow-color: var(--color-info);
-  --btn-gradient-start: var(--color-info);
-  --btn-gradient-end: var(--color-info-dark);
+.button--info:not(.button--ghost):not(.button--light) {
+  --button-bg: var(--color-info);
+  --button-bg-hover: var(--color-info-dark);
+  --button-focus-color: rgba(from var(--color-info) r g b / 0.5);
+  --button-glow-color: var(--color-info);
+  --button-gradient-start: var(--color-info);
+  --button-gradient-end: var(--color-info-dark);
 }
 
-.button--notice:not(.button--ghost) {
-  --btn-bg: var(--color-notice);
-  --btn-bg-hover: var(--color-notice-dark);
-  --btn-focus-color: rgba(from var(--color-notice) r g b / 0.5);
-  --btn-glow-color: var(--color-notice);
-  --btn-gradient-start: var(--color-notice);
-  --btn-gradient-end: var(--color-notice-dark);
+.button--notice:not(.button--ghost):not(.button--light) {
+  --button-bg: var(--color-notice);
+  --button-bg-hover: var(--color-notice-dark);
+  --button-focus-color: rgba(from var(--color-notice) r g b / 0.5);
+  --button-glow-color: var(--color-notice);
+  --button-gradient-start: var(--color-notice);
+  --button-gradient-end: var(--color-notice-dark);
 }
 
-.button--success:not(.button--ghost) {
-  --btn-bg: var(--color-success);
-  --btn-bg-hover: var(--color-success-dark);
-  --btn-focus-color: rgba(from var(--color-success) r g b / 0.5);
-  --btn-glow-color: var(--color-success);
-  --btn-gradient-start: var(--color-success);
-  --btn-gradient-end: var(--color-success-dark);
+.button--success:not(.button--ghost):not(.button--light) {
+  --button-bg: var(--color-success);
+  --button-bg-hover: var(--color-success-dark);
+  --button-focus-color: rgba(from var(--color-success) r g b / 0.5);
+  --button-glow-color: var(--color-success);
+  --button-gradient-start: var(--color-success);
+  --button-gradient-end: var(--color-success-dark);
 }
 
-.button--danger:not(.button--ghost) {
-  --btn-bg: var(--color-danger);
-  --btn-bg-hover: var(--color-danger-dark);
-  --btn-focus-color: rgba(from var(--color-danger) r g b / 0.5);
-  --btn-glow-color: var(--color-danger);
-  --btn-gradient-start: var(--color-danger);
-  --btn-gradient-end: var(--color-danger-dark);
+.button--danger:not(.button--ghost):not(.button--light) {
+  --button-bg: var(--color-danger);
+  --button-bg-hover: var(--color-danger-dark);
+  --button-focus-color: rgba(from var(--color-danger) r g b / 0.5);
+  --button-glow-color: var(--color-danger);
+  --button-gradient-start: var(--color-danger);
+  --button-gradient-end: var(--color-danger-dark);
 }
 
-.button--warning:not(.button--ghost) {
-  --btn-bg: var(--color-warning);
-  --btn-bg-hover: var(--color-warning-dark);
-  --btn-focus-color: rgba(from var(--color-warning) r g b / 0.5);
-  --btn-glow-color: var(--color-warning);
-  --btn-gradient-start: var(--color-warning);
-  --btn-gradient-end: var(--color-warning-dark);
+.button--warning:not(.button--ghost):not(.button--light) {
+  --button-bg: var(--color-warning);
+  --button-bg-hover: var(--color-warning-dark);
+  --button-focus-color: rgba(from var(--color-warning) r g b / 0.5);
+  --button-glow-color: var(--color-warning);
+  --button-gradient-start: var(--color-warning);
+  --button-gradient-end: var(--color-warning-dark);
 }
 
-.button--muted:not(.button--ghost) {
-  --btn-bg: var(--color-muted);
-  --btn-bg-hover: var(--color-muted-dark);
-  --btn-focus-color: rgba(from var(--color-muted) r g b / 0.5);
-  --btn-glow-color: var(--color-muted);
-  --btn-gradient-start: var(--color-muted);
-  --btn-gradient-end: var(--color-muted-dark);
+.button--muted:not(.button--ghost):not(.button--light) {
+  --button-bg: var(--color-muted);
+  --button-bg-hover: var(--color-muted-dark);
+  --button-focus-color: rgba(from var(--color-muted) r g b / 0.5);
+  --button-glow-color: var(--color-muted);
+  --button-gradient-start: var(--color-muted);
+  --button-gradient-end: var(--color-muted-dark);
 }
 
 /* --- Ghost Variants --- */
 .button--ghost {
-  --btn-bg: transparent;
-  --btn-text: var(--color-primary);
-  --btn-border-color: var(--color-primary);
-  --btn-bg-hover: var(--color-primary);
-  --btn-text-hover: var(--white);
-  --btn-border-color-hover: var(--color-primary);
+  --button-bg: transparent;
+  --button-text: var(--color-primary);
+  --button-border-color: var(--color-primary);
+  --button-bg-hover: var(--color-primary);
+  --button-text-hover: var(--white);
+  --button-border-color-hover: var(--color-primary);
 }
 
 .button--ghost.button--secondary {
-  --btn-text: var(--color-secondary);
-  --btn-border-color: var(--color-secondary);
-  --btn-bg-hover: var(--color-secondary);
-  --btn-border-color-hover: var(--color-secondary);
+  --button-text: var(--color-secondary);
+  --button-border-color: var(--color-secondary);
+  --button-bg-hover: var(--color-secondary);
+  --button-border-color-hover: var(--color-secondary);
 }
 
 .button--ghost.button--info {
-  --btn-text: var(--color-info);
-  --btn-border-color: var(--color-info);
-  --btn-bg-hover: var(--color-info);
-  --btn-border-color-hover: var(--color-info);
+  --button-text: var(--color-info);
+  --button-border-color: var(--color-info);
+  --button-bg-hover: var(--color-info);
+  --button-border-color-hover: var(--color-info);
 }
 
 .button--ghost.button--notice {
-  --btn-text: var(--color-notice);
-  --btn-border-color: var(--color-notice);
-  --btn-bg-hover: var(--color-notice);
-  --btn-border-color-hover: var(--color-notice);
+  --button-text: var(--color-notice);
+  --button-border-color: var(--color-notice);
+  --button-bg-hover: var(--color-notice);
+  --button-border-color-hover: var(--color-notice);
 }
 
 .button--ghost.button--success {
-  --btn-text: var(--color-success);
-  --btn-border-color: var(--color-success);
-  --btn-bg-hover: var(--color-success);
-  --btn-border-color-hover: var(--color-success);
+  --button-text: var(--color-success);
+  --button-border-color: var(--color-success);
+  --button-bg-hover: var(--color-success);
+  --button-border-color-hover: var(--color-success);
 }
 
 .button--ghost.button--danger {
-  --btn-text: var(--color-danger);
-  --btn-border-color: var(--color-danger);
-  --btn-bg-hover: var(--color-danger);
-  --btn-border-color-hover: var(--color-danger);
+  --button-text: var(--color-danger);
+  --button-border-color: var(--color-danger);
+  --button-bg-hover: var(--color-danger);
+  --button-border-color-hover: var(--color-danger);
 }
 
 .button--ghost.button--warning {
-  --btn-text: var(--color-warning);
-  --btn-border-color: var(--color-warning);
-  --btn-bg-hover: var(--color-warning);
-  --btn-border-color-hover: var(--color-warning);
+  --button-text: var(--color-warning);
+  --button-border-color: var(--color-warning);
+  --button-bg-hover: var(--color-warning);
+  --button-border-color-hover: var(--color-warning);
 }
 
 .button--ghost.button--muted {
-  --btn-text: var(--color-muted);
-  --btn-border-color: var(--color-muted);
-  --btn-bg-hover: var(--color-muted);
-  --btn-border-color-hover: var(--color-muted);
+  --button-text: var(--color-muted);
+  --button-border-color: var(--color-muted);
+  --button-bg-hover: var(--color-muted);
+  --button-border-color-hover: var(--color-muted);
 }
 
 /* --- Outline Variant --- */
 .button--outline {
-  --btn-bg: transparent;
-  --btn-text: var(--color-text);
-  --btn-border-color: var(--color-border);
-  --btn-bg-hover: var(--color-surface-hover);
-  --btn-border-color-hover: var(--color-border);
-  --btn-focus-color: rgba(from var(--color-text) r g b / 0.25);
+  --button-bg: transparent;
+  --button-text: var(--color-text);
+  --button-border-color: var(--color-border);
+  --button-bg-hover: var(--color-surface-hover);
+  --button-border-color-hover: var(--color-border);
+  --button-focus-color: rgba(from var(--color-text) r g b / 0.25);
 }
 
 /* --- Light Variants --- */
-.button--primary-light {
-  --btn-bg: var(--color-primary-light);
-  --btn-text: var(--color-primary-dark);
-  --btn-bg-hover: var(--color-primary);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-primary) r g b / 0.5);
-  --btn-glow-color: var(--color-primary);
-  --btn-gradient-start: var(--color-primary-light);
-  --btn-gradient-end: var(--color-primary);
+/* Base light style */
+.button--light {
   border-color: transparent;
 }
 
-.button--secondary-light {
-  --btn-bg: var(--color-secondary-light);
-  --btn-text: var(--color-secondary-dark);
-  --btn-bg-hover: var(--color-secondary);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-secondary) r g b / 0.5);
-  --btn-glow-color: var(--color-secondary);
-  --btn-gradient-start: var(--color-secondary-light);
-  --btn-gradient-end: var(--color-secondary);
-  border-color: transparent;
+/* Light color variants */
+.button--light.button--primary {
+  --button-bg: var(--color-primary-light);
+  --button-text: var(--color-primary-dark);
+  --button-bg-hover: var(--color-primary);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-primary) r g b / 0.5);
+  --button-glow-color: var(--color-primary);
+  --button-gradient-start: var(--color-primary-light);
+  --button-gradient-end: var(--color-primary);
 }
 
-.button--info-light {
-  --btn-bg: var(--color-info-light);
-  --btn-text: var(--color-info-dark);
-  --btn-bg-hover: var(--color-info);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-info) r g b / 0.5);
-  --btn-glow-color: var(--color-info);
-  --btn-gradient-start: var(--color-info-light);
-  --btn-gradient-end: var(--color-info);
-  border-color: transparent;
+.button--light.button--secondary {
+  --button-bg: var(--color-secondary-light);
+  --button-text: var(--color-secondary-dark);
+  --button-bg-hover: var(--color-secondary);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-secondary) r g b / 0.5);
+  --button-glow-color: var(--color-secondary);
+  --button-gradient-start: var(--color-secondary-light);
+  --button-gradient-end: var(--color-secondary);
 }
 
-.button--notice-light {
-  --btn-bg: var(--color-notice-light);
-  --btn-text: var(--color-notice-dark);
-  --btn-bg-hover: var(--color-notice);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-notice) r g b / 0.5);
-  --btn-glow-color: var(--color-notice);
-  --btn-gradient-start: var(--color-notice-light);
-  --btn-gradient-end: var(--color-notice);
-  border-color: transparent;
+.button--light.button--info {
+  --button-bg: var(--color-info-light);
+  --button-text: var(--color-info-dark);
+  --button-bg-hover: var(--color-info);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-info) r g b / 0.5);
+  --button-glow-color: var(--color-info);
+  --button-gradient-start: var(--color-info-light);
+  --button-gradient-end: var(--color-info);
 }
 
-.button--success-light {
-  --btn-bg: var(--color-success-light);
-  --btn-text: var(--color-success-dark);
-  --btn-bg-hover: var(--color-success);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-success) r g b / 0.5);
-  --btn-glow-color: var(--color-success);
-  --btn-gradient-start: var(--color-success-light);
-  --btn-gradient-end: var(--color-success);
-  border-color: transparent;
+.button--light.button--notice {
+  --button-bg: var(--color-notice-light);
+  --button-text: var(--color-notice-dark);
+  --button-bg-hover: var(--color-notice);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-notice) r g b / 0.5);
+  --button-glow-color: var(--color-notice);
+  --button-gradient-start: var(--color-notice-light);
+  --button-gradient-end: var(--color-notice);
 }
 
-.button--danger-light {
-  --btn-bg: var(--color-danger-light);
-  --btn-text: var(--color-danger-dark);
-  --btn-bg-hover: var(--color-danger);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-danger) r g b / 0.5);
-  --btn-glow-color: var(--color-danger);
-  --btn-gradient-start: var(--color-danger-light);
-  --btn-gradient-end: var(--color-danger);
-  border-color: transparent;
+.button--light.button--success {
+  --button-bg: var(--color-success-light);
+  --button-text: var(--color-success-dark);
+  --button-bg-hover: var(--color-success);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-success) r g b / 0.5);
+  --button-glow-color: var(--color-success);
+  --button-gradient-start: var(--color-success-light);
+  --button-gradient-end: var(--color-success);
 }
 
-.button--warning-light {
-  --btn-bg: var(--color-warning-light);
-  --btn-text: var(--color-warning-dark);
-  --btn-bg-hover: var(--color-warning);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-warning) r g b / 0.5);
-  --btn-glow-color: var(--color-warning);
-  --btn-gradient-start: var(--color-warning-light);
-  --btn-gradient-end: var(--color-warning);
-  border-color: transparent;
+.button--light.button--danger {
+  --button-bg: var(--color-danger-light);
+  --button-text: var(--color-danger-dark);
+  --button-bg-hover: var(--color-danger);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-danger) r g b / 0.5);
+  --button-glow-color: var(--color-danger);
+  --button-gradient-start: var(--color-danger-light);
+  --button-gradient-end: var(--color-danger);
 }
 
-.button--muted-light {
-  --btn-bg: var(--color-muted-light);
-  --btn-text: var(--color-muted-dark);
-  --btn-bg-hover: var(--color-muted);
-  --btn-text-hover: var(--white);
-  --btn-focus-color: rgba(from var(--color-muted) r g b / 0.5);
-  --btn-glow-color: var(--color-muted);
-  --btn-gradient-start: var(--color-muted-light);
-  --btn-gradient-end: var(--color-muted);
-  border-color: transparent;
+.button--light.button--warning {
+  --button-bg: var(--color-warning-light);
+  --button-text: var(--color-warning-dark);
+  --button-bg-hover: var(--color-warning);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-warning) r g b / 0.5);
+  --button-glow-color: var(--color-warning);
+  --button-gradient-start: var(--color-warning-light);
+  --button-gradient-end: var(--color-warning);
+}
+
+.button--light.button--muted {
+  --button-bg: var(--color-muted-light);
+  --button-text: var(--color-muted-dark);
+  --button-bg-hover: var(--color-muted);
+  --button-text-hover: var(--white);
+  --button-focus-color: rgba(from var(--color-muted) r g b / 0.5);
+  --button-glow-color: var(--color-muted);
+  --button-gradient-start: var(--color-muted-light);
+  --button-gradient-end: var(--color-muted);
 }
 
 /* ===================================================================
@@ -341,25 +340,27 @@
 
 .button--xs {
   font-size: var(--ms-xs);
+  /* Border radius scales with font size */
 }
 
 .button--sm {
   font-size: var(--ms-sm);
+  /* Border radius scales with font size */
 }
 
 .button--lg {
   font-size: var(--ms-lg);
-  border-radius: var(--radius-md);
+  /* Border radius scales with font size */
 }
 
 .button--xl {
   font-size: var(--ms-xl);
-  border-radius: var(--radius-lg);
+  /* Border radius scales with font size */
 }
 
 .button--xxl {
   font-size: var(--ms-xxl);
-  border-radius: var(--radius-lg);
+  /* Border radius scales with font size */
   --padding-y: 1em;
   --padding-x: 1em;
 }
@@ -431,9 +432,9 @@
 .button--gradient {
   background: linear-gradient(
     135deg,
-    color-mix(in oklab, var(--btn-gradient-start) 80%, white 20%),
-    var(--btn-gradient-start) 50%,
-    var(--btn-gradient-end)
+    color-mix(in oklab, var(--button-gradient-start) 80%, white 20%),
+    var(--button-gradient-start) 50%,
+    var(--button-gradient-end)
   );
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
@@ -448,11 +449,11 @@
 /* --- Glow Effect --- */
 /* Note: This will override the default lift shadow on hover */
 .button--glow {
-  box-shadow: 0 0 20px rgba(from var(--btn-glow-color) r g b / 0.3);
+  box-shadow: 0 0 20px rgba(from var(--button-glow-color) r g b / 0.3);
 }
 
 .button--glow:hover:not(:disabled) {
-  box-shadow: 0 0 30px rgba(from var(--btn-glow-color) r g b / 0.5);
+  box-shadow: 0 0 30px rgba(from var(--button-glow-color) r g b / 0.5);
 }
 
 /* ===================================================================
@@ -469,13 +470,13 @@
 }
 
 .button-group .button:first-child {
-  border-top-left-radius: var(--radius-md);
-  border-bottom-left-radius: var(--radius-md);
+  border-top-left-radius: var(--button-border-radius);
+  border-bottom-left-radius: var(--button-border-radius);
 }
 
 .button-group .button:last-child {
-  border-top-right-radius: var(--radius-md);
-  border-bottom-right-radius: var(--radius-md);
+  border-top-right-radius: var(--button-border-radius);
+  border-bottom-right-radius: var(--button-border-radius);
 }
 
 .button-group .button:hover {

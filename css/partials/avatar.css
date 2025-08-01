@@ -1,0 +1,217 @@
+/* ===================================================================
+   AVATAR COMPONENT
+   User profile pictures with various sizes and shapes.
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, info, notice, success, danger, warning, muted
+   📏 Size: xs, sm, md, lg, xl, xxl
+   ⬜ Shape: circle, square, rounded
+   🧠 Type: image, text, icon
+   🔄 Layout: with-badge, with-status, stacked, grouped
+*/
+
+.avatar {
+  /* --- Component Variables --- */
+  --avatar-size: var(--ms-xl);
+  --avatar-bg: var(--color-muted);
+  --avatar-text: var(--white);
+  --avatar-border-radius: 50%;
+  --avatar-border-width: 0;
+  --avatar-border-color: transparent;
+  --avatar-font-size: calc(var(--avatar-size) * 0.4);
+  --avatar-font-weight: 500;
+
+  /* --- Base Styles --- */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  background-color: var(--avatar-bg);
+  color: var(--avatar-text);
+  font-size: var(--avatar-font-size);
+  font-weight: var(--avatar-font-weight);
+  border: var(--avatar-border-width) solid var(--avatar-border-color);
+  border-radius: var(--avatar-border-radius);
+  overflow: hidden;
+  user-select: none;
+}
+
+.avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===================================================================
+   COLOR VARIANTS
+   =================================================================== */
+
+.avatar--primary {
+  --avatar-bg: var(--color-primary);
+}
+
+.avatar--secondary {
+  --avatar-bg: var(--color-secondary);
+}
+
+.avatar--info {
+  --avatar-bg: var(--color-info);
+}
+
+.avatar--notice {
+  --avatar-bg: var(--color-notice);
+}
+
+.avatar--success {
+  --avatar-bg: var(--color-success);
+}
+
+.avatar--danger {
+  --avatar-bg: var(--color-danger);
+}
+
+.avatar--warning {
+  --avatar-bg: var(--color-warning);
+}
+
+.avatar--muted {
+  --avatar-bg: var(--color-muted);
+}
+
+/* ===================================================================
+   SIZE VARIANTS
+   =================================================================== */
+
+.avatar--xs {
+  --avatar-size: var(--ms-md);
+  --avatar-font-size: calc(var(--avatar-size) * 0.45);
+}
+
+.avatar--sm {
+  --avatar-size: var(--ms-lg);
+  --avatar-font-size: calc(var(--avatar-size) * 0.42);
+}
+
+/* MD is the default */
+
+.avatar--lg {
+  --avatar-size: var(--ms-xxl);
+  --avatar-font-size: calc(var(--avatar-size) * 0.38);
+}
+
+.avatar--xl {
+  --avatar-size: calc(var(--ms-xxl) * 1.5);
+  --avatar-font-size: calc(var(--avatar-size) * 0.35);
+}
+
+.avatar--xxl {
+  --avatar-size: calc(var(--ms-xxl) * 2);
+  --avatar-font-size: calc(var(--avatar-size) * 0.33);
+}
+
+/* ===================================================================
+   SHAPE VARIANTS
+   =================================================================== */
+
+/* Circle is the default */
+
+.avatar--square {
+  --avatar-border-radius: 0;
+}
+
+.avatar--rounded {
+  --avatar-border-radius: var(--radius-md);
+}
+
+/* ===================================================================
+   TYPE VARIANTS
+   =================================================================== */
+
+/* Image is the default when img is present */
+/* Text is the default when no img is present */
+
+.avatar--icon .avatar__icon {
+  width: 60%;
+  height: 60%;
+}
+
+/* ===================================================================
+   LAYOUT VARIANTS
+   =================================================================== */
+
+/* With status indicator */
+.avatar--with-status::after {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  border: 2px solid var(--color-bg);
+  box-sizing: content-box;
+}
+
+.avatar--with-status.avatar--status-online::after {
+  background-color: var(--color-success);
+}
+
+.avatar--with-status.avatar--status-away::after {
+  background-color: var(--color-warning);
+}
+
+.avatar--with-status.avatar--status-busy::after {
+  background-color: var(--color-danger);
+}
+
+.avatar--with-status.avatar--status-offline::after {
+  background-color: var(--color-muted);
+}
+
+/* With badge */
+.avatar--with-badge .badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, -25%);
+}
+
+/* Avatar group (overlapping) */
+.avatar-group {
+  display: inline-flex;
+}
+
+.avatar-group .avatar {
+  margin-left: calc(var(--avatar-size) * -0.2);
+  border: 2px solid var(--color-bg);
+}
+
+.avatar-group .avatar:first-child {
+  margin-left: 0;
+}
+
+/* Stacked avatar with details */
+.avatar-stacked {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.avatar-stacked__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar-stacked__name {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.avatar-stacked__info {
+  font-size: 0.85em;
+  color: var(--color-muted-dark);
+}

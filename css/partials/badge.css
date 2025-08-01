@@ -1,0 +1,201 @@
+/* ===================================================================
+   BADGE COMPONENT
+   Small indicators for counts, status, and notifications.
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, info, notice, success, danger, warning, muted
+   📏 Size: xs, sm, md, lg, xl
+   ⬜ Shape: default, rounded, square, pill
+   🧠 Type: solid, outline, soft, dot
+   🔄 Layout: inline, stacked
+*/
+
+.badge {
+  /* --- Component Variables --- */
+  --badge-bg: var(--color-primary);
+  --badge-text: var(--white);
+  --badge-border: transparent;
+  --badge-padding-y: calc(var(--space-xs) * 0.5);
+  --badge-padding-x: var(--space-xs);
+  --badge-font-size: var(--ms-sm);
+  --badge-border-radius: var(--radius-sm);
+  --badge-min-width: 1.5em;
+  --badge-height: 1.5em;
+
+  /* --- Base Styles --- */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--badge-min-width);
+  height: var(--badge-height);
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  font-size: var(--badge-font-size);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--badge-border-radius);
+}
+
+/* ===================================================================
+   COLOR VARIANTS
+   =================================================================== */
+
+/* Primary is the default */
+
+.badge--secondary {
+  --badge-bg: var(--color-secondary);
+}
+
+.badge--info {
+  --badge-bg: var(--color-info);
+}
+
+.badge--notice {
+  --badge-bg: var(--color-notice);
+}
+
+.badge--success {
+  --badge-bg: var(--color-success);
+}
+
+.badge--danger {
+  --badge-bg: var(--color-danger);
+}
+
+.badge--warning {
+  --badge-bg: var(--color-warning);
+}
+
+.badge--muted {
+  --badge-bg: var(--color-muted);
+}
+
+/* ===================================================================
+   SIZE VARIANTS
+   =================================================================== */
+
+.badge--xs {
+  --badge-font-size: var(--ms-xs);
+  --badge-padding-x: calc(var(--space-xs) * 0.4);
+  --badge-padding-y: calc(var(--space-xs) * 0.2);
+  --badge-min-width: 1.2em;
+  --badge-height: 1.2em;
+}
+
+.badge--sm {
+  --badge-font-size: var(--ms-sm);
+  --badge-padding-x: calc(var(--space-xs) * 0.6);
+  --badge-padding-y: calc(var(--space-xs) * 0.3);
+  --badge-min-width: 1.4em;
+  --badge-height: 1.4em;
+}
+
+/* MD is the default */
+
+.badge--lg {
+  --badge-font-size: var(--ms-lg);
+  --badge-padding-x: var(--space-sm);
+  --badge-padding-y: calc(var(--space-xs) * 0.7);
+  --badge-min-width: 1.7em;
+  --badge-height: 1.7em;
+}
+
+.badge--xl {
+  --badge-font-size: var(--ms-xl);
+  --badge-padding-x: var(--space-md);
+  --badge-padding-y: var(--space-sm);
+  --badge-min-width: 1.8em;
+  --badge-height: 1.8em;
+  --badge-border-radius: var(--radius-md);
+}
+
+/* ===================================================================
+   SHAPE VARIANTS
+   =================================================================== */
+
+.badge--rounded {
+  --badge-border-radius: var(--radius-md);
+}
+
+.badge--square {
+  --badge-border-radius: 0;
+}
+
+.badge--pill {
+  --badge-border-radius: var(--radius-full);
+}
+
+/* ===================================================================
+   TYPE VARIANTS
+   =================================================================== */
+
+/* Solid is the default */
+
+.badge--outline {
+  background-color: transparent;
+  color: var(--badge-bg);
+  border-color: currentColor;
+}
+
+.badge--soft {
+  background-color: color-mix(in oklab, var(--badge-bg) 20%, transparent);
+  color: var(--badge-bg);
+  border-color: transparent;
+}
+
+.badge--dot {
+  min-width: auto;
+  width: var(--space-sm);
+  height: var(--space-sm);
+  padding: 0;
+  border-radius: 50%;
+}
+
+.badge--dot.badge--xs {
+  width: calc(var(--space-xs) * 0.7);
+  height: calc(var(--space-xs) * 0.7);
+}
+
+.badge--dot.badge--sm {
+  width: var(--space-xs);
+  height: var(--space-xs);
+}
+
+.badge--dot.badge--lg {
+  width: var(--space-md);
+  height: var(--space-md);
+}
+
+.badge--dot.badge--xl {
+  width: var(--space-lg);
+  height: var(--space-lg);
+}
+
+/* ===================================================================
+   LAYOUT VARIANTS
+   =================================================================== */
+
+.badge--inline {
+  vertical-align: middle;
+  margin: 0 var(--space-xs);
+}
+
+.badge--stacked {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 1;
+}
+
+/* Notification badge */
+.badge-container {
+  position: relative;
+  display: inline-block;
+}

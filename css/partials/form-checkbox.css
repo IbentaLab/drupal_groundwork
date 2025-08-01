@@ -10,12 +10,12 @@
    ⬛ Style: toggle (switch), default (box)
 */
 
-.form-check {
+.form-checkbox {
   /* --- Component Variables (Defaults to MD size) --- */
-  --check-color: var(--color-primary);
-  --check-size: 2rem;
-  --check-font-size: 1.6rem; /* Checkmark size */
-  --check-label-font-size: var(--ms-md);
+  --checkbox-color: var(--color-primary);
+  --checkbox-size: var(--space-md);
+  --checkbox-font-size: var(--ms-md); /* Checkmark size */
+  --checkbox-label-font-size: var(--ms-md);
 
   display: flex;
   align-items: center;
@@ -23,62 +23,62 @@
   position: relative;
 }
 
-.form-check__input {
+.form-checkbox__input {
   /* Visually hide the default checkbox but keep it accessible */
   position: absolute;
   opacity: 0;
-  width: 1px;
-  height: 1px;
+  width: var(--space-xs);
+  height: var(--space-xs);
 }
 
-.form-check__label {
+.form-checkbox__label {
   position: relative;
   cursor: pointer;
   color: var(--color-text);
-  font-size: var(--check-label-font-size);
+  font-size: var(--checkbox-label-font-size);
 }
 
 /* ===================================================================
    DEFAULT CHECKBOX VARIANT (The Box)
    =================================================================== */
 
-.form-check:not(.form-check--toggle) .form-check__label {
-  padding-left: calc(var(--check-size) + 0.8rem); /* Space for the custom box */
+.form-checkbox:not(.form-checkbox--toggle) .form-checkbox__label {
+  padding-left: calc(var(--checkbox-size) + var(--space-xs)); /* Space for the custom box */
 }
 
 /* The custom box */
-.form-check:not(.form-check--toggle) .form-check__input + .form-check__label::before {
+.form-checkbox:not(.form-checkbox--toggle) .form-checkbox__input + .form-checkbox__label::before {
   content: '';
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: var(--check-size);
-  height: var(--check-size);
-  border: 2px solid var(--color-border);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-sm);
   background-color: var(--color-bg);
   transition: background-color var(--duration-short), border-color var(--duration-short);
 }
 
 /* The checkmark */
-.form-check:not(.form-check--toggle) .form-check__input:checked + .form-check__label::after {
+.form-checkbox:not(.form-checkbox--toggle) .form-checkbox__input:checked + .form-checkbox__label::after {
   content: '✔';
   position: absolute;
-  left: 0.4rem; /* Adjust based on size */
+  left: calc(var(--space-xs) * 0.8); /* Adjust based on size */
   top: 50%;
   transform: translateY(-50%);
-  font-size: var(--check-font-size);
-  color: var(--check-color);
+  font-size: var(--checkbox-font-size);
+  color: var(--checkbox-color);
 }
 
 /* Focus state for default checkbox */
-.form-check:not(.form-check--toggle) .form-check__input:focus-visible + .form-check__label::before {
+.form-checkbox:not(.form-checkbox--toggle) .form-checkbox__input:focus-visible + .form-checkbox__label::before {
   box-shadow: var(--shadow-focus);
 }
 
 /* Strikethrough modifier for default checkbox */
-.form-check--strikethrough.form-check:not(.form-check--toggle) .form-check__input:checked + .form-check__label {
+.form-checkbox--strikethrough.form-checkbox:not(.form-checkbox--toggle) .form-checkbox__input:checked + .form-checkbox__label {
   text-decoration: line-through;
   color: var(--color-muted-dark);
 }
@@ -88,93 +88,93 @@
    TOGGLE SWITCH VARIANT
    =================================================================== */
 
-.form-check--toggle .form-check__label {
-  padding-left: calc(var(--check-size) * 2.4); /* Space for the toggle switch */
+.form-checkbox--toggle .form-checkbox__label {
+  padding-left: calc(var(--checkbox-size) * 2.4); /* Space for the toggle switch */
 }
 
 /* The track of the switch */
-.form-check--toggle .form-check__input + .form-check__label::before {
+.form-checkbox--toggle .form-checkbox__input + .form-checkbox__label::before {
   content: '';
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: calc(var(--check-size) * 2);
-  height: calc(var(--check-size) + 0.2rem);
+  width: calc(var(--checkbox-size) * 2);
+  height: calc(var(--checkbox-size) + var(--space-xxs));
   border-radius: var(--radius-full);
   background-color: var(--color-surface-dark);
   transition: background-color var(--duration-short);
 }
 
 /* The thumb (the moving part) */
-.form-check--toggle .form-check__input + .form-check__label::after {
+.form-checkbox--toggle .form-checkbox__input + .form-checkbox__label::after {
   content: '';
   position: absolute;
-  left: 0.2rem;
+  left: var(--space-xxs);
   top: 50%;
   transform: translateY(-50%);
-  width: var(--check-size);
-  height: var(--check-size);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
   border-radius: var(--radius-full);
   background-color: var(--white);
   transition: transform var(--duration-short) var(--timing-function-ease);
 }
 
 /* --- Toggle Checked State --- */
-.form-check--toggle .form-check__input:checked + .form-check__label::before {
-  background-color: var(--check-color);
+.form-checkbox--toggle .form-checkbox__input:checked + .form-checkbox__label::before {
+  background-color: var(--checkbox-color);
 }
 
-.form-check--toggle .form-check__input:checked + .form-check__label::after {
-  transform: translate(calc(var(--check-size) - 0.2rem), -50%);
+.form-checkbox--toggle .form-checkbox__input:checked + .form-checkbox__label::after {
+  transform: translate(calc(var(--checkbox-size) - var(--space-xxs)), -50%);
 }
 
 /* Focus state for toggle */
-.form-check--toggle .form-check__input:focus-visible + .form-check__label::before {
+.form-checkbox--toggle .form-checkbox__input:focus-visible + .form-checkbox__label::before {
   box-shadow: var(--shadow-focus);
 }
 
 /* ===================================================================
    COLOR VARIANTS
    =================================================================== */
-.form-check--secondary { --check-color: var(--color-secondary); }
-.form-check--success { --check-color: var(--color-success); }
-.form-check--danger { --check-color: var(--color-danger); }
-.form-check--warning { --check-color: var(--color-warning); }
-.form-check--info { --check-color: var(--color-info); }
-.form-check--muted { --check-color: var(--color-muted); }
+.form-checkbox--secondary { --checkbox-color: var(--color-secondary); }
+.form-checkbox--success { --checkbox-color: var(--color-success); }
+.form-checkbox--danger { --checkbox-color: var(--color-danger); }
+.form-checkbox--warning { --checkbox-color: var(--color-warning); }
+.form-checkbox--info { --checkbox-color: var(--color-info); }
+.form-checkbox--muted { --checkbox-color: var(--color-muted); }
 
 /* ===================================================================
    SIZE VARIANTS
    =================================================================== */
-.form-check--xs {
-  --check-size: 1.4rem;
-  --check-font-size: 1rem;
-  --check-label-font-size: var(--ms-xs);
+.form-checkbox--xs {
+  --checkbox-size: var(--space-xs);
+  --checkbox-font-size: var(--ms-xs);
+  --checkbox-label-font-size: var(--ms-xs);
 }
 
-.form-check--sm {
-  --check-size: 1.6rem;
-  --check-font-size: 1.2rem;
-  --check-label-font-size: var(--ms-sm);
+.form-checkbox--sm {
+  --checkbox-size: var(--space-sm);
+  --checkbox-font-size: var(--ms-sm);
+  --checkbox-label-font-size: var(--ms-sm);
 }
 
 /* MD is the default, no class needed */
 
-.form-check--lg {
-  --check-size: 2.4rem;
-  --check-font-size: 2rem;
-  --check-label-font-size: var(--ms-lg);
+.form-checkbox--lg {
+  --checkbox-size: var(--space-lg);
+  --checkbox-font-size: var(--ms-lg);
+  --checkbox-label-font-size: var(--ms-lg);
 }
 
-.form-check--xl {
-  --check-size: 2.8rem;
-  --check-font-size: 2.4rem;
-  --check-label-font-size: var(--ms-xl);
+.form-checkbox--xl {
+  --checkbox-size: var(--space-xl);
+  --checkbox-font-size: var(--ms-xl);
+  --checkbox-label-font-size: var(--ms-xl);
 }
 
-.form-check--xxl {
-  --check-size: 3.2rem;
-  --check-font-size: 2.8rem;
-  --check-label-font-size: var(--ms-xxl);
+.form-checkbox--xxl {
+  --checkbox-size: var(--space-xxl);
+  --checkbox-font-size: var(--ms-xxl);
+  --checkbox-label-font-size: var(--ms-xxl);
 }

@@ -1,0 +1,288 @@
+/* ===================================================================
+   CHIP COMPONENT
+   Compact, interactive elements for selections, filters, and tags.
+   ===================================================================
+
+   Variants supported:
+   🎨 Color: primary, secondary, info, notice, success, danger, warning, muted
+   📏 Size: xs, sm, md, lg, xl
+   ⬜ Shape: default, rounded, square, pill
+   🧠 Type: basic, dismissible, input, clickable, avatar, icon
+   ✳️ State: is-active, is-disabled, is-selected
+*/
+
+.chip {
+  /* --- Component Variables --- */
+  --chip-bg: var(--color-surface-light);
+  --chip-text: var(--color-text);
+  --chip-border: var(--color-border);
+  --chip-padding-y: calc(var(--space-xs) * 0.75);
+  --chip-padding-x: var(--space-sm);
+  --chip-font-size: var(--ms-sm);
+  --chip-border-radius: var(--radius-md);
+  --chip-height: calc(var(--chip-font-size) * 2);
+  --chip-gap: var(--space-xs);
+
+  /* --- Base Styles --- */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--chip-height);
+  padding: var(--chip-padding-y) var(--chip-padding-x);
+  font-size: var(--chip-font-size);
+  line-height: 1;
+  background-color: var(--chip-bg);
+  color: var(--chip-text);
+  border: 1px solid var(--chip-border);
+  border-radius: var(--chip-border-radius);
+  white-space: nowrap;
+  gap: var(--chip-gap);
+  cursor: default;
+  user-select: none;
+  transition: all var(--duration-short);
+}
+
+.chip__content {
+  display: flex;
+  align-items: center;
+  gap: var(--chip-gap);
+}
+
+.chip__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--chip-height) - var(--chip-padding-y) * 2);
+  height: calc(var(--chip-height) - var(--chip-padding-y) * 2);
+  padding: 0;
+  margin-left: calc(var(--chip-gap) * 0.5);
+  margin-right: calc(var(--chip-gap) * -1);
+  color: currentColor;
+  opacity: 0.7;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--duration-short);
+}
+
+.chip__remove:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+
+.chip__remove:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+/* ===================================================================
+   COLOR VARIANTS
+   =================================================================== */
+
+.chip--primary {
+  --chip-bg: var(--color-primary-light);
+  --chip-text: var(--color-primary-dark);
+  --chip-border: var(--color-primary);
+}
+
+.chip--secondary {
+  --chip-bg: var(--color-secondary-light);
+  --chip-text: var(--color-secondary-dark);
+  --chip-border: var(--color-secondary);
+}
+
+.chip--info {
+  --chip-bg: var(--color-info-light);
+  --chip-text: var(--color-info-dark);
+  --chip-border: var(--color-info);
+}
+
+.chip--notice {
+  --chip-bg: var(--color-notice-light);
+  --chip-text: var(--color-notice-dark);
+  --chip-border: var(--color-notice);
+}
+
+.chip--success {
+  --chip-bg: var(--color-success-light);
+  --chip-text: var(--color-success-dark);
+  --chip-border: var(--color-success);
+}
+
+.chip--danger {
+  --chip-bg: var(--color-danger-light);
+  --chip-text: var(--color-danger-dark);
+  --chip-border: var(--color-danger);
+}
+
+.chip--warning {
+  --chip-bg: var(--color-warning-light);
+  --chip-text: var(--color-warning-dark);
+  --chip-border: var(--color-warning);
+}
+
+.chip--muted {
+  --chip-bg: var(--color-muted-light);
+  --chip-text: var(--color-muted-dark);
+  --chip-border: var(--color-muted);
+}
+
+/* ===================================================================
+   SIZE VARIANTS
+   =================================================================== */
+
+.chip--xs {
+  --chip-font-size: var(--ms-xs);
+  --chip-padding-y: calc(var(--space-xs) * 0.5);
+  --chip-padding-x: var(--space-xs);
+  --chip-gap: calc(var(--space-xs) * 0.5);
+}
+
+.chip--sm {
+  --chip-font-size: var(--ms-sm);
+  --chip-padding-y: calc(var(--space-xs) * 0.6);
+  --chip-padding-x: calc(var(--space-sm) * 0.8);
+}
+
+/* MD is the default */
+
+.chip--lg {
+  --chip-font-size: var(--ms-md);
+  --chip-padding-y: var(--space-xs);
+  --chip-padding-x: var(--space-md);
+  --chip-gap: var(--space-sm);
+}
+
+.chip--xl {
+  --chip-font-size: var(--ms-lg);
+  --chip-padding-y: var(--space-sm);
+  --chip-padding-x: var(--space-lg);
+  --chip-border-radius: var(--radius-lg);
+  --chip-gap: var(--space-md);
+}
+
+/* ===================================================================
+   SHAPE VARIANTS
+   =================================================================== */
+
+/* Default border radius is already defined */
+
+.chip--rounded {
+  --chip-border-radius: var(--radius-lg);
+}
+
+.chip--square {
+  --chip-border-radius: 0;
+}
+
+.chip--pill {
+  --chip-border-radius: var(--radius-full);
+}
+
+/* ===================================================================
+   TYPE VARIANTS
+   =================================================================== */
+
+/* Basic is the default */
+
+/* Dismissible chip */
+.chip--dismissible {
+  padding-right: calc(var(--chip-height) - var(--chip-padding-y));
+}
+
+/* Clickable chip */
+.chip--clickable {
+  cursor: pointer;
+}
+
+.chip--clickable:hover {
+  background-color: var(--chip-bg);
+  filter: brightness(0.95);
+}
+
+.chip--clickable:active {
+  filter: brightness(0.9);
+}
+
+/* With avatar */
+.chip--avatar {
+  padding-left: calc(var(--chip-padding-y) * 0.5);
+}
+
+.chip--avatar .chip__avatar {
+  width: calc(var(--chip-height) - var(--chip-padding-y) * 2);
+  height: calc(var(--chip-height) - var(--chip-padding-y) * 2);
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: calc(var(--chip-gap) * 0.5);
+}
+
+/* With icon */
+.chip--icon .chip__icon {
+  margin-right: calc(var(--chip-gap) * 0.5);
+  font-size: 1.2em;
+}
+
+/* Input chip (for multi-select) */
+.chip--input {
+  margin: var(--space-xs) var(--space-xs) var(--space-xs) 0;
+}
+
+.chip-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  min-height: calc(var(--space-md) * 2);
+  padding: calc(var(--space-xs) * 0.5);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.chip-input-container:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.chip-input-container__input {
+  flex: 1;
+  min-width: 60px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: var(--space-xs);
+  font-size: var(--ms-md);
+  color: var(--color-text);
+}
+
+/* ===================================================================
+   STATE VARIANTS
+   =================================================================== */
+
+.chip.is-active,
+.chip.is-selected {
+  background-color: var(--chip-border);
+  color: var(--white);
+}
+
+.chip.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===================================================================
+   CHIP GROUP
+   =================================================================== */
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.chip-group--choice .chip {
+  cursor: pointer;
+}
