@@ -5,7 +5,7 @@ global-styles:
   version: VERSION
   css:
     theme:
-      css/theme/tokens.css: { weight: -40 }
+      css/theme/groundwork-tokens.css: { weight: -40 }
     base:
       css/base/root.css: { weight: -20 }
       css/base/sections.css: {}
@@ -22,7 +22,6 @@ global-styles:
       css/system/blocks.css: {}
       css/system/breadcrumb.css: {}
       css/system/buttons.css: {}
-      css/partials/buttons.css: {}
       css/system/container-inline.css: {}
       css/system/details.css: {}
       css/system/dialog.css: {}
@@ -56,6 +55,10 @@ global-styles:
       css/system/textarea.css: {}
       css/system/ui-dialog.css: {}
       css/system/user.css: {}
+      css/partials/buttons.css: {}
+      css/partials/form-checkbox.css: {}
+      css/partials/form-input.css: {}
+      css/partials/form-radio.css: {}
 
 # Page layout and region styling.
 layout-styles:
@@ -65,6 +68,7 @@ layout-styles:
       css/layout/page.css: {}
       css/layout/regions.css: {}
       css/layout/grid-system.css: {}
+      css/layout/layout-utilities.css: {}
 
 # Icons
 gwicon-icons:
@@ -211,6 +215,13 @@ admin-styles:
   css:
     theme:
       css/admin/block-demo.css: {}
+
+
+# This library provides a set of background color utilities for consistent theming.
+background-color-utilities:
+  css:
+    theme:
+      css/theme/background-color-utilities.css: {}
 
 # Color Utility Libraries. Each is loaded conditionally via theme settings.
 util-amber:
