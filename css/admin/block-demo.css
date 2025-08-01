@@ -1,6 +1,6 @@
 .page-block-demo {
   background-color: var(--color-bg);
-  color:var(--color-fg);
+  color:var(--color-text);
 }
 
 .page-block-demo .layout-container {
@@ -14,7 +14,7 @@
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background-color: var(--color-bg);
-  color:var(--color-fg);
+  color:var(--color-text);
   box-shadow: 0 0.2rem 0.4rem 0 rgba(0, 0, 0, 0.16), 0 0.2rem 10px 0 rgba(0, 0, 0, 0.12);
   flex: 0 0 100%;
 }

@@ -213,15 +213,18 @@
 
   --color-bg: #ffffff; /* A standard, white for light theme */
   --color-text: rgba(from var(--black) r g b / 0.87); /* High-emphasis black text */
-  --color-surface-dark: #c4c4c4; /* Darker surface color */
-  --color-surface: #d8d8d8; /* Surfaces are slightly elevated */
-  --color-surface-light: #ebebeb; /* Lightest surface color for contrast */
-  --color-surface-hover:  #b0b0b0; /* For hovers on surfaces */
+  --color-text-inverse: rgba(from var(--white) r g b / 0.87); /* High-emphasis white text for inverse elements */
+  --color-surface-dark: #b1b1b1; /* Darker surface color */
+  --color-surface: #cbcbcb; /* Surfaces are slightly elevated */
+  --color-surface-light: #e5e5e5; /* Lightest surface color for contrast */
+  --color-surface-hover:  #969696; /* For hovers on surfaces */
+  --color-surface-inverse: #232323; /* Inverse surface color */
   --color-border: rgba(from var(--black) r g b / 0.12); /* Dark, subtle borders */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.1);
   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 8px 12px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 16px 24px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.12);
+  --shadow-inner: inset 0 1px 2px rgba(from var(--black) r g b / 0.06);
 
   /* Accessible link color is crucial for readability.*/
   --color-link: var(--color-notice-dark);
@@ -239,15 +242,18 @@
   :root:not([data-theme="light"]) {
     --color-bg: #121212; /* A standard, deep gray for dark mode */
     --color-text: rgba(from var(--white) r g b / 0.87); /* High-emphasis white text */
+    --color-text-inverse: rgba(from var(--black) r g b / 0.87); /* High-emphasis black text for inverse elements */
     --color-surface-dark: #1e1e1e; /* Darker surface color */
     --color-surface: #232323; /* Surfaces are slightly elevated */
     --color-surface-light: #2c2c2c; /* Lightest surface color for contrast */
     --color-surface-hover: #272727; /* For hovers on surfaces */
+    --color-surface-inverse: #cbcbcb; /* Inverse surface color */
     --color-border: rgba(from var(--white) r g b / 0.12); /* Light, subtle borders */
     --shadow-xs: 0 1px 2px rgba(255, 255, 255, 0.1);
     --shadow-sm: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
     --shadow-md: 0 8px 12px rgba(255, 255, 255, 0.12), 0 2px 4px rgba(255, 255, 255, 0.08);
     --shadow-lg: 0 16px 24px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(255, 255, 255, 0.12);
+    --shadow-inner: inset 0 1px 2px rgba(from var(--white) r g b / 0.06);
 
     /* A lighter, accessible link color is crucial for readability.*/
     --color-link: var(--color-notice-light);
@@ -258,15 +264,18 @@
 :root([data-theme="dark"]) {
   --color-bg: #121212; /* A standard, deep gray for dark mode */
   --color-text: rgba(from var(--white) r g b / 0.87); /* High-emphasis white text */
+  --color-text-inverse: rgba(from var(--black) r g b / 0.87); /* High-emphasis black text for inverse elements */
   --color-surface-dark: #1e1e1e; /* Darker surface color */
   --color-surface: #232323; /* Surfaces are slightly elevated */
   --color-surface-light: #2c2c2c; /* Lightest surface color for contrast */
   --color-surface-hover: #272727; /* For hovers on surfaces */
+  --color-surface-inverse: #cbcbcb; /* Inverse surface color */
   --color-border: rgba(from var(--white) r g b / 0.12); /* Light, subtle borders */
   --shadow-xs: 0 1px 2px rgba(255, 255, 255, 0.1);
   --shadow-sm: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
   --shadow-md: 0 8px 12px rgba(255, 255, 255, 0.12), 0 2px 4px rgba(255, 255, 255, 0.08);
   --shadow-lg: 0 16px 24px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(255, 255, 255, 0.12);
+  --shadow-inner: inset 0 1px 2px rgba(from var(--white) r g b / 0.06);
 
   /* A lighter, accessible link color is crucial for readability.*/
     --color-link: var(--color-notice-light);

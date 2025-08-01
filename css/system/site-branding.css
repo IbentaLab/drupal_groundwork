@@ -13,7 +13,7 @@
   font-family: var(--site-name-font-family, var(--font-family, "Ubuntu", sans-serif));
   font-size: var(--ms-xl, 2rem);
   line-height: 1.2;
-  color: var(--color-brand-contrast, #fff);
+  color: var(----white, #fff);
   font-weight: 500;
   display: flex;
   align-items: center;

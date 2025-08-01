@@ -34,7 +34,7 @@
   font-weight: 600;
   line-height: var(--line-height-heading, 1.25);
   margin-block: var(--space-xl, 3.2rem) var(--space-md, 1.6rem);
-  color: var(--color-fg);
+  color: var(--color-text);
   text-wrap: balance; /* Better line breaks for headings */
 }
 

@@ -1,78 +1,10 @@
-/*
- * Region Background Color Utilities
- */
-
-
-.region.bg--blue {
-  background-color: var(--blue);
-  color: var(--text-on-dark);
-}
-
-.region.bg--indigo {
-  background-color: var(--indigo);
-  color: var(--text-on-dark);
-}
-.region.bg--deep-purple {
-  background-color: var(--deep-purple);
-  color: var(--text-on-dark);
-}
-
-.region.bg--purple {
-  background-color: var(--purple);
-  color: var(--text-on-dark);
-}
-
-.region.bg--pink {
-  background-color: var(--pink);
-  color: var(--text-on-dark);
-}
-
-.region.bg--red {
-  background-color: var(--red);
-  color: var(--text-on-dark);
-}
-
-.region.bg--orange {
-  background-color: var(--orange);
-  color: var(--text-on-light);
-}
-
-.region.bg--amber {
-  background-color: var(--amber);
-  color: var(--text-on-light);
-}
-
-.region.bg--yellow {
-  background-color: var(--yellow);
-  color: var(--text-on-light);
-}
-
-.region.bg--lime {
-  background-color: var(--lime);
-  color: var(--text-on-light);
-}
-
-.region.bg--green {
-  background-color: var(--green);
-  color: var(--text-on-dark);
-}
-
-.region.bg--teal {
-  background-color: var(--teal);
-  color: var(--text-on-dark);
-}
-
-.region.bg--cyan {
-  background-color: var(--cyan);
-  color: var(--text-on-dark);
-}
-
-.region.bg--brown {
-  background-color: var(--brown);
-  color: var(--text-on-dark);
-}
-
-.bg--blue-gray {
-  background-color: var(--blue-gray);
-  color: var(--text-on-dark);
+@media (min-width: 992px) {
+  .region-header {
+    .site-branding {
+      flex-basis: 41.66667%;
+    }
+    .menu--main {
+      flex-basis: 58.33333%;
+    }
+  }
 }

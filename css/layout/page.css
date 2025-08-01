@@ -72,14 +72,14 @@ main.layout-main {
 
   /* These colors are static and won't change with the theme */
   background-color: var(--gray);
-  color: var(--color-text-light);
+  color: var(--color-text);
 
   font-size: var(--ms-sm);
   text-align: center;
 }
 
 .site-footer__legal a {
-  color: var(--color-text-light);
+  color: var(--color-text);
   text-decoration: underline;
 }
 

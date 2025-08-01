@@ -39,14 +39,14 @@ ul.menu a.is-active {
 
 /* Special styling for menus inside the header region */
 .region-header ul.menu a {
-  color: var(--nav-text); /* Uses high-contrast text color for nav */
+  color: var(--color-text); /* Uses high-contrast text color for nav */
 }
 
 .region-header ul.menu a.is-active {
-  color: var(--nav-text);
+  color: var(--color-text);
   font-weight: bold;
   text-decoration: underline;
-  text-decoration-color: var(--nav-text);
+  text-decoration-color: var(--color-text);
   text-decoration-thickness: 2px;
   text-underline-offset: 5px;
 }
@@ -54,7 +54,7 @@ ul.menu a.is-active {
 /* Hover/Focus states for header menu items */
 .region-header .menu--level-0 > .menu-item:hover,
 .region-header .menu--level-0 > .menu-item:focus-within {
-  background-color: var(--nav-hover);
+  background-color: var(--color-surface-hover);
 }
 
 /* General sub-menu styling */

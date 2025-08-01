@@ -31,7 +31,7 @@
   cursor: pointer;
   padding: calc(var(--space-sm, .8rem)*1.25) var(--space-lg, 2.4rem);
   background: var(--color-primary, var(--blue));
-  color: var(--color-text-light, #fff);
+  color: var(--white, #fff);
   border: 1px solid transparent;
   border-radius: .25rem;
   transition: background .15s ease-in-out;
