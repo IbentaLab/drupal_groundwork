@@ -71,15 +71,15 @@
   --site-name-font-family: var(--font-family-sans);
 
   /* --- Font Sizing (Modular Scale) --- */
-  --font-size-base: 1.5rem;
+  --font-size-base: 1.6rem;
   --scale-type: var(--scale-perfect-fourth); /* Default scale ratio */
-  --ms-md: var(--scale-base); /* 1.5rem */
-  --ms-sm: calc(var(--ms-md) / var(--scale-type)); /* 1.125rem */
-  --ms-xs: calc(var(--ms-sm) / var(--scale-type)); /* 0.844rem */
-  --ms-lg: calc(var(--ms-md) * var(--scale-type)); /* 2rem */
-  --ms-xl: calc(var(--ms-lg) * var(--scale-type)); /* 2.667rem */
-  --ms-xxl: calc(var(--ms-xl) * var(--scale-type)); /* 3.556rem */
-  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type)); /* 4.741rem */
+  --ms-md: var(--scale-base); /* 1.6rem */
+  --ms-sm: calc(var(--ms-md) / var(--scale-type)); /* 1.2rem */
+  --ms-xs: calc(var(--ms-sm) / var(--scale-type)); /* 0.9rem */
+  --ms-lg: calc(var(--ms-md) * var(--scale-type)); /* 2.1rem */
+  --ms-xl: calc(var(--ms-lg) * var(--scale-type)); /* 2.8rem */
+  --ms-xxl: calc(var(--ms-xl) * var(--scale-type)); /* 3.8rem */
+  --ms-xxxl: calc(var(--ms-xxl) * var(--scale-type)); /* 5rem */
 
   /* --- Line Height & Letter Spacing --- */
   --line-height-base: 1.5;
@@ -89,7 +89,7 @@
   --letter-spacing-wide: 0.05em;
 
   /* --- Modular Scale Ratios (for reference) --- */
-  --scale-base: 1.5rem;
+  --scale-base: 1.6rem;
   --scale-minor-second: 1.067;
   --scale-major-second: 1.125;
   --scale-minor-third: 1.2;
@@ -122,7 +122,7 @@
      =================================================================== */
 
   /* --- Grid --- */
-  --grid-gutter: var(--space-sm);
+  --grid-gutter: var(--space-md); /* Default gutter for grid layout */
 
   /* --- Container Widths --- */
   --container-width-md: 960px;

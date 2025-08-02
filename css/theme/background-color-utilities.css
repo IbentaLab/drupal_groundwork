@@ -11,6 +11,22 @@
    Each utility sets both background and appropriate text color
    =================================================================== */
 
+   /* Probably just add to an existing file */
+.gw-brand-primary {
+  background-color: var(--gw-brand-primary, var(--color-primary));
+  color: var(--color-text-inverse);
+}
+
+.gw-brand-secondary {
+  background-color: var(--gw-brand-secondary, var(--color-secondary));
+  color: var(--color-text-inverse);
+}
+
+.gw-brand-accent {
+  background-color: var(--gw-brand-accent, var(--color-warning));
+  color: var(--color-text-inverse);
+}
+
 .bg--blue {
   background-color: var(--blue);
   color: var(--text-on-dark);

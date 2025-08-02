@@ -1,24 +1,6 @@
 /* css/layout/regions.css */
 
-/* ==========================================================================
-   Regions Layout - Groundwork Theme
-   ========================================================================== */
 
-   .region {
-    padding-top: var(--space-sm);
-    padding-bottom: var(--space-sm);
-   }
-/**
- * @file
- * Defines layout-specific styles for blocks and other elements within Drupal regions.
- * These rules govern the positioning, spacing, and flow of content at a macro level,
- * aligning with how regions are handled in Drupal's template structure.
- */
-
-.region-primary-menu .block,
-.region-secondary-menu .block {
-  padding: 0;
-}
 
 /* regions.css – region (header/footer/sidebar) layout */
 
@@ -26,8 +8,6 @@
   position: relative;
   width: 100%;
   z-index: 10;
-  padding-right: var(--grid-gutter);
-  padding-left: var(--grid-gutter);
 }
 
 /**

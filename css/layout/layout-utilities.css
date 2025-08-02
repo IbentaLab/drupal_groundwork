@@ -70,3 +70,7 @@
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+
+.grid-cell.is-edge-to-edge {
+  margin-inline: var(--space-lg);
+}
