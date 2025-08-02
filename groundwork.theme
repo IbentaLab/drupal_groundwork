@@ -43,7 +43,7 @@ $includes = [
 ];
 
 foreach ($includes as $file) {
-  $path = __DIR__ . '/inc/' . $file;
+  $path = __DIR__ . '/includes/' . $file;
   if (is_readable($path)) {
     include_once $path;
   }

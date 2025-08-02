@@ -1,4 +1,3 @@
-
 # 🧭 Groundwork Contributor Onboarding Guide
 
 Welcome, and thank you for your interest in contributing to the **Groundwork Theme Framework** — a fast, accessible, block-based, and component-driven Drupal 11+ frontend system.
@@ -29,7 +28,7 @@ Groundwork is powered by three foundational CSS/component layers:
 | ------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------- |
 | **BSC**– Block Style Components      | Atomic utility classes for visual block styling. Used via UI or class names. | `css/block-style-components/` |
 | **SDC**– Single Directory Components | Fully encapsulated UI components. Twig + YAML + CSS + JS in one folder.      | `components/`                 |
-| **FP**– Framework Partials           | Tiny, reusable atomic UI patterns (icons, ribbons, badges).                  | `css/partials/`               |
+| **AP**– Atomic Partials              | Tiny, reusable atomic UI patterns (icons, ribbons, badges).                  | `css/partials/`               |
 
 > HSCs (Hybrid Style Components) were deprecated as of 2025-08-01. Use BSCs + FPs + SDCs instead.
 
@@ -45,7 +44,7 @@ Found in the `/themes/custom/groundwork/` folder.
 
 Includes:
 
-* All base CSS (`theme/`, `partials/`, `block-style-components/`, `layout/`)
+* All base CSS (`theme/`, `atomic-partials/`, `block-style-components/`, `layout/`)
 * Design tokens (`groundwork-tokens.css`)
 * Layout utilities
 * Component folders (`/components`) with SDCs
@@ -62,9 +61,9 @@ Module lives in: `modules/custom/groundwork_helpers/`
 
 ---
 
-## 📐 Rules & Guidelines
+## 🖐 Rules & Guidelines
 
-### 🔁 Use design tokens from `groundwork-tokens.css`
+### ♻️ Use design tokens from `groundwork-tokens.css`
 
 All spacing, sizing, color, radius, shadow, and typography must reference tokens.
 
@@ -117,14 +116,16 @@ Example:
 
 ---
 
-## 🧩 SDCs — ✅ REQUIRED
+## 🧹 Single Directory Components  (SDC) — ✅ REQUIRED
 
 * Live in `components/`
 * Must include:
+
   * `{name}.component.yml`
   * `{name}.twig`
   * Optional: `{name}.css`, `{name}.js`
 * `component.yml` must define:
+
   * `props` (typed, optionally required)
   * `slots` (for flexible content)
   * Optional metadata: `group`, `status`, `description`
@@ -137,12 +138,14 @@ Twig file must:
 
 ---
 
-## 🧱 Partials — ✅ REQUIRED
+## 🗱 Atomic Partials (AP) — ✅ REQUIRED
 
-* Live in `css/partials/`
+* Live in `css/atomic-partials/`
 * Must:
+
   * Use only tokenized values (no hardcoded hex, px, etc.)
   * Include variants:
+
     * Size: `--xs`, `--sm`, `--md`, `--lg`, `--xl`, `--xxl`
     * Color: all **eight semantic color variants** listed above
     * Component-specific: e.g. `--rounded`, `--pill`, `--dismissable`
@@ -151,7 +154,7 @@ Twig file must:
 ```css
 /*
  * Variants supported:
- *  - 📏 Size: xs, sm, md, lg, xl, xxl
+ *  - 🔏 Size: xs, sm, md, lg, xl, xxl
  *  - 🎨 Color: primary, secondary, info, notice, success, warning, danger, muted
  *  - 🧠 Component: pill, square, dismissable
  */
@@ -159,7 +162,7 @@ Twig file must:
 
 ---
 
-## 🎨 BSCs — ✅ REQUIRED
+## 🎨 Block Style Components (BSC) — ✅ REQUIRED
 
 * Live in `css/block-style-components/`
 * Required top docblock:
@@ -197,6 +200,56 @@ Twig file must:
 
 ---
 
+## ✅ PHP
+
+All PHP contributions must follow the [Drupal PHP Coding Standards](https://www.drupal.org/docs/develop/standards/php/php-coding-standards). Key rules include:
+
+* Use **PSR-12** formatting style
+* Use full PHP opening tags `<?php` only
+* Indent with **2 spaces** (no tabs)
+* One class per file
+* Follow proper **namespace and use** declarations
+* Include **type hints** for all parameters and return values
+* Use `declare(strict_types=1);` at the top of every file
+* Avoid long inline functions and complex logic in templates
+* Use `@file` docblocks and inline comments where helpful
+* All module code should be inside `groundwork_helpers` or relevant submodules
+
+Example:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Drupal\groundwork_helpers\Plugin\Block;
+
+use Drupal\Core\Block\BlockBase;
+
+/**
+ * Provides a custom example block.
+ *
+ * @Block(
+ *   id = "example_block",
+ *   admin_label = @Translation("Example block"),
+ * )
+ */
+class ExampleBlock extends BlockBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function build(): array {
+    return [
+      '#markup' => $this->t('Hello from Groundwork!'),
+    ];
+  }
+
+}
+```
+
+---
+
 ## 🛠 Where to Add Your Work
 
 | Type               | Directory                              |
@@ -214,7 +267,7 @@ Twig file must:
 
 * ✅ Run `drush cr`
 * ✅ Test in light + dark mode
-* ✅ Validate YAML, CSS, JS syntax
+* ✅ Validate YAML, CSS, JS, PHP syntax
 * ✅ Confirm color contrast and ARIA/keyboard support
 * ✅ Include all required docblocks and variants
 

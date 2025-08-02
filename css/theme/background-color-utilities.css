@@ -11,7 +11,7 @@
    Each utility sets both background and appropriate text color
    =================================================================== */
 
-   /* Probably just add to an existing file */
+
 .gw-brand-primary {
   background-color: var(--gw-brand-primary, var(--color-primary));
   color: var(--color-text-inverse);

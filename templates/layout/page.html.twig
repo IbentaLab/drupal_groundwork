@@ -42,7 +42,7 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-page">
+<div class="page-wrapper">
 
 	{% if page.social_bar_header %}
 		<div id="social-bar-header" class="social-bar-header" role="complementary" aria-label="Social Bar Header">
@@ -90,7 +90,7 @@
 		</div>
 	{% endif %}
 
-	{% if page.help %}
+	{% if page.help|render|trim %}
 		<div id="help" class="layout-help" aria-label="Help">
 			{{ page.help }}
 		</div>
@@ -100,8 +100,15 @@
 		<a id="main-content" tabindex="-1"></a>
 		{# link is in html.html.twig #}
 
-		<div class="layout-container">
-			<div id="content" class="layout-content">
+		<div{{ attributes.addClass(main_container_classes) }} style="
+      --sf-width-s: {{ sidebar_first_width_s }};
+      --sf-width-md: {{ sidebar_first_width_md }};
+      --sf-width-lg: {{ sidebar_first_width_lg }};
+      --sc-width-s: {{ sidebar_second_width_s }};
+      --sc-width-md: {{ sidebar_second_width_md }};
+      --sc-width-lg: {{ sidebar_second_width_lg }};
+    ">
+			<div id="content" class="main__content">
 
       	{{ page.preface }}
 				{{ page.content }}
@@ -111,14 +118,14 @@
 			{# /#content.layout-container #}
 
 			{% if page.sidebar_first %}
-				<aside id="sidebar-first" class="layout-sidebar-first" role="complementary" aria-label="First Sidebar">
+				<aside id="sidebar-first" class="main__sidebar--first" role="complementary" aria-label="First Sidebar">
 					{{ page.sidebar_first }}
 				</aside>
 			{% endif %}
 			{# /#sidebar-first #}
 
 			{% if page.sidebar_second %}
-				<aside id="sidebar-second" class="layout-sidebar-second" role="complementary" aria-label="Second Sidebar">
+				<aside id="sidebar-second" class="main__sidebar--second" role="complementary" aria-label="Second Sidebar">
 					{{ page.sidebar_second }}
 				</aside>
 			{% endif %}

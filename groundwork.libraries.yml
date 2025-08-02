@@ -45,7 +45,6 @@ global-styles:
       css/system/node.css: {}
       css/system/pager.css: {}
       css/system/progress.css: {}
-      css/system/regions.css: {}
       css/system/search-results.css: {}
       css/system/site-branding.css: {}
       css/system/tabledrag.css: {}
@@ -55,10 +54,6 @@ global-styles:
       css/system/textarea.css: {}
       css/system/ui-dialog.css: {}
       css/system/user.css: {}
-      css/partials/buttons.css: {}
-      css/partials/form-checkbox.css: {}
-      css/partials/form-input.css: {}
-      css/partials/form-radio.css: {}
 
 # Page layout and region styling.
 layout-styles:
@@ -66,8 +61,7 @@ layout-styles:
   css:
     layout:
       css/layout/page.css: {}
-      css/layout/regions.css: {}
-      css/layout/grid-system.css: {}
+      css/layout/grid.css: {}
       css/layout/layout-utilities.css: {}
 
 # Icons
@@ -76,6 +70,25 @@ gwicon-icons:
   css:
     theme:
       icons/gwicons/gwicons.css: {}
+
+# Atomic Partials
+atomic-partials:
+  version: VERSION
+  css:
+    theme:
+      css/atomic-partials/buttons.css: {}
+      css/atomic-partials/form-checkbox.css: {}
+      css/atomic-partials/form-input.css: {}
+      css/atomic-partials/form-radio.css: {}
+      css/atomic-partials/avatar.css: {}
+      css/atomic-partials/badge.css: {}
+      css/atomic-partials/chip.css: {}
+      css/atomic-partials/form-number.css: {}
+      css/atomic-partials/form-rating.css: {}
+      css/atomic-partials/form-select.css: {}
+      css/atomic-partials/toast.css: {}
+      css/atomic-partials/tooltip.css: {}
+      css/atomic-partials/typography.css: {}
 
 # Block Style Components (BSC).
 block-styles:
@@ -209,7 +222,6 @@ admin-styles:
     theme:
       css/admin/block-demo.css: {}
 
-
 # This library provides a set of background color utilities for consistent theming.
 background-color-utilities:
   css:
@@ -300,3 +312,13 @@ util-yellow:
   css:
     theme:
       css/theme/theme-utility-yellow.css: {}
+
+grid-debug-toggle:
+  version: VERSION
+  css:
+    theme:
+      css/admin/grid-toggle.css: {}
+  js:
+    js/grid-debug.js: {}
+  dependencies:
+    - core/drupal

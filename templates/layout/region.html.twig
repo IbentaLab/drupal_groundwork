@@ -20,9 +20,7 @@
   ]
 %}
 {% if content %}
-	<div class="layout-container">
 		<div{{attributes.addClass(classes).setAttribute('id',region|clean_class~'-region')}}>
 			{{ content }}
 		</div>
-	</div>
 {% endif %}

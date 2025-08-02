@@ -52,7 +52,7 @@ libraries:
   - core/normalize
   - groundwork/global-styles                # Core JS, CSS tokens
   - groundwork/layout-styles                # Page layout and regions
-  - groundwork/hybrid-styles                # Hybrid Style Components (HSCs)
+  - groundwork/atomic-partials                # Hybrid Style Components (HSCs)
   - groundwork/background-color-utilities   # Background color utilities
   - groundwork/block-styles                 # Block Style Components (BSCs) - MUST BE LAST
   - groundwork/messages                     # Drupal status messages
