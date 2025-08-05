@@ -2,13 +2,12 @@
 
 /**
  * @file
- * Groundwork Theme Settings form (vertical tabs, AI providers, pro styling).
- *
- * @ingroup groundwork
+ * Groundwork Theme Settings form (vertical tabs, AI providers pro styling).
  */
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 // Include the init file to make sure AJAX callbacks are available.
 if (file_exists(__DIR__ . '/init.inc')) {
@@ -71,6 +70,8 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
     '#weight' => -100,
   ];
 
+  $form['#attributes']['enctype'] = 'multipart/form-data';
+
   // ----- Vertical tabs -----
   $form['gw_settings_tabs'] = [
     '#type' => 'vertical_tabs',
@@ -83,7 +84,6 @@ function groundwork_form_system_theme_settings_alter(&$form, FormStateInterface 
   $settings_files = [
     'design.inc',
     'layout.inc',
-    'regions.inc',
     'accessibility.inc',
     'ai-tools.inc',
     'social.inc',

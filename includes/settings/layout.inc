@@ -12,7 +12,7 @@ $form['layout'] = [
   '#type' => 'details',
   '#title' => \Drupal::translation()->translate('Layout & Grid'),
   '#group' => 'gw_settings_tabs',
-  '#weight' => 15,
+  '#weight' => 20,
 ];
 
 // ----- Global Layout -----

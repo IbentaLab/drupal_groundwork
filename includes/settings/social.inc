@@ -5,7 +5,7 @@
     '#type' => 'details',
     '#title' => \Drupal::translation()->translate('Social Links Bar'),
     '#group' => 'gw_settings_tabs',
-    '#weight' => 25,
+    '#weight' => 50,
   ];
   $form['social']['gw_social_bar_location'] = [
     '#type' => 'radios',

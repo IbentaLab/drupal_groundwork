@@ -12,7 +12,7 @@ $form['accessibility'] = [
   '#type' => 'details',
   '#title' => \Drupal::translation()->translate('Accessibility'),
   '#group' => 'gw_settings_tabs',
-  '#weight' => 25,
+  '#weight' => 30,
   '#description' => \Drupal::translation()->translate('Configure accessibility features to meet WCAG 2.1 AA standards.'),
 ];
 
